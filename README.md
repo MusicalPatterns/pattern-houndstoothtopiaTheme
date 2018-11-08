@@ -1,1 +1,2 @@
-# houndstoothtopia-theme
+# Houndstoothtopia Theme
+
