@@ -3,7 +3,7 @@
 import { Scalar, to } from '../../../src'
 
 const HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR: Scalar = to.Scalar(141)
-const HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR: Scalar = to.Scalar(100)
+const HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR: Scalar = to.Scalar(75)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,

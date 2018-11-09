@@ -25,22 +25,22 @@ const buildEntities: BuildEntitiesFunction =
         const perimeterRhythmTopRightGrainEntity: Entity = {
             part: perimeterRhythmTopRightGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SINE },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             part: perimeterRhythmTopGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SINE },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             part: perimeterRhythmTopLeftGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SINE },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             part: perimeterRhythmLeftGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SINE },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
         }
 
         return [

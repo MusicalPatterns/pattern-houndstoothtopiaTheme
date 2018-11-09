@@ -1,10 +1,6 @@
-import {
-    DEFAULT_DURATIONS_SCALE_INDEX,
-    DEFAULT_PITCH_SCALE_INDEX,
-    NoteSpec,
-    to,
-} from '../../../../src'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
 import { ContourElement } from '../nominal'
+import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR } from './constants'
 
 const buildNoteSpec: (contour: ContourElement) => NoteSpec =
     ([ duration, pitch ]: ContourElement): NoteSpec =>
@@ -19,7 +15,7 @@ const buildNoteSpec: (contour: ContourElement) => NoteSpec =
             },
             sustainSpec: {
                 index: duration,
-                scalar: to.Scalar(0.33),
+                scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
                 scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
             },
         })
