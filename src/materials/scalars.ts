@@ -1,5 +1,5 @@
 import { applyPower, buildStandardScales, DictionaryOf, from, Scalar, to } from '../../../../src'
-import { SQRT_THREE_AS_BASE, SQRT_TWO_AS_BASE } from './constants'
+import { SQRT_THREE_AS_BASE, SQRT_TWO_AS_BASE } from '../constants'
 
 const buildScalars: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {

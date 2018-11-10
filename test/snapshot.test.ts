@@ -4,7 +4,7 @@ import { buildEntities, buildScales, patternSpec } from '../src/indexForTest'
 // tslint:disable-next-line:no-any
 declare const require: any
 
-xdescribe('snapshot', () => {
+describe('snapshot', () => {
     it('stays locked down', async (done: DoneFn) => {
         // tslint:disable-next-line:no-require-imports no-unsafe-any
         const snapshot: Snapshot = require('./snapshot')

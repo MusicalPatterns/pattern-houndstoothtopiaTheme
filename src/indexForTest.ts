@@ -2,6 +2,9 @@
 
 export {
     buildContours,
+    buildSupertileRhythm,
+    buildPerimeterRhythm,
+    buildPerimeterPitches,
 } from './custom/indexForTest'
 export {
     ContourElement,
@@ -12,5 +15,9 @@ export {
     buildScalars,
     buildEntities,
     buildScales,
+    buildBlocks,
 } from './materials/indexForTest'
+export {
+    distanceBetween,
+} from './utilities/indexForTest'
 export { patternSpec } from './patterns'
