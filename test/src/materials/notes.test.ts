@@ -4,7 +4,7 @@ import { buildNoteSpec, ContourElement } from '../../../src/indexForTest'
 describe('houndstoothtopia notes', () => {
     let noteSpec: NoteSpec
     beforeEach(() => {
-        const testContour: ContourElement = [ to.Index(3), to.Index(7) ]
+        const testContour: ContourElement = [ to.Index(7), to.Index(3) ]
         noteSpec = buildNoteSpec(testContour)
     })
 
@@ -14,7 +14,7 @@ describe('houndstoothtopia notes', () => {
             durationSpec = noteSpec.durationSpec || {}
         })
 
-        it('sets the index to the first element', () => {
+        it('sets the index to the second element', () => {
             expect(durationSpec.index)
                 .toBe(to.Index(3))
         })
@@ -31,7 +31,7 @@ describe('houndstoothtopia notes', () => {
             pitchSpec = noteSpec.pitchSpec || {}
         })
 
-        it('sets the index to the second element', () => {
+        it('sets the index to the first element', () => {
             expect(pitchSpec.index)
                 .toBe(to.Index(7))
         })

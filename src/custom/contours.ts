@@ -16,21 +16,21 @@ const buildContours: () => DictionaryOf<Contour> =
 
         return {
             perimeterRhythmLeftGrainContour: perimeterRhythm.map((duration: Index, index: number): ContourElement =>
-                [ duration, perimeterRhythmLeftGrainPitches[ index ] ],
+                [ perimeterRhythmLeftGrainPitches[ index ], duration ],
             ),
             perimeterRhythmTopGrainContour: perimeterRhythm.map((duration: Index, index: number): ContourElement =>
-                [ duration, perimeterRhythmTopGrainPitches[ index ] ],
+                [ perimeterRhythmTopGrainPitches[ index ], duration ],
             ),
             perimeterRhythmTopLeftGrainContour: perimeterRhythm.map((duration: Index, index: number): ContourElement =>
-                [ duration, perimeterRhythmTopLeftGrainPitches[ index ] ],
+                [ perimeterRhythmTopLeftGrainPitches[ index ], duration ],
             ),
             perimeterRhythmTopRightGrainContour: perimeterRhythm.map((duration: Index, index: number): ContourElement =>
-                [ duration, perimeterRhythmTopRightGrainPitches[ index ] ],
+                [ perimeterRhythmTopRightGrainPitches[ index ], duration ],
             ),
             supertileRhythmHigherPitchContour: supertileRhythm.map((duration: Index): ContourElement =>
-                [ duration, HIGHER_PITCH ]),
+                [ HIGHER_PITCH , duration ]),
             supertileRhythmLowerPitchContour: supertileRhythm.map((duration: Index): ContourElement =>
-                [ duration, LOWER_PITCH ]),
+                [ LOWER_PITCH , duration ]),
         }
     }
 

@@ -1,6 +1,4 @@
-import { Index } from '../../../../src'
-
-type ContourElement = [Index, Index]
+import { ContourElement } from '../../../../src'
 
 type Contour = ContourElement[]
 

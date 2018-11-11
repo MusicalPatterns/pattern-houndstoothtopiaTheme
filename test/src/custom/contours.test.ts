@@ -1,16 +1,16 @@
 import { buildContours, to } from '../../../src/indexForTest'
 
-describe('build houndstoothtopia examples', () => {
+describe('build houndstoothtopia notes', () => {
     it('does the left grain contour of the perimeter rhythm', () => {
         const { perimeterRhythmLeftGrainContour } = buildContours()
         expect(perimeterRhythmLeftGrainContour)
             .toEqual(to.Contour([
-                [ 0, 4 ], [ 1, 3 ],
-                [ 0, 3 ], [ 0, 2 ], [ 1, 1 ],
-                [ 0, 1 ], [ 3, 0 ],
+                [ 4, 0 ], [ 3, 1 ],
+                [ 3, 0 ], [ 2, 0 ], [ 1, 1 ],
+                [ 1, 0 ], [ 0, 3 ],
                 [ 0, 0 ], [ 1, 1 ],
-                [ 0, 1 ], [ 0, 2 ], [ 1, 3 ],
-                [ 0, 3 ], [ 3, 4 ],
+                [ 1, 0 ], [ 2, 0 ], [ 3, 1 ],
+                [ 3, 0 ], [ 4, 3 ],
             ]))
     })
 
@@ -19,11 +19,11 @@ describe('build houndstoothtopia examples', () => {
         expect(perimeterRhythmTopGrainContour)
             .toEqual(to.Contour([
                 [ 0, 0 ], [ 1, 1 ],
-                [ 0, 3 ], [ 0, 2 ], [ 1, 3 ],
-                [ 0, 1 ], [ 3, 0 ],
-                [ 0, 4 ], [ 1, 5 ],
-                [ 0, 7 ], [ 0, 6 ], [ 1, 7 ],
-                [ 0, 5 ], [ 3, 4 ],
+                [ 3, 0 ], [ 2, 0 ], [ 3, 1 ],
+                [ 1, 0 ], [ 0, 3 ],
+                [ 4, 0 ], [ 5, 1 ],
+                [ 7, 0 ], [ 6, 0 ], [ 7, 1 ],
+                [ 5, 0 ], [ 4, 3 ],
             ]))
     })
 
@@ -31,12 +31,12 @@ describe('build houndstoothtopia examples', () => {
         const { perimeterRhythmTopLeftGrainContour } = buildContours()
         expect(perimeterRhythmTopLeftGrainContour)
             .toEqual(to.Contour([
-                [ 0, 2 ], [ 1, 2 ],
-                [ 0, 3 ], [ 0, 2 ], [ 1, 2 ],
-                [ 0, 1 ], [ 3, 0 ],
-                [ 0, 2 ], [ 1, 3 ],
-                [ 0, 4 ], [ 0, 4 ], [ 1, 5 ],
-                [ 0, 4 ], [ 3, 4 ],
+                [ 2, 0 ], [ 2, 1 ],
+                [ 3, 0 ], [ 2, 0 ], [ 2, 1 ],
+                [ 1, 0 ], [ 0, 3 ],
+                [ 2, 0 ], [ 3, 1 ],
+                [ 4, 0 ], [ 4, 0 ], [ 5, 1 ],
+                [ 4, 0 ], [ 4, 3 ],
             ]))
     })
 
@@ -45,11 +45,11 @@ describe('build houndstoothtopia examples', () => {
         expect(perimeterRhythmTopRightGrainContour)
             .toEqual(to.Contour([
                 [ 0, 0 ], [ 1, 1 ],
-                [ 0, 2 ], [ 0, 2 ], [ 1, 3 ],
-                [ 0, 2 ], [ 3, 2 ],
-                [ 0, 4 ], [ 1, 4 ],
-                [ 0, 5 ], [ 0, 4 ], [ 1, 4 ],
-                [ 0, 3 ], [ 3, 2 ],
+                [ 2, 0 ], [ 2, 0 ], [ 3, 1 ],
+                [ 2, 0 ], [ 2, 3 ],
+                [ 4, 0 ], [ 4, 1 ],
+                [ 5, 0 ], [ 4, 0 ], [ 4, 1 ],
+                [ 3, 0 ], [ 2, 3 ],
             ]))
     })
 
@@ -57,11 +57,11 @@ describe('build houndstoothtopia examples', () => {
         const { supertileRhythmHigherPitchContour } = buildContours()
         expect(supertileRhythmHigherPitchContour)
             .toEqual(to.Contour([
-                [ 0, 1 ], [ 1, 1 ],
-                [ 0, 1 ], [ 0, 1 ], [ 1, 1 ],
-                [ 0, 1 ], [ 0, 1 ],
+                [ 1, 0 ], [ 1, 1 ],
+                [ 1, 0 ], [ 1, 0 ], [ 1, 1 ],
+                [ 1, 0 ], [ 1, 0 ],
                 [ 1, 1 ], [ 1, 1 ],
-                [ 0, 1 ], [ 1, 1 ], [ 1, 1 ],
+                [ 1, 0 ], [ 1, 1 ], [ 1, 1 ],
             ]))
     })
 
@@ -69,10 +69,10 @@ describe('build houndstoothtopia examples', () => {
         const { supertileRhythmLowerPitchContour } = buildContours()
         expect(supertileRhythmLowerPitchContour)
             .toEqual(to.Contour([
-                [ 0, 0 ], [ 1, 0 ],
-                [ 0, 0 ], [ 0, 0 ], [ 1, 0 ],
-                [ 0, 0 ], [ 0, 0 ], [ 1, 0 ], [ 1, 0 ],
-                [ 0, 0 ], [ 1, 0 ], [ 1, 0 ],
+                [ 0, 0 ], [ 0, 1 ],
+                [ 0, 0 ], [ 0, 0 ], [ 0, 1 ],
+                [ 0, 0 ], [ 0, 0 ], [ 0, 1 ], [ 0, 1 ],
+                [ 0, 0 ], [ 0, 1 ], [ 0, 1 ],
             ]))
     })
 })
