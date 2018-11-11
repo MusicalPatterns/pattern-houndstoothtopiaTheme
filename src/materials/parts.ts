@@ -1,24 +1,24 @@
 import { DictionaryOf, Part } from '../../../../src'
-import { buildContours } from '../custom'
 import { buildNoteSpec } from './notes'
+import { buildContourWholes } from './wholes'
 
 const buildParts: () => DictionaryOf<Part> =
     (): DictionaryOf<Part> => {
         const {
-            supertileRhythmLowerPitchContour,
-            supertileRhythmHigherPitchContour,
-            perimeterRhythmTopRightGrainContour,
-            perimeterRhythmTopGrainContour,
-            perimeterRhythmTopLeftGrainContour,
-            perimeterRhythmLeftGrainContour,
-        } = buildContours()
+            supertileRhythmLowerPitchContourWhole,
+            supertileRhythmHigherPitchContourWhole,
+            perimeterRhythmTopRightGrainContourWhole,
+            perimeterRhythmTopGrainContourWhole,
+            perimeterRhythmTopLeftGrainContourWhole,
+            perimeterRhythmLeftGrainContourWhole,
+        } = buildContourWholes()
 
-        const supertileRhythmLowerPitchPart: Part = supertileRhythmLowerPitchContour.map(buildNoteSpec)
-        const supertileRhythmHigherPitchPart: Part = supertileRhythmHigherPitchContour.map(buildNoteSpec)
-        const perimeterRhythmTopRightGrainPart: Part = perimeterRhythmTopRightGrainContour.map(buildNoteSpec)
-        const perimeterRhythmTopGrainPart: Part = perimeterRhythmTopGrainContour.map(buildNoteSpec)
-        const perimeterRhythmTopLeftGrainPart: Part = perimeterRhythmTopLeftGrainContour.map(buildNoteSpec)
-        const perimeterRhythmLeftGrainPart: Part = perimeterRhythmLeftGrainContour.map(buildNoteSpec)
+        const supertileRhythmLowerPitchPart: Part = supertileRhythmLowerPitchContourWhole.map(buildNoteSpec)
+        const supertileRhythmHigherPitchPart: Part = supertileRhythmHigherPitchContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopRightGrainPart: Part = perimeterRhythmTopRightGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopGrainPart: Part = perimeterRhythmTopGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopLeftGrainPart: Part = perimeterRhythmTopLeftGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmLeftGrainPart: Part = perimeterRhythmLeftGrainContourWhole.map(buildNoteSpec)
 
         return {
             perimeterRhythmLeftGrainPart,

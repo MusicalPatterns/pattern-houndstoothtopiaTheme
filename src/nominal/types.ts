@@ -1,7 +1,5 @@
 import { ContourElement } from '../../../../src'
 
-type Contour = ContourElement[]
-
 interface CoordinateElement extends Number {
     _CoordinateElementBrand: string,
 }
@@ -17,7 +15,6 @@ interface Radian extends Number {
 }
 
 export {
-    Contour,
     ContourElement,
     Coordinate,
     CoordinateElement,

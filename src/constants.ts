@@ -12,6 +12,8 @@ const X_AXIS: Index = to.Index(0)
 const Y_AXIS: Index = to.Index(1)
 const Z_AXIS: Index = to.Index(2)
 
+const PITCH_INDEX_INDICATING_REST: Index = to.Index(-1)
+
 export {
     HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
     HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
@@ -20,4 +22,5 @@ export {
     X_AXIS,
     Y_AXIS,
     Z_AXIS,
+    PITCH_INDEX_INDICATING_REST,
 }

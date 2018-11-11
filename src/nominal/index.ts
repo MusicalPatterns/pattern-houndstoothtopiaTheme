@@ -7,7 +7,6 @@ export {
 }
 
 export {
-    Contour,
     ContourElement,
     Coordinate,
     CoordinateElement,

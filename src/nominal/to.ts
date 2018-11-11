@@ -1,11 +1,6 @@
 // tslint:disable:variable-name no-any
 
-import { Contour, ContourElement, Coordinate, CoordinateElement, Length, Radian } from './types'
-
-const Contour: (contour: Array<number[] | ContourElement>) => Contour =
-    (contour: Array<number[] | ContourElement>): Contour =>
-        contour.map((contourElement: number[] | ContourElement): ContourElement =>
-            contourElement as any) as any
+import { Coordinate, CoordinateElement, Length, Radian } from './types'
 
 const Coordinate: (coordinate: Array<number | CoordinateElement>) => Coordinate =
     (coordinate: Array<number | CoordinateElement>): Coordinate =>
@@ -22,7 +17,6 @@ const CoordinateElement: (coordinateElement: number) => CoordinateElement =
     (coordinateElement: number): CoordinateElement => coordinateElement as any
 
 export {
-    Contour,
     Coordinate,
     Length,
     Radian,

@@ -1,7 +1,6 @@
 // tslint:disable:no-reaching-imports
 
 export {
-    buildContours,
     buildSupertileRhythm,
     buildPerimeterRhythm,
     buildPerimeterPitches,
@@ -20,6 +19,7 @@ export {
     buildScales,
     buildBlocks,
     buildParts,
+    buildContourPieces,
 } from './materials/indexForTest'
 export {
     distanceBetween,

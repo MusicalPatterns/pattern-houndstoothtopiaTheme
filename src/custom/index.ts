@@ -1,4 +1,3 @@
-export { buildContours } from './contours'
 export {
     buildPerimeterRhythm,
     buildSupertileRhythm,
