@@ -2,7 +2,7 @@ import { from, Scale, Time } from '../../../../../src/indexForTest'
 import { calculatePartCompiledDuration, testIsCloseTo } from '../../../../../test/support'
 import { buildParts, buildScales, patternSpec } from '../../../src/indexForTest'
 
-fdescribe('houndstoothtopia parts', () => {
+describe('houndstoothtopia parts', () => {
     describe('perimeter parts', () => {
         it('are all the same duration', () => {
             const {
