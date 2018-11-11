@@ -18,6 +18,11 @@ describe('houndstoothtopia notes', () => {
             expect(durationSpec.index)
                 .toBe(to.Index(3))
         })
+
+        it('sets the scale index to the default for duration', () => {
+            expect(durationSpec.scaleIndex)
+                .toBe(to.Index(1))
+        })
     })
 
     describe('pitch', () => {
@@ -30,6 +35,11 @@ describe('houndstoothtopia notes', () => {
             expect(pitchSpec.index)
                 .toBe(to.Index(7))
         })
+
+        it('sets the scale index to the default for pitch', () => {
+            expect(pitchSpec.scaleIndex)
+                .toBe(to.Index(2))
+        })
     })
 
     describe('sustain', () => {
@@ -38,9 +48,19 @@ describe('houndstoothtopia notes', () => {
             sustainSpec = noteSpec.sustainSpec || {}
         })
 
-        it('sets the index to the first element', () => {
+        it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
+            expect(sustainSpec.scalar)
+                .toBe(to.Scalar(Math.sqrt(2) - 1))
+        })
+
+        it('sets the scale index to the default for durations', () => {
+            expect(sustainSpec.scaleIndex)
+                .toBe(to.Index(1))
+        })
+
+        it('leaves the index undefined so that it will default to zero', () => {
             expect(sustainSpec.index)
-                .toBe(to.Index(3))
+                .toBe(undefined)
         })
     })
 })

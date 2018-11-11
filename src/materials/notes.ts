@@ -14,7 +14,6 @@ const buildNoteSpec: (contour: ContourElement) => NoteSpec =
                 scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
             },
             sustainSpec: {
-                index: duration,
                 scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
                 scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
             },
