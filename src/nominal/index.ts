@@ -12,4 +12,6 @@ export {
     CoordinateElement,
     Length,
     Radian,
+    GrainSetSequence,
+    GrainSet,
 } from './types'

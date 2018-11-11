@@ -84,7 +84,7 @@ describe('houndstoothtopia contour pieces', () => {
     })
 
     describe('durations', () => {
-        describe('perimeter parts', () => {
+        describe('perimeter pieces', () => {
             it('are all the same duration', () => {
                 const {
                     perimeterRhythmLeftGrainContourPiece,
@@ -108,7 +108,7 @@ describe('houndstoothtopia contour pieces', () => {
             })
         })
 
-        describe('supertile parts', () => {
+        describe('supertile pieces', () => {
             it('are all the same duration', () => {
                 const {
                     supertileRhythmLowerPitchContourPiece,
@@ -126,8 +126,8 @@ describe('houndstoothtopia contour pieces', () => {
             })
         })
 
-        describe('perimeter parts vs supertile parts', () => {
-            it('supertile parts are three-quarters as long as the perimeter parts, so they loop in a simple 3:4 polymeter', () => {
+        describe('perimeter pieces vs supertile pieces', () => {
+            it('supertile pieces are three-quarters as long as the perimeter pieces, so they loop in a simple 3:4 polymeter', () => {
                 const {
                     perimeterRhythmLeftGrainContourPiece,
                     supertileRhythmLowerPitchContourPiece,

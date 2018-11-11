@@ -20,6 +20,7 @@ export {
     buildBlocks,
     buildParts,
     buildContourPieces,
+    buildContourWholes,
 } from './materials/indexForTest'
 export {
     distanceBetween,

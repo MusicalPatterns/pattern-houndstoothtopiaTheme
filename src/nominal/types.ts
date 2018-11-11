@@ -14,10 +14,18 @@ interface Radian extends Number {
     _RadianBrand: string,
 }
 
+enum _GrainSetBrand {}
+type GrainSet = _GrainSetBrand & number[]
+
+enum _GrainSetSequenceBrand {}
+type GrainSetSequence = _GrainSetSequenceBrand & number[]
+
 export {
     ContourElement,
     Coordinate,
     CoordinateElement,
     Length,
     Radian,
+    GrainSet,
+    GrainSetSequence,
 }
