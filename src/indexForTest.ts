@@ -19,6 +19,7 @@ export {
     buildEntities,
     buildScales,
     buildBlocks,
+    buildParts,
 } from './materials/indexForTest'
 export {
     distanceBetween,
