@@ -8,4 +8,6 @@ export {
 
 export {
     ContourElement,
+    Coordinate,
+    CoordinateElement,
 } from './types'

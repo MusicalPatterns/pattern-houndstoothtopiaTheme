@@ -1,22 +1,88 @@
-import { applyScale, Scalar, to } from '../../../../src'
-import { Coordinate, from, to as houndstoothtopiaTo } from '../nominal'
-import { RotateParameters } from './types'
+import { applyCycle, applyScale, from, Index, Maybe, Offset, Scalar, to } from '../../../../src'
+import { Z_AXIS } from '../constants'
+import { Coordinate, CoordinateElement, from as houndstoothtopiaFrom, to as houndstoothtopiaTo } from '../nominal'
+import { ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS } from './constants'
+import { ArrayMap, RotateParameters, RotationMatrix } from './types'
+
+const defaultFixedCoordinateToOriginOfDimensionalityOfCoordinate:
+    (fixedCoordinate: Maybe<Coordinate>, coordinate: Coordinate) => Coordinate =
+    (fixedCoordinate: Maybe<Coordinate>, coordinate: Coordinate): Coordinate =>
+        fixedCoordinate || coordinate.map((): CoordinateElement =>
+            houndstoothtopiaTo.CoordinateElement(0))
+
+const buildArrayMapForScalingRotationMatrixToDimensionalityOfCoordinate: (coordinate: Coordinate) => ArrayMap =
+    (coordinate: Coordinate): ArrayMap =>
+        <T>(rotationVectorOrMatrix: T[]): T[] =>
+            rotationVectorOrMatrix.slice(0, coordinate.length)
+
+const buildArrayMapForCyclingRotationMatrixForAxis: (axis: Index) => ArrayMap =
+    (axis: Index): ArrayMap =>
+        <T>(rotationVectorOrMatrix: T[]): T[] => {
+            const offset: Offset = to.Offset(ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS - from.Index(axis))
+
+            return applyCycle(rotationVectorOrMatrix, offset)
+        }
+
+const mapAcrossBothDimensions: (rotationMatrix: RotationMatrix, arrayMap: ArrayMap) => RotationMatrix =
+    (rotationMatrix: RotationMatrix, arrayMap: ArrayMap): RotationMatrix =>
+        arrayMap(rotationMatrix.map(arrayMap))
+
+const scaleRotationMatrixToDimensionalityOfCoordinate:
+    (rotationMatrix: RotationMatrix, coordinate: Coordinate) => RotationMatrix =
+    (rotationMatrix: RotationMatrix, coordinate: Coordinate): RotationMatrix => {
+        const arrayMap: ArrayMap = buildArrayMapForScalingRotationMatrixToDimensionalityOfCoordinate(coordinate)
+
+        return mapAcrossBothDimensions(rotationMatrix, arrayMap)
+    }
+
+const cycleRotationMatrixForAxis:
+    (rotationMatrix: RotationMatrix, axis: Index) => RotationMatrix =
+    (rotationMatrix: RotationMatrix, axis: Index): RotationMatrix => {
+        const arrayMap: ArrayMap = buildArrayMapForCyclingRotationMatrixForAxis(axis)
+
+        return mapAcrossBothDimensions(rotationMatrix, arrayMap)
+    }
 
 const rotate: (rotateParameters: RotateParameters) => Coordinate =
-    ({ fixedCoordinate, coordinate, rotation }: RotateParameters): Coordinate => {
-        const sin: Scalar = to.Scalar(Math.sin(from.Radian(rotation)))
-        const cos: Scalar = to.Scalar(Math.cos(from.Radian(rotation)))
+    (rotateParameters: RotateParameters): Coordinate => {
+        const { fixedCoordinate: fixedCoordinateArgument, coordinate, rotation, axis = Z_AXIS } = rotateParameters
+        const fixedCoordinate: Coordinate = defaultFixedCoordinateToOriginOfDimensionalityOfCoordinate(
+            fixedCoordinateArgument,
+            coordinate,
+        )
 
-        const rawCoordinateX: number = from.CoordinateElement(fixedCoordinate[ 0 ])
-        const rawCoordinateY: number = from.CoordinateElement(fixedCoordinate[ 1 ])
+        const sin: Scalar = to.Scalar(Math.sin(houndstoothtopiaFrom.Radian(rotation)))
+        const cos: Scalar = to.Scalar(Math.cos(houndstoothtopiaFrom.Radian(rotation)))
 
-        const relativeX: number = from.CoordinateElement(coordinate[ 0 ]) - rawCoordinateX
-        const relativeY: number = from.CoordinateElement(coordinate[ 1 ]) - rawCoordinateY
+        const rawRelative: number[] = coordinate.map(
+            (coordinateElement: CoordinateElement, index: number): number => {
+                const rawFixedCoordinateElement: number = houndstoothtopiaFrom.CoordinateElement(
+                    fixedCoordinate[ index ],
+                )
 
-        return houndstoothtopiaTo.Coordinate([
-            applyScale(rawCoordinateX + relativeX, cos) - applyScale(relativeY, sin),
-            applyScale(rawCoordinateY + relativeX, sin) + applyScale(relativeY, cos),
-        ])
+                return houndstoothtopiaFrom.CoordinateElement(coordinateElement) - rawFixedCoordinateElement
+            },
+        )
+
+        const standardRotationMatrix: RotationMatrix = [
+            [ cos, applyScale(sin, to.Scalar(-1)), to.Scalar(0) ],
+            [ sin, cos, to.Scalar(0) ],
+            [ to.Scalar(0), to.Scalar(0), to.Scalar(1) ],
+        ]
+
+        const rotationMatrix: RotationMatrix = scaleRotationMatrixToDimensionalityOfCoordinate(
+            cycleRotationMatrixForAxis(standardRotationMatrix, axis),
+            coordinate,
+        )
+
+        return rotationMatrix.map((rotationRow: Scalar[]): CoordinateElement =>
+            rotationRow.reduce(
+                (row: CoordinateElement, rotationElement: Scalar, index: number): CoordinateElement =>
+                    houndstoothtopiaTo.CoordinateElement(
+                        houndstoothtopiaFrom.CoordinateElement(row) + applyScale(rawRelative[ index ], rotationElement),
+                    ),
+                houndstoothtopiaTo.CoordinateElement(0),
+            ))
     }
 
 export {
