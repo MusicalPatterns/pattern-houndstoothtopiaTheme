@@ -69,8 +69,12 @@ const buildContourWholes: () => DictionaryOf<ContourWhole> =
             perimeterRhythmTopGrainContourWhole,
             perimeterRhythmTopLeftGrainContourWhole,
             perimeterRhythmTopRightGrainContourWhole,
-            supertileRhythmHigherPitchContourWhole: to.ContourWhole(supertileRhythmHigherPitchContourPiece),
-            supertileRhythmLowerPitchContourWhole: to.ContourWhole(supertileRhythmLowerPitchContourPiece),
+            supertileRhythmHigherPitchContourWhole: to.ContourWhole(sequence([
+                supertileRhythmHigherPitchContourPiece,
+            ])),
+            supertileRhythmLowerPitchContourWhole: to.ContourWhole(sequence([
+                supertileRhythmLowerPitchContourPiece,
+            ])),
         }
     }
 

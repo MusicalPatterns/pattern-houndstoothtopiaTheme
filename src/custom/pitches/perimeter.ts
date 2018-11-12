@@ -1,9 +1,10 @@
-import { applyCycle, Block, DictionaryOf } from '../../../../../src'
-import { Coordinate } from '../../nominal'
-import { rankByHeight, rotate } from '../../utilities'
+import { applyCycle, applyOffset, DictionaryOf, Scalar, to } from '../../../../../src'
+import { Coordinate, CoordinateElement, from } from '../../nominal'
+import { rotate } from '../../utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
+    PERIMETER_PITCH_OFFSET,
     QUARTER_TURN_COUNTERCLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
@@ -13,8 +14,19 @@ import {
 } from '../coordinates'
 import { CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
-const buildPerimeterPitches: () => DictionaryOf<Block> =
-    (): DictionaryOf<Block> => {
+const heights: CoordinateElement[] = []
+
+const extractHeight: (coordinates: Coordinate[]) => Scalar[] =
+    (coordinates: Coordinate[]): Scalar[] =>
+        coordinates.map((coordinate: Coordinate): Scalar => {
+            const height: CoordinateElement = coordinate[ 1 ]
+            heights.push(height)
+
+            return to.Scalar(applyOffset(from.CoordinateElement(height), PERIMETER_PITCH_OFFSET))
+        })
+
+const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
+    (): DictionaryOf<Scalar[]> => {
         const houndstoothCoordinates: Coordinate[] =
             buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps()
         const cycledHoundstoothCoordinates: Coordinate[] = applyCycle(
@@ -52,11 +64,16 @@ const buildPerimeterPitches: () => DictionaryOf<Block> =
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
                 }))
 
+        const perimeterRhythmLeftGrainPitches: Scalar[] = extractHeight(houndstoothLeftGrainCoordinates)
+        const perimeterRhythmTopGrainPitches: Scalar[] = extractHeight(houndstoothTopGrainCoordinates)
+        const perimeterRhythmTopLeftGrainPitches: Scalar[] = extractHeight(houndstoothTopLeftGrainCoordinates)
+        const perimeterRhythmTopRightGrainPitches: Scalar[] = extractHeight(houndstoothTopRightGrainCoordinates)
+
         return {
-            perimeterRhythmLeftGrainPitches: rankByHeight(houndstoothLeftGrainCoordinates),
-            perimeterRhythmTopGrainPitches: rankByHeight(houndstoothTopGrainCoordinates),
-            perimeterRhythmTopLeftGrainPitches: rankByHeight(houndstoothTopLeftGrainCoordinates),
-            perimeterRhythmTopRightGrainPitches: rankByHeight(houndstoothTopRightGrainCoordinates),
+            perimeterRhythmLeftGrainPitches,
+            perimeterRhythmTopGrainPitches,
+            perimeterRhythmTopLeftGrainPitches,
+            perimeterRhythmTopRightGrainPitches,
         }
     }
 

@@ -5,7 +5,7 @@ describe('houndstoothtopia notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement = [ to.Index(7), to.Index(3) ]
+            const testContour: ContourElement = [ 2.12, 3 ]
             noteSpec = buildNoteSpec(testContour)
         })
 
@@ -33,8 +33,8 @@ describe('houndstoothtopia notes', () => {
             })
 
             it('sets the index to the first element', () => {
-                expect(pitchSpec.index)
-                    .toBe(to.Index(7))
+                expect(pitchSpec.scalar)
+                    .toBe(to.Scalar(2.12))
             })
 
             it('sets the scale index to the default for pitch', () => {
@@ -80,7 +80,7 @@ describe('houndstoothtopia notes', () => {
 
     describe('rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement = [ to.Index(-1), to.Index(3) ]
+            const testContour: ContourElement = [ -1, 3 ]
             noteSpec = buildNoteSpec(testContour)
         })
 

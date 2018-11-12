@@ -20,27 +20,27 @@ const buildEntities: BuildEntitiesFunction =
         const supertileRhythmHigherPitchEntity: Entity = {
             part: supertileRhythmHigherPitchPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SQUARE },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SINE },
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
             part: perimeterRhythmTopRightGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.TRIANGLE },
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             part: perimeterRhythmTopGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.TRIANGLE },
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             part: perimeterRhythmTopLeftGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.TRIANGLE },
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             part: perimeterRhythmLeftGrainPart,
             timeType: TimeType.RAW,
-            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.SAWTOOTH },
+            voiceSpec: { voiceType: VoiceType.OSCILLATOR, timbre: OscillatorName.TRIANGLE },
         }
 
         return [

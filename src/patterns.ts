@@ -9,7 +9,7 @@ const houndstoothtopiaPatternMaterial: PatternMaterial = {
 }
 
 const houndstoothtopiaPatternMetadata: PatternMetadata = {
-    description: 'music in the shape of a houndstooth, using the square roots of 2 (and 3)',
+    description: 'music in the shape of a houndstooth, using the square root of 2 extensively',
     formattedName: 'Houndstoothtopia Theme',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
 }

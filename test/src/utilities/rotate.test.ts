@@ -1,21 +1,12 @@
-import { testIsCloseTo } from '../../../../../test/support'
 import {
     Coordinate,
-    CoordinateElement,
     QUARTER_TURN_COUNTERCLOCKWISE,
     rotate,
     to,
     X_AXIS,
     Y_AXIS,
 } from '../../../src/indexForTest'
-
-const expectCoordinatesToMatch: (actualCoordinate: Coordinate, expectedCoordinate: Coordinate) => void =
-    (actualCoordinate: Coordinate, expectedCoordinate: Coordinate): void => {
-        actualCoordinate.forEach((actualCoordinateElement: CoordinateElement, index: number): void => {
-            expect(testIsCloseTo(actualCoordinateElement, expectedCoordinate[ index ]))
-                .toBeTruthy()
-        })
-    }
+import { testArraysAreClose } from '../../support/testArraysAreClose'
 
 describe('rotate', () => {
     describe('in two dimensions', () => {
@@ -26,7 +17,7 @@ describe('rotate', () => {
             })
             const expectedCoordinate: Coordinate = to.Coordinate([ 0, -3 ])
 
-            expectCoordinatesToMatch(actualCoordinate, expectedCoordinate)
+            testArraysAreClose(actualCoordinate, expectedCoordinate)
         })
     })
 
@@ -38,7 +29,7 @@ describe('rotate', () => {
             })
             const expectedCoordinate: Coordinate = to.Coordinate([ 0, -3, 0 ])
 
-            expectCoordinatesToMatch(actualCoordinate, expectedCoordinate)
+            testArraysAreClose(actualCoordinate, expectedCoordinate)
         })
 
         it('works for rotating around the y-axis', () => {
@@ -49,7 +40,7 @@ describe('rotate', () => {
             })
             const expectedCoordinate: Coordinate = to.Coordinate([ 0, 0, 3 ])
 
-            expectCoordinatesToMatch(actualCoordinate, expectedCoordinate)
+            testArraysAreClose(actualCoordinate, expectedCoordinate)
         })
 
         it('works for rotating around the x-axis', () => {
@@ -60,7 +51,7 @@ describe('rotate', () => {
             })
             const expectedCoordinate: Coordinate = to.Coordinate([ 0, 0, -3 ])
 
-            expectCoordinatesToMatch(actualCoordinate, expectedCoordinate)
+            testArraysAreClose(actualCoordinate, expectedCoordinate)
         })
     })
 })

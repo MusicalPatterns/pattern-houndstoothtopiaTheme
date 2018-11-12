@@ -4,19 +4,18 @@ import { buildScalars } from './scalars'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: PatternSpec): Scale[] => {
-        const { flatDurationsScale } = buildStandardScales()
+        const { nonScale } = buildStandardScales()
         const {
-            rootOfThreeScalars,
             rootOfTwoScalars,
         } = buildScalars()
 
-        const gainScale: Scale = flatDurationsScale
+        const gainScale: Scale = nonScale
         const durationsScale: Scale = scaleFromScalarsAndScalar(
             rootOfTwoScalars,
             patternSpec.patternDurationScalar,
         )
         const pitchesScale: Scale = scaleFromScalarsAndScalar(
-            rootOfThreeScalars,
+            nonScale.scalars,
             patternSpec.patternPitchScalar,
         )
 

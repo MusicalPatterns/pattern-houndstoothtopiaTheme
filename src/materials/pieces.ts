@@ -1,52 +1,52 @@
-import { ContourPiece, DictionaryOf, Index, to } from '../../../../src'
-import { PITCH_INDEX_INDICATING_REST } from '../constants'
+import { Block, ContourPiece, DictionaryOf, from, Index, to } from '../../../../src'
+import { PITCH_SCALAR_INDICATING_REST } from '../constants'
+import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'
 import { ContourElement } from '../nominal'
-import { buildBlocks } from './blocks'
-import { HIGHER_PITCH, LOWER_PITCH } from './constants'
+import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
 
 const buildContourPieces: () => DictionaryOf<ContourPiece> =
     (): DictionaryOf<ContourPiece> => {
+        const perimeterRhythm: Block = buildPerimeterRhythm()
+        const supertileRhythm: Block = buildSupertileRhythm()
         const {
-            perimeterRhythm,
-            supertileRhythm,
             perimeterRhythmLeftGrainPitches,
             perimeterRhythmTopGrainPitches,
             perimeterRhythmTopLeftGrainPitches,
             perimeterRhythmTopRightGrainPitches,
-        } = buildBlocks()
+        } = buildPerimeterPitches()
 
         const perimeterRhythmLeftGrainContourPiece: ContourPiece = to.ContourPiece(perimeterRhythm.map(
             (duration: Index, index: number): ContourElement =>
-                [ perimeterRhythmLeftGrainPitches[ index ], duration ],
+                [ from.Scalar(perimeterRhythmLeftGrainPitches[ index ]), from.Index(duration) ],
         ))
         const perimeterRhythmTopGrainContourPiece: ContourPiece = to.ContourPiece(perimeterRhythm.map(
             (duration: Index, index: number): ContourElement =>
-                [ perimeterRhythmTopGrainPitches[ index ], duration ],
+                [ from.Scalar(perimeterRhythmTopGrainPitches[ index ]), from.Index(duration) ],
         ))
         const perimeterRhythmTopLeftGrainContourPiece: ContourPiece = to.ContourPiece(perimeterRhythm.map(
             (duration: Index, index: number): ContourElement =>
-                [ perimeterRhythmTopLeftGrainPitches[ index ], duration ],
+                [ from.Scalar(perimeterRhythmTopLeftGrainPitches[ index ]), from.Index(duration) ],
         ))
         const perimeterRhythmTopRightGrainContourPiece: ContourPiece = to.ContourPiece(perimeterRhythm.map(
             (duration: Index, index: number): ContourElement =>
-                [ perimeterRhythmTopRightGrainPitches[ index ], duration ],
+                [ from.Scalar(perimeterRhythmTopRightGrainPitches[ index ]), from.Index(duration) ],
         ))
         const supertileRhythmHigherPitchContourPiece: ContourPiece = to.ContourPiece(supertileRhythm.map(
             (duration: Index): ContourElement =>
-                [ HIGHER_PITCH, duration ],
+                [ from.Scalar(HIGHER_SUPERTILE_PITCH), from.Index(duration) ],
         ))
         const supertileRhythmLowerPitchContourPiece: ContourPiece = to.ContourPiece(supertileRhythm.map(
             (duration: Index): ContourElement =>
-                [ LOWER_PITCH, duration ],
+                [ from.Scalar(LOWER_SUPERTILE_PITCH), from.Index(duration) ],
         ))
 
         const perimeterRestContourPiece: ContourPiece = to.ContourPiece(perimeterRhythm.map(
             (duration: Index): ContourElement =>
-                [ PITCH_INDEX_INDICATING_REST, duration ],
+                [ from.Scalar(PITCH_SCALAR_INDICATING_REST), from.Index(duration) ],
         ))
         const supertileRestContourPiece: ContourPiece = to.ContourPiece(supertileRhythm.map(
             (duration: Index): ContourElement =>
-                [ PITCH_INDEX_INDICATING_REST, duration ],
+                [ from.Scalar(PITCH_SCALAR_INDICATING_REST), from.Index(duration) ],
         ))
 
         return {

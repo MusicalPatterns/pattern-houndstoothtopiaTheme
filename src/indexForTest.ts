@@ -17,7 +17,6 @@ export {
     buildScalars,
     buildEntities,
     buildScales,
-    buildBlocks,
     buildParts,
     buildContourPieces,
     buildContourWholes,
