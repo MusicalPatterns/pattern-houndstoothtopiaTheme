@@ -1,11 +1,5 @@
-import { applyPower, SQUARE_ROOT, SQUARED } from '../../../../src'
-import {
-    Coordinate,
-    CoordinateElement,
-    from as houndstoothtopiaFrom,
-    Length,
-    to as houndstoothtopiaTo,
-} from '../nominal'
+import { applyPower, Coordinate, CoordinateElement, from, SQUARE_ROOT, SQUARED } from '../../../../src'
+import { from as houndstoothtopiaFrom, Length, to as houndstoothtopiaTo } from '../nominal'
 
 const distanceBetween: (pointA: Coordinate, pointB: Coordinate) => Length =
     (pointA: Coordinate, pointB: Coordinate): Length => {
@@ -13,8 +7,7 @@ const distanceBetween: (pointA: Coordinate, pointB: Coordinate) => Length =
             (sum: number, pointAElement: CoordinateElement, index: number): number => {
                 const pointBElement: CoordinateElement = pointB[ index ]
                 const dimensionalDistance: Length = houndstoothtopiaTo.Length(Math.abs(
-                    houndstoothtopiaFrom.CoordinateElement(pointAElement) -
-                    houndstoothtopiaFrom.CoordinateElement(pointBElement),
+                    from.CoordinateElement(pointAElement) - from.CoordinateElement(pointBElement),
                 ))
                 const squareOfDimensionalDistance: number = applyPower(
                     houndstoothtopiaFrom.Length(dimensionalDistance),

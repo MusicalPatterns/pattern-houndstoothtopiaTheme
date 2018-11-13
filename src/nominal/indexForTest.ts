@@ -7,7 +7,5 @@ export {
 }
 
 export {
-    ContourElement,
-    Coordinate,
-    CoordinateElement,
+    HoundstoothtopiaContourElement,
 } from './types'

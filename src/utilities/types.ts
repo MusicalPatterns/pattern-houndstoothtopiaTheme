@@ -1,5 +1,5 @@
-import { Index, Scalar } from '../../../../src'
-import { Coordinate, Radian } from '../nominal'
+import { Coordinate, Index, Scalar } from '../../../../src'
+import { Radian } from '../nominal'
 
 interface RotateParameters {
     axis?: Index,

@@ -7,11 +7,11 @@ export {
 }
 
 export {
-    ContourElement,
-    Coordinate,
-    CoordinateElement,
     Length,
     Radian,
     GrainSetSequence,
     GrainSet,
+    HoundstoothtopiaContourWhole,
+    HoundstoothtopiaContourPiece,
+    HoundstoothtopiaContourElement,
 } from './types'

@@ -7,9 +7,7 @@ export {
     QUARTER_TURN_COUNTERCLOCKWISE,
 } from './custom/indexForTest'
 export {
-    ContourElement,
-    Coordinate,
-    CoordinateElement,
+    HoundstoothtopiaContourElement,
     to,
 } from './nominal/indexForTest'
 export {
@@ -26,7 +24,3 @@ export {
     rotate,
 } from './utilities/indexForTest'
 export { patternSpec } from './patterns'
-export {
-    X_AXIS,
-    Y_AXIS,
-} from './constants'

@@ -1,6 +1,17 @@
-import { applyCycle, applyScale, from, Index, Maybe, Offset, Scalar, to } from '../../../../src'
-import { Z_AXIS } from '../constants'
-import { Coordinate, CoordinateElement, from as houndstoothtopiaFrom, to as houndstoothtopiaTo } from '../nominal'
+import {
+    applyCycle,
+    applyScale,
+    Coordinate,
+    CoordinateElement,
+    from,
+    Index,
+    Maybe,
+    Offset,
+    Scalar,
+    to,
+    Z_AXIS,
+} from '../../../../src'
+import { from as houndstoothtopiaFrom } from '../nominal'
 import { ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS } from './constants'
 import { ArrayMap, RotateParameters, RotationMatrix } from './types'
 
@@ -8,7 +19,7 @@ const defaultFixedCoordinateToOriginOfDimensionalityOfCoordinate:
     (fixedCoordinate: Maybe<Coordinate>, coordinate: Coordinate) => Coordinate =
     (fixedCoordinate: Maybe<Coordinate>, coordinate: Coordinate): Coordinate =>
         fixedCoordinate || coordinate.map((): CoordinateElement =>
-            houndstoothtopiaTo.CoordinateElement(0))
+            to.CoordinateElement(0))
 
 const buildArrayMapForScalingRotationMatrixToDimensionalityOfCoordinate: (coordinate: Coordinate) => ArrayMap =
     (coordinate: Coordinate): ArrayMap =>
@@ -56,11 +67,9 @@ const rotate: (rotateParameters: RotateParameters) => Coordinate =
 
         const rawRelative: number[] = coordinate.map(
             (coordinateElement: CoordinateElement, index: number): number => {
-                const rawFixedCoordinateElement: number = houndstoothtopiaFrom.CoordinateElement(
-                    fixedCoordinate[ index ],
-                )
+                const rawFixedCoordinateElement: number = from.CoordinateElement(fixedCoordinate[ index ])
 
-                return houndstoothtopiaFrom.CoordinateElement(coordinateElement) - rawFixedCoordinateElement
+                return from.CoordinateElement(coordinateElement) - rawFixedCoordinateElement
             },
         )
 
@@ -78,10 +87,10 @@ const rotate: (rotateParameters: RotateParameters) => Coordinate =
         return rotationMatrix.map((rotationRow: Scalar[]): CoordinateElement =>
             rotationRow.reduce(
                 (row: CoordinateElement, rotationElement: Scalar, index: number): CoordinateElement =>
-                    houndstoothtopiaTo.CoordinateElement(
-                        houndstoothtopiaFrom.CoordinateElement(row) + applyScale(rawRelative[ index ], rotationElement),
+                    to.CoordinateElement(
+                        from.CoordinateElement(row) + applyScale(rawRelative[ index ], rotationElement),
                     ),
-                houndstoothtopiaTo.CoordinateElement(0),
+                to.CoordinateElement(0),
             ))
     }
 

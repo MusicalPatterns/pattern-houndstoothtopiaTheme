@@ -1,5 +1,13 @@
-import { applyCycle, applyOffset, DictionaryOf, Scalar, to } from '../../../../../src'
-import { Coordinate, CoordinateElement, from } from '../../nominal'
+import {
+    applyCycle,
+    applyOffset,
+    Coordinate,
+    CoordinateElement,
+    DictionaryOf,
+    from,
+    Scalar,
+    to,
+} from '../../../../../src'
 import { rotate } from '../../utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,

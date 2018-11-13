@@ -1,11 +1,11 @@
 import { NotePropertySpec, NoteSpec, to } from '../../../../../src/indexForTest'
-import { buildNoteSpec, ContourElement } from '../../../src/indexForTest'
+import { buildNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
 
 describe('houndstoothtopia notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement = [ 2.12, 3 ]
+            const testContour: HoundstoothtopiaContourElement = [ 2.12, 3, [ 0, 0, 0 ] ]
             noteSpec = buildNoteSpec(testContour)
         })
 
@@ -80,7 +80,7 @@ describe('houndstoothtopia notes', () => {
 
     describe('rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement = [ -1, 3 ]
+            const testContour: HoundstoothtopiaContourElement = [ -1, 3, [ 0, 0, 0 ] ]
             noteSpec = buildNoteSpec(testContour)
         })
 

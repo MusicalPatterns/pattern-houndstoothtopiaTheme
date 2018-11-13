@@ -1,6 +1,6 @@
-import { applyLogarithm, applyOffset, Block, Index, to, wrapWithin } from '../../../../../src'
+import { applyLogarithm, applyOffset, Block, Coordinate, Index, to, wrapWithin } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
-import { Coordinate, from, Length } from '../../nominal'
+import { from as houndstoothtopiaFrom, Length } from '../../nominal'
 import { distanceBetween } from '../../utilities'
 import {
     buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps,
@@ -19,7 +19,7 @@ const buildPerimeterRhythm: () => Block =
             })
 
         return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
-            to.Index(applyLogarithm(from.Length(length), SQRT_TWO_AS_BASE)),
+            to.Index(applyLogarithm(houndstoothtopiaFrom.Length(length), SQRT_TWO_AS_BASE)),
         ))
     }
 

@@ -1,4 +1,4 @@
-import { from, Scale, sequence, Time, to } from '../../../../../src/indexForTest'
+import { from, Scale, sequence, Time } from '../../../../../src/indexForTest'
 import { calculatePartCompiledDuration, testIsCloseTo } from '../../../../../test/support'
 import {
     buildContourPieces,
@@ -6,6 +6,7 @@ import {
     buildNoteSpec,
     buildScales,
     patternSpec,
+    to as houndstoothtopiaTo,
 } from '../../../src/indexForTest'
 
 describe('contour wholes', () => {
@@ -19,7 +20,7 @@ describe('contour wholes', () => {
             const { perimeterRhythmTopRightGrainContourWhole } = buildContourWholes()
 
             expect(perimeterRhythmTopRightGrainContourWhole)
-                .toEqual(to.ContourWhole(sequence([
+                .toEqual(houndstoothtopiaTo.HoundstoothtopiaContourWhole(sequence([
                     perimeterRestContourPiece,
                     perimeterRhythmTopRightGrainContourPiece,
                     perimeterRhythmTopRightGrainContourPiece,
@@ -51,7 +52,7 @@ describe('contour wholes', () => {
             const { perimeterRhythmTopGrainContourWhole } = buildContourWholes()
 
             expect(perimeterRhythmTopGrainContourWhole)
-                .toEqual(to.ContourWhole(sequence([
+                .toEqual(houndstoothtopiaTo.HoundstoothtopiaContourWhole(sequence([
                     perimeterRestContourPiece,
                     perimeterRestContourPiece,
                     perimeterRhythmTopGrainContourPiece,
@@ -83,7 +84,7 @@ describe('contour wholes', () => {
             const { perimeterRhythmTopLeftGrainContourWhole } = buildContourWholes()
 
             expect(perimeterRhythmTopLeftGrainContourWhole)
-                .toEqual(to.ContourWhole(sequence([
+                .toEqual(houndstoothtopiaTo.HoundstoothtopiaContourWhole(sequence([
                     perimeterRestContourPiece,
                     perimeterRestContourPiece,
                     perimeterRhythmTopLeftGrainContourPiece,
@@ -115,7 +116,7 @@ describe('contour wholes', () => {
             const { perimeterRhythmLeftGrainContourWhole } = buildContourWholes()
 
             expect(perimeterRhythmLeftGrainContourWhole)
-                .toEqual(to.ContourWhole(sequence([
+                .toEqual(houndstoothtopiaTo.HoundstoothtopiaContourWhole(sequence([
                     perimeterRestContourPiece,
                     perimeterRestContourPiece,
                     perimeterRhythmLeftGrainContourPiece,
