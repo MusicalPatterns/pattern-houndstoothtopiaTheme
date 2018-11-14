@@ -1,4 +1,5 @@
-import { Entity, OscillatorName, SpatializationType, TimeType, VoiceType } from '../../../../src'
+import { OscillatorName, SpatializationType, TimeType, VoiceType } from '@musical-patterns/performer'
+import { Entity } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { buildParts } from './parts'
 
