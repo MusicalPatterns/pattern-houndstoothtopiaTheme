@@ -315,7 +315,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "square",
@@ -637,7 +636,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "sine",
@@ -6695,7 +6693,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "triangle",
@@ -12753,7 +12750,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "triangle",
@@ -18811,7 +18807,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "triangle",
@@ -24869,7 +24864,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "spatialization": "immersive",
         "timbre": "triangle",

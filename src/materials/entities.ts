@@ -1,4 +1,4 @@
-import { OscillatorName, SpatializationType, TimeType, VoiceType } from '@musical-patterns/performer'
+import { OscillatorName, SpatializationType, VoiceType } from '@musical-patterns/performer'
 import { Entity } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { buildParts } from './parts'
@@ -16,7 +16,6 @@ const buildEntities: BuildEntitiesFunction =
 
         const supertileRhythmLowerPitchEntity: Entity = {
             part: supertileRhythmLowerPitchPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.SQUARE,
@@ -25,7 +24,6 @@ const buildEntities: BuildEntitiesFunction =
         }
         const supertileRhythmHigherPitchEntity: Entity = {
             part: supertileRhythmHigherPitchPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.SINE,
@@ -34,7 +32,6 @@ const buildEntities: BuildEntitiesFunction =
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
             part: perimeterRhythmTopRightGrainPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.TRIANGLE,
@@ -43,7 +40,6 @@ const buildEntities: BuildEntitiesFunction =
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             part: perimeterRhythmTopGrainPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.TRIANGLE,
@@ -52,7 +48,6 @@ const buildEntities: BuildEntitiesFunction =
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             part: perimeterRhythmTopLeftGrainPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.TRIANGLE,
@@ -61,7 +56,6 @@ const buildEntities: BuildEntitiesFunction =
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             part: perimeterRhythmLeftGrainPart,
-            timeType: TimeType.RAW,
             voiceSpec: {
                 spatialization: SpatializationType.IMMERSIVE,
                 timbre: OscillatorName.TRIANGLE,
