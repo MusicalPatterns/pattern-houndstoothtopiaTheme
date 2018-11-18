@@ -6,3 +6,6 @@ test:
 
 lint:
 	pushd ../..; make lint; popd
+
+deploy:
+	npm publish --access public
