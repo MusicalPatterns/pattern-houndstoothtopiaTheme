@@ -1,9 +1,9 @@
-import { DictionaryOf, Part } from '../../../../src'
+import { DictionaryOf, PartSpec } from '../../../../src'
 import { buildNoteSpec } from './notes'
 import { buildContourWholes } from './wholes'
 
-const buildParts: () => DictionaryOf<Part> =
-    (): DictionaryOf<Part> => {
+const buildParts: () => DictionaryOf<PartSpec> =
+    (): DictionaryOf<PartSpec> => {
         const {
             supertileRhythmLowerPitchContourWhole,
             supertileRhythmHigherPitchContourWhole,
@@ -13,12 +13,12 @@ const buildParts: () => DictionaryOf<Part> =
             perimeterRhythmLeftGrainContourWhole,
         } = buildContourWholes()
 
-        const supertileRhythmLowerPitchPart: Part = supertileRhythmLowerPitchContourWhole.map(buildNoteSpec)
-        const supertileRhythmHigherPitchPart: Part = supertileRhythmHigherPitchContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopRightGrainPart: Part = perimeterRhythmTopRightGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopGrainPart: Part = perimeterRhythmTopGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopLeftGrainPart: Part = perimeterRhythmTopLeftGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmLeftGrainPart: Part = perimeterRhythmLeftGrainContourWhole.map(buildNoteSpec)
+        const supertileRhythmLowerPitchPart: PartSpec = supertileRhythmLowerPitchContourWhole.map(buildNoteSpec)
+        const supertileRhythmHigherPitchPart: PartSpec = supertileRhythmHigherPitchContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopRightGrainPart: PartSpec = perimeterRhythmTopRightGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopGrainPart: PartSpec = perimeterRhythmTopGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmTopLeftGrainPart: PartSpec = perimeterRhythmTopLeftGrainContourWhole.map(buildNoteSpec)
+        const perimeterRhythmLeftGrainPart: PartSpec = perimeterRhythmLeftGrainContourWhole.map(buildNoteSpec)
 
         return {
             perimeterRhythmLeftGrainPart,

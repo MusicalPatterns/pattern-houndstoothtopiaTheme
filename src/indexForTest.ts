@@ -23,4 +23,4 @@ export {
     distanceBetween,
     rotate,
 } from './utilities/indexForTest'
-export { patternSpec } from './patterns'
+export { pattern, patternSpec } from './patterns'
