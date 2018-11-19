@@ -1,5 +1,5 @@
-import { Coordinate, CoordinateElement, from, Scalar, to } from '@musical-patterns/utilities'
-import { applyCycle, applyOffset, DictionaryOf } from '../../../../../src'
+import { apply, Coordinate, CoordinateElement, from, Scalar, to } from '@musical-patterns/utilities'
+import { cycle, DictionaryOf } from '../../../../../src'
 import { rotate } from '../../utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
@@ -22,14 +22,14 @@ const extractHeight: (coordinates: Coordinate[]) => Scalar[] =
             const height: CoordinateElement = coordinate[ 1 ]
             heights.push(height)
 
-            return to.Scalar(applyOffset(from.CoordinateElement(height), PERIMETER_PITCH_OFFSET))
+            return to.Scalar(apply.Offset(from.CoordinateElement(height), PERIMETER_PITCH_OFFSET))
         })
 
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
         const houndstoothCoordinates: Coordinate[] =
             buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps()
-        const cycledHoundstoothCoordinates: Coordinate[] = applyCycle(
+        const cycledHoundstoothCoordinates: Coordinate[] = cycle(
             houndstoothCoordinates,
             CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )

@@ -1,5 +1,5 @@
-import { Coordinate, CoordinateElement, from, Index, Offset, Scalar, to } from '@musical-patterns/utilities'
-import { applyCycle, applyScale, Maybe, Z_AXIS } from '../../../../src'
+import { apply, Coordinate, CoordinateElement, from, Index, Offset, Scalar, to } from '@musical-patterns/utilities'
+import { cycle, Maybe, Z_AXIS } from '../../../../src'
 import { from as houndstoothtopiaFrom } from '../nominal'
 import { ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS } from './constants'
 import { ArrayMap, RotateParameters, RotationMatrix } from './types'
@@ -20,7 +20,7 @@ const buildArrayMapForCyclingRotationMatrixForAxis: (axis: Index) => ArrayMap =
         <T>(rotationVectorOrMatrix: T[]): T[] => {
             const offset: Offset = to.Offset(ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS - from.Index(axis))
 
-            return applyCycle(rotationVectorOrMatrix, offset)
+            return cycle(rotationVectorOrMatrix, offset)
         }
 
 const mapAcrossBothDimensions: (rotationMatrix: RotationMatrix, arrayMap: ArrayMap) => RotationMatrix =
@@ -63,7 +63,7 @@ const rotate: (rotateParameters: RotateParameters) => Coordinate =
         )
 
         const standardRotationMatrix: RotationMatrix = [
-            [ cos, applyScale(sin, to.Scalar(-1)), to.Scalar(0) ],
+            [ cos, apply.Scalar(sin, to.Scalar(-1)), to.Scalar(0) ],
             [ sin, cos, to.Scalar(0) ],
             [ to.Scalar(0), to.Scalar(0), to.Scalar(1) ],
         ]
@@ -77,7 +77,7 @@ const rotate: (rotateParameters: RotateParameters) => Coordinate =
             rotationRow.reduce(
                 (row: CoordinateElement, rotationElement: Scalar, index: number): CoordinateElement =>
                     to.CoordinateElement(
-                        from.CoordinateElement(row) + applyScale(rawRelative[ index ], rotationElement),
+                        from.CoordinateElement(row) + apply.Scalar(rawRelative[ index ], rotationElement),
                     ),
                 to.CoordinateElement(0),
             ))

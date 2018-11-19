@@ -1,5 +1,5 @@
 import { from, Index, to } from '@musical-patterns/utilities'
-import { applyCycle, DictionaryOf, sequence } from '../../../../src'
+import { cycle, DictionaryOf, sequence } from '../../../../src'
 import {
     GrainSet,
     GrainSetSequence,
@@ -28,7 +28,7 @@ const buildContourWholes: () => DictionaryOf<HoundstoothtopiaContourWhole> =
         } = buildContourPieces()
 
         const basicGrainSet: GrainSet = houndstoothtopiaTo.GrainSet([ 0, 0, 1, 1 ])
-        const variedGrainSet: GrainSet = houndstoothtopiaTo.GrainSet(applyCycle(basicGrainSet, to.Offset(1)))
+        const variedGrainSet: GrainSet = houndstoothtopiaTo.GrainSet(cycle(basicGrainSet, to.Offset(1)))
 
         const buildGrainSetSequence: (indexToVary: Index) => GrainSetSequence =
             (indexToVary: Index): GrainSetSequence => {
