@@ -1,4 +1,4 @@
-import { to } from '../../../../../src/indexForTest'
+import { to } from '@musical-patterns/utilities'
 import { distanceBetween, to as houndstoothtopiaTo } from '../../../src/indexForTest'
 
 describe('distance between', () => {

@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Coordinate, to } from '../../../../src'
+import { Coordinate, to } from '@musical-patterns/utilities'
 
 const buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps: () => Coordinate[] =
     (): Coordinate[] =>

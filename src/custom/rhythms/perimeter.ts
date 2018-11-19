@@ -1,4 +1,5 @@
-import { applyLogarithm, applyOffset, Block, Coordinate, Index, to, wrapWithin } from '../../../../../src'
+import { Coordinate, Index, to } from '@musical-patterns/utilities'
+import { applyLogarithm, applyOffset, Block, to as labTo, wrapWithin } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
 import { from as houndstoothtopiaFrom, Length } from '../../nominal'
 import { distanceBetween } from '../../utilities'
@@ -18,7 +19,7 @@ const buildPerimeterRhythm: () => Block =
                 return distanceBetween(coordinate, nextCoordinate)
             })
 
-        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
+        return labTo.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
             to.Index(applyLogarithm(houndstoothtopiaFrom.Length(length), SQRT_TWO_AS_BASE)),
         ))
     }

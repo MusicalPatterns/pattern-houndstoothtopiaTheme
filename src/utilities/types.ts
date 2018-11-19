@@ -1,4 +1,4 @@
-import { Coordinate, Index, Scalar } from '../../../../src'
+import { Coordinate, Index, Scalar } from '@musical-patterns/utilities'
 import { Radian } from '../nominal'
 
 interface RotateParameters {

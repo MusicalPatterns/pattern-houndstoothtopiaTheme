@@ -1,4 +1,4 @@
-import { Scalar, to } from '../../../../../src/indexForTest'
+import { Scalar, to } from '@musical-patterns/utilities'
 import { buildScalars } from '../../../src/indexForTest'
 import { testArraysAreClose } from '../../support/testArraysAreClose'
 

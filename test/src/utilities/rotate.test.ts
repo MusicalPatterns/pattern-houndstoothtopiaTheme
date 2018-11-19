@@ -1,4 +1,5 @@
-import { Coordinate, to, X_AXIS, Y_AXIS } from '../../../../../src/indexForTest'
+import { Coordinate, to } from '@musical-patterns/utilities'
+import { X_AXIS, Y_AXIS } from '../../../../../src/indexForTest'
 import { QUARTER_TURN_COUNTERCLOCKWISE, rotate } from '../../../src/indexForTest'
 import { testArraysAreClose } from '../../support/testArraysAreClose'
 

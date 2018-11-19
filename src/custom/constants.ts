@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Offset, to } from '../../../../src'
+import { Offset, to } from '@musical-patterns/utilities'
 import { Radian, to as houndstoothtopiaTo } from '../nominal'
 
 const NO_TURN_COUNTERCLOCKWISE: Radian = houndstoothtopiaTo.Radian(Math.PI * 0)

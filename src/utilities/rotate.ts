@@ -1,16 +1,5 @@
-import {
-    applyCycle,
-    applyScale,
-    Coordinate,
-    CoordinateElement,
-    from,
-    Index,
-    Maybe,
-    Offset,
-    Scalar,
-    to,
-    Z_AXIS,
-} from '../../../../src'
+import { Coordinate, CoordinateElement, from, Index, Offset, Scalar, to } from '@musical-patterns/utilities'
+import { applyCycle, applyScale, Maybe, Z_AXIS } from '../../../../src'
 import { from as houndstoothtopiaFrom } from '../nominal'
 import { ADJUSTMENT_FOR_ROTATION_MATRIX_CYCLING_FROM_AXIS } from './constants'
 import { ArrayMap, RotateParameters, RotationMatrix } from './types'

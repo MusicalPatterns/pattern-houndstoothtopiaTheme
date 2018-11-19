@@ -1,11 +1,5 @@
-import {
-    CoordinateElement,
-    DEFAULT_DURATIONS_SCALE_INDEX,
-    DEFAULT_PITCH_SCALE_INDEX,
-    from,
-    NoteSpec,
-    to,
-} from '../../../../src'
+import { CoordinateElement, from, to } from '@musical-patterns/utilities'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR } from './constants'

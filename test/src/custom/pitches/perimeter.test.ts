@@ -1,4 +1,4 @@
-import { to } from '../../../../../../src/indexForTest'
+import { to } from '@musical-patterns/utilities'
 import { buildPerimeterPitches } from '../../../../src/indexForTest'
 import { testArraysAreClose } from '../../../support/testArraysAreClose'
 

@@ -1,4 +1,5 @@
-import { applyPower, Coordinate, CoordinateElement, from, SQUARE_ROOT, SQUARED } from '../../../../src'
+import { Coordinate, CoordinateElement, from } from '@musical-patterns/utilities'
+import { applyPower, SQUARE_ROOT, SQUARED } from '../../../../src'
 import { from as houndstoothtopiaFrom, Length, to as houndstoothtopiaTo } from '../nominal'
 
 const distanceBetween: (pointA: Coordinate, pointB: Coordinate) => Length =
