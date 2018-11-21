@@ -3,9 +3,7 @@ import { Block, to as labTo, wrapWithin } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
 import { from as houndstoothtopiaFrom, Length } from '../../nominal'
 import { distanceBetween } from '../../utilities'
-import {
-    buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps,
-} from '../coordinates'
+import { buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps } from '../coordinates'
 
 const buildPerimeterRhythm: () => Block =
     (): Block => {
