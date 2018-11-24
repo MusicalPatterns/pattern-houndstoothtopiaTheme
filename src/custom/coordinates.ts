@@ -2,7 +2,7 @@
 
 import { Coordinate, to } from '@musical-patterns/utilities'
 
-const buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps: () => Coordinate[] =
+const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Coordinate[] =
     (): Coordinate[] =>
         [
             [ -1, -1 ],
@@ -26,6 +26,6 @@ const buildHoundstoothSolidCenterOriginCoordinate: () => Coordinate =
         to.Coordinate([ 0, 0 ])
 
 export {
-    buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps,
+    buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
     buildHoundstoothSolidCenterOriginCoordinate,
 }

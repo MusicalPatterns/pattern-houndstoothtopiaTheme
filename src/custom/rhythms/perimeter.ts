@@ -3,12 +3,12 @@ import { Block, to as labTo, wrapWithin } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
 import { from as houndstoothtopiaFrom, Length } from '../../nominal'
 import { distanceBetween } from '../../utilities'
-import { buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps } from '../coordinates'
+import { buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 
 const buildPerimeterRhythm: () => Block =
     (): Block => {
         const houndstoothCoordinates: Coordinate[] =
-            buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps()
+            buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const houndstoothPerimeterSegmentLengths: Length[] =
             houndstoothCoordinates.map((coordinate: Coordinate, index: number): Length => {
                 const nextIndex: number = wrapWithin(apply.Offset(index, to.Offset(1)), houndstoothCoordinates.length)

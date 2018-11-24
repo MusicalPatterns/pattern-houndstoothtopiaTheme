@@ -9,7 +9,7 @@ import {
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
 import {
-    buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps,
+    buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
     buildHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
 import { CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
@@ -28,7 +28,7 @@ const extractHeight: (coordinates: Coordinate[]) => Scalar[] =
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
         const houndstoothCoordinates: Coordinate[] =
-            buildHoundstoothCoordinatesWholeNumbersSolidCenterOriginClockwiseStartingOnConidBeforeCusps()
+            buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Coordinate[] = cycle(
             houndstoothCoordinates,
             CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
