@@ -1,5 +1,5 @@
-import { apply, Coordinate, CoordinateElement, from, Scalar, to } from '@musical-patterns/utilities'
-import { cycle, DictionaryOf } from '../../../../../src'
+import { apply, Coordinate, CoordinateElement, DictionaryOf, from, Scalar, to } from '@musical-patterns/utilities'
+import { cycle } from '../../../../../src'
 import { rotate } from '../../utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,

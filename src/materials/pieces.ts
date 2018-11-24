@@ -1,5 +1,5 @@
-import { from, Index } from '@musical-patterns/utilities'
-import { Block, DictionaryOf } from '../../../../src'
+import { DictionaryOf, from, Index } from '@musical-patterns/utilities'
+import { Block } from '../../../../src'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'
 import { HoundstoothtopiaContourElement, HoundstoothtopiaContourPiece, to as houndstoothtopiaTo } from '../nominal'
