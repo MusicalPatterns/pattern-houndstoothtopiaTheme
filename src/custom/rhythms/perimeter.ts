@@ -1,5 +1,5 @@
-import { apply, Coordinate, Index, to } from '@musical-patterns/utilities'
-import { Block, to as labTo, wrapWithin } from '../../../../../src'
+import { apply, Coordinate, Index, to, wrapWithin } from '@musical-patterns/utilities'
+import { Block, to as labTo } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
 import { from as houndstoothtopiaFrom, Length } from '../../nominal'
 import { distanceBetween } from '../../utilities'

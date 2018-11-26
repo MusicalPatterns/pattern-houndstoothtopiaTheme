@@ -1,5 +1,4 @@
-import { DictionaryOf, from, Index, to } from '@musical-patterns/utilities'
-import { cycle, sequence } from '../../../../src'
+import { cycle, DictionaryOf, from, Index, sequence, to } from '@musical-patterns/utilities'
 import {
     GrainSet,
     GrainSetSequence,
