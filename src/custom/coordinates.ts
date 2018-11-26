@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Coordinate, to } from '@musical-patterns/utilities'
+import { Coordinate, to } from '@musical-patterns/shared'
 
 const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Coordinate[] =
     (): Coordinate[] =>

@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Index, Scalar, to } from '@musical-patterns/utilities'
+import { Index, Scalar, to } from '@musical-patterns/shared'
 
 const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar = to.Scalar(Math.sqrt(2) - 1)
 

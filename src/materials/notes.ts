@@ -1,4 +1,4 @@
-import { CoordinateElement, from, to } from '@musical-patterns/utilities'
+import { CoordinateElement, from, to } from '@musical-patterns/shared'
 import { NoteSpec } from '../../../../compile'
 import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '../../../../constants'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'

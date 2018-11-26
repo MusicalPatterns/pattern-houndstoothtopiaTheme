@@ -1,4 +1,4 @@
-import { DictionaryOf, from, Index } from '@musical-patterns/utilities'
+import { DictionaryOf, from, Index } from '@musical-patterns/shared'
 import { Block } from '../../../../nominal'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'

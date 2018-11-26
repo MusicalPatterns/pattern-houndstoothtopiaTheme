@@ -1,4 +1,4 @@
-import { testArraysAreClose, to } from '@musical-patterns/utilities'
+import { testArraysAreClose, to } from '@musical-patterns/shared'
 import { buildPerimeterPitches } from '../../../../src/indexForTest'
 
 describe('perimeter pitches', () => {

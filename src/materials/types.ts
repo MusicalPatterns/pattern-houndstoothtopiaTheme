@@ -1,4 +1,4 @@
-import { Coordinate, Index, Scalar } from '@musical-patterns/utilities'
+import { Coordinate, Index, Scalar } from '@musical-patterns/shared'
 
 interface UnpackedHoundstoothtopiaContourElement {
     duration: Index,

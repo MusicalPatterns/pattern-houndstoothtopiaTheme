@@ -1,4 +1,4 @@
-import { apply, DictionaryOf, from, Scalar, to } from '@musical-patterns/utilities'
+import { apply, DictionaryOf, from, Scalar, to } from '@musical-patterns/shared'
 import { buildStandardScales } from '../../../../patternMaterial'
 import { SQRT_TWO_AS_BASE } from '../constants'
 

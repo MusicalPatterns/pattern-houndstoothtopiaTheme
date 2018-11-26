@@ -1,4 +1,4 @@
-import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
+import { from, testIsCloseTo, Time } from '@musical-patterns/shared'
 import { calculatePartCompiledDuration } from '../../../../../../test/support'
 import { Scale } from '../../../../../indexForTest'
 import { buildContourPieces, buildNoteSpec, buildScales, patternSpec } from '../../../src/indexForTest'
