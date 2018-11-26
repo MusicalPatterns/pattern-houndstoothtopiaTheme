@@ -1,4 +1,5 @@
-import { buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
+import { Scale } from '../../../../compile'
+import { buildStandardScales, scaleFromScalarsAndScalar } from '../../../../patternMaterial'
 import { BuildScalesFunction, PatternSpec } from '../../../types'
 import { buildScalars } from './scalars'
 

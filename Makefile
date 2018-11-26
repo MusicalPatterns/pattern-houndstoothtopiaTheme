@@ -2,10 +2,10 @@
 .PHONY: test
 
 test:
-	pushd ../..; make test; popd
+	musical-patterns test
 
 lint:
-	pushd ../..; make lint; popd
+	musical-patterns lint
 
-deploy:
-	npm publish --access public
+publish:
+	musical-patterns publish
