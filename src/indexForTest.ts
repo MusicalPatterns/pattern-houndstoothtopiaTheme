@@ -19,8 +19,4 @@ export {
     buildContourPieces,
     buildContourWholes,
 } from './materials/indexForTest'
-export {
-    distanceBetween,
-    rotate,
-} from './utilities/indexForTest'
 export { pattern, patternSpec } from './patterns'

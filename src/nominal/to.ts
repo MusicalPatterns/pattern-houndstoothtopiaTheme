@@ -6,15 +6,7 @@ import {
     HoundstoothtopiaContourElement,
     HoundstoothtopiaContourPiece,
     HoundstoothtopiaContourWhole,
-    Length,
-    Radian,
 } from './types'
-
-const Length: (length: number) => Length =
-    (length: number): Length => length as any
-
-const Radian: (radian: number) => Radian =
-    (radian: number): Radian => radian as any
 
 const GrainSet: (grainSet: number[]) => GrainSet =
     (grainSet: number[]): GrainSet =>
@@ -42,8 +34,6 @@ const HoundstoothtopiaContourWhole:
         ) as any
 
 export {
-    Length,
-    Radian,
     GrainSet,
     GrainSetSequence,
     HoundstoothtopiaContourPiece,

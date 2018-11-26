@@ -1,6 +1,6 @@
-import { from, Time } from '@musical-patterns/utilities'
+import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
 import { Scale } from '../../../../../src/indexForTest'
-import { calculatePartCompiledDuration, testIsCloseTo } from '../../../../../test/support'
+import { calculatePartCompiledDuration } from '../../../../../test/support'
 import { buildContourPieces, buildNoteSpec, buildScales, patternSpec } from '../../../src/indexForTest'
 
 describe('houndstoothtopia contour pieces', () => {

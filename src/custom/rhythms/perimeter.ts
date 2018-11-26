@@ -1,8 +1,6 @@
-import { apply, Coordinate, Index, to, wrapWithin } from '@musical-patterns/utilities'
+import { apply, Coordinate, distanceBetween, from, Index, Length, to, wrapWithin } from '@musical-patterns/utilities'
 import { Block, to as labTo } from '../../../../../src'
 import { SQRT_TWO_AS_BASE } from '../../constants'
-import { from as houndstoothtopiaFrom, Length } from '../../nominal'
-import { distanceBetween } from '../../utilities'
 import { buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 
 const buildPerimeterRhythm: () => Block =
@@ -18,7 +16,7 @@ const buildPerimeterRhythm: () => Block =
             })
 
         return labTo.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
-            to.Index(apply.Base(houndstoothtopiaFrom.Length(length), SQRT_TWO_AS_BASE)),
+            to.Index(apply.Base(from.Length(length), SQRT_TWO_AS_BASE)),
         ))
     }
 

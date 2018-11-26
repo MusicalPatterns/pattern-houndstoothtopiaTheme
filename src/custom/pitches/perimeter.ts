@@ -5,10 +5,10 @@ import {
     cycle,
     DictionaryOf,
     from,
+    rotate,
     Scalar,
     to,
 } from '@musical-patterns/utilities'
-import { rotate } from '../../utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,

@@ -1,6 +1,6 @@
-import { from, sequence, Time } from '@musical-patterns/utilities'
+import { from, sequence, testIsCloseTo, Time } from '@musical-patterns/utilities'
 import { Scale } from '../../../../../src/indexForTest'
-import { calculatePartCompiledDuration, testIsCloseTo } from '../../../../../test/support'
+import { calculatePartCompiledDuration } from '../../../../../test/support'
 import {
     buildContourPieces,
     buildContourWholes,

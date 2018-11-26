@@ -1,11 +1,3 @@
-interface Length extends Number {
-    _LengthBrand: string,
-}
-
-interface Radian extends Number {
-    _RadianBrand: string,
-}
-
 enum _GrainSetBrand {}
 
 type GrainSet = _GrainSetBrand & number[]
@@ -25,8 +17,6 @@ enum _HoundstoothtopiaContourWholeBrand {}
 type HoundstoothtopiaContourWhole = _HoundstoothtopiaContourWholeBrand & HoundstoothtopiaContourElement[]
 
 export {
-    Length,
-    Radian,
     GrainSet,
     GrainSetSequence,
     HoundstoothtopiaContourPiece,

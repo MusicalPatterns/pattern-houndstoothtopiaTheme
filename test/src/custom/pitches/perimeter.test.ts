@@ -1,6 +1,5 @@
-import { to } from '@musical-patterns/utilities'
+import { testArraysAreClose, to } from '@musical-patterns/utilities'
 import { buildPerimeterPitches } from '../../../../src/indexForTest'
-import { testArraysAreClose } from '../../../support/testArraysAreClose'
 
 describe('perimeter pitches', () => {
     describe('maps each coordinate along its perimeter to its vertical position', () => {

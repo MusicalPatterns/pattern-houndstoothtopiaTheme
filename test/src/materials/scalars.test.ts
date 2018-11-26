@@ -1,6 +1,5 @@
-import { Scalar, to } from '@musical-patterns/utilities'
+import { Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
 import { buildScalars } from '../../../src/indexForTest'
-import { testArraysAreClose } from '../../support/testArraysAreClose'
 
 describe('houndstoothtopia scalars', () => {
     it('root of two scalars start at 1 and increase by the square root of 2', () => {
