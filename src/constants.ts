@@ -3,7 +3,7 @@
 import { Base, Scalar, to } from '@musical-patterns/shared'
 
 const HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR: Scalar = to.Scalar(141.42)
-const HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR: Scalar = to.Scalar(70.71)
+const HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR: Scalar = to.Scalar(471.4)
 
 const SQRT_TWO_AS_BASE: Base = to.Base(Math.sqrt(2))
 

@@ -1,5 +1,4 @@
-import { Count, Index, repeat, sequence, to } from '@musical-patterns/shared'
-import { ONCE, TWICE } from '../../../../../constants'
+import { Count, Index, ONCE, repeat, sequence, to, TWICE } from '@musical-patterns/shared'
 import { Block, to as labTo } from '../../../../../nominal'
 
 const buildSupertileRhythm: () => Block =
