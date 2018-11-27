@@ -1,13 +1,13 @@
 import { to } from '@musical-patterns/shared'
 import { NotePropertySpec, NoteSpec } from '../../../../../indexForTest'
-import { buildNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
+import { buildSupertileNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
 
 describe('houndstoothtopia notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {
             const testContour: HoundstoothtopiaContourElement = [ 2.12, 3, [ 0, 0, 0 ] ]
-            noteSpec = buildNoteSpec(testContour)
+            noteSpec = buildSupertileNoteSpec(testContour)
         })
 
         describe('duration', () => {
@@ -50,9 +50,9 @@ describe('houndstoothtopia notes', () => {
                 gainSpec = noteSpec.gainSpec || {}
             })
 
-            it('by default leaves scalar undefined, so that it defaults to 1', () => {
+            it('sets gain to half', () => {
                 expect(gainSpec.scalar)
-                    .toBe(undefined)
+                    .toBe(to.Scalar(0.5))
             })
         })
 
@@ -82,7 +82,7 @@ describe('houndstoothtopia notes', () => {
     describe('rest note', () => {
         beforeEach(() => {
             const testContour: HoundstoothtopiaContourElement = [ -1, 3, [ 0, 0, 0 ] ]
-            noteSpec = buildNoteSpec(testContour)
+            noteSpec = buildSupertileNoteSpec(testContour)
         })
 
         describe('gain', () => {

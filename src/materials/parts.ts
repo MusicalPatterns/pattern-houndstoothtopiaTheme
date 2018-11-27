@@ -1,6 +1,6 @@
 import { DictionaryOf } from '@musical-patterns/shared'
 import { PartSpec } from '../../../../compile'
-import { buildNoteSpec } from './notes'
+import { buildPerimeterNoteSpec, buildSupertileNoteSpec } from './notes'
 import { buildContourWholes } from './wholes'
 
 const buildParts: () => DictionaryOf<PartSpec> =
@@ -14,12 +14,18 @@ const buildParts: () => DictionaryOf<PartSpec> =
             perimeterRhythmLeftGrainContourWhole,
         } = buildContourWholes()
 
-        const supertileRhythmLowerPitchPart: PartSpec = supertileRhythmLowerPitchContourWhole.map(buildNoteSpec)
-        const supertileRhythmHigherPitchPart: PartSpec = supertileRhythmHigherPitchContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopRightGrainPart: PartSpec = perimeterRhythmTopRightGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopGrainPart: PartSpec = perimeterRhythmTopGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmTopLeftGrainPart: PartSpec = perimeterRhythmTopLeftGrainContourWhole.map(buildNoteSpec)
-        const perimeterRhythmLeftGrainPart: PartSpec = perimeterRhythmLeftGrainContourWhole.map(buildNoteSpec)
+        const supertileRhythmLowerPitchPart: PartSpec =
+            supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec)
+        const supertileRhythmHigherPitchPart: PartSpec =
+            supertileRhythmHigherPitchContourWhole.map(buildSupertileNoteSpec)
+        const perimeterRhythmTopRightGrainPart: PartSpec =
+            perimeterRhythmTopRightGrainContourWhole.map(buildPerimeterNoteSpec)
+        const perimeterRhythmTopGrainPart: PartSpec =
+            perimeterRhythmTopGrainContourWhole.map(buildPerimeterNoteSpec)
+        const perimeterRhythmTopLeftGrainPart: PartSpec =
+            perimeterRhythmTopLeftGrainContourWhole.map(buildPerimeterNoteSpec)
+        const perimeterRhythmLeftGrainPart: PartSpec =
+            perimeterRhythmLeftGrainContourWhole.map(buildPerimeterNoteSpec)
 
         return {
             perimeterRhythmLeftGrainPart,

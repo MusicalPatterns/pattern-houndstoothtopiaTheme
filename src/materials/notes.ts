@@ -1,7 +1,7 @@
-import { CoordinateElement, from, to } from '@musical-patterns/shared'
+import { apply, CoordinateElement, from, HALF, to } from '@musical-patterns/shared'
 import { NoteSpec } from '../../../../compile'
 import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '../../../../patternMaterial'
-import { PITCH_SCALAR_INDICATING_REST } from '../constants'
+import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR } from './constants'
 import { UnpackedHoundstoothtopiaContourElement } from './types'
@@ -15,7 +15,7 @@ const unpackHoundstoothtopiaContourElement:
         position: to.Coordinate(contourElement[ 2 ]),
     })
 
-const buildNoteSpec: (contourElement: HoundstoothtopiaContourElement) => NoteSpec =
+const buildHoundstoothtopiaNoteSpec: (contourElement: HoundstoothtopiaContourElement) => NoteSpec =
     (contourElement: HoundstoothtopiaContourElement): NoteSpec => {
         const { pitch, duration, position } = unpackHoundstoothtopiaContourElement(contourElement)
 
@@ -41,6 +41,28 @@ const buildNoteSpec: (contourElement: HoundstoothtopiaContourElement) => NoteSpe
         }
     }
 
+const buildSupertileNoteSpec: (contourElement: HoundstoothtopiaContourElement) => NoteSpec =
+    (contourElement: HoundstoothtopiaContourElement): NoteSpec => {
+        const { pitch } = unpackHoundstoothtopiaContourElement(contourElement)
+
+        return {
+            ...buildHoundstoothtopiaNoteSpec(contourElement),
+            gainSpec: {
+                scalar: pitch === PITCH_SCALAR_INDICATING_REST ? to.Scalar(0) : HALF,
+            },
+        }
+    }
+
+const buildPerimeterNoteSpec: (contourElement: HoundstoothtopiaContourElement) => NoteSpec =
+    (contourElement: HoundstoothtopiaContourElement): NoteSpec => ({
+        ...buildHoundstoothtopiaNoteSpec(contourElement),
+        sustainSpec: {
+            scalar: apply.Scalar(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, to.Scalar(from.Base(SQRT_TWO_AS_BASE))),
+            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+        },
+    })
+
 export {
-    buildNoteSpec,
+    buildSupertileNoteSpec,
+    buildPerimeterNoteSpec,
 }

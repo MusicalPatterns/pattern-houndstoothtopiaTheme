@@ -11,7 +11,7 @@ export {
     to,
 } from './nominal/indexForTest'
 export {
-    buildNoteSpec,
+    buildSupertileNoteSpec,
     buildScalars,
     buildEntities,
     buildScales,
