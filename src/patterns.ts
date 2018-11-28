@@ -1,5 +1,4 @@
-import { PatternId } from '../../patternId'
-import { Pattern, PatternMaterial, PatternMetadata, PatternSpec } from '../../types'
+import { Pattern, PatternId, PatternMaterial, PatternMetadata, PatternSpec } from '@musical-patterns/shared'
 import { HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR, HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
 
