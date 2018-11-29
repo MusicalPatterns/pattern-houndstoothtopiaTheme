@@ -1,4 +1,4 @@
-import { DictionaryOf, PartSpec } from '@musical-patterns/shared'
+import { DictionaryOf, PartSpec } from '@musical-patterns/utilities'
 import { buildPerimeterNoteSpec, buildSupertileNoteSpec } from './notes'
 import { buildContourWholes } from './wholes'
 

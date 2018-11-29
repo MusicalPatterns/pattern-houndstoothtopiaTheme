@@ -1,5 +1,5 @@
 import { calculatePartSpecTotalCompiledDuration } from '@musical-patterns/compiler'
-import { from, Scale, testIsCloseTo, Time } from '@musical-patterns/shared'
+import { from, Scale, testIsCloseTo, Time } from '@musical-patterns/utilities'
 import { buildContourPieces, buildScales, buildSupertileNoteSpec, patternSpec } from '../../../src/indexForTest'
 
 describe('houndstoothtopia contour pieces', () => {

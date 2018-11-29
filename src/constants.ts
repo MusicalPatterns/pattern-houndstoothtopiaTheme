@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Base, Scalar, to } from '@musical-patterns/shared'
+import { Base, Scalar, to } from '@musical-patterns/utilities'
 
 const HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR: Scalar = to.Scalar(141.42)
 const HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR: Scalar = to.Scalar(471.4)

@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Offset, Radian, to } from '@musical-patterns/shared'
+import { Offset, Radian, to } from '@musical-patterns/utilities'
 
 const NO_TURN_COUNTERCLOCKWISE: Radian = to.Radian(Math.PI * 0)
 const EIGHTH_TURN_COUNTERCLOCKWISE: Radian = to.Radian(Math.PI * -1 / 4)

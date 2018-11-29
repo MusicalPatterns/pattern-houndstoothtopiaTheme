@@ -1,4 +1,4 @@
-import { apply, CoordinateElement, from, HALF, NoteSpec, to } from '@musical-patterns/shared'
+import { apply, CoordinateElement, from, HALF, NoteSpec, to } from '@musical-patterns/utilities'
 import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '../../../../patternMaterial'
 import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'

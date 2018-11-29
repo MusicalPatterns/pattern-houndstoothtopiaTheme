@@ -1,4 +1,10 @@
-import { BuildEntitiesFunction, Entity, OscillatorName, SpatializationType, VoiceType } from '@musical-patterns/shared'
+import {
+    BuildEntitiesFunction,
+    Entity,
+    OscillatorName,
+    SpatializationType,
+    VoiceType,
+} from '@musical-patterns/utilities'
 import { buildParts } from './parts'
 
 const buildEntities: BuildEntitiesFunction =

@@ -1,4 +1,4 @@
-import { Scalar, testArraysAreClose, to } from '@musical-patterns/shared'
+import { Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
 import { buildScalars } from '../../../src/indexForTest'
 
 describe('houndstoothtopia scalars', () => {

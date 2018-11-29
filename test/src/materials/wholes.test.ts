@@ -1,5 +1,5 @@
 import { calculatePartSpecTotalCompiledDuration } from '@musical-patterns/compiler'
-import { from, Scale, sequence, testIsCloseTo, Time } from '@musical-patterns/shared'
+import { from, Scale, sequence, testIsCloseTo, Time } from '@musical-patterns/utilities'
 import {
     buildContourPieces,
     buildContourWholes,

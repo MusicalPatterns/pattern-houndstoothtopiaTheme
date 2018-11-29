@@ -8,7 +8,7 @@ import {
     rotate,
     Scalar,
     to,
-} from '@musical-patterns/shared'
+} from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
