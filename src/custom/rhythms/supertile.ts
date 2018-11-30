@@ -1,5 +1,5 @@
+import { Block, to as patternTo } from '@musical-patterns/pattern'
 import { Count, Index, ONCE, repeat, sequence, to, TWICE } from '@musical-patterns/utilities'
-import { Block, to as labTo } from '../../../../../nominal'
 
 const buildSupertileRhythm: () => Block =
     (): Block => {
@@ -21,7 +21,7 @@ const buildSupertileRhythm: () => Block =
             return sequence(durationIndicesForTileStripes)
         })
 
-        return labTo.Block(sequence(durationIndicesForTiles))
+        return patternTo.Block(sequence(durationIndicesForTiles))
     }
 
 export {

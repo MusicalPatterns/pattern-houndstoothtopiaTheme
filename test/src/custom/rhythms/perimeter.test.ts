@@ -1,4 +1,4 @@
-import { Block, to } from '../../../../../../indexForTest'
+import { Block, to } from '@musical-patterns/pattern'
 import { buildPerimeterRhythm } from '../../../../src/indexForTest'
 
 describe('perimeter rhythm', () => {

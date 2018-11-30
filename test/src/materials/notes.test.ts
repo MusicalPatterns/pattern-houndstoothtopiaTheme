@@ -1,4 +1,5 @@
-import { NotePropertySpec, NoteSpec, to } from '@musical-patterns/utilities'
+import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
+import { to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
 
 describe('houndstoothtopia notes', () => {

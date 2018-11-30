@@ -1,6 +1,6 @@
 [
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0.5,
@@ -141,7 +141,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0.5,
@@ -282,7 +282,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -2755,7 +2755,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -5228,7 +5228,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -7701,7 +7701,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 471.4,
         "gain": 0,
