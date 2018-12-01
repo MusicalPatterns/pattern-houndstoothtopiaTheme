@@ -1,0 +1,3 @@
+[submodule "houndstooth-outline"]
+	path = standalone-houndstooth-outline
+	url = git@github.com:Houndstooth/standalone-houndstooth-outline.git

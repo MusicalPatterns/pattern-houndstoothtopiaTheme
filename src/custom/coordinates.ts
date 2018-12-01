@@ -1,25 +1,14 @@
 // tslint:disable:no-magic-numbers
 
-import { Coordinate, to } from '@musical-patterns/utilities'
+import { Coordinate, cycle, to } from '@musical-patterns/utilities'
+// tslint:disable-next-line:no-reaching-imports
+import houndstoothOutline from '../../standalone-houndstooth-outline/houndstoothOutline'
 
 const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Coordinate[] =
     (): Coordinate[] =>
-        [
-            [ -1, -1 ],
-            [ 0, -1 ],
-            [ 1, -2 ],
-            [ 1, -1 ],
-            [ 2, -1 ],
-            [ 1, 0 ],
-            [ 1, 1 ],
-            [ -1, 3 ],
-            [ -1, 2 ],
-            [ 0, 1 ],
-            [ -1, 1 ],
-            [ -1, 0 ],
-            [ -2, 1 ],
-            [ -3, 1 ],
-        ].map(to.Coordinate)
+        // tslint:disable-next-line:no-unsafe-any
+        cycle(houndstoothOutline, to.Offset(1))
+            .map(to.Coordinate)
 
 const buildHoundstoothSolidCenterOriginCoordinate: () => Coordinate =
     (): Coordinate =>
