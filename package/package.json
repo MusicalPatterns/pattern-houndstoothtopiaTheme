@@ -1,7 +1,8 @@
 {
   "name": "@musical-patterns/pattern-houndstoothtopia-theme",
-  "version": "1.0.7",
-  "main": "snapshot.json",
+  "version": "1.0.8",
+  "main": "index.js",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/MusicalPatterns/pattern-houndstoothtopia-theme.git"
