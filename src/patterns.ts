@@ -1,7 +1,12 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
-import { Pattern, PatternId, PatternMetadata, PatternSpec } from '@musical-patterns/pattern'
-import { HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR, HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR } from './constants'
-import { buildEntities, buildScales } from './materials'
+import { Pattern, PatternId, PatternMetadata } from '@musical-patterns/pattern'
+import {
+    HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
+    HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
+    HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
+    HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
+} from './constants'
+import { buildEntities, buildScales, HoundstoothtopiaThemePatternSpec } from './materials'
 
 const houndstoothtopiaPatternMaterial: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
@@ -14,9 +19,11 @@ const houndstoothtopiaPatternMetadata: PatternMetadata = {
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
 }
 
-const patternSpec: PatternSpec = {
+const patternSpec: HoundstoothtopiaThemePatternSpec = {
     patternDurationScalar: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
     patternPitchScalar: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
+    patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
+    patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 }
 
 const pattern: Pattern = {

@@ -3,7 +3,7 @@ import { DictionaryOf, from, Index } from '@musical-patterns/utilities'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'
 import { HoundstoothtopiaContourElement, HoundstoothtopiaContourPiece, to as houndstoothtopiaTo } from '../nominal'
-import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH, SPATIALIZATION_SCALAR } from './constants'
+import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
 
 const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
     (): DictionaryOf<HoundstoothtopiaContourPiece> => {
@@ -22,7 +22,7 @@ const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
                     [
                         from.Scalar(perimeterRhythmLeftGrainPitches[ index ]),
                         from.Index(duration),
-                        [ 0, SPATIALIZATION_SCALAR, 0 ],
+                        [ 0, 1, 0 ],
                     ],
             ))
         const perimeterRhythmTopGrainContourPiece: HoundstoothtopiaContourPiece =
@@ -31,7 +31,7 @@ const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
                     [
                         from.Scalar(perimeterRhythmTopGrainPitches[ index ]),
                         from.Index(duration),
-                        [ 0, -SPATIALIZATION_SCALAR, 0 ],
+                        [ 0, -1, 0 ],
                     ],
             ))
         const perimeterRhythmTopLeftGrainContourPiece: HoundstoothtopiaContourPiece =
@@ -40,7 +40,7 @@ const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
                     [
                         from.Scalar(perimeterRhythmTopLeftGrainPitches[ index ]),
                         from.Index(duration),
-                        [ 0, 0, SPATIALIZATION_SCALAR ],
+                        [ 0, 0, 1 ],
                     ],
             ))
         const perimeterRhythmTopRightGrainContourPiece: HoundstoothtopiaContourPiece =
@@ -49,19 +49,19 @@ const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
                     [
                         from.Scalar(perimeterRhythmTopRightGrainPitches[ index ]),
                         from.Index(duration),
-                        [ 0, 0, -SPATIALIZATION_SCALAR ],
+                        [ 0, 0, -1 ],
                     ],
             ))
 
         const supertileRhythmHigherPitchContourPiece: HoundstoothtopiaContourPiece =
             houndstoothtopiaTo.HoundstoothtopiaContourPiece(supertileRhythm.map(
                 (duration: Index): HoundstoothtopiaContourElement =>
-                    [ from.Scalar(HIGHER_SUPERTILE_PITCH), from.Index(duration), [ SPATIALIZATION_SCALAR, 0, 0 ] ],
+                    [ from.Scalar(HIGHER_SUPERTILE_PITCH), from.Index(duration), [ 1, 0, 0 ] ],
             ))
         const supertileRhythmLowerPitchContourPiece: HoundstoothtopiaContourPiece =
             houndstoothtopiaTo.HoundstoothtopiaContourPiece(supertileRhythm.map(
                 (duration: Index): HoundstoothtopiaContourElement =>
-                    [ from.Scalar(LOWER_SUPERTILE_PITCH), from.Index(duration), [ -SPATIALIZATION_SCALAR, 0, 0 ] ],
+                    [ from.Scalar(LOWER_SUPERTILE_PITCH), from.Index(duration), [ -1, 0, 0 ] ],
             ))
 
         const perimeterRestContourPiece: HoundstoothtopiaContourPiece =

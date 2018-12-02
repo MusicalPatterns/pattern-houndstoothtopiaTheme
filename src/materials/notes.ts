@@ -3,7 +3,7 @@ import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@music
 import { apply, CoordinateElement, from, HALF, to } from '@musical-patterns/utilities'
 import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
-import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR } from './constants'
+import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 import { UnpackedHoundstoothtopiaContourElement } from './types'
 
 const unpackHoundstoothtopiaContourElement:
@@ -31,8 +31,11 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: HoundstoothtopiaContourEle
                 scalar: pitch,
                 scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
             },
-            positionSpec: position.map((positionElement: CoordinateElement) =>
-                ({ scalar: to.Scalar(from.CoordinateElement(positionElement)) }),
+            positionSpec: position.map((positionElement: CoordinateElement, index: number) =>
+                ({
+                    scalar: to.Scalar(from.CoordinateElement(positionElement)),
+                    scaleIndex: apply.Offset(HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX, to.Offset(index)),
+                }),
             ),
             sustainSpec: {
                 scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,

@@ -6,7 +6,7 @@ describe('houndstoothtopia notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: HoundstoothtopiaContourElement = [ 2.12, 3, [ 0, 0, 0 ] ]
+            const testContour: HoundstoothtopiaContourElement = [ 2.12, 3, [ 3, 5, 8 ] ]
             noteSpec = buildSupertileNoteSpec(testContour)
         })
 
@@ -75,6 +75,31 @@ describe('houndstoothtopia notes', () => {
             it('leaves the index undefined so that it will default to zero', () => {
                 expect(sustainSpec.index)
                     .toBe(undefined)
+            })
+        })
+
+        describe('position', () => {
+            let positionSpec: NotePropertySpec[]
+            beforeEach(() => {
+                positionSpec = noteSpec.positionSpec as NotePropertySpec[]
+            })
+
+            it('sets the scalar from the contour', () => {
+                expect(positionSpec[ 0 ].scalar)
+                    .toBe(to.Scalar(3))
+                expect(positionSpec[ 1 ].scalar)
+                    .toBe(to.Scalar(5))
+                expect(positionSpec[ 2 ].scalar)
+                    .toBe(to.Scalar(8))
+            })
+
+            it('sets the scale index to the scales for position dimensions x, y, and z', () => {
+                expect(positionSpec[ 0 ].scaleIndex)
+                    .toBe(to.Index(3))
+                expect(positionSpec[ 1 ].scaleIndex)
+                    .toBe(to.Index(4))
+                expect(positionSpec[ 2 ].scaleIndex)
+                    .toBe(to.Index(5))
             })
         })
     })
