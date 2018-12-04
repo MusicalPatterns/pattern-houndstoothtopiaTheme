@@ -1,5 +1,4 @@
-import { BuildEntitiesFunction, Entity } from '@musical-patterns/compiler'
-import { OscillatorName, SpatializationType, VoiceType } from '@musical-patterns/performer'
+import { BuildEntitiesFunction, Entity, TimbreName } from '@musical-patterns/compiler'
 import { buildParts } from './parts'
 
 const buildEntities: BuildEntitiesFunction =
@@ -15,51 +14,27 @@ const buildEntities: BuildEntitiesFunction =
 
         const supertileRhythmLowerPitchEntity: Entity = {
             partSpec: supertileRhythmLowerPitchPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.SQUARE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.SQUARE,
         }
         const supertileRhythmHigherPitchEntity: Entity = {
             partSpec: supertileRhythmHigherPitchPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.SINE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.SINE,
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
             partSpec: perimeterRhythmTopRightGrainPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.TRIANGLE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             partSpec: perimeterRhythmTopGrainPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.TRIANGLE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             partSpec: perimeterRhythmTopLeftGrainPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.TRIANGLE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             partSpec: perimeterRhythmLeftGrainPart,
-            voiceSpec: {
-                spatialization: SpatializationType.IMMERSIVE,
-                timbre: OscillatorName.TRIANGLE,
-                voiceType: VoiceType.OSCILLATOR,
-            },
+            timbreName: TimbreName.TRIANGLE,
         }
 
         return [

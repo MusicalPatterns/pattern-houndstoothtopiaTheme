@@ -135,7 +135,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "SQUARE",
       "voiceType": "OSCILLATOR"
     }
@@ -276,7 +275,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "SINE",
       "voiceType": "OSCILLATOR"
     }
@@ -2749,7 +2747,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "TRIANGLE",
       "voiceType": "OSCILLATOR"
     }
@@ -5222,7 +5219,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "TRIANGLE",
       "voiceType": "OSCILLATOR"
     }
@@ -7695,7 +7691,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "TRIANGLE",
       "voiceType": "OSCILLATOR"
     }
@@ -10168,7 +10163,6 @@
       }
     ],
     "voiceSpec": {
-      "spatialization": "IMMERSIVE",
       "timbre": "TRIANGLE",
       "voiceType": "OSCILLATOR"
     }
