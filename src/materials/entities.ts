@@ -13,27 +13,27 @@ const buildEntities: BuildEntitiesFunction =
         } = buildParts()
 
         const supertileRhythmLowerPitchEntity: Entity = {
-            partSpec: supertileRhythmLowerPitchPart,
+            noteSpecs: supertileRhythmLowerPitchPart,
             timbreName: TimbreName.SQUARE,
         }
         const supertileRhythmHigherPitchEntity: Entity = {
-            partSpec: supertileRhythmHigherPitchPart,
+            noteSpecs: supertileRhythmHigherPitchPart,
             timbreName: TimbreName.SINE,
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
-            partSpec: perimeterRhythmTopRightGrainPart,
+            noteSpecs: perimeterRhythmTopRightGrainPart,
             timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmTopGrainEntity: Entity = {
-            partSpec: perimeterRhythmTopGrainPart,
+            noteSpecs: perimeterRhythmTopGrainPart,
             timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
-            partSpec: perimeterRhythmTopLeftGrainPart,
+            noteSpecs: perimeterRhythmTopLeftGrainPart,
             timbreName: TimbreName.TRIANGLE,
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
-            partSpec: perimeterRhythmLeftGrainPart,
+            noteSpecs: perimeterRhythmLeftGrainPart,
             timbreName: TimbreName.TRIANGLE,
         }
 

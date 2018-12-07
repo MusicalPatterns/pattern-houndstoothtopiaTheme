@@ -1,4 +1,4 @@
-import { calculatePartSpecTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
+import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { from, sequence, testIsCloseTo, Time } from '@musical-patterns/utilities'
 import {
     buildContourPieces,
@@ -151,13 +151,13 @@ describe('contour wholes', () => {
                 } = buildContourWholes()
                 const scales: Scale[] = buildScales(patternSpec)
 
-                const onePartsDuration: Time = calculatePartSpecTotalCompiledDuration(perimeterRhythmTopRightGrainContourWhole.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourWhole.map(buildSupertileNoteSpec), scales)
 
-                expect(calculatePartSpecTotalCompiledDuration(perimeterRhythmLeftGrainContourWhole.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourWhole.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculatePartSpecTotalCompiledDuration(perimeterRhythmTopGrainContourWhole.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopGrainContourWhole.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculatePartSpecTotalCompiledDuration(perimeterRhythmTopLeftGrainContourWhole.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopLeftGrainContourWhole.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
             })
         })
@@ -170,9 +170,9 @@ describe('contour wholes', () => {
                 } = buildContourWholes()
                 const scales: Scale[] = buildScales(patternSpec)
 
-                const onePartsDuration: Time = calculatePartSpecTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
 
-                expect(calculatePartSpecTotalCompiledDuration(supertileRhythmHigherPitchContourWhole.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(supertileRhythmHigherPitchContourWhole.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
             })
         })
@@ -185,8 +185,8 @@ describe('contour wholes', () => {
                 } = buildContourWholes()
                 const scales: Scale[] = buildScales(patternSpec)
 
-                const supertileDuration: Time = calculatePartSpecTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
-                const perimeterDuration: Time = calculatePartSpecTotalCompiledDuration(perimeterRhythmLeftGrainContourWhole.map(buildSupertileNoteSpec), scales)
+                const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
+                const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourWhole.map(buildSupertileNoteSpec), scales)
 
                 const ratioBetweenSupertileAndPerimeterParts: number = from.Time(supertileDuration) / from.Time(perimeterDuration)
                 expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterParts, 3 / (4 * 4 * 4)))

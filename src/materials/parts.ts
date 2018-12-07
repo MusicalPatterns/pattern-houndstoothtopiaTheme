@@ -1,10 +1,10 @@
-import { PartSpec } from '@musical-patterns/compiler'
+import { NoteSpec } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildPerimeterNoteSpec, buildSupertileNoteSpec } from './notes'
 import { buildContourWholes } from './wholes'
 
-const buildParts: () => DictionaryOf<PartSpec> =
-    (): DictionaryOf<PartSpec> => {
+const buildParts: () => DictionaryOf<NoteSpec[]> =
+    (): DictionaryOf<NoteSpec[]> => {
         const {
             supertileRhythmLowerPitchContourWhole,
             supertileRhythmHigherPitchContourWhole,
@@ -14,17 +14,17 @@ const buildParts: () => DictionaryOf<PartSpec> =
             perimeterRhythmLeftGrainContourWhole,
         } = buildContourWholes()
 
-        const supertileRhythmLowerPitchPart: PartSpec =
+        const supertileRhythmLowerPitchPart: NoteSpec[] =
             supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec)
-        const supertileRhythmHigherPitchPart: PartSpec =
+        const supertileRhythmHigherPitchPart: NoteSpec[] =
             supertileRhythmHigherPitchContourWhole.map(buildSupertileNoteSpec)
-        const perimeterRhythmTopRightGrainPart: PartSpec =
+        const perimeterRhythmTopRightGrainPart: NoteSpec[] =
             perimeterRhythmTopRightGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmTopGrainPart: PartSpec =
+        const perimeterRhythmTopGrainPart: NoteSpec[] =
             perimeterRhythmTopGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmTopLeftGrainPart: PartSpec =
+        const perimeterRhythmTopLeftGrainPart: NoteSpec[] =
             perimeterRhythmTopLeftGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmLeftGrainPart: PartSpec =
+        const perimeterRhythmLeftGrainPart: NoteSpec[] =
             perimeterRhythmLeftGrainContourWhole.map(buildPerimeterNoteSpec)
 
         return {
