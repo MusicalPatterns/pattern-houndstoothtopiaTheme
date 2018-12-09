@@ -18,5 +18,6 @@ export {
     buildParts,
     buildContourPieces,
     buildContourWholes,
+    HoundstoothtopiaThemePatternSpec,
 } from './materials/indexForTest'
 export { pattern, patternSpec } from './patterns'

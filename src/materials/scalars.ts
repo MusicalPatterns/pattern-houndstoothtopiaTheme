@@ -6,7 +6,8 @@ const buildScalars: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
         const { harmonicSeriesScale } = buildStandardScales()
 
-        const rootOfTwoScalars: Scalar[] = harmonicSeriesScale.scalars.map(
+        const harmonicSeriesScalars: Scalar[] = harmonicSeriesScale.scalars || []
+        const rootOfTwoScalars: Scalar[] = harmonicSeriesScalars.map(
             (n: Scalar): Scalar => to.Scalar(apply.Power(from.Base(SQRT_TWO_AS_BASE), to.Power(from.Scalar(n) - 1))),
         )
 
