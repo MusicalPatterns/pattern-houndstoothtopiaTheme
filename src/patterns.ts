@@ -1,5 +1,6 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
 import { Pattern, PatternId, PatternMetadata } from '@musical-patterns/pattern'
+import { to } from '@musical-patterns/utilities'
 import {
     HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
     HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
@@ -20,7 +21,9 @@ const houndstoothtopiaPatternMetadata: PatternMetadata = {
 }
 
 const patternSpec: HoundstoothtopiaThemePatternSpec = {
+    patternDurationOffset: to.Offset(0),
     patternDurationScalar: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
+    patternPitchOffset: to.Offset(0),
     patternPitchScalar: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
     patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
     patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
