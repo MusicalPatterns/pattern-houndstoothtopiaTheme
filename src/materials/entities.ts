@@ -1,4 +1,4 @@
-import { BuildEntitiesFunction, Entity, TimbreName } from '@musical-patterns/compiler'
+import { BuildEntitiesFunction, Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { buildParts } from './parts'
 
 const buildEntities: BuildEntitiesFunction =
@@ -14,27 +14,27 @@ const buildEntities: BuildEntitiesFunction =
 
         const supertileRhythmLowerPitchEntity: Entity = {
             noteSpecs: supertileRhythmLowerPitchPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
         const supertileRhythmHigherPitchEntity: Entity = {
             noteSpecs: supertileRhythmHigherPitchPart,
-            timbreName: TimbreName.SINE,
+            timbreName: TimbreNameEnum.SINE,
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopRightGrainPart,
-            timbreName: TimbreName.TRIANGLE,
+            timbreName: TimbreNameEnum.TRIANGLE,
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopGrainPart,
-            timbreName: TimbreName.TRIANGLE,
+            timbreName: TimbreNameEnum.TRIANGLE,
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopLeftGrainPart,
-            timbreName: TimbreName.TRIANGLE,
+            timbreName: TimbreNameEnum.TRIANGLE,
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             noteSpecs: perimeterRhythmLeftGrainPart,
-            timbreName: TimbreName.TRIANGLE,
+            timbreName: TimbreNameEnum.TRIANGLE,
         }
 
         return [
