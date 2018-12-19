@@ -1,4 +1,7 @@
-export { pattern as houndstoothtopiaThemePattern } from './dist'
+const { pattern: houndstoothtopiaThemePattern } = require('./dist')
+const houndstoothtopiaThemeSnapshot = require('./snapshot')
 
-import snapshot from './snapshot'
-export default snapshot
+module.exports = {
+    houndstoothtopiaThemePattern,
+    houndstoothtopiaThemeSnapshot,
+}
