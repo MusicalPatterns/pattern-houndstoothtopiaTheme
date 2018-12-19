@@ -9,18 +9,18 @@ import {
 } from './constants'
 import { buildEntities, buildScales, HoundstoothtopiaThemePatternSpec } from './materials'
 
-const houndstoothtopiaPatternMaterial: PatternMaterial = {
+const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
     buildScalesFunction: buildScales,
 }
 
-const houndstoothtopiaPatternMetadata: PatternMetadata = {
+const metadata: PatternMetadata = {
     description: 'music in the shape of a houndstooth, using the square root of 2 extensively',
     formattedName: 'Houndstoothtopia Theme',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
 }
 
-const patternSpec: HoundstoothtopiaThemePatternSpec = {
+const spec: HoundstoothtopiaThemePatternSpec = {
     patternDurationOffset: to.Offset(0),
     patternDurationScalar: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
     patternPitchOffset: to.Offset(0),
@@ -30,13 +30,13 @@ const patternSpec: HoundstoothtopiaThemePatternSpec = {
 }
 
 const pattern: Pattern = {
-    material: houndstoothtopiaPatternMaterial,
-    metadata: houndstoothtopiaPatternMetadata,
+    material,
+    metadata,
     patternId: PatternId.HOUNDSTOOTHTOPIA_THEME,
-    spec: patternSpec,
+    spec,
 }
 
 export {
     pattern,
-    patternSpec,
+    spec,
 }

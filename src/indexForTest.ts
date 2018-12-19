@@ -20,4 +20,4 @@ export {
     buildContourWholes,
     HoundstoothtopiaThemePatternSpec,
 } from './materials/indexForTest'
-export { pattern, patternSpec } from './patterns'
+export { pattern, spec } from './patterns'

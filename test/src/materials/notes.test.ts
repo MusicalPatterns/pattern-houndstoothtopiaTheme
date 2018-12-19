@@ -2,7 +2,7 @@ import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
 
-describe('houndstoothtopia notes', () => {
+describe('notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {

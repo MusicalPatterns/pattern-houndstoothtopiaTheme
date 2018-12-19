@@ -2,7 +2,7 @@ import { Scale } from '@musical-patterns/compiler'
 import { to } from '@musical-patterns/utilities'
 import { buildScales, HoundstoothtopiaThemePatternSpec } from '../../../src/indexForTest'
 
-describe('houndstoothtopia theme scales', () => {
+describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
         const spec: HoundstoothtopiaThemePatternSpec = {
             patternDurationScalar: to.Scalar(1),

@@ -1,8 +1,8 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
-import { buildContourPieces, buildScales, buildSupertileNoteSpec, patternSpec } from '../../../src/indexForTest'
+import { buildContourPieces, buildScales, buildSupertileNoteSpec, spec } from '../../../src/indexForTest'
 
-describe('houndstoothtopia contour pieces', () => {
+describe('contour pieces', () => {
     describe('durations', () => {
         describe('perimeter pieces', () => {
             it('are all the same duration', () => {
@@ -13,7 +13,7 @@ describe('houndstoothtopia contour pieces', () => {
                     perimeterRhythmTopRightGrainContourPiece,
                     perimeterRestContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(patternSpec)
+                const scales: Scale[] = buildScales(spec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourPiece.map(buildSupertileNoteSpec), scales)
 
@@ -35,7 +35,7 @@ describe('houndstoothtopia contour pieces', () => {
                     supertileRhythmHigherPitchContourPiece,
                     supertileRestContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(patternSpec)
+                const scales: Scale[] = buildScales(spec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
 
@@ -52,7 +52,7 @@ describe('houndstoothtopia contour pieces', () => {
                     perimeterRhythmLeftGrainContourPiece,
                     supertileRhythmLowerPitchContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(patternSpec)
+                const scales: Scale[] = buildScales(spec)
 
                 const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
                 const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)

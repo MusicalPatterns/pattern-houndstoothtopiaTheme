@@ -1,7 +1,7 @@
 import { Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
 import { buildScalars } from '../../../src/indexForTest'
 
-describe('houndstoothtopia scalars', () => {
+describe('scalars', () => {
     it('root of two scalars start at 1 and increase by the square root of 2', () => {
         const { rootOfTwoScalars } = buildScalars()
         const expectedScalars: Scalar[] = [
