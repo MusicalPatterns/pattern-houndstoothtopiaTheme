@@ -1,12 +1,12 @@
 {
-  "name": "@musical-patterns/pattern-houndstoothtopia-theme",
+  "name": "@musical-patterns/pattern-houndstoothtopiaTheme",
   "version": "1.0.19",
   "main": "index.js",
   "typings": "index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MusicalPatterns/pattern-houndstoothtopia-theme.git"
+    "url": "https://github.com/MusicalPatterns/pattern-houndstoothtopiaTheme.git"
   },
   "dependencies": {
     "@musical-patterns/compiler": "^1.0.34",

@@ -7,9 +7,9 @@ module.exports = {
         "test/src/**/*.js",
         "test/src/**/*.tsx",
         "test/src/**/*.jsx",
-        'src/houndstoothtopia-theme/test/src/**/*.ts',
-        'src/houndstoothtopia-theme/test/src/**/*.js',
-        'src/houndstoothtopia-theme/test/src/**/*.tsx',
-        'src/houndstoothtopia-theme/test/src/**/*.jsx',
+        'src/houndstoothtopiaTheme/test/src/**/*.ts',
+        'src/houndstoothtopiaTheme/test/src/**/*.js',
+        'src/houndstoothtopiaTheme/test/src/**/*.tsx',
+        'src/houndstoothtopiaTheme/test/src/**/*.jsx',
     ],
 }
