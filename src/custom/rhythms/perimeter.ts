@@ -1,7 +1,6 @@
-import { Block, to as patternTo } from '@musical-patterns/pattern'
 import {
     apply,
-    Coordinate,
+    Block,
     Coordinate2d,
     distanceBetween,
     from,
@@ -25,7 +24,7 @@ const buildPerimeterRhythm: () => Block =
                 return distanceBetween(to.Coordinate(coordinate), to.Coordinate(nextCoordinate))
             })
 
-        return patternTo.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
+        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
             to.Index(apply.Base(from.Length(length), SQRT_TWO_AS_BASE)),
         ))
     }

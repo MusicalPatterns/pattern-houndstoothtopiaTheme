@@ -1,4 +1,4 @@
-import { Block, to } from '@musical-patterns/pattern'
+import { Block, to } from '@musical-patterns/utilities'
 import { buildSupertileRhythm } from '../../../../src/indexForTest'
 
 describe('supertile rhythm', () => {
