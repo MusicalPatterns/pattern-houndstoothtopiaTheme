@@ -1,14 +1,4 @@
-import {
-    apply,
-    Coordinate,
-    CoordinateElement,
-    cycle,
-    DictionaryOf,
-    from,
-    rotate,
-    Scalar,
-    to,
-} from '@musical-patterns/utilities'
+import { apply, Coordinate2d, cycle, DictionaryOf, rotate, Scalar, to } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -22,55 +12,55 @@ import {
 } from '../coordinates'
 import { CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
-const heights: CoordinateElement[] = []
+const heights: number[] = []
 
-const extractHeight: (coordinates: Coordinate[]) => Scalar[] =
-    (coordinates: Coordinate[]): Scalar[] =>
-        coordinates.map((coordinate: Coordinate): Scalar => {
-            const height: CoordinateElement = coordinate[ 1 ]
+const extractHeight: (coordinates: Coordinate2d[]) => Scalar[] =
+    (coordinates: Coordinate2d[]): Scalar[] =>
+        coordinates.map((coordinate: Coordinate2d): Scalar => {
+            const height: number = coordinate[ 1 ]
             heights.push(height)
 
-            return to.Scalar(apply.Offset(from.CoordinateElement(height), PERIMETER_PITCH_OFFSET))
+            return to.Scalar(apply.Offset(height, PERIMETER_PITCH_OFFSET))
         })
 
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
-        const houndstoothCoordinates: Coordinate[] =
+        const houndstoothCoordinates: Coordinate2d[] =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Coordinate[] = cycle(
+        const cycledHoundstoothCoordinates: Coordinate2d[] = cycle(
             houndstoothCoordinates,
             CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
-        const houndstoothCenterCoordinate: Coordinate = buildHoundstoothSolidCenterOriginCoordinate()
-        const houndstoothTopRightGrainCoordinates: Coordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate) =>
+        const houndstoothCenterCoordinate: Coordinate2d = buildHoundstoothSolidCenterOriginCoordinate()
+        const houndstoothTopRightGrainCoordinates: Coordinate2d[] =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
-                }))
-        const houndstoothTopGrainCoordinates: Coordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate) =>
+                }) as Coordinate2d)
+        const houndstoothTopGrainCoordinates: Coordinate2d[] =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
-                }))
-        const houndstoothTopLeftGrainCoordinates: Coordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate) =>
+                }) as Coordinate2d)
+        const houndstoothTopLeftGrainCoordinates: Coordinate2d[] =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
-                }))
-        const houndstoothLeftGrainCoordinates: Coordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate) =>
+                }) as Coordinate2d)
+        const houndstoothLeftGrainCoordinates: Coordinate2d[] =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
-                }))
+                }) as Coordinate2d)
 
         const perimeterRhythmLeftGrainPitches: Scalar[] = extractHeight(houndstoothLeftGrainCoordinates)
         const perimeterRhythmTopGrainPitches: Scalar[] = extractHeight(houndstoothTopGrainCoordinates)
