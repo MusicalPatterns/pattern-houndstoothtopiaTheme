@@ -16,7 +16,7 @@ ship:
 	@set -e; pushd ../..; make ship PATTERN="houndstoothtopiaTheme"; popd
 
 test:
-	@set -e; pushd ../..; make test JASMINE_CONFIG_PATH="src/houndstoothtopiaTheme/test/jasmine.js" PATTERN_NAME="HOUNDSTOOTHTOPIA_THEME"; popd
+	@set -e; pushd ../..; make test JASMINE_CONFIG_PATH="src/houndstoothtopiaTheme/test/jasmine.js" PATTERN="houndstoothtopiaTheme"; popd
 
 update:
 	@set -e; pushd ../..; make update PATTERN="houndstoothtopiaTheme"; popd
