@@ -1,7 +1,7 @@
-const { pattern: houndstoothtopiaThemePattern } = require('./dist')
-const houndstoothtopiaThemeSnapshot = require('./snapshot')
+const { pattern } = require('./dist')
+const snapshot = require('./snapshot')
 
 module.exports = {
-    houndstoothtopiaThemePattern,
-    houndstoothtopiaThemeSnapshot,
+    pattern,
+    snapshot,
 }
