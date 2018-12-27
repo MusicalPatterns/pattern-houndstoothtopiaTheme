@@ -14,27 +14,27 @@ const buildEntities: BuildEntitiesFunction =
 
         const supertileRhythmLowerPitchEntity: Entity = {
             noteSpecs: supertileRhythmLowerPitchPart,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.BASS,
         }
         const supertileRhythmHigherPitchEntity: Entity = {
             noteSpecs: supertileRhythmHigherPitchPart,
-            timbreName: TimbreNameEnum.SINE,
+            timbreName: TimbreNameEnum.DYNA_EP_BRIGHT,
         }
         const perimeterRhythmTopRightGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopRightGrainPart,
-            timbreName: TimbreNameEnum.TRIANGLE,
+            timbreName: TimbreNameEnum.WARM_TRIANGLE,
         }
         const perimeterRhythmTopGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopGrainPart,
-            timbreName: TimbreNameEnum.TRIANGLE,
+            timbreName: TimbreNameEnum.BRASS,
         }
         const perimeterRhythmTopLeftGrainEntity: Entity = {
             noteSpecs: perimeterRhythmTopLeftGrainPart,
-            timbreName: TimbreNameEnum.TRIANGLE,
+            timbreName: TimbreNameEnum.PHONEME_OOH,
         }
         const perimeterRhythmLeftGrainEntity: Entity = {
             noteSpecs: perimeterRhythmLeftGrainPart,
-            timbreName: TimbreNameEnum.TRIANGLE,
+            timbreName: TimbreNameEnum.TWELVE_OP_TINES,
         }
 
         return [
