@@ -1,6 +1,6 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { adjustScalars, buildStandardScales } from '@musical-patterns/pattern'
 import { apply, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import { buildStandardScales } from '@musical-patterns/utilities-pattern'
 import { buildScalars } from './scalars'
 import { HoundstoothtopiaThemePatternSpec } from './types'
 

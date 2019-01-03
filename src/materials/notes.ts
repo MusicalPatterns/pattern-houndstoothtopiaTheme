@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { apply, CoordinateElement, from, HALF, to } from '@musical-patterns/utilities'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/utilities-pattern'
 import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
