@@ -1,8 +1,8 @@
 {
   "name": "@musical-patterns/pattern-houndstoothtopia-theme",
-  "version": "1.0.39",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "version": "1.0.40",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
