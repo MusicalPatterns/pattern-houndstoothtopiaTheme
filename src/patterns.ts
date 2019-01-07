@@ -1,6 +1,6 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
 import { PatternMetadata } from '@musical-patterns/pattern'
-import { Pattern, PatternId } from '@musical-patterns/registry'
+import { buildPatterns, Pattern, PatternId, Patterns } from '@musical-patterns/registry'
 import { to } from '@musical-patterns/utilities'
 import {
     HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
@@ -37,7 +37,12 @@ const pattern: Pattern = {
     spec,
 }
 
+const patterns: Patterns = buildPatterns({
+    [ pattern.patternId ]: pattern,
+})
+
 export {
     pattern,
+    patterns,
     spec,
 }
