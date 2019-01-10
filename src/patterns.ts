@@ -17,7 +17,7 @@ const material: PatternMaterial = {
 
 const metadata: PatternMetadata = {
     description: 'music in the shape of a houndstooth, using the square root of 2 extensively',
-    formattedName: 'Houndstoothtopia Theme',
+    formattedName: 'Houndstoothtopia',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
 }
 
