@@ -9,6 +9,7 @@ import {
     HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 } from './constants'
 import { buildEntities, buildScales, HoundstoothtopiaThemePatternSpec } from './materials'
+import { post } from './metadata'
 
 const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
@@ -16,7 +17,7 @@ const material: PatternMaterial = {
 }
 
 const metadata: PatternMetadata = {
-    description: 'music in the shape of a houndstooth, using the square root of 2 extensively',
+    description: post,
     formattedName: 'Houndstoothtopia',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
 }
