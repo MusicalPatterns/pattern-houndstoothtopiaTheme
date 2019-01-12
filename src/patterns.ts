@@ -19,7 +19,7 @@ const material: PatternMaterial = {
 const metadata: PatternMetadata = {
     description: post,
     formattedName: 'Houndstoothtopia',
-    mostRecentPublish: process.env.PUBLISH_DATE,
+    mostRecentPublish: process.env.PUBLISH_DATE || '2018-02-21T07:00:00.000Z',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
     originalPublish: '2018-02-21T07:00:00.000Z',
 }
