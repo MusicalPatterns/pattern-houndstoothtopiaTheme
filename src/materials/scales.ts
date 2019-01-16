@@ -1,8 +1,8 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales } from '@musical-patterns/pattern'
+import { buildStandardScales, StandardPatternSpecProperties } from '@musical-patterns/pattern'
 import { apply, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import { HoundstoothtopiaThemePatternSpec } from '../types'
 import { buildScalars } from './scalars'
-import { HoundstoothtopiaThemePatternSpec } from './types'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: HoundstoothtopiaThemePatternSpec): Scale[] => {
@@ -13,13 +13,13 @@ const buildScales: BuildScalesFunction =
 
         const gainScale: Scale = nonScale
         const durationsScale: Scale = {
-            offset: patternSpec.patternDurationOffset,
-            scalar: patternSpec.patternDurationScalar,
+            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_OFFSET ],
+            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ],
             scalars: rootOfTwoScalars,
         }
         const pitchesScale: Scale = {
-            offset: patternSpec.patternPitchOffset,
-            scalar: patternSpec.patternPitchScalar,
+            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_OFFSET ],
+            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ],
             scalars: nonScale.scalars,
         }
         const xPositionsScale: Scale = {

@@ -18,9 +18,12 @@ export {
     buildParts,
     buildContourPieces,
     buildContourWholes,
-    HoundstoothtopiaThemePatternSpec,
 } from './materials/indexForTest'
-export { pattern, spec } from './patterns'
+export { pattern } from './patterns'
+export { initialSpec } from './specs'
+export {
+    HoundstoothtopiaThemePatternSpec,
+} from './types'
 
 // tslint:disable-next-line:no-default-import
 import * as snapshot from './snapshot.json'

@@ -1,6 +1,6 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
-import { buildContourPieces, buildScales, buildSupertileNoteSpec, spec } from '../../../src/indexForTest'
+import { buildContourPieces, buildScales, buildSupertileNoteSpec, initialSpec } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
@@ -13,7 +13,7 @@ describe('contour pieces', () => {
                     perimeterRhythmTopRightGrainContourPiece,
                     perimeterRestContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourPiece.map(buildSupertileNoteSpec), scales)
 
@@ -35,7 +35,7 @@ describe('contour pieces', () => {
                     supertileRhythmHigherPitchContourPiece,
                     supertileRestContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
 
@@ -52,7 +52,7 @@ describe('contour pieces', () => {
                     perimeterRhythmLeftGrainContourPiece,
                     supertileRhythmLowerPitchContourPiece,
                 } = buildContourPieces()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
                 const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)

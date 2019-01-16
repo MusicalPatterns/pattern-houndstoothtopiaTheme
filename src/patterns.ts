@@ -1,15 +1,9 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
 import { PatternMetadata } from '@musical-patterns/pattern'
 import { buildPatterns, Pattern, PatternId, Patterns } from '@musical-patterns/registry'
-import { to } from '@musical-patterns/utilities'
-import {
-    HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
-    HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
-    HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
-    HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
-} from './constants'
-import { buildEntities, buildScales, HoundstoothtopiaThemePatternSpec } from './materials'
+import { buildEntities, buildScales } from './materials'
 import { post } from './metadata'
+import { initialSpec, specAttributes } from './specs'
 
 const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
@@ -24,20 +18,12 @@ const metadata: PatternMetadata = {
     originalPublish: '2018-02-21T07:00:00.000Z',
 }
 
-const spec: HoundstoothtopiaThemePatternSpec = {
-    patternDurationOffset: to.Offset(0),
-    patternDurationScalar: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
-    patternPitchOffset: to.Offset(0),
-    patternPitchScalar: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
-    patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
-    patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
-}
-
 const pattern: Pattern = {
+    initialSpec,
     material,
     metadata,
     patternId: PatternId.HOUNDSTOOTHTOPIA_THEME,
-    spec,
+    specAttributes,
 }
 
 const patterns: Patterns = buildPatterns({
@@ -47,5 +33,4 @@ const patterns: Patterns = buildPatterns({
 export {
     pattern,
     patterns,
-    spec,
 }

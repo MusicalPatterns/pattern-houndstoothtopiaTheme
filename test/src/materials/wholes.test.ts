@@ -5,7 +5,7 @@ import {
     buildContourWholes,
     buildScales,
     buildSupertileNoteSpec,
-    spec,
+    initialSpec,
     to as houndstoothtopiaTo,
 } from '../../../src/indexForTest'
 
@@ -149,7 +149,7 @@ describe('contour wholes', () => {
                     perimeterRhythmTopLeftGrainContourWhole,
                     perimeterRhythmTopRightGrainContourWhole,
                 } = buildContourWholes()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourWhole.map(buildSupertileNoteSpec), scales)
 
@@ -168,7 +168,7 @@ describe('contour wholes', () => {
                     supertileRhythmLowerPitchContourWhole,
                     supertileRhythmHigherPitchContourWhole,
                 } = buildContourWholes()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
 
@@ -183,7 +183,7 @@ describe('contour wholes', () => {
                     perimeterRhythmLeftGrainContourWhole,
                     supertileRhythmLowerPitchContourWhole,
                 } = buildContourWholes()
-                const scales: Scale[] = buildScales(spec)
+                const scales: Scale[] = buildScales(initialSpec)
 
                 const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec), scales)
                 const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourWhole.map(buildSupertileNoteSpec), scales)
