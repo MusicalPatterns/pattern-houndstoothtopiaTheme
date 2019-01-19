@@ -1,4 +1,5 @@
 import {
+    PatternSpecData,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -12,7 +13,7 @@ import {
 } from './constants'
 import { HoundstoothtopiaThemePatternSpec, HoundstoothtopiaThemePatternSpecAttributes } from './types'
 
-const initialSpec: HoundstoothtopiaThemePatternSpec = {
+const initial: HoundstoothtopiaThemePatternSpec = {
     ...standardInitialPatternSpec,
     [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
     [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
@@ -20,7 +21,7 @@ const initialSpec: HoundstoothtopiaThemePatternSpec = {
     patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 }
 
-const specAttributes: HoundstoothtopiaThemePatternSpecAttributes = {
+const attributes: HoundstoothtopiaThemePatternSpecAttributes = {
     ...standardPatternSpecAttributes,
     patternPositionOffset: {
         patternSpecPropertyType: PatternSpecPropertyType.RANGED,
@@ -30,7 +31,11 @@ const specAttributes: HoundstoothtopiaThemePatternSpecAttributes = {
     },
 }
 
+const specData: PatternSpecData<HoundstoothtopiaThemePatternSpec> = {
+    attributes,
+    initial,
+}
+
 export {
-    initialSpec,
-    specAttributes,
+    specData,
 }

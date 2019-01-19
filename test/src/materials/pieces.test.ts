@@ -1,9 +1,20 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
-import { buildContourPieces, buildScales, buildSupertileNoteSpec, initialSpec } from '../../../src/indexForTest'
+import {
+    buildContourPieces,
+    buildScales,
+    buildSupertileNoteSpec,
+    HoundstoothtopiaThemePatternSpec,
+    specData,
+} from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
+        let initialSpec: HoundstoothtopiaThemePatternSpec
+        beforeEach(() => {
+            initialSpec = specData.initial
+        })
+
         describe('perimeter pieces', () => {
             it('are all the same duration', () => {
                 const {

@@ -20,7 +20,7 @@ export {
     buildContourWholes,
 } from './materials/indexForTest'
 export { pattern } from './patterns'
-export { initialSpec } from './specs'
+export { specData } from './specs'
 export {
     HoundstoothtopiaThemePatternSpec,
 } from './types'

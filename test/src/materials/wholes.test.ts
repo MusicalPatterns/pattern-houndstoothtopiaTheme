@@ -5,7 +5,8 @@ import {
     buildContourWholes,
     buildScales,
     buildSupertileNoteSpec,
-    initialSpec,
+    HoundstoothtopiaThemePatternSpec,
+    specData,
     to as houndstoothtopiaTo,
 } from '../../../src/indexForTest'
 
@@ -141,6 +142,11 @@ describe('contour wholes', () => {
     })
 
     describe('durations', () => {
+        let initialSpec: HoundstoothtopiaThemePatternSpec
+        beforeEach(() => {
+            initialSpec = specData.initial
+        })
+
         describe('perimeter wholes', () => {
             it('are all the same duration', () => {
                 const {
