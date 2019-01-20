@@ -1,5 +1,5 @@
 import {
-    PatternSpecData,
+    PatternSpecDataFor,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -31,7 +31,7 @@ const attributes: HoundstoothtopiaThemePatternSpecAttributes = {
     },
 }
 
-const specData: PatternSpecData<HoundstoothtopiaThemePatternSpec> = {
+const specData: PatternSpecDataFor<HoundstoothtopiaThemePatternSpec> = {
     attributes,
     initial,
 }
