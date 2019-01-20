@@ -4,13 +4,13 @@ import {
     buildContourPieces,
     buildScales,
     buildSupertileNoteSpec,
-    HoundstoothtopiaThemePatternSpec,
+    HoundstoothtopiaThemeSpec,
     specData,
 } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
-        let initialSpec: HoundstoothtopiaThemePatternSpec
+        let initialSpec: HoundstoothtopiaThemeSpec
         beforeEach(() => {
             initialSpec = specData.initial
         })

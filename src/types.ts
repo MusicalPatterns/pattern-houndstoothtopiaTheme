@@ -1,21 +1,21 @@
 import {
-    RangedPatternSpecPropertyAttributes,
-    StandardPatternSpec,
-    StandardPatternSpecAttributes,
+    RangedSpecPropertyAttributes,
+    StandardSpec,
+    StandardSpecAttributes,
 } from '@musical-patterns/pattern'
 import { Offset, Scalar } from '@musical-patterns/utilities'
 
-interface HoundstoothtopiaThemePatternSpec extends StandardPatternSpec {
+interface HoundstoothtopiaThemeSpec extends StandardSpec {
     patternPositionOffset: Offset[],
     patternPositionScalar: Scalar,
 }
 
-interface HoundstoothtopiaThemePatternSpecAttributes extends StandardPatternSpecAttributes {
-    patternPositionOffset: RangedPatternSpecPropertyAttributes,
-    patternPositionScalar: RangedPatternSpecPropertyAttributes,
+interface HoundstoothtopiaThemeSpecAttributes extends StandardSpecAttributes {
+    patternPositionOffset: RangedSpecPropertyAttributes,
+    patternPositionScalar: RangedSpecPropertyAttributes,
 }
 
 export {
-    HoundstoothtopiaThemePatternSpec,
-    HoundstoothtopiaThemePatternSpecAttributes,
+    HoundstoothtopiaThemeSpec,
+    HoundstoothtopiaThemeSpecAttributes,
 }

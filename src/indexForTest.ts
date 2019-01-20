@@ -22,7 +22,7 @@ export {
 export { pattern } from './patterns'
 export { specData } from './specs'
 export {
-    HoundstoothtopiaThemePatternSpec,
+    HoundstoothtopiaThemeSpec,
 } from './types'
 
 // tslint:disable-next-line:no-default-import

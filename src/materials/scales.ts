@@ -1,11 +1,11 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, StandardPatternSpecProperties } from '@musical-patterns/pattern'
+import { buildStandardScales, StandardSpecProperties } from '@musical-patterns/pattern'
 import { apply, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
-import { HoundstoothtopiaThemePatternSpec } from '../types'
+import { HoundstoothtopiaThemeSpec } from '../types'
 import { buildScalars } from './scalars'
 
 const buildScales: BuildScalesFunction =
-    (patternSpec: HoundstoothtopiaThemePatternSpec): Scale[] => {
+    (spec: HoundstoothtopiaThemeSpec): Scale[] => {
         const { nonScale } = buildStandardScales()
         const {
             rootOfTwoScalars,
@@ -13,28 +13,28 @@ const buildScales: BuildScalesFunction =
 
         const gainScale: Scale = nonScale
         const durationsScale: Scale = {
-            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_OFFSET ],
-            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ],
+            offset: spec[ StandardSpecProperties.PATTERN_DURATION_OFFSET ],
+            scalar: spec[ StandardSpecProperties.PATTERN_DURATION_SCALAR ],
             scalars: rootOfTwoScalars,
         }
         const pitchesScale: Scale = {
-            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_OFFSET ],
-            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ],
+            offset: spec[ StandardSpecProperties.PATTERN_PITCH_OFFSET ],
+            scalar: spec[ StandardSpecProperties.PATTERN_PITCH_SCALAR ],
             scalars: nonScale.scalars,
         }
         const xPositionsScale: Scale = {
-            offset: apply.Index(patternSpec.patternPositionOffset, X_AXIS),
-            scalar: patternSpec.patternPositionScalar,
+            offset: apply.Index(spec.patternPositionOffset, X_AXIS),
+            scalar: spec.patternPositionScalar,
             scalars: nonScale.scalars,
         }
         const yPositionsScale: Scale = {
-            offset: apply.Index(patternSpec.patternPositionOffset, Y_AXIS),
-            scalar: patternSpec.patternPositionScalar,
+            offset: apply.Index(spec.patternPositionOffset, Y_AXIS),
+            scalar: spec.patternPositionScalar,
             scalars: nonScale.scalars,
         }
         const zPositionsScale: Scale = {
-            offset: apply.Index(patternSpec.patternPositionOffset, Z_AXIS),
-            scalar: patternSpec.patternPositionScalar,
+            offset: apply.Index(spec.patternPositionOffset, Z_AXIS),
+            scalar: spec.patternPositionScalar,
             scalars: nonScale.scalars,
         }
 

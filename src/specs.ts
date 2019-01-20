@@ -1,9 +1,9 @@
 import {
-    PatternSpecDataFor,
-    PatternSpecPropertyType,
-    standardInitialPatternSpec,
-    standardPatternSpecAttributes,
-    StandardPatternSpecProperties,
+    SpecDataFor,
+    SpecPropertyType,
+    standardInitialSpec,
+    standardSpecAttributes,
+    StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import {
     HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
@@ -11,27 +11,27 @@ import {
     HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
     HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 } from './constants'
-import { HoundstoothtopiaThemePatternSpec, HoundstoothtopiaThemePatternSpecAttributes } from './types'
+import { HoundstoothtopiaThemeSpec, HoundstoothtopiaThemeSpecAttributes } from './types'
 
-const initial: HoundstoothtopiaThemePatternSpec = {
-    ...standardInitialPatternSpec,
-    [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
-    [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
+const initial: HoundstoothtopiaThemeSpec = {
+    ...standardInitialSpec,
+    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
+    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
     patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
     patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 }
 
-const attributes: HoundstoothtopiaThemePatternSpecAttributes = {
-    ...standardPatternSpecAttributes,
+const attributes: HoundstoothtopiaThemeSpecAttributes = {
+    ...standardSpecAttributes,
     patternPositionOffset: {
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
     patternPositionScalar: {
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
 }
 
-const specData: PatternSpecDataFor<HoundstoothtopiaThemePatternSpec> = {
+const specData: SpecDataFor<HoundstoothtopiaThemeSpec> = {
     attributes,
     initial,
 }

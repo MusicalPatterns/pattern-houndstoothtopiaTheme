@@ -1,13 +1,13 @@
 import { Scale } from '@musical-patterns/compiler'
-import { StandardPatternSpecProperties } from '@musical-patterns/pattern'
+import { StandardSpecProperties } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
-import { buildScales, HoundstoothtopiaThemePatternSpec } from '../../../src/indexForTest'
+import { buildScales, HoundstoothtopiaThemeSpec } from '../../../src/indexForTest'
 
 describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
-        const spec: HoundstoothtopiaThemePatternSpec = {
-            [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]: to.Scalar(1),
-            [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: to.Scalar(1),
+        const spec: HoundstoothtopiaThemeSpec = {
+            [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: to.Scalar(1),
+            [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: to.Scalar(1),
             patternPositionOffset: [ 3, 4, 5 ].map(to.Offset),
             patternPositionScalar: to.Scalar(7),
         }
