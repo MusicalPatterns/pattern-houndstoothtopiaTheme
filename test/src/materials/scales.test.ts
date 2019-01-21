@@ -6,8 +6,8 @@ import { buildScales, HoundstoothtopiaThemeSpec } from '../../../src/indexForTes
 describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
         const spec: HoundstoothtopiaThemeSpec = {
-            [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: to.Scalar(1),
-            [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: to.Scalar(1),
+            [ StandardSpecProperties.BASE_DURATION ]: to.Millisecond(1),
+            [ StandardSpecProperties.BASE_FREQUENCY ]: to.Frequency(1),
             patternPositionOffset: [ 3, 4, 5 ].map(to.Offset),
             patternPositionScalar: to.Scalar(7),
         }

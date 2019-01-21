@@ -6,8 +6,8 @@ import {
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import {
-    HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
-    HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
+    HOUNDSTOOTHTOPIA_THEME_BASE_DURATION,
+    HOUNDSTOOTHTOPIA_THEME_BASE_FREQUENCY,
     HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
     HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 } from './constants'
@@ -15,8 +15,8 @@ import { HoundstoothtopiaThemeSpec, HoundstoothtopiaThemeSpecAttributes } from '
 
 const initial: HoundstoothtopiaThemeSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_DURATION_SCALAR,
-    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HOUNDSTOOTHTOPIA_THEME_PITCH_SCALAR,
+    [ StandardSpecProperties.BASE_DURATION ]: HOUNDSTOOTHTOPIA_THEME_BASE_DURATION,
+    [ StandardSpecProperties.BASE_FREQUENCY ]: HOUNDSTOOTHTOPIA_THEME_BASE_FREQUENCY,
     patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
     patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
 }
