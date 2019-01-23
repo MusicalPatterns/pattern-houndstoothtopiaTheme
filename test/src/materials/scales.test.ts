@@ -8,8 +8,8 @@ describe('scales', () => {
         const spec: HoundstoothtopiaThemeSpec = {
             [ StandardSpecProperties.BASE_DURATION ]: to.Millisecond(1),
             [ StandardSpecProperties.BASE_FREQUENCY ]: to.Frequency(1),
-            patternPositionOffset: [ 3, 4, 5 ].map(to.Offset),
-            patternPositionScalar: to.Scalar(7),
+            basePosition: [ 3, 4, 5 ].map(to.Offset),
+            basePositionScalar: to.Scalar(7),
         }
         const scales: Scale[] = buildScales(spec)
 

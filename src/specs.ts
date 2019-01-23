@@ -10,8 +10,8 @@ import { Units } from '@musical-patterns/utilities'
 import {
     HOUNDSTOOTHTOPIA_THEME_BASE_DURATION,
     HOUNDSTOOTHTOPIA_THEME_BASE_FREQUENCY,
-    HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
-    HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
+    HOUNDSTOOTHTOPIA_THEME_BASE_POSITION,
+    HOUNDSTOOTHTOPIA_THEME_BASE_POSITION_SCALAR,
 } from './constants'
 import { HoundstoothtopiaThemeSpec, HoundstoothtopiaThemeSpecAttributes } from './types'
 
@@ -19,21 +19,23 @@ const initial: HoundstoothtopiaThemeSpec = {
     ...standardInitialSpec,
     [ StandardSpecProperties.BASE_DURATION ]: HOUNDSTOOTHTOPIA_THEME_BASE_DURATION,
     [ StandardSpecProperties.BASE_FREQUENCY ]: HOUNDSTOOTHTOPIA_THEME_BASE_FREQUENCY,
-    patternPositionOffset: HOUNDSTOOTHTOPIA_THEME_POSITION_OFFSET,
-    patternPositionScalar: HOUNDSTOOTHTOPIA_THEME_POSITION_SCALAR,
+    basePosition: HOUNDSTOOTHTOPIA_THEME_BASE_POSITION,
+    basePositionScalar: HOUNDSTOOTHTOPIA_THEME_BASE_POSITION_SCALAR,
 }
 
 const attributes: HoundstoothtopiaThemeSpecAttributes = {
     ...standardSpecAttributes,
-    patternPositionOffset: {
+    basePosition: {
         description: 'where in your virtual space the pattern will be centered',
         hideInput: RangedInputType.RANGE,
         isArray: true,
+        order: 1,
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.METERS,
     },
-    patternPositionScalar: {
+    basePositionScalar: {
         description: 'how far apart the voices will be placed',
+        order: 2,
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.METERS,
     },

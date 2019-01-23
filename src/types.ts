@@ -6,13 +6,13 @@ import {
 import { Offset, Scalar } from '@musical-patterns/utilities'
 
 interface HoundstoothtopiaThemeSpec extends StandardSpec {
-    patternPositionOffset: Offset[],
-    patternPositionScalar: Scalar,
+    basePosition: Offset[],
+    basePositionScalar: Scalar,
 }
 
 interface HoundstoothtopiaThemeSpecAttributes extends StandardSpecAttributes {
-    patternPositionOffset: RangedSpecPropertyAttributes,
-    patternPositionScalar: RangedSpecPropertyAttributes,
+    basePosition: RangedSpecPropertyAttributes,
+    basePositionScalar: RangedSpecPropertyAttributes,
 }
 
 export {

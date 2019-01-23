@@ -23,18 +23,18 @@ const buildScales: BuildScalesFunction =
             scalars: nonScale.scalars,
         }
         const xPositionsScale: Scale = {
-            offset: apply.Index(spec.patternPositionOffset, X_AXIS),
-            scalar: spec.patternPositionScalar,
+            offset: apply.Index(spec.basePosition, X_AXIS),
+            scalar: spec.basePositionScalar,
             scalars: nonScale.scalars,
         }
         const yPositionsScale: Scale = {
-            offset: apply.Index(spec.patternPositionOffset, Y_AXIS),
-            scalar: spec.patternPositionScalar,
+            offset: apply.Index(spec.basePosition, Y_AXIS),
+            scalar: spec.basePositionScalar,
             scalars: nonScale.scalars,
         }
         const zPositionsScale: Scale = {
-            offset: apply.Index(spec.patternPositionOffset, Z_AXIS),
-            scalar: spec.patternPositionScalar,
+            offset: apply.Index(spec.basePosition, Z_AXIS),
+            scalar: spec.basePositionScalar,
             scalars: nonScale.scalars,
         }
 
