@@ -6,6 +6,7 @@ import {
     standardSpecAttributes,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
+import { Units } from '@musical-patterns/utilities'
 import {
     HOUNDSTOOTHTOPIA_THEME_BASE_DURATION,
     HOUNDSTOOTHTOPIA_THEME_BASE_FREQUENCY,
@@ -25,12 +26,16 @@ const initial: HoundstoothtopiaThemeSpec = {
 const attributes: HoundstoothtopiaThemeSpecAttributes = {
     ...standardSpecAttributes,
     patternPositionOffset: {
+        description: 'where in your virtual space the pattern will be centered',
         hideInput: RangedInputType.RANGE,
         isArray: true,
         specPropertyType: SpecPropertyType.RANGED,
+        units: Units.METERS,
     },
     patternPositionScalar: {
+        description: 'how far apart the voices will be placed',
         specPropertyType: SpecPropertyType.RANGED,
+        units: Units.METERS,
     },
 }
 
