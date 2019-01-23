@@ -1,4 +1,5 @@
 import {
+    RangedInputType,
     SpecDataFor,
     SpecPropertyType,
     standardInitialSpec,
@@ -24,6 +25,8 @@ const initial: HoundstoothtopiaThemeSpec = {
 const attributes: HoundstoothtopiaThemeSpecAttributes = {
     ...standardSpecAttributes,
     patternPositionOffset: {
+        hideInput: RangedInputType.RANGE,
+        isArray: true,
         specPropertyType: SpecPropertyType.RANGED,
     },
     patternPositionScalar: {
