@@ -18,7 +18,7 @@ export {
     buildParts,
     buildContourPieces,
     buildContourWholes,
-} from './materials/indexForTest'
+} from './material/indexForTest'
 export { pattern } from './patterns'
 export { specData } from './specs'
 export {
