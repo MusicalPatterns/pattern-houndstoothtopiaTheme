@@ -1,16 +1,12 @@
-import {
-    RangedSpecPropertyAttributes,
-    StandardSpec,
-    StandardSpecAttributes,
-} from '@musical-patterns/pattern'
+import { RangedSpecPropertyAttributes, Spec, SpecAttributes } from '@musical-patterns/pattern'
 import { Offset, Scalar } from '@musical-patterns/utilities'
 
-interface HoundstoothtopiaThemeSpec extends StandardSpec {
+interface HoundstoothtopiaThemeSpec extends Spec {
     basePosition: Offset[],
     basePositionScalar: Scalar,
 }
 
-interface HoundstoothtopiaThemeSpecAttributes extends StandardSpecAttributes {
+interface HoundstoothtopiaThemeSpecAttributes extends SpecAttributes {
     basePosition: RangedSpecPropertyAttributes,
     basePositionScalar: RangedSpecPropertyAttributes,
 }
