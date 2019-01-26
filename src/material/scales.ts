@@ -1,11 +1,22 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, StandardSpecProperties } from '@musical-patterns/pattern'
-import { apply, from, to, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
-import { HoundstoothtopiaThemeSpec } from '../types'
+import {
+    buildStandardScales,
+    DEFAULT_BASE_POSITION,
+    StandardSpec,
+    StandardSpecProperties,
+} from '@musical-patterns/pattern'
+import { apply, from, Index, to, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { buildScalars } from './scalars'
 
+const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Index) => Scale =
+    (spec: StandardSpec, nonScale: Scale, index: Index): Scale => ({
+        offset: apply.Index(spec[ StandardSpecProperties.BASE_POSITION ] || DEFAULT_BASE_POSITION, index),
+        scalar: spec.basePositionScalar,
+        scalars: nonScale.scalars,
+    })
+
 const buildScales: BuildScalesFunction =
-    (spec: HoundstoothtopiaThemeSpec): Scale[] => {
+    (spec: StandardSpec): Scale[] => {
         const { nonScale } = buildStandardScales()
         const {
             rootOfTwoScalars,
@@ -22,21 +33,9 @@ const buildScales: BuildScalesFunction =
             scalar: to.Scalar(from.Frequency(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Frequency(1))),
             scalars: nonScale.scalars,
         }
-        const xPositionsScale: Scale = {
-            offset: apply.Index(spec.basePosition, X_AXIS),
-            scalar: spec.basePositionScalar,
-            scalars: nonScale.scalars,
-        }
-        const yPositionsScale: Scale = {
-            offset: apply.Index(spec.basePosition, Y_AXIS),
-            scalar: spec.basePositionScalar,
-            scalars: nonScale.scalars,
-        }
-        const zPositionsScale: Scale = {
-            offset: apply.Index(spec.basePosition, Z_AXIS),
-            scalar: spec.basePositionScalar,
-            scalars: nonScale.scalars,
-        }
+        const xPositionsScale: Scale = buildScaleForDimension(spec, nonScale, X_AXIS)
+        const yPositionsScale: Scale = buildScaleForDimension(spec, nonScale, Y_AXIS)
+        const zPositionsScale: Scale = buildScaleForDimension(spec, nonScale, Z_AXIS)
 
         return [
             gainScale,
