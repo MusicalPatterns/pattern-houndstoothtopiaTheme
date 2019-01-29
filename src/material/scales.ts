@@ -24,7 +24,7 @@ const buildScales: BuildScalesFunction =
         const gainScale: Scale = nonScale
         const durationsScale: Scale = {
             offset: spec[ StandardSpecProperties.DURATION_OFFSET ],
-            scalar: to.Scalar(from.Millisecond(spec[ StandardSpecProperties.BASE_DURATION ] || to.Millisecond(1))),
+            scalar: to.Scalar(from.Milliseconds(spec[ StandardSpecProperties.BASE_DURATION ] || to.Milliseconds(1))),
             scalars: rootOfTwoScalars,
         }
         const pitchesScale: Scale = {
