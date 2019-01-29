@@ -39,28 +39,28 @@ const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
-                }) as Coordinate2d)
+                }))
         const houndstoothTopGrainCoordinates: Coordinate2d[] =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
-                }) as Coordinate2d)
+                }))
         const houndstoothTopLeftGrainCoordinates: Coordinate2d[] =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
-                }) as Coordinate2d)
+                }))
         const houndstoothLeftGrainCoordinates: Coordinate2d[] =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
-                }) as Coordinate2d)
+                }))
 
         const perimeterRhythmLeftGrainPitches: Scalar[] = extractHeight(houndstoothLeftGrainCoordinates)
         const perimeterRhythmTopGrainPitches: Scalar[] = extractHeight(houndstoothTopGrainCoordinates)
