@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
+import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { apply, CoordinateElement, from, HALF, to } from '@musical-patterns/utilities'
 import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
@@ -22,14 +22,14 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: HoundstoothtopiaContourEle
         return {
             durationSpec: {
                 index: duration,
-                scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gainSpec: {
                 scalar: pitch === PITCH_SCALAR_INDICATING_REST ? to.Scalar(0) : undefined,
             },
             pitchSpec: {
                 scalar: pitch,
-                scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
+                scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
             positionSpec: position.map((positionElement: CoordinateElement, index: number) =>
                 ({
@@ -39,7 +39,7 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: HoundstoothtopiaContourEle
             ),
             sustainSpec: {
                 scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
-                scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
         }
     }
@@ -61,7 +61,7 @@ const buildPerimeterNoteSpec: (contourElement: HoundstoothtopiaContourElement) =
         ...buildHoundstoothtopiaNoteSpec(contourElement),
         sustainSpec: {
             scalar: apply.Scalar(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, to.Scalar(from.Base(SQRT_TWO_AS_BASE))),
-            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
     })
 

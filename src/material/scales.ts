@@ -1,7 +1,6 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
 import {
     buildStandardScales,
-    DEFAULT_BASE_POSITION,
     StandardSpec,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
@@ -10,7 +9,7 @@ import { buildScalars } from './scalars'
 
 const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Index) => Scale =
     (spec: StandardSpec, nonScale: Scale, index: Index): Scale => ({
-        offset: apply.Index(spec[ StandardSpecProperties.BASE_POSITION ] || DEFAULT_BASE_POSITION, index),
+        offset: apply.Index(spec[ StandardSpecProperties.BASE_POSITION ] || [ 0, 0, 0 ], index),
         scalar: spec.basePositionScalar,
         scalars: nonScale.scalars,
     })

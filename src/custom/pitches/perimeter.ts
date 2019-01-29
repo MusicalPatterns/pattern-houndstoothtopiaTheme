@@ -12,13 +12,10 @@ import {
 } from '../coordinates'
 import { CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
-const heights: number[] = []
-
 const extractHeight: (coordinates: Coordinate2d[]) => Scalar[] =
     (coordinates: Coordinate2d[]): Scalar[] =>
         coordinates.map((coordinate: Coordinate2d): Scalar => {
             const height: number = coordinate[ 1 ]
-            heights.push(height)
 
             return to.Scalar(apply.Offset(height, PERIMETER_PITCH_OFFSET))
         })
