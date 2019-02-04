@@ -9,7 +9,7 @@ import { buildScalars } from './scalars'
 
 const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Index) => Scale =
     (spec: StandardSpec, nonScale: Scale, index: Index): Scale => ({
-        offset: apply.Index(spec[ StandardSpecProperties.BASE_POSITION ] || [ 0, 0, 0 ], index),
+        offset: apply.Index(spec[ StandardSpecProperties.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Offset), index),
         scalar: spec.basePositionScalar,
         scalars: nonScale.scalars,
     })

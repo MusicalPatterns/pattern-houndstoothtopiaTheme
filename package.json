@@ -9,13 +9,13 @@
     "url": "https://github.com/MusicalPatterns/pattern-houndstoothtopiaTheme.git"
   },
   "dependencies": {
-    "@musical-patterns/compiler": "^1.0.82",
-    "@musical-patterns/pattern": "^1.0.137",
-    "@musical-patterns/utilities": "^1.0.190"
+    "@musical-patterns/compiler": "^1.0.85",
+    "@musical-patterns/pattern": "^1.0.147",
+    "@musical-patterns/utilities": "^1.0.203"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.393",
-    "@musical-patterns/playroom": "^1.0.203",
-    "@musical-patterns/snapshot": "^1.0.43"
+    "@musical-patterns/cli": "^1.0.424",
+    "@musical-patterns/playroom": "^1.0.218",
+    "@musical-patterns/snapshot": "^1.0.44"
   }
 }
