@@ -1,4 +1,4 @@
-// tslint:disable:no-any
+// tslint:disable no-any
 
 import { apply, Coordinate2d, cycle, DictionaryOf, rotate, Scalar, to } from '@musical-patterns/utilities'
 import {

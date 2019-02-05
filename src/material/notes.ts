@@ -11,7 +11,7 @@ const unpackHoundstoothtopiaContourElement:
     (contourElement: HoundstoothtopiaContourElement): UnpackedHoundstoothtopiaContourElement => ({
         duration: to.Index(contourElement[ 1 ]),
         pitch: to.Scalar(contourElement[ 0 ]),
-        // tslint:disable-next-line:no-magic-numbers
+        // tslint:disable-next-line no-magic-numbers
         position: to.Coordinate(contourElement[ 2 ]),
     })
 

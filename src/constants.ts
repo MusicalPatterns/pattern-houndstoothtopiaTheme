@@ -1,4 +1,4 @@
-// tslint:disable:no-magic-numbers
+// tslint:disable no-magic-numbers
 
 import { Base, Frequency, Milliseconds, Offset, Scalar, to } from '@musical-patterns/utilities'
 

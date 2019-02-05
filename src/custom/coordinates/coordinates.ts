@@ -1,4 +1,4 @@
-// tslint:disable:no-magic-numbers
+// tslint:disable no-magic-numbers
 
 import { Coordinate2d, cycle, to } from '@musical-patterns/utilities'
 import houndstoothOutline from './houndstoothOutline'

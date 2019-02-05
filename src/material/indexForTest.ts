@@ -1,4 +1,4 @@
-// tslint:disable:no-reaching-imports
+// tslint:disable no-reaching-imports
 
 export { buildScalars } from './scalars'
 export { buildSupertileNoteSpec } from './notes'
