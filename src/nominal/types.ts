@@ -1,20 +1,9 @@
-enum _GrainSetBrand {}
-
-type GrainSet = _GrainSetBrand & number[]
-
-enum _GrainSetSequenceBrand {}
-
-type GrainSetSequence = _GrainSetSequenceBrand & number[]
+type GrainSet = number[] & {_GrainSetBrand: void}
+type GrainSetSequence = number[] & {_GrainSetSequenceBrand: void}
 
 type HoundstoothtopiaContourElement = [ number, number, [ number, number, number ] ]
-
-enum _HoundstoothtopiaContourPieceBrand {}
-
-type HoundstoothtopiaContourPiece = _HoundstoothtopiaContourPieceBrand & HoundstoothtopiaContourElement[]
-
-enum _HoundstoothtopiaContourWholeBrand {}
-
-type HoundstoothtopiaContourWhole = _HoundstoothtopiaContourWholeBrand & HoundstoothtopiaContourElement[]
+type HoundstoothtopiaContourPiece = HoundstoothtopiaContourElement[] & {_HoundstoothtopiaContourPieceBrand: void}
+type HoundstoothtopiaContourWhole = HoundstoothtopiaContourElement[] & {_HoundstoothtopiaContourWholeBrand: void}
 
 export {
     GrainSet,
