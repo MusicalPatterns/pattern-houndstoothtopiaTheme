@@ -8,28 +8,28 @@ describe('scales', () => {
         const spec: StandardSpec = {
             [ StandardSpecProperties.BASE_DURATION ]: to.Milliseconds(1),
             [ StandardSpecProperties.BASE_FREQUENCY ]: to.Frequency(1),
-            basePosition: [ 3, 4, 5 ].map(to.Offset),
+            basePosition: [ 3, 4, 5 ].map(to.Translation),
             basePositionScalar: to.Scalar(7),
         }
         const scales: Scale[] = buildScales(spec)
 
         expect(scales[ 3 ])
             .toEqual({
-                offset: to.Offset(3),
                 scalar: to.Scalar(7),
                 scalars: undefined,
+                translation: to.Translation(3),
             })
         expect(scales[ 4 ])
             .toEqual({
-                offset: to.Offset(4),
                 scalar: to.Scalar(7),
                 scalars: undefined,
+                translation: to.Translation(4),
             })
         expect(scales[ 5 ])
             .toEqual({
-                offset: to.Offset(5),
                 scalar: to.Scalar(7),
                 scalars: undefined,
+                translation: to.Translation(5),
             })
     })
 })

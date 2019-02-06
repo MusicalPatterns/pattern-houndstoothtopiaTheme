@@ -9,7 +9,7 @@ import { UnpackedHoundstoothtopiaContourElement } from './types'
 const unpackHoundstoothtopiaContourElement:
     (contourElement: HoundstoothtopiaContourElement) => UnpackedHoundstoothtopiaContourElement =
     (contourElement: HoundstoothtopiaContourElement): UnpackedHoundstoothtopiaContourElement => ({
-        duration: to.Index(contourElement[ 1 ]),
+        duration: to.Ordinal(contourElement[ 1 ]),
         pitch: to.Scalar(contourElement[ 0 ]),
         // tslint:disable-next-line no-magic-numbers
         position: to.Coordinate(contourElement[ 2 ]),
@@ -34,7 +34,7 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: HoundstoothtopiaContourEle
             positionSpec: position.map((positionElement: CoordinateElement, index: number) =>
                 ({
                     scalar: to.Scalar(from.CoordinateElement(positionElement)),
-                    scaleIndex: apply.Offset(HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX, to.Offset(index)),
+                    scaleIndex: apply.Translation(HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX, to.Translation(index)),
                 }),
             ),
             sustainSpec: {

@@ -1,9 +1,9 @@
 // tslint:disable no-magic-numbers
 
-import { Offset, to } from '@musical-patterns/utilities'
+import { to, Translation } from '@musical-patterns/utilities'
 
-const CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE: Offset = to.Offset(7)
+const TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE: Translation = to.Translation(7)
 
 export {
-    CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
+    TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
 }

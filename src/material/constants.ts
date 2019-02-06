@@ -1,18 +1,18 @@
 // tslint:disable no-magic-numbers
 
-import { Index, Scalar, to } from '@musical-patterns/utilities'
+import { Ordinal, Scalar, to } from '@musical-patterns/utilities'
 
 const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar = to.Scalar(Math.sqrt(2) - 1)
 
 const HIGHER_SUPERTILE_PITCH: Scalar = to.Scalar(Math.sqrt(2) * 5 / 2)
 const LOWER_SUPERTILE_PITCH: Scalar = to.Scalar(1)
 
-const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Index = to.Index(0)
-const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Index = to.Index(1)
-const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Index = to.Index(2)
-const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Index = to.Index(3)
+const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(0)
+const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(1)
+const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(2)
+const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(3)
 
-const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Index = to.Index(3)
+const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal = to.Ordinal(3)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,

@@ -18,12 +18,12 @@ describe('notes', () => {
 
             it('sets the index to the second element', () => {
                 expect(durationSpec.index)
-                    .toBe(to.Index(3))
+                    .toBe(to.Ordinal(3))
             })
 
             it('sets the scale index to the default for duration', () => {
                 expect(durationSpec.scaleIndex)
-                    .toBe(to.Index(1))
+                    .toBe(to.Ordinal(1))
             })
         })
 
@@ -40,7 +40,7 @@ describe('notes', () => {
 
             it('sets the scale index to the default for pitch', () => {
                 expect(pitchSpec.scaleIndex)
-                    .toBe(to.Index(2))
+                    .toBe(to.Ordinal(2))
             })
         })
 
@@ -69,7 +69,7 @@ describe('notes', () => {
 
             it('sets the scale index to the default for durations', () => {
                 expect(sustainSpec.scaleIndex)
-                    .toBe(to.Index(1))
+                    .toBe(to.Ordinal(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
@@ -95,11 +95,11 @@ describe('notes', () => {
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
                 expect(positionSpec[ 0 ].scaleIndex)
-                    .toBe(to.Index(3))
+                    .toBe(to.Ordinal(3))
                 expect(positionSpec[ 1 ].scaleIndex)
-                    .toBe(to.Index(4))
+                    .toBe(to.Ordinal(4))
                 expect(positionSpec[ 2 ].scaleIndex)
-                    .toBe(to.Index(5))
+                    .toBe(to.Ordinal(5))
             })
         })
     })

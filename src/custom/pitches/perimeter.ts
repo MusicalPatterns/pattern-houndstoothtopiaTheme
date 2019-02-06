@@ -4,7 +4,7 @@ import { apply, Coordinate2d, cycle, DictionaryOf, rotate, Scalar, to } from '@m
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
-    PERIMETER_PITCH_OFFSET,
+    PERIMETER_PITCH_TRANSLATION,
     QUARTER_TURN_COUNTERCLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
@@ -12,14 +12,14 @@ import {
     buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
     buildHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
-import { CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
+import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
 const extractHeight: (coordinates: Coordinate2d[]) => Scalar[] =
     (coordinates: Coordinate2d[]): Scalar[] =>
         coordinates.map((coordinate: Coordinate2d): Scalar => {
             const height: number = coordinate[ 1 ]
 
-            return to.Scalar(apply.Offset(height, PERIMETER_PITCH_OFFSET))
+            return to.Scalar(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))
         })
 
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
@@ -28,7 +28,7 @@ const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Coordinate2d[] = cycle(
             houndstoothCoordinates,
-            CYCLE_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
+            TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
         const houndstoothCenterCoordinate: Coordinate2d = buildHoundstoothSolidCenterOriginCoordinate()

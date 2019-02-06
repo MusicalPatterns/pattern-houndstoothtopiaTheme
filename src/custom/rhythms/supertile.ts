@@ -1,4 +1,4 @@
-import { Block, Count, Index, ONCE, repeat, sequence, to, TWICE } from '@musical-patterns/utilities'
+import { Block, Cardinal, ONCE, Ordinal, repeat, sequence, to, TWICE } from '@musical-patterns/utilities'
 
 const buildSupertileRhythm: () => Block =
     (): Block => {
@@ -8,19 +8,19 @@ const buildSupertileRhythm: () => Block =
             [ 'white', 'white' ],
             [ 'black', 'white' ],
         ]
-        const durationIndicesForTiles: Index[][] = supertile.map((tile: string[]): Index[] => {
-            const durationIndicesForTileStripes: Index[][] =
-                tile.map((stripeColor: string, index: number): Index[] => {
-                    const count: Count = stripeColor === 'black' ? ONCE : TWICE
-                    const durationIndex: Index = to.Index(index)
+        const durationIndicesForTile: Ordinal[][] = supertile.map((tile: string[]): Ordinal[] => {
+            const durationIndicesForStripes: Ordinal[][] =
+                tile.map((stripe: string, index: number): Ordinal[] => {
+                    const count: Cardinal = stripe === 'black' ? ONCE : TWICE
+                    const durationIndex: Ordinal = to.Ordinal(index)
 
                     return repeat([ durationIndex ], count)
                 })
 
-            return sequence(durationIndicesForTileStripes)
+            return sequence(durationIndicesForStripes)
         })
 
-        return to.Block(sequence(durationIndicesForTiles))
+        return to.Block(sequence(durationIndicesForTile))
     }
 
 export {

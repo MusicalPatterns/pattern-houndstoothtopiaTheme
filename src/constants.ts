@@ -1,6 +1,6 @@
 // tslint:disable no-magic-numbers
 
-import { Base, Frequency, Milliseconds, Offset, Scalar, to } from '@musical-patterns/utilities'
+import { Base, Frequency, Milliseconds, Scalar, to, Translation } from '@musical-patterns/utilities'
 
 const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY: Frequency = to.Frequency(141.42)
 const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION: Milliseconds = to.Milliseconds(471.4)

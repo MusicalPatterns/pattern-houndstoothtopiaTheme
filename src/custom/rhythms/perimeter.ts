@@ -4,8 +4,8 @@ import {
     Coordinate2d,
     distanceBetween,
     from,
-    Index,
     Length,
+    Ordinal,
     to,
     wrapWithin,
 } from '@musical-patterns/utilities'
@@ -18,14 +18,15 @@ const buildPerimeterRhythm: () => Block =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const houndstoothPerimeterSegmentLengths: Length[] =
             houndstoothCoordinates.map((coordinate: Coordinate2d, index: number): Length => {
-                const nextIndex: number = wrapWithin(apply.Offset(index, to.Offset(1)), houndstoothCoordinates.length)
-                const nextCoordinate: Coordinate2d = houndstoothCoordinates[ nextIndex ]
+                const nextIndex: Ordinal =
+                    to.Ordinal(wrapWithin(apply.Translation(index, to.Translation(1)), houndstoothCoordinates.length))
+                const nextCoordinate: Coordinate2d = apply.Ordinal(houndstoothCoordinates, nextIndex)
 
                 return distanceBetween(to.Coordinate(coordinate), to.Coordinate(nextCoordinate))
             })
 
-        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Index =>
-            to.Index(apply.Base(from.Length(length), SQRT_TWO_AS_BASE)),
+        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Ordinal =>
+            to.Ordinal(apply.Base(from.Length(length), SQRT_TWO_AS_BASE)),
         ))
     }
 
