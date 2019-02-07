@@ -1,5 +1,5 @@
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { to } from '@musical-patterns/utilities'
+import { SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
 
 describe('notes', () => {
@@ -64,7 +64,7 @@ describe('notes', () => {
 
             it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
                 expect(sustainSpec.scalar)
-                    .toBe(to.Scalar(Math.sqrt(2) - 1))
+                    .toBe(to.Scalar(SQUARE_ROOT_OF_TWO - 1))
             })
 
             it('sets the scale index to the default for durations', () => {

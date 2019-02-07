@@ -5,11 +5,10 @@ import {
     distanceBetween,
     from,
     Length,
-    Ordinal,
+    Ordinal, SQUARE_ROOT_OF_TWO,
     to,
     wrapWithin,
 } from '@musical-patterns/utilities'
-import { SQRT_TWO_AS_BASE } from '../../constants'
 import { buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 
 const buildPerimeterRhythm: () => Block =
@@ -25,8 +24,8 @@ const buildPerimeterRhythm: () => Block =
                 return distanceBetween(to.Coordinate(coordinate), to.Coordinate(nextCoordinate))
             })
 
-        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): Ordinal =>
-            to.Ordinal(apply.Base(from.Length(length), SQRT_TWO_AS_BASE)),
+        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Length): number =>
+            from.Length(apply.Base(length, to.Base(SQUARE_ROOT_OF_TWO))),
         ))
     }
 

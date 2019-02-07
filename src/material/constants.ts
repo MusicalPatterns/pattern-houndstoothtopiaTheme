@@ -1,10 +1,11 @@
 // tslint:disable no-magic-numbers
 
-import { Ordinal, Scalar, to } from '@musical-patterns/utilities'
+import { apply, FIVE_HALVES, negative, Ordinal, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 
-const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar = to.Scalar(Math.sqrt(2) - 1)
+const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar =
+    to.Scalar(apply.Translation(SQUARE_ROOT_OF_TWO, to.Translation(negative(1))))
 
-const HIGHER_SUPERTILE_PITCH: Scalar = to.Scalar(Math.sqrt(2) * 5 / 2)
+const HIGHER_SUPERTILE_PITCH: Scalar = to.Scalar(apply.Scalar(SQUARE_ROOT_OF_TWO, FIVE_HALVES))
 const LOWER_SUPERTILE_PITCH: Scalar = to.Scalar(1)
 
 const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(0)

@@ -1,4 +1,4 @@
-import { Scalar, testArraysAreClose, to } from '@musical-patterns/utilities'
+import { Scalar, SQUARE_ROOT_OF_TWO, testArraysAreClose, to } from '@musical-patterns/utilities'
 import { buildScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -6,13 +6,13 @@ describe('scalars', () => {
         const { rootOfTwoScalars } = buildScalars()
         const expectedScalars: Scalar[] = [
             1,
-            Math.sqrt(2),
+            SQUARE_ROOT_OF_TWO,
             2,
-            Math.sqrt(2) * 2,
+            SQUARE_ROOT_OF_TWO * 2,
             4,
-            Math.sqrt(2) * 4,
+            SQUARE_ROOT_OF_TWO * 4,
             8,
-            Math.sqrt(2) * 8,
+            SQUARE_ROOT_OF_TWO * 8,
         ].map(to.Scalar)
 
         testArraysAreClose(rootOfTwoScalars, expectedScalars)

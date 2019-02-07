@@ -1,11 +1,21 @@
 // tslint:disable no-magic-numbers
 
-import { Radians, to, Translation } from '@musical-patterns/utilities'
+import {
+    apply,
+    negative,
+    ONE_FOURTH,
+    ONE_HALF,
+    PI,
+    Radians,
+    THREE_FOURTHS,
+    to,
+    Translation,
+} from '@musical-patterns/utilities'
 
-const NO_TURN_COUNTERCLOCKWISE: Radians = to.Radians(Math.PI * 0)
-const EIGHTH_TURN_COUNTERCLOCKWISE: Radians = to.Radians(Math.PI * -1 / 4)
-const QUARTER_TURN_COUNTERCLOCKWISE: Radians = to.Radians(Math.PI * -1 / 2)
-const THREE_EIGHTHS_TURN_COUNTERCLOCKWISE: Radians = to.Radians(Math.PI * -3 / 4)
+const NO_TURN_COUNTERCLOCKWISE: Radians = apply.Scalar(PI, to.Scalar(0))
+const EIGHTH_TURN_COUNTERCLOCKWISE: Radians = apply.Scalar(PI, negative(ONE_FOURTH))
+const QUARTER_TURN_COUNTERCLOCKWISE: Radians = apply.Scalar(PI, negative(ONE_HALF))
+const THREE_EIGHTHS_TURN_COUNTERCLOCKWISE: Radians = apply.Scalar(PI, negative(THREE_FOURTHS))
 
 const PERIMETER_PITCH_TRANSLATION: Translation = to.Translation(3)
 

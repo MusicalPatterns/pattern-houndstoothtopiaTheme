@@ -1,6 +1,6 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
-import { from, testIsCloseTo, Time } from '@musical-patterns/utilities'
+import { from, quotient, testIsCloseTo, THREE_FOURTHS, Time } from '@musical-patterns/utilities'
 import { buildContourPieces, buildScales, buildSupertileNoteSpec, specData } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
@@ -63,8 +63,8 @@ describe('contour pieces', () => {
                 const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
                 const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)
 
-                const ratioBetweenSupertileAndPerimeterParts: number = from.Time(supertileDuration) / from.Time(perimeterDuration)
-                expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterParts, 3 / 4))
+                const ratioBetweenSupertileAndPerimeterParts: number = from.Time(quotient(supertileDuration, perimeterDuration))
+                expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterParts, from.Scalar(THREE_FOURTHS)))
                     .toBeTruthy()
             })
         })

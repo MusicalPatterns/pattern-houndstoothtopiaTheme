@@ -1,7 +1,7 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
-import { apply, CoordinateElement, from, ONE_HALF, to } from '@musical-patterns/utilities'
-import { PITCH_SCALAR_INDICATING_REST, SQRT_TWO_AS_BASE } from '../constants'
+import { apply, CoordinateElement, from, ONE_HALF, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { HoundstoothtopiaContourElement } from '../nominal'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 import { UnpackedHoundstoothtopiaContourElement } from './types'
@@ -60,7 +60,7 @@ const buildPerimeterNoteSpec: (contourElement: HoundstoothtopiaContourElement) =
     (contourElement: HoundstoothtopiaContourElement): NoteSpec => ({
         ...buildHoundstoothtopiaNoteSpec(contourElement),
         sustainSpec: {
-            scalar: apply.Scalar(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, to.Scalar(from.Base(SQRT_TWO_AS_BASE))),
+            scalar: apply.Scalar(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, to.Scalar(SQUARE_ROOT_OF_TWO)),
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
     })
