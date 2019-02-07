@@ -1,6 +1,6 @@
 // tslint:disable no-any
 
-import { apply, Coordinate2d, cycle, DictionaryOf, rotate, Scalar, to } from '@musical-patterns/utilities'
+import { apply, Coordinate2d, Cycle, DictionaryOf, rotate, Scalar, to } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -24,9 +24,9 @@ const extractHeight: (coordinates: Coordinate2d[]) => Scalar[] =
 
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
-        const houndstoothCoordinates: Coordinate2d[] =
+        const houndstoothCoordinates: Cycle<Coordinate2d> =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Coordinate2d[] = cycle(
+        const cycledHoundstoothCoordinates: Cycle<Coordinate2d> = apply.Translation(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )

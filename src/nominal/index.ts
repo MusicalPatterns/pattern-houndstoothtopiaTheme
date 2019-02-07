@@ -5,8 +5,8 @@ export {
 }
 
 export {
-    GrainSetSequence,
-    GrainSet,
+    GrainCycleSequence,
+    Grain,
     HoundstoothtopiaContourWhole,
     HoundstoothtopiaContourPiece,
     HoundstoothtopiaContourElement,

@@ -1,21 +1,22 @@
 // tslint:disable variable-name no-any
 
 import {
-    GrainSet,
-    GrainSetSequence,
+    Grain,
+    GrainCycleSequence,
     HoundstoothtopiaContourElement,
     HoundstoothtopiaContourPiece,
     HoundstoothtopiaContourWhole,
 } from './types'
 
-const GrainSet: (grainSet: number[]) => GrainSet =
-    (grainSet: number[]): GrainSet =>
-        grainSet.map((grainSetElement: number): GrainSet => grainSetElement as any) as any
+const Grain: (grain: number) => Grain =
+    (grain: number): Grain =>
+        grain as any
 
-const GrainSetSequence: (grainSetSequence: number[]) => GrainSetSequence =
-    (grainSetSequence: number[]): GrainSetSequence =>
-        grainSetSequence.map(
-            (grainSetSequenceElement: number): GrainSetSequence => grainSetSequenceElement as any) as any
+const GrainCycleSequence: (grainCycleSequence: Array<number | Grain>) => GrainCycleSequence =
+    (grainCycleSequence: Array<number | Grain>): GrainCycleSequence =>
+        grainCycleSequence.map(
+            (grain: number | Grain): Grain => grain as any,
+        ) as any
 
 const HoundstoothtopiaContourPiece:
     (contourPiece: Array<number[] | HoundstoothtopiaContourElement>) => HoundstoothtopiaContourPiece =
@@ -34,8 +35,8 @@ const HoundstoothtopiaContourWhole:
         ) as any
 
 export {
-    GrainSet,
-    GrainSetSequence,
+    Grain,
+    GrainCycleSequence,
     HoundstoothtopiaContourPiece,
     HoundstoothtopiaContourWhole,
 }

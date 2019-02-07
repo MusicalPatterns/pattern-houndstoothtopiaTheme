@@ -1,7 +1,7 @@
-import { cycle, DictionaryOf, from, Ordinal, sequence, to } from '@musical-patterns/utilities'
+import { apply, Cycle, DictionaryOf, from, Ordinal, sequence, to } from '@musical-patterns/utilities'
 import {
-    GrainSet,
-    GrainSetSequence,
+    Grain,
+    GrainCycleSequence,
     HoundstoothtopiaContourPiece,
     HoundstoothtopiaContourWhole,
     to as houndstoothtopiaTo,
@@ -26,44 +26,45 @@ const buildContourWholes: () => DictionaryOf<HoundstoothtopiaContourWhole> =
             perimeterRestContourPiece,
         } = buildContourPieces()
 
-        const basicGrainSet: GrainSet = houndstoothtopiaTo.GrainSet([ 0, 0, 1, 1 ])
-        const variedGrainSet: GrainSet = houndstoothtopiaTo.GrainSet(cycle(basicGrainSet, to.Translation(1)))
+        const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
+        const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(1))
 
-        const buildGrainSetSequence: (indexToVary: Ordinal) => GrainSetSequence =
-            (indexToVary: Ordinal): GrainSetSequence => {
-                const grainSets: GrainSet[] = [ basicGrainSet, basicGrainSet, basicGrainSet, basicGrainSet ]
+        const buildGrainCycleSequence: (indexToVary: Ordinal) => GrainCycleSequence =
+            (indexToVary: Ordinal): GrainCycleSequence => {
+                const grainCycleSet: Array<Cycle<Grain>> =
+                    [ basicGrainCycle, basicGrainCycle, basicGrainCycle, basicGrainCycle ]
 
-                grainSets[ from.Ordinal(indexToVary) ] = variedGrainSet
+                grainCycleSet[ from.Ordinal(indexToVary) ] = variedGrainCycle
 
-                return houndstoothtopiaTo.GrainSetSequence(sequence(grainSets))
+                return houndstoothtopiaTo.GrainCycleSequence(sequence(grainCycleSet))
             }
 
-        const grainSetSequenceToContourWhole: (
-            grainSetSequence: GrainSetSequence,
+        const grainCycleSequenceToContourWhole: (
+            grainCycleSequence: GrainCycleSequence,
             contourPiece: HoundstoothtopiaContourPiece,
         ) => HoundstoothtopiaContourWhole =
             (
-                grainSetSequence: GrainSetSequence,
+                grainCycleSequence: GrainCycleSequence,
                 contourPiece: HoundstoothtopiaContourPiece,
             ): HoundstoothtopiaContourWhole =>
                 houndstoothtopiaTo.HoundstoothtopiaContourWhole(
-                    sequence(grainSetSequence.map((grainSetElement: number): HoundstoothtopiaContourPiece =>
-                        grainSetElement ? contourPiece : perimeterRestContourPiece)))
+                    sequence(grainCycleSequence.map((grain: number): HoundstoothtopiaContourPiece =>
+                        grain ? contourPiece : perimeterRestContourPiece)))
 
-        const perimeterRhythmTopRightGrainContourWhole: HoundstoothtopiaContourWhole = grainSetSequenceToContourWhole(
-            buildGrainSetSequence(TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+        const perimeterRhythmTopRightGrainContourWhole: HoundstoothtopiaContourWhole = grainCycleSequenceToContourWhole(
+            buildGrainCycleSequence(TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY),
             perimeterRhythmTopRightGrainContourPiece,
         )
-        const perimeterRhythmTopGrainContourWhole: HoundstoothtopiaContourWhole = grainSetSequenceToContourWhole(
-            buildGrainSetSequence(TOP_GRAIN_SEQUENCE_INDEX_TO_VARY),
+        const perimeterRhythmTopGrainContourWhole: HoundstoothtopiaContourWhole = grainCycleSequenceToContourWhole(
+            buildGrainCycleSequence(TOP_GRAIN_SEQUENCE_INDEX_TO_VARY),
             perimeterRhythmTopGrainContourPiece,
         )
-        const perimeterRhythmTopLeftGrainContourWhole: HoundstoothtopiaContourWhole = grainSetSequenceToContourWhole(
-            buildGrainSetSequence(TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+        const perimeterRhythmTopLeftGrainContourWhole: HoundstoothtopiaContourWhole = grainCycleSequenceToContourWhole(
+            buildGrainCycleSequence(TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
             perimeterRhythmTopLeftGrainContourPiece,
         )
-        const perimeterRhythmLeftGrainContourWhole: HoundstoothtopiaContourWhole = grainSetSequenceToContourWhole(
-            buildGrainSetSequence(LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+        const perimeterRhythmLeftGrainContourWhole: HoundstoothtopiaContourWhole = grainCycleSequenceToContourWhole(
+            buildGrainCycleSequence(LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
             perimeterRhythmLeftGrainContourPiece,
         )
 

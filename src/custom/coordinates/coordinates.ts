@@ -1,11 +1,11 @@
 // tslint:disable no-magic-numbers
 
-import { Coordinate2d, cycle, to } from '@musical-patterns/utilities'
+import { apply, Coordinate2d, Cycle, to } from '@musical-patterns/utilities'
 import houndstoothOutline from './houndstoothOutline'
 
-const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Coordinate2d[] =
-    (): Coordinate2d[] =>
-        cycle(houndstoothOutline, to.Translation(1)) as Coordinate2d[]
+const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycle<Coordinate2d> =
+    (): Cycle<Coordinate2d> =>
+        apply.Translation(to.Cycle(houndstoothOutline as Coordinate2d[]), to.Translation(1))
 
 const buildHoundstoothSolidCenterOriginCoordinate: () => Coordinate2d =
     (): Coordinate2d =>
