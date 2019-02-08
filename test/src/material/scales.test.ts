@@ -6,8 +6,8 @@ import { buildScales } from '../../../src/indexForTest'
 describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
         const spec: StandardSpec = {
-            [ StandardSpecProperties.BASE_DURATION ]: to.Milliseconds(1),
-            [ StandardSpecProperties.BASE_FREQUENCY ]: to.Frequency(1),
+            [ StandardSpecProperties.BASE_DURATION ]: to.Ms(1),
+            [ StandardSpecProperties.BASE_FREQUENCY ]: to.Hz(1),
             basePosition: [ 3, 4, 5 ].map(to.Translation),
             basePositionScalar: to.Scalar(7),
         }

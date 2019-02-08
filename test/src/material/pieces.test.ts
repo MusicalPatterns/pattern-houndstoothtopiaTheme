@@ -1,6 +1,6 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
-import { from, quotient, testIsCloseTo, THREE_FOURTHS, Time } from '@musical-patterns/utilities'
+import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
 import { buildContourPieces, buildScales, buildSupertileNoteSpec, specData } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
@@ -21,7 +21,7 @@ describe('contour pieces', () => {
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourPiece.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourPiece.map(buildSupertileNoteSpec), scales)
 
                 expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
@@ -43,7 +43,7 @@ describe('contour pieces', () => {
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const onePartsDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
 
                 expect(calculateNoteSpecsTotalCompiledDuration(supertileRhythmHigherPitchContourPiece.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
@@ -60,10 +60,10 @@ describe('contour pieces', () => {
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const supertileDuration: Time = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
-                const perimeterDuration: Time = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)
+                const supertileDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
+                const perimeterDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)
 
-                const ratioBetweenSupertileAndPerimeterParts: number = from.Time(quotient(supertileDuration, perimeterDuration))
+                const ratioBetweenSupertileAndPerimeterParts: number = from.Ms(quotient(supertileDuration, perimeterDuration))
                 expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterParts, from.Scalar(THREE_FOURTHS)))
                     .toBeTruthy()
             })
