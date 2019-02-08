@@ -6,6 +6,7 @@ import {
     distanceBetween,
     from,
     Length,
+    map,
     NEXT,
     Ordinal,
     SQUARE_ROOT_OF_TWO,
@@ -19,8 +20,8 @@ const buildPerimeterRhythm: () => Block =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
         )
         const houndstoothPerimeterSegmentLengths: Length[] =
-            houndstoothCoordinateCycle.map((coordinate: Coordinate2d, index: number): Length => {
-                const nextIndex: Ordinal = apply.Translation(to.Ordinal(index), NEXT)
+            map(houndstoothCoordinateCycle, (coordinate: Coordinate2d, index: Ordinal): Length => {
+                const nextIndex: Ordinal = apply.Translation(index, NEXT)
                 const nextCoordinate: Coordinate2d = apply.Ordinal(houndstoothCoordinateCycle, nextIndex)
 
                 return distanceBetween(to.Coordinate(coordinate), to.Coordinate(nextCoordinate))

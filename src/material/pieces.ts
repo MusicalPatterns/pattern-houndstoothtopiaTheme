@@ -1,4 +1,4 @@
-import { Block, DictionaryOf, from } from '@musical-patterns/utilities'
+import { apply, Block, DictionaryOf, from, map, Ordinal } from '@musical-patterns/utilities'
 import { PITCH_SCALAR_INDICATING_REST } from '../constants'
 import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'
 import { HoundstoothtopiaContourElement, HoundstoothtopiaContourPiece, to as houndstoothtopiaTo } from '../nominal'
@@ -16,37 +16,41 @@ const buildContourPieces: () => DictionaryOf<HoundstoothtopiaContourPiece> =
         } = buildPerimeterPitches()
 
         const perimeterRhythmLeftGrainContourPiece: HoundstoothtopiaContourPiece =
-            houndstoothtopiaTo.HoundstoothtopiaContourPiece(perimeterRhythm.map(
-                (duration: number, index: number): HoundstoothtopiaContourElement =>
+            houndstoothtopiaTo.HoundstoothtopiaContourPiece(map(
+                perimeterRhythm,
+                (duration: number, index: Ordinal): HoundstoothtopiaContourElement =>
                     [
-                        from.Scalar(perimeterRhythmLeftGrainPitches[ index ]),
+                        from.Scalar(apply.Ordinal(perimeterRhythmLeftGrainPitches, index)),
                         duration,
                         [ 0, 1, 0 ],
                     ],
             ))
         const perimeterRhythmTopGrainContourPiece: HoundstoothtopiaContourPiece =
-            houndstoothtopiaTo.HoundstoothtopiaContourPiece(perimeterRhythm.map(
-                (duration: number, index: number): HoundstoothtopiaContourElement =>
+            houndstoothtopiaTo.HoundstoothtopiaContourPiece(map(
+                perimeterRhythm,
+                (duration: number, index: Ordinal): HoundstoothtopiaContourElement =>
                     [
-                        from.Scalar(perimeterRhythmTopGrainPitches[ index ]),
+                        from.Scalar(apply.Ordinal(perimeterRhythmTopGrainPitches, index)),
                         duration,
                         [ 0, -1, 0 ],
                     ],
             ))
         const perimeterRhythmTopLeftGrainContourPiece: HoundstoothtopiaContourPiece =
-            houndstoothtopiaTo.HoundstoothtopiaContourPiece(perimeterRhythm.map(
-                (duration: number, index: number): HoundstoothtopiaContourElement =>
+            houndstoothtopiaTo.HoundstoothtopiaContourPiece(map(
+                perimeterRhythm,
+                (duration: number, index: Ordinal): HoundstoothtopiaContourElement =>
                     [
-                        from.Scalar(perimeterRhythmTopLeftGrainPitches[ index ]),
+                        from.Scalar(apply.Ordinal(perimeterRhythmTopLeftGrainPitches, index)),
                         duration,
                         [ 0, 0, 1 ],
                     ],
             ))
         const perimeterRhythmTopRightGrainContourPiece: HoundstoothtopiaContourPiece =
-            houndstoothtopiaTo.HoundstoothtopiaContourPiece(perimeterRhythm.map(
-                (duration: number, index: number): HoundstoothtopiaContourElement =>
+            houndstoothtopiaTo.HoundstoothtopiaContourPiece(map(
+                perimeterRhythm,
+                (duration: number, index: Ordinal): HoundstoothtopiaContourElement =>
                     [
-                        from.Scalar(perimeterRhythmTopRightGrainPitches[ index ]),
+                        from.Scalar(apply.Ordinal(perimeterRhythmTopRightGrainPitches, index)),
                         duration,
                         [ 0, 0, -1 ],
                     ],
