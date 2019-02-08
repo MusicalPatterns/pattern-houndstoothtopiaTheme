@@ -7,7 +7,6 @@ export {
     QUARTER_TURN_COUNTERCLOCKWISE,
 } from './custom/indexForTest'
 export {
-    HoundstoothtopiaContourElement,
     to,
 } from './nominal/indexForTest'
 export {

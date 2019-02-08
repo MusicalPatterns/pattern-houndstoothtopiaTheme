@@ -7,7 +7,4 @@ export {
 export {
     GrainCycleSequence,
     Grain,
-    HoundstoothtopiaContourWhole,
-    HoundstoothtopiaContourPiece,
-    HoundstoothtopiaContourElement,
 } from './types'

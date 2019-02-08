@@ -1,12 +1,13 @@
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
-import { buildSupertileNoteSpec, HoundstoothtopiaContourElement } from '../../../src/indexForTest'
+import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { ContourElement, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { buildSupertileNoteSpec } from '../../../src/indexForTest'
 
 describe('notes', () => {
     let noteSpec: NoteSpec
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: HoundstoothtopiaContourElement = [ 2.12, 3, [ 3, 5, 8 ] ]
+            const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
             noteSpec = buildSupertileNoteSpec(testContour)
         })
 
@@ -106,7 +107,7 @@ describe('notes', () => {
 
     describe('rest note', () => {
         beforeEach(() => {
-            const testContour: HoundstoothtopiaContourElement = [ -1, 3, [ 0, 0, 0 ] ]
+            const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
             noteSpec = buildSupertileNoteSpec(testContour)
         })
 
