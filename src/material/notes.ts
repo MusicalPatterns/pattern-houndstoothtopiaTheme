@@ -1,10 +1,11 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationXYZ, STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import {
-    apply, ContourElement,
-    CoordinateElement,
+    apply,
+    ContourElement,
     from,
     map,
+    Meters,
     ONE_HALF,
     Ordinal,
     SQUARE_ROOT_OF_TWO,
@@ -29,8 +30,8 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: ContourElement<PitchDurati
                 scalar: to.Scalar(pitch),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
-            positionSpec: map(to.Coordinate(position), (positionElement: CoordinateElement, index: Ordinal) => ({
-                scalar: to.Scalar(from.CoordinateElement(positionElement)),
+            positionSpec: map(position.map(to.Meters), (positionElement: Meters, index: Ordinal) => ({
+                scalar: to.Scalar(from.Meters(positionElement)),
                 scaleIndex: apply.Translation(
                     HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
                     to.Translation(from.Ordinal(index)),

@@ -1,6 +1,17 @@
 // tslint:disable no-any
 
-import { apply, Coordinate2d, Cycle, DictionaryOf, rotate, Scalar, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Coordinate,
+    Cycle,
+    DictionaryOf,
+    from,
+    rotate,
+    Scalar,
+    Space,
+    to,
+    TwoDimensional,
+} from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -14,47 +25,48 @@ import {
 } from '../coordinates'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
-const extractHeight: (coordinates: Coordinate2d[]) => Scalar[] =
-    (coordinates: Coordinate2d[]): Scalar[] =>
-        coordinates.map((coordinate: Coordinate2d): Scalar => {
-            const height: number = coordinate[ 1 ]
+const extractHeight: (coordinates: Array<Coordinate<Space, TwoDimensional>>) => Scalar[] =
+    (coordinates: Array<Coordinate<Space, TwoDimensional>>): Scalar[] =>
+        coordinates.map((coordinate: Coordinate<Space, TwoDimensional>): Scalar => {
+            const height: Space = coordinate[ 1 ]
 
-            return to.Scalar(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))
+            return to.Scalar(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION)))
         })
 
 const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
     (): DictionaryOf<Scalar[]> => {
-        const houndstoothCoordinates: Cycle<Coordinate2d> =
+        const houndstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Cycle<Coordinate2d> = apply.Translation(
+        const cycledHoundstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> = apply.Translation(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
-        const houndstoothCenterCoordinate: Coordinate2d = buildHoundstoothSolidCenterOriginCoordinate()
-        const houndstoothTopRightGrainCoordinates: Coordinate2d[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
+        const houndstoothCenterCoordinate: Coordinate<Space, TwoDimensional> =
+            buildHoundstoothSolidCenterOriginCoordinate()
+        const houndstoothTopRightGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
                 })) as any
-        const houndstoothTopGrainCoordinates: Coordinate2d[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
+        const houndstoothTopGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
                 })) as any
-        const houndstoothTopLeftGrainCoordinates: Coordinate2d[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
+        const houndstoothTopLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
                 })) as any
-        const houndstoothLeftGrainCoordinates: Coordinate2d[] =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate2d) =>
+        const houndstoothLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
+            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
                 rotate({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,

@@ -1,34 +1,35 @@
 import {
     apply,
     Block,
-    Cardinal,
-    Coordinate2d,
+    Coordinate,
     Cycle,
-    distanceBetween,
-    from,
+    distanceBetween, from,
     map,
     NEXT,
     Ordinal,
+    Space,
     SQUARE_ROOT_OF_TWO,
     to,
+    TwoDimensional,
 } from '@musical-patterns/utilities'
 import { buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 
 const buildPerimeterRhythm: () => Block =
     (): Block => {
-        const houndstoothCoordinateCycle: Cycle<Coordinate2d> = to.Cycle(
+        const houndstoothCoordinateCycle: Cycle<Coordinate<Space, TwoDimensional>> = to.Cycle(
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
         )
-        const houndstoothPerimeterSegmentLengths: number[] =
-            map(houndstoothCoordinateCycle, (coordinate: Coordinate2d, index: Ordinal): number => {
+        const houndstoothPerimeterSegmentLengths: Space[] =
+            map(houndstoothCoordinateCycle, (coordinate: Coordinate<Space, TwoDimensional>, index: Ordinal): Space => {
                 const nextIndex: Ordinal = apply.Translation(index, NEXT)
-                const nextCoordinate: Coordinate2d = apply.Ordinal(houndstoothCoordinateCycle, nextIndex)
+                const nextCoordinate: Coordinate<Space, TwoDimensional> =
+                    apply.Ordinal(houndstoothCoordinateCycle, nextIndex)
 
-                return distanceBetween(to.Coordinate(coordinate), to.Coordinate(nextCoordinate))
+                return distanceBetween(coordinate, nextCoordinate)
             })
 
-        return to.Block(houndstoothPerimeterSegmentLengths.map((length: number): number =>
-            apply.Base(length, to.Base(SQUARE_ROOT_OF_TWO)),
+        return to.Block(houndstoothPerimeterSegmentLengths.map((length: Space): number =>
+            from.Space(apply.Base(length, to.Base(SQUARE_ROOT_OF_TWO))),
         ))
     }
 

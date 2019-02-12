@@ -10,6 +10,8 @@ import {
     map,
     Ordinal,
     Scalar,
+    Space,
+    ThreeDimensional,
     to,
 } from '@musical-patterns/utilities'
 import { PITCH_INDICATING_REST } from '../constants'
@@ -27,26 +29,27 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
             perimeterRhythmTopRightGrainPitches,
         } = buildPerimeterPitches()
 
-        const perimeterPiece: (pitches: Scalar[], position: Coordinate) => ContourPiece<PitchDurationXYZ> =
-            (pitches: Scalar[], position: Coordinate): ContourPiece<PitchDurationXYZ> =>
+        const perimeterPiece:
+            (pitches: Scalar[], position: Coordinate<Space, ThreeDimensional>) => ContourPiece<PitchDurationXYZ> =
+            (pitches: Scalar[], position: Coordinate<Space, ThreeDimensional>): ContourPiece<PitchDurationXYZ> =>
                 to.ContourPiece<PitchDurationXYZ>(map(
                     perimeterRhythm,
                     (duration: number, index: Ordinal): ContourElement<PitchDurationXYZ> =>
                         to.ContourElement<PitchDurationXYZ>([
                             from.Scalar(apply.Ordinal(pitches, index)),
                             duration,
-                            ...from.Coordinate(position),
+                            ...position.map(from.Space),
                         ]),
                 ))
 
         const perimeterRhythmLeftGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmLeftGrainPitches, to.Coordinate([ 0, 1, 0 ]))
+            perimeterPiece(perimeterRhythmLeftGrainPitches, [ to.Space(0), to.Space(1), to.Space(0) ])
         const perimeterRhythmTopGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopGrainPitches, to.Coordinate([ 0, -1, 0 ]))
+            perimeterPiece(perimeterRhythmTopGrainPitches, [ to.Space(0), to.Space(-1), to.Space(0) ])
         const perimeterRhythmTopLeftGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopLeftGrainPitches, to.Coordinate([ 0, 0, 1 ]))
+            perimeterPiece(perimeterRhythmTopLeftGrainPitches, [ to.Space(0), to.Space(0), to.Space(1) ])
         const perimeterRhythmTopRightGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopRightGrainPitches, to.Coordinate([ 0, 0, -1 ]))
+            perimeterPiece(perimeterRhythmTopRightGrainPitches, [ to.Space(0), to.Space(0), to.Space(-1) ])
 
         const supertileRhythmHigherPitchContourPiece: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(

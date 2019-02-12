@@ -1,17 +1,30 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
 import { buildStandardScales, StandardSpec, StandardSpecProperties } from '@musical-patterns/pattern'
-import { apply, from, Ordinal, to, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import {
+    apply,
+    from,
+    NO_TRANSLATION,
+    Ordinal,
+    Scalar,
+    to,
+    Translation,
+    X_AXIS,
+    Y_AXIS,
+    Z_AXIS,
+} from '@musical-patterns/utilities'
 import { buildScalars } from './scalars'
 
 const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ordinal) => Scale =
-    (spec: StandardSpec, nonScale: Scale, index: Ordinal): Scale => ({
-        scalar: spec.basePositionScalar,
-        scalars: nonScale.scalars,
-        translation: apply.Ordinal(
-            spec[ StandardSpecProperties.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Translation),
+    (spec: StandardSpec, nonScale: Scale, index: Ordinal): Scale => {
+        const scalar: Scalar = from.Meters(spec.basePositionScalar || to.Scalar(to.Meters(1)))
+        const translation: Translation = from.Meters(apply.Ordinal(
+            spec[ StandardSpecProperties.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Translation)
+                .map(to.Meters),
             index,
-        ),
-    })
+        ))
+
+        return { scalar, scalars: nonScale.scalars, translation }
+    }
 
 const buildScales: BuildScalesFunction =
     (spec: StandardSpec): Scale[] => {
@@ -21,15 +34,23 @@ const buildScales: BuildScalesFunction =
         } = buildScalars()
 
         const gainScale: Scale = nonScale
+        const durationScalar: Scalar =
+            from.Ms(spec[ StandardSpecProperties.BASE_DURATION ] || to.Scalar(to.Ms(1)))
+        const durationTranslation: Translation =
+            from.Ms(spec[ StandardSpecProperties.DURATION_TRANSLATION ] || to.Ms(NO_TRANSLATION))
         const durationsScale: Scale = {
-            scalar: to.Scalar(from.Ms(spec[ StandardSpecProperties.BASE_DURATION ] || to.Ms(1))),
+            scalar: durationScalar,
             scalars: rootOfTwoScalars,
-            translation: spec[ StandardSpecProperties.DURATION_TRANSLATION ],
+            translation: durationTranslation,
         }
+        const pitchesScalar: Scalar =
+            from.Hz(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Scalar(to.Hz(1)))
+        const pitchesTranslation: Translation =
+            from.Hz(spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || to.Hz(NO_TRANSLATION))
         const pitchesScale: Scale = {
-            scalar: to.Scalar(from.Hz(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Hz(1))),
+            scalar: pitchesScalar,
             scalars: nonScale.scalars,
-            translation: spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ],
+            translation: pitchesTranslation,
         }
         const xPositionsScale: Scale = buildScaleForDimension(spec, nonScale, X_AXIS)
         const yPositionsScale: Scale = buildScaleForDimension(spec, nonScale, Y_AXIS)

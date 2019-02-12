@@ -7,14 +7,17 @@ const buildScalars: () => DictionaryOf<Scalar[]> =
 
         const harmonicSeriesScalars: Scalar[] = harmonicSeriesScale.scalars || []
         const rootOfTwoScalars: Scalar[] = harmonicSeriesScalars.map(
-            (n: Scalar): Scalar =>
-                to.Scalar(apply.Power(
+            (harmonicSeriesScalar: Scalar): Scalar => {
+                const negativeHarmonicSeriesValue: number = from.Scalar(apply.Translation(
+                    harmonicSeriesScalar,
+                    to.Translation(negative(1)),
+                ))
+
+                return to.Scalar(apply.Power(
                     SQUARE_ROOT_OF_TWO,
-                    to.Power(from.Scalar(apply.Translation(
-                        n,
-                        to.Translation(negative(1)),
-                    ))),
-                )),
+                    to.Power(negativeHarmonicSeriesValue),
+                ))
+            },
         )
 
         return {
