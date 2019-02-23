@@ -7,3 +7,9 @@ export { buildScales } from './scales'
 export { buildParts } from './parts'
 export { buildContourPieces } from './pieces'
 export { buildContourWholes } from './wholes'
+export {
+    buildSupertileRhythm,
+    buildPerimeterRhythm,
+    buildPerimeterPitches,
+    QUARTER_TURN_COUNTERCLOCKWISE,
+} from './custom/indexForTest'

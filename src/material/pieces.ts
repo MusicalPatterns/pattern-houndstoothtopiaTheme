@@ -15,8 +15,8 @@ import {
     to,
 } from '@musical-patterns/utilities'
 import { PITCH_INDICATING_REST } from '../constants'
-import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from '../custom'
 import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
+import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from './custom'
 
 const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
     (): DictionaryOf<ContourPiece<PitchDurationXYZ>> => {
