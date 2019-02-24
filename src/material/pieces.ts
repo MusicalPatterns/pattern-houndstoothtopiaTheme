@@ -1,4 +1,4 @@
-import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { PITCH_INDEX_INDICATING_REST, PitchDurationXYZ } from '@musical-patterns/pattern'
 import {
     apply,
     Block,
@@ -14,7 +14,6 @@ import {
     ThreeDimensional,
     to,
 } from '@musical-patterns/utilities'
-import { PITCH_INDICATING_REST } from '../constants'
 import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
 import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from './custom'
 
@@ -65,12 +64,12 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
         const perimeterRestContourPiece: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 perimeterRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    to.ContourElement<PitchDurationXYZ>([ PITCH_INDICATING_REST, duration, 0, 0, 0 ]),
+                    to.ContourElement<PitchDurationXYZ>([ PITCH_INDEX_INDICATING_REST, duration, 0, 0, 0 ]),
                 ))
         const supertileRestContourPiece: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    to.ContourElement<PitchDurationXYZ>([ PITCH_INDICATING_REST, duration, 0, 0, 0 ]),
+                    to.ContourElement<PitchDurationXYZ>([ PITCH_INDEX_INDICATING_REST, duration, 0, 0, 0 ]),
                 ))
 
         return {
