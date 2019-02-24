@@ -1,5 +1,5 @@
 import { Block, to } from '@musical-patterns/utilities'
-import { buildPerimeterRhythm } from '../../../../src/indexForTest'
+import { buildPerimeterRhythm } from '../../../../../src/indexForTest'
 
 describe('perimeter rhythm', () => {
     it('corresponds to the ranking of the lengths of sides of a houndstooth as you travel around its perimeter', () => {
