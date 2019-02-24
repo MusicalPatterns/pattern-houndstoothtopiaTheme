@@ -5,7 +5,7 @@ import {
     ContourWhole,
     Cycle,
     DictionaryOf,
-    from,
+    from, negative,
     Ordinal,
     sequence,
     to,
@@ -32,7 +32,7 @@ const buildContourWholes: () => DictionaryOf<ContourWhole<PitchDurationXYZ>> =
         } = buildContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
-        const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(1))
+        const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(negative(1)))
 
         const buildGrainCycleSequence: (indexToVary: Ordinal) => GrainCycleSequence =
             (indexToVary: Ordinal): GrainCycleSequence => {
