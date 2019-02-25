@@ -11,9 +11,7 @@ const Grain: (grain: number) => Grain =
 
 const GrainCycleSequence: <T extends Number>(grainCycleSequence: T[]) => GrainCycleSequence =
     <T extends Number>(grainCycleSequence: T[]): GrainCycleSequence =>
-        grainCycleSequence.map(
-            (grain: T): Grain => grain as any,
-        ) as any
+        grainCycleSequence as any
 
 export {
     Grain,
