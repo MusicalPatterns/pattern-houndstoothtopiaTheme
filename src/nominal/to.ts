@@ -1,4 +1,4 @@
-// tslint:disable variable-name no-any
+// tslint:disable variable-name no-any ban-types
 
 import {
     Grain,
@@ -9,10 +9,10 @@ const Grain: (grain: number) => Grain =
     (grain: number): Grain =>
         grain as any
 
-const GrainCycleSequence: (grainCycleSequence: Array<number | Grain>) => GrainCycleSequence =
-    (grainCycleSequence: Array<number | Grain>): GrainCycleSequence =>
+const GrainCycleSequence: <T extends Number>(grainCycleSequence: T[]) => GrainCycleSequence =
+    <T extends Number>(grainCycleSequence: T[]): GrainCycleSequence =>
         grainCycleSequence.map(
-            (grain: number | Grain): Grain => grain as any,
+            (grain: T): Grain => grain as any,
         ) as any
 
 export {
