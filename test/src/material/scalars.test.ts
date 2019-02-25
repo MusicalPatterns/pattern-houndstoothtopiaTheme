@@ -1,9 +1,9 @@
 import { Scalar, SQUARE_ROOT_OF_TWO, testArraysAreCloseSoFar, to } from '@musical-patterns/utilities'
-import { buildScalars } from '../../../src/indexForTest'
+import { buildRootOfTwoScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
     it('root of two scalars start at 1 and increase by the square root of 2', () => {
-        const { rootOfTwoScalars } = buildScalars()
+        const rootOfTwoScalars: Scalar[] = buildRootOfTwoScalars()
         const expectedScalars: Scalar[] = [
             1,
             SQUARE_ROOT_OF_TWO,

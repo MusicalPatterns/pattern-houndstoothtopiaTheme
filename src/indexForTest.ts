@@ -5,7 +5,7 @@ export {
 } from './nominal/indexForTest'
 export {
     buildSupertileNoteSpec,
-    buildScalars,
+    buildRootOfTwoScalars,
     buildEntities,
     buildScales,
     buildParts,

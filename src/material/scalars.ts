@@ -1,12 +1,13 @@
-import { buildStandardScales } from '@musical-patterns/pattern'
-import { apply, DictionaryOf, from, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { Scale } from '@musical-patterns/compiler'
+import { buildHarmonicSeriesScale } from '@musical-patterns/pattern'
+import { apply, from, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 
-const buildScalars: () => DictionaryOf<Scalar[]> =
-    (): DictionaryOf<Scalar[]> => {
-        const { harmonicSeriesScale } = buildStandardScales()
-
+const buildRootOfTwoScalars: () => Scalar[] =
+    (): Scalar[] => {
+        const harmonicSeriesScale: Scale = buildHarmonicSeriesScale()
         const harmonicSeriesScalars: Scalar[] = harmonicSeriesScale.scalars || []
-        const rootOfTwoScalars: Scalar[] = harmonicSeriesScalars.map(
+
+        return harmonicSeriesScalars.map(
             (harmonicSeriesScalar: Scalar): Scalar => {
                 const negativeHarmonicSeriesValue: number = from.Scalar(apply.Translation(
                     harmonicSeriesScalar,
@@ -19,12 +20,8 @@ const buildScalars: () => DictionaryOf<Scalar[]> =
                 ))
             },
         )
-
-        return {
-            rootOfTwoScalars,
-        }
     }
 
 export {
-    buildScalars,
+    buildRootOfTwoScalars,
 }
