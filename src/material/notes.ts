@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import {
-    PitchDurationXYZ,
+    PitchDurationXYZ, SILENT,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
@@ -28,7 +28,7 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: ContourElement<PitchDurati
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gainSpec: {
-                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? to.Scalar(0) : undefined,
+                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? SILENT : undefined,
             },
             pitchSpec: {
                 scalar: to.Scalar(pitch),
@@ -55,7 +55,7 @@ const buildSupertileNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>)
         return {
             ...buildHoundstoothtopiaNoteSpec(contourElement),
             gainSpec: {
-                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? to.Scalar(0) : ONE_HALF,
+                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? SILENT : ONE_HALF,
             },
         }
     }

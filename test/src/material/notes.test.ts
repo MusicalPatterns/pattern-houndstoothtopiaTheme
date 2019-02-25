@@ -1,5 +1,5 @@
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { PitchDurationXYZ, SILENT } from '@musical-patterns/pattern'
 import { ContourElement, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec } from '../../../src/indexForTest'
 
@@ -119,7 +119,7 @@ describe('notes', () => {
 
             it('sets gain to zero', () => {
                 expect(gainSpec.scalar)
-                    .toBe(to.Scalar(0))
+                    .toBe(SILENT)
             })
         })
     })
