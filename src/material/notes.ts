@@ -1,6 +1,7 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import {
-    PitchDurationXYZ, SILENT,
+    PitchDurationXYZ,
+    SILENT,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
@@ -13,6 +14,7 @@ import {
     Meters,
     ONE_HALF,
     Ordinal,
+    Scalar,
     SQUARE_ROOT_OF_TWO,
     to,
 } from '@musical-patterns/utilities'
@@ -22,13 +24,17 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: ContourElement<PitchDurati
     (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => {
         const [ pitch, duration, ...position ] = contourElement as number[]
 
+        const sustainScalar: Scalar = from.Time(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR)
+
+        const silentScalar: Scalar = from.Amplitude(SILENT)
+
         return {
             durationSpec: {
                 index: to.Ordinal(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gainSpec: {
-                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? SILENT : undefined,
+                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? silentScalar : undefined,
             },
             pitchSpec: {
                 scalar: to.Scalar(pitch),
@@ -42,7 +48,7 @@ const buildHoundstoothtopiaNoteSpec: (contourElement: ContourElement<PitchDurati
                 ),
             })),
             sustainSpec: {
-                scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
+                scalar: sustainScalar,
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
         }
@@ -52,22 +58,31 @@ const buildSupertileNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>)
     (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => {
         const [ pitch ] = contourElement as number[]
 
+        const silentScalar: Scalar = from.Amplitude(SILENT)
+
         return {
             ...buildHoundstoothtopiaNoteSpec(contourElement),
             gainSpec: {
-                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? SILENT : ONE_HALF,
+                scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? silentScalar : ONE_HALF,
             },
         }
     }
 
 const buildPerimeterNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>) => NoteSpec =
-    (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => ({
-        ...buildHoundstoothtopiaNoteSpec(contourElement),
-        sustainSpec: {
-            scalar: apply.Scalar(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, to.Scalar(SQUARE_ROOT_OF_TWO)),
-            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-        },
-    })
+    (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => {
+        const sustainScalar: Scalar = from.Time(apply.Scalar(
+            HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
+            to.Scalar(SQUARE_ROOT_OF_TWO),
+        ))
+
+        return {
+            ...buildHoundstoothtopiaNoteSpec(contourElement),
+            sustainSpec: {
+                scalar: sustainScalar,
+                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
+            },
+        }
+    }
 
 export {
     buildSupertileNoteSpec,

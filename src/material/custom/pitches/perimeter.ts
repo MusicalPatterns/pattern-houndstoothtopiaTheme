@@ -5,6 +5,7 @@ import {
     Coordinate,
     Cycle,
     DictionaryOf,
+    Frequency,
     from,
     rotate,
     Scalar,
@@ -25,16 +26,16 @@ import {
 } from '../coordinates'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 
-const extractHeight: (coordinates: Array<Coordinate<Space, TwoDimensional>>) => Scalar[] =
-    (coordinates: Array<Coordinate<Space, TwoDimensional>>): Scalar[] =>
-        coordinates.map((coordinate: Coordinate<Space, TwoDimensional>): Scalar => {
+const pitchesFromHeights: (coordinates: Array<Coordinate<Space, TwoDimensional>>) => Array<Scalar<Frequency>> =
+    (coordinates: Array<Coordinate<Space, TwoDimensional>>): Array<Scalar<Frequency>> =>
+        coordinates.map((coordinate: Coordinate<Space, TwoDimensional>): Scalar<Frequency> => {
             const height: Space = coordinate[ 1 ]
 
-            return to.Scalar(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION)))
+            return to.Scalar(to.Frequency(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))))
         })
 
-const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
-    (): DictionaryOf<Scalar[]> => {
+const buildPerimeterPitches: () => DictionaryOf<Array<Scalar<Frequency>>> =
+    (): DictionaryOf<Array<Scalar<Frequency>>> => {
         const houndstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> = apply.Translation(
@@ -73,10 +74,14 @@ const buildPerimeterPitches: () => DictionaryOf<Scalar[]> =
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
                 })) as any
 
-        const perimeterRhythmLeftGrainPitches: Scalar[] = extractHeight(houndstoothLeftGrainCoordinates)
-        const perimeterRhythmTopGrainPitches: Scalar[] = extractHeight(houndstoothTopGrainCoordinates)
-        const perimeterRhythmTopLeftGrainPitches: Scalar[] = extractHeight(houndstoothTopLeftGrainCoordinates)
-        const perimeterRhythmTopRightGrainPitches: Scalar[] = extractHeight(houndstoothTopRightGrainCoordinates)
+        const perimeterRhythmLeftGrainPitches: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothLeftGrainCoordinates)
+        const perimeterRhythmTopGrainPitches: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothTopGrainCoordinates)
+        const perimeterRhythmTopLeftGrainPitches: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothTopLeftGrainCoordinates)
+        const perimeterRhythmTopRightGrainPitches: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothTopRightGrainCoordinates)
 
         return {
             perimeterRhythmLeftGrainPitches,

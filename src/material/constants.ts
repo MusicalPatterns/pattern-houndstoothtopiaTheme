@@ -1,12 +1,24 @@
 // tslint:disable no-magic-numbers
 
-import { apply, FIVE_HALVES, negative, Ordinal, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    FIVE_HALVES,
+    Frequency,
+    negative,
+    Ordinal,
+    Scalar,
+    SQUARE_ROOT_OF_TWO,
+    Time,
+    to,
+} from '@musical-patterns/utilities'
 
-const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar =
-    to.Scalar(apply.Translation(SQUARE_ROOT_OF_TWO, to.Translation(negative(1))))
+const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Time> = to.Scalar(to.Time(apply.Translation(
+    SQUARE_ROOT_OF_TWO,
+    to.Translation(negative(1)),
+)))
 
-const HIGHER_SUPERTILE_PITCH: Scalar = to.Scalar(apply.Scalar(SQUARE_ROOT_OF_TWO, FIVE_HALVES))
-const LOWER_SUPERTILE_PITCH: Scalar = to.Scalar(1)
+const HIGHER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar(to.Frequency(apply.Scalar(SQUARE_ROOT_OF_TWO, FIVE_HALVES)))
+const LOWER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar(to.Frequency(1))
 
 const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(0)
 const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(1)

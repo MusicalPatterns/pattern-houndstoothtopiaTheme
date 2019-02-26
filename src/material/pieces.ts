@@ -6,6 +6,7 @@ import {
     ContourPiece,
     Coordinate,
     DictionaryOf,
+    Frequency,
     from,
     map,
     Ordinal,
@@ -28,9 +29,14 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
             perimeterRhythmTopRightGrainPitches,
         } = buildPerimeterPitches()
 
-        const perimeterPiece:
-            (pitches: Scalar[], position: Coordinate<Space, ThreeDimensional>) => ContourPiece<PitchDurationXYZ> =
-            (pitches: Scalar[], position: Coordinate<Space, ThreeDimensional>): ContourPiece<PitchDurationXYZ> =>
+        const perimeterPiece: (
+            pitches: Array<Scalar<Frequency>>,
+            position: Coordinate<Space, ThreeDimensional>,
+        ) => ContourPiece<PitchDurationXYZ> =
+            (
+                pitches: Array<Scalar<Frequency>>,
+                position: Coordinate<Space, ThreeDimensional>,
+            ): ContourPiece<PitchDurationXYZ> =>
                 to.ContourPiece<PitchDurationXYZ>(map(
                     perimeterRhythm,
                     (duration: number, index: Ordinal): ContourElement<PitchDurationXYZ> =>
@@ -53,12 +59,16 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
         const supertileRhythmHigherPitchContourPiece: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    to.ContourElement<PitchDurationXYZ>([ from.Scalar(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0 ]),
+                    to.ContourElement<PitchDurationXYZ>([
+                        from.Scalar(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
+                    ]),
                 ))
         const supertileRhythmLowerPitchContourPiece: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    to.ContourElement<PitchDurationXYZ>([ from.Scalar(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0 ]),
+                    to.ContourElement<PitchDurationXYZ>([
+                        from.Scalar(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0,
+                    ]),
                 ))
 
         const perimeterRestContourPiece: ContourPiece<PitchDurationXYZ> =
