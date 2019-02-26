@@ -1,8 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export {
-    to,
-} from './nominal/indexForTest'
+export { to } from './nominal'
 export {
     buildSupertileNoteSpec,
     buildRootOfTwoScalars,
