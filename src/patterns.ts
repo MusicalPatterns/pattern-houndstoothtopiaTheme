@@ -15,6 +15,7 @@ const metadata: Metadata = {
     mostRecentPublish: process.env.PUBLISH_DATE || '2018-02-21T07:00:00.000Z',
     musicalIdeaIllustrated: 'irrational rhythm and harmony',
     originalPublish: '2018-02-21T07:00:00.000Z',
+    version: process.env.PATTERN_VERSION || 'unknown',
 }
 
 const pattern: StandardPattern = {
