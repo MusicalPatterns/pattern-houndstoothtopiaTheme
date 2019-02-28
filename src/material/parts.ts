@@ -1,39 +1,32 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildPerimeterNoteSpec, buildSupertileNoteSpec } from './notes'
+import { HoundstoothtopiaThemeContourWholes, HoundstoothtopiaThemeParts } from './types'
 import { buildContourWholes } from './wholes'
 
-const buildParts: () => DictionaryOf<NoteSpec[]> =
-    (): DictionaryOf<NoteSpec[]> => {
-        const {
-            supertileRhythmLowerPitchContourWhole,
-            supertileRhythmHigherPitchContourWhole,
-            perimeterRhythmTopRightGrainContourWhole,
-            perimeterRhythmTopGrainContourWhole,
-            perimeterRhythmTopLeftGrainContourWhole,
-            perimeterRhythmLeftGrainContourWhole,
-        } = buildContourWholes()
+const buildParts: () => HoundstoothtopiaThemeParts =
+    (): HoundstoothtopiaThemeParts => {
+        const contourWholes: HoundstoothtopiaThemeContourWholes = buildContourWholes()
 
-        const supertileRhythmLowerPitchPart: NoteSpec[] =
-            supertileRhythmLowerPitchContourWhole.map(buildSupertileNoteSpec)
-        const supertileRhythmHigherPitchPart: NoteSpec[] =
-            supertileRhythmHigherPitchContourWhole.map(buildSupertileNoteSpec)
-        const perimeterRhythmTopRightGrainPart: NoteSpec[] =
-            perimeterRhythmTopRightGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmTopGrainPart: NoteSpec[] =
-            perimeterRhythmTopGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmTopLeftGrainPart: NoteSpec[] =
-            perimeterRhythmTopLeftGrainContourWhole.map(buildPerimeterNoteSpec)
-        const perimeterRhythmLeftGrainPart: NoteSpec[] =
-            perimeterRhythmLeftGrainContourWhole.map(buildPerimeterNoteSpec)
+        const supertileLowerPitch: NoteSpec[] =
+            contourWholes.supertileLowerPitch.map(buildSupertileNoteSpec)
+        const supertileHigherPitch: NoteSpec[] =
+            contourWholes.supertileHigherPitch.map(buildSupertileNoteSpec)
+        const perimeterTopRightGrain: NoteSpec[] =
+            contourWholes.perimeterTopRightGrain.map(buildPerimeterNoteSpec)
+        const perimeterTopGrain: NoteSpec[] =
+            contourWholes.perimeterTopGrain.map(buildPerimeterNoteSpec)
+        const perimeterTopLeftGrain: NoteSpec[] =
+            contourWholes.perimeterTopLeftGrain.map(buildPerimeterNoteSpec)
+        const perimeterLeftGrain: NoteSpec[] =
+            contourWholes.perimeterLeftGrain.map(buildPerimeterNoteSpec)
 
         return {
-            perimeterRhythmLeftGrainPart,
-            perimeterRhythmTopGrainPart,
-            perimeterRhythmTopLeftGrainPart,
-            perimeterRhythmTopRightGrainPart,
-            supertileRhythmHigherPitchPart,
-            supertileRhythmLowerPitchPart,
+            perimeterLeftGrain,
+            perimeterTopGrain,
+            perimeterTopLeftGrain,
+            perimeterTopRightGrain,
+            supertileHigherPitch,
+            supertileLowerPitch,
         }
     }
 

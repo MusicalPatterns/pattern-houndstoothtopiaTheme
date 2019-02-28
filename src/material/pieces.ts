@@ -5,7 +5,6 @@ import {
     ContourElement,
     ContourPiece,
     Coordinate,
-    DictionaryOf,
     Frequency,
     from,
     map,
@@ -16,18 +15,14 @@ import {
     to,
 } from '@musical-patterns/utilities'
 import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
-import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm } from './custom'
+import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm, PerimeterPitches } from './custom'
+import { HoundstoothtopiaThemeContourPieces } from './types'
 
-const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
-    (): DictionaryOf<ContourPiece<PitchDurationXYZ>> => {
+const buildContourPieces: () => HoundstoothtopiaThemeContourPieces =
+    (): HoundstoothtopiaThemeContourPieces => {
         const perimeterRhythm: Block = buildPerimeterRhythm()
         const supertileRhythm: Block = buildSupertileRhythm()
-        const {
-            perimeterRhythmLeftGrainPitches,
-            perimeterRhythmTopGrainPitches,
-            perimeterRhythmTopLeftGrainPitches,
-            perimeterRhythmTopRightGrainPitches,
-        } = buildPerimeterPitches()
+        const perimeterPitches: PerimeterPitches = buildPerimeterPitches()
 
         const perimeterPiece: (
             pitches: Array<Scalar<Frequency>>,
@@ -47,23 +42,23 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
                         ]),
                 ))
 
-        const perimeterRhythmLeftGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmLeftGrainPitches, [ to.Space(0), to.Space(1), to.Space(0) ])
-        const perimeterRhythmTopGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopGrainPitches, [ to.Space(0), to.Space(-1), to.Space(0) ])
-        const perimeterRhythmTopLeftGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopLeftGrainPitches, [ to.Space(0), to.Space(0), to.Space(1) ])
-        const perimeterRhythmTopRightGrainContourPiece: ContourPiece<PitchDurationXYZ> =
-            perimeterPiece(perimeterRhythmTopRightGrainPitches, [ to.Space(0), to.Space(0), to.Space(-1) ])
+        const perimeterLeftGrain: ContourPiece<PitchDurationXYZ> =
+            perimeterPiece(perimeterPitches.leftGrain, [ to.Space(0), to.Space(1), to.Space(0) ])
+        const perimeterTopGrain: ContourPiece<PitchDurationXYZ> =
+            perimeterPiece(perimeterPitches.topGrain, [ to.Space(0), to.Space(-1), to.Space(0) ])
+        const perimeterTopLeftGrain: ContourPiece<PitchDurationXYZ> =
+            perimeterPiece(perimeterPitches.topLeftGrain, [ to.Space(0), to.Space(0), to.Space(1) ])
+        const perimeterTopRightGrain: ContourPiece<PitchDurationXYZ> =
+            perimeterPiece(perimeterPitches.topRightGrain, [ to.Space(0), to.Space(0), to.Space(-1) ])
 
-        const supertileRhythmHigherPitchContourPiece: ContourPiece<PitchDurationXYZ> =
+        const supertileHigherPitch: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                     to.ContourElement<PitchDurationXYZ>([
                         from.Scalar(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
                     ]),
                 ))
-        const supertileRhythmLowerPitchContourPiece: ContourPiece<PitchDurationXYZ> =
+        const supertileLowerPitch: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                     to.ContourElement<PitchDurationXYZ>([
@@ -71,26 +66,26 @@ const buildContourPieces: () => DictionaryOf<ContourPiece<PitchDurationXYZ>> =
                     ]),
                 ))
 
-        const perimeterRestContourPiece: ContourPiece<PitchDurationXYZ> =
+        const perimeterRest: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 perimeterRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                     to.ContourElement<PitchDurationXYZ>([ STANDARD_PITCH_INDEX_INDICATING_REST, duration, 0, 0, 0 ]),
                 ))
-        const supertileRestContourPiece: ContourPiece<PitchDurationXYZ> =
+        const supertileRest: ContourPiece<PitchDurationXYZ> =
             to.ContourPiece<PitchDurationXYZ>(
                 supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                     to.ContourElement<PitchDurationXYZ>([ STANDARD_PITCH_INDEX_INDICATING_REST, duration, 0, 0, 0 ]),
                 ))
 
         return {
-            perimeterRestContourPiece,
-            perimeterRhythmLeftGrainContourPiece,
-            perimeterRhythmTopGrainContourPiece,
-            perimeterRhythmTopLeftGrainContourPiece,
-            perimeterRhythmTopRightGrainContourPiece,
-            supertileRestContourPiece,
-            supertileRhythmHigherPitchContourPiece,
-            supertileRhythmLowerPitchContourPiece,
+            perimeterLeftGrain,
+            perimeterRest,
+            perimeterTopGrain,
+            perimeterTopLeftGrain,
+            perimeterTopRightGrain,
+            supertileHigherPitch,
+            supertileLowerPitch,
+            supertileRest,
         }
     }
 

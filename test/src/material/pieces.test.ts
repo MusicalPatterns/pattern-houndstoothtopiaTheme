@@ -13,23 +13,23 @@ describe('contour pieces', () => {
         describe('perimeter pieces', () => {
             it('are all the same duration', () => {
                 const {
-                    perimeterRhythmLeftGrainContourPiece,
-                    perimeterRhythmTopGrainContourPiece,
-                    perimeterRhythmTopLeftGrainContourPiece,
-                    perimeterRhythmTopRightGrainContourPiece,
-                    perimeterRestContourPiece,
+                    perimeterLeftGrain,
+                    perimeterTopGrain,
+                    perimeterTopLeftGrain,
+                    perimeterTopRightGrain,
+                    perimeterRest,
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopRightGrainContourPiece.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterTopRightGrain.map(buildSupertileNoteSpec), scales)
 
-                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterLeftGrain.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopGrainContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterTopGrain.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRhythmTopLeftGrainContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterTopLeftGrain.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRestContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(perimeterRest.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
             })
         })
@@ -37,17 +37,17 @@ describe('contour pieces', () => {
         describe('supertile pieces', () => {
             it('are all the same duration', () => {
                 const {
-                    supertileRhythmLowerPitchContourPiece,
-                    supertileRhythmHigherPitchContourPiece,
-                    supertileRestContourPiece,
+                    supertileLowerPitch,
+                    supertileHigherPitch,
+                    supertileRest,
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
+                const onePartsDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileLowerPitch.map(buildSupertileNoteSpec), scales)
 
-                expect(calculateNoteSpecsTotalCompiledDuration(supertileRhythmHigherPitchContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(supertileHigherPitch.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
-                expect(calculateNoteSpecsTotalCompiledDuration(supertileRestContourPiece.map(buildSupertileNoteSpec), scales))
+                expect(calculateNoteSpecsTotalCompiledDuration(supertileRest.map(buildSupertileNoteSpec), scales))
                     .toBe(onePartsDuration)
             })
         })
@@ -55,13 +55,13 @@ describe('contour pieces', () => {
         describe('perimeter pieces vs supertile pieces', () => {
             it('supertile pieces are three-quarters as long as the perimeter pieces, so they loop in a simple 3:4 polymeter', () => {
                 const {
-                    perimeterRhythmLeftGrainContourPiece,
-                    supertileRhythmLowerPitchContourPiece,
+                    perimeterLeftGrain,
+                    supertileLowerPitch,
                 } = buildContourPieces()
                 const scales: Scale[] = buildScales(initialSpec)
 
-                const supertileDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileRhythmLowerPitchContourPiece.map(buildSupertileNoteSpec), scales)
-                const perimeterDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterRhythmLeftGrainContourPiece.map(buildSupertileNoteSpec), scales)
+                const supertileDuration: Ms = calculateNoteSpecsTotalCompiledDuration(supertileLowerPitch.map(buildSupertileNoteSpec), scales)
+                const perimeterDuration: Ms = calculateNoteSpecsTotalCompiledDuration(perimeterLeftGrain.map(buildSupertileNoteSpec), scales)
 
                 const ratioBetweenSupertileAndPerimeterParts: number = from.Ms(quotient(supertileDuration, perimeterDuration))
                 expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterParts, from.Scalar(THREE_FOURTHS)))

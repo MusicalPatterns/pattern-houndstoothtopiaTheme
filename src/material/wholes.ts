@@ -4,7 +4,6 @@ import {
     ContourPiece,
     ContourWhole,
     Cycle,
-    DictionaryOf,
     from,
     negative,
     Ordinal,
@@ -19,18 +18,11 @@ import {
     TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY,
 } from './constants'
 import { buildContourPieces } from './pieces'
+import { HoundstoothtopiaThemeContourPieces, HoundstoothtopiaThemeContourWholes } from './types'
 
-const buildContourWholes: () => DictionaryOf<ContourWhole<PitchDurationXYZ>> =
-    (): DictionaryOf<ContourWhole<PitchDurationXYZ>> => {
-        const {
-            perimeterRhythmLeftGrainContourPiece,
-            perimeterRhythmTopGrainContourPiece,
-            perimeterRhythmTopLeftGrainContourPiece,
-            perimeterRhythmTopRightGrainContourPiece,
-            supertileRhythmHigherPitchContourPiece,
-            supertileRhythmLowerPitchContourPiece,
-            perimeterRestContourPiece,
-        } = buildContourPieces()
+const buildContourWholes: () => HoundstoothtopiaThemeContourWholes =
+    (): HoundstoothtopiaThemeContourWholes => {
+        const contourPieces: HoundstoothtopiaThemeContourPieces = buildContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
         const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(negative(1)))
@@ -55,39 +47,39 @@ const buildContourWholes: () => DictionaryOf<ContourWhole<PitchDurationXYZ>> =
             ): ContourWhole<PitchDurationXYZ> =>
                 to.ContourWhole<PitchDurationXYZ>(
                     sequence(grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
-                        grain ? contourPiece : perimeterRestContourPiece)))
+                        grain ? contourPiece : contourPieces.perimeterRest)))
 
-        const perimeterRhythmTopRightGrainContourWhole: ContourWhole<PitchDurationXYZ> =
+        const perimeterTopRightGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
                 buildGrainCycleSequence(TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY),
-                perimeterRhythmTopRightGrainContourPiece,
+                contourPieces.perimeterTopRightGrain,
             )
-        const perimeterRhythmTopGrainContourWhole: ContourWhole<PitchDurationXYZ> =
+        const perimeterTopGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
                 buildGrainCycleSequence(TOP_GRAIN_SEQUENCE_INDEX_TO_VARY),
-                perimeterRhythmTopGrainContourPiece,
+                contourPieces.perimeterTopGrain,
             )
-        const perimeterRhythmTopLeftGrainContourWhole: ContourWhole<PitchDurationXYZ> =
+        const perimeterTopLeftGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
                 buildGrainCycleSequence(TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
-                perimeterRhythmTopLeftGrainContourPiece,
+                contourPieces.perimeterTopLeftGrain,
             )
-        const perimeterRhythmLeftGrainContourWhole: ContourWhole<PitchDurationXYZ> =
+        const perimeterLeftGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
                 buildGrainCycleSequence(LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
-                perimeterRhythmLeftGrainContourPiece,
+                contourPieces.perimeterLeftGrain,
             )
 
         return {
-            perimeterRhythmLeftGrainContourWhole,
-            perimeterRhythmTopGrainContourWhole,
-            perimeterRhythmTopLeftGrainContourWhole,
-            perimeterRhythmTopRightGrainContourWhole,
-            supertileRhythmHigherPitchContourWhole: to.ContourWhole<PitchDurationXYZ>(sequence([
-                supertileRhythmHigherPitchContourPiece,
+            perimeterLeftGrain,
+            perimeterTopGrain,
+            perimeterTopLeftGrain,
+            perimeterTopRightGrain,
+            supertileHigherPitch: to.ContourWhole<PitchDurationXYZ>(sequence([
+                contourPieces.supertileHigherPitch,
             ])),
-            supertileRhythmLowerPitchContourWhole: to.ContourWhole<PitchDurationXYZ>(sequence([
-                supertileRhythmLowerPitchContourPiece,
+            supertileLowerPitch: to.ContourWhole<PitchDurationXYZ>(sequence([
+                contourPieces.supertileLowerPitch,
             ])),
         }
     }

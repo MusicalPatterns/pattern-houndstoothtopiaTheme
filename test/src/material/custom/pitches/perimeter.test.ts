@@ -4,9 +4,9 @@ import { buildPerimeterPitches } from '../../../../../src/indexForTest'
 describe('perimeter pitches', () => {
     describe('maps each coordinate along its perimeter to its vertical position', () => {
         it('when rotated such that the grain points to the top right', () => {
-            const { perimeterRhythmTopRightGrainPitches } = buildPerimeterPitches()
+            const { topRightGrain } = buildPerimeterPitches()
 
-            testArraysAreClose(perimeterRhythmTopRightGrainPitches, [
+            testArraysAreClose(topRightGrain, [
                 6,
                 5,
                 4,
@@ -26,9 +26,9 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the top', () => {
-            const { perimeterRhythmTopGrainPitches } = buildPerimeterPitches()
+            const { topGrain } = buildPerimeterPitches()
 
-            testArraysAreClose(perimeterRhythmTopGrainPitches, [
+            testArraysAreClose(topGrain, [
                 5.82842712474619,
                 5.121320343559643,
                 3.7071067811865475,
@@ -48,9 +48,9 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the top left', () => {
-            const { perimeterRhythmTopLeftGrainPitches } = buildPerimeterPitches()
+            const { topLeftGrain } = buildPerimeterPitches()
 
-            testArraysAreClose(perimeterRhythmTopLeftGrainPitches, [
+            testArraysAreClose(topLeftGrain, [
                 4,
                 4,
                 3,
@@ -70,9 +70,9 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the left', () => {
-            const { perimeterRhythmLeftGrainPitches } = buildPerimeterPitches()
+            const { leftGrain } = buildPerimeterPitches()
 
-            testArraysAreClose(perimeterRhythmLeftGrainPitches, [
+            testArraysAreClose(leftGrain, [
                 1.585786437626905,
                 2.2928932188134525,
                 2.2928932188134525,

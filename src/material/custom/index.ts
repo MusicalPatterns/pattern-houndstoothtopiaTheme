@@ -4,4 +4,5 @@ export {
 } from './rhythms'
 export {
     buildPerimeterPitches,
+    PerimeterPitches,
 } from './pitches'

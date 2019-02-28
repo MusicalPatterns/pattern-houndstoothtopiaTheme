@@ -13,3 +13,7 @@ export {
     buildPerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
 } from './custom/indexForTest'
+
+export {
+    HoundstoothtopiaThemeContourWholes,
+} from './types'

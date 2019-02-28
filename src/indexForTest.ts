@@ -13,6 +13,7 @@ export {
     buildPerimeterRhythm,
     buildPerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
+    HoundstoothtopiaThemeContourWholes,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export { specData } from './spec'

@@ -25,6 +25,7 @@ import {
     buildHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
+import { PerimeterPitches } from './types'
 
 const pitchesFromHeights: (coordinates: Array<Coordinate<Space, TwoDimensional>>) => Array<Scalar<Frequency>> =
     (coordinates: Array<Coordinate<Space, TwoDimensional>>): Array<Scalar<Frequency>> =>
@@ -34,8 +35,8 @@ const pitchesFromHeights: (coordinates: Array<Coordinate<Space, TwoDimensional>>
             return to.Scalar(to.Frequency(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))))
         })
 
-const buildPerimeterPitches: () => DictionaryOf<Array<Scalar<Frequency>>> =
-    (): DictionaryOf<Array<Scalar<Frequency>>> => {
+const buildPerimeterPitches: () => PerimeterPitches =
+    (): PerimeterPitches => {
         const houndstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> =
             buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> = apply.Translation(
@@ -74,20 +75,20 @@ const buildPerimeterPitches: () => DictionaryOf<Array<Scalar<Frequency>>> =
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
                 })) as any
 
-        const perimeterRhythmLeftGrainPitches: Array<Scalar<Frequency>> =
+        const leftGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothLeftGrainCoordinates)
-        const perimeterRhythmTopGrainPitches: Array<Scalar<Frequency>> =
+        const topGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothTopGrainCoordinates)
-        const perimeterRhythmTopLeftGrainPitches: Array<Scalar<Frequency>> =
+        const topLeftGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothTopLeftGrainCoordinates)
-        const perimeterRhythmTopRightGrainPitches: Array<Scalar<Frequency>> =
+        const topRightGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothTopRightGrainCoordinates)
 
         return {
-            perimeterRhythmLeftGrainPitches,
-            perimeterRhythmTopGrainPitches,
-            perimeterRhythmTopLeftGrainPitches,
-            perimeterRhythmTopRightGrainPitches,
+            leftGrain,
+            topGrain,
+            topLeftGrain,
+            topRightGrain,
         }
     }
 

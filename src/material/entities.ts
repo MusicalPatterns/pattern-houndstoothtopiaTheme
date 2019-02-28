@@ -1,49 +1,43 @@
 import { BuildEntitiesFunction, Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { buildParts } from './parts'
+import { HoundstoothtopiaThemeParts } from './types'
 
 const buildEntities: BuildEntitiesFunction =
     (): Entity[] => {
-        const {
-            supertileRhythmLowerPitchPart,
-            supertileRhythmHigherPitchPart,
-            perimeterRhythmTopRightGrainPart,
-            perimeterRhythmTopGrainPart,
-            perimeterRhythmTopLeftGrainPart,
-            perimeterRhythmLeftGrainPart,
-        } = buildParts()
+        const parts: HoundstoothtopiaThemeParts = buildParts()
 
-        const supertileRhythmLowerPitchEntity: Entity = {
-            noteSpecs: supertileRhythmLowerPitchPart,
+        const supertileLowerPitch: Entity = {
+            noteSpecs: parts.supertileLowerPitch,
             timbreName: TimbreNameEnum.BASS,
         }
-        const supertileRhythmHigherPitchEntity: Entity = {
-            noteSpecs: supertileRhythmHigherPitchPart,
+        const supertileHigherPitch: Entity = {
+            noteSpecs: parts.supertileHigherPitch,
             timbreName: TimbreNameEnum.DYNA_EP_BRIGHT,
         }
-        const perimeterRhythmTopRightGrainEntity: Entity = {
-            noteSpecs: perimeterRhythmTopRightGrainPart,
+        const perimeterTopRightGrain: Entity = {
+            noteSpecs: parts.perimeterTopRightGrain,
             timbreName: TimbreNameEnum.WARM_TRIANGLE,
         }
-        const perimeterRhythmTopGrainEntity: Entity = {
-            noteSpecs: perimeterRhythmTopGrainPart,
+        const perimeterTopGrain: Entity = {
+            noteSpecs: parts.perimeterTopGrain,
             timbreName: TimbreNameEnum.BRASS,
         }
-        const perimeterRhythmTopLeftGrainEntity: Entity = {
-            noteSpecs: perimeterRhythmTopLeftGrainPart,
+        const perimeterTopLeftGrain: Entity = {
+            noteSpecs: parts.perimeterTopLeftGrain,
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
-        const perimeterRhythmLeftGrainEntity: Entity = {
-            noteSpecs: perimeterRhythmLeftGrainPart,
+        const perimeterLeftGrain: Entity = {
+            noteSpecs: parts.perimeterLeftGrain,
             timbreName: TimbreNameEnum.TWELVE_OP_TINES,
         }
 
         return [
-            supertileRhythmLowerPitchEntity,
-            supertileRhythmHigherPitchEntity,
-            perimeterRhythmTopRightGrainEntity,
-            perimeterRhythmTopGrainEntity,
-            perimeterRhythmTopLeftGrainEntity,
-            perimeterRhythmLeftGrainEntity,
+            supertileLowerPitch,
+            supertileHigherPitch,
+            perimeterTopRightGrain,
+            perimeterTopGrain,
+            perimeterTopLeftGrain,
+            perimeterLeftGrain,
         ]
     }
 
