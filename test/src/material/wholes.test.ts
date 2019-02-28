@@ -7,7 +7,6 @@ import {
     buildScales,
     buildSupertileNoteSpec,
     specData,
-    to as houndstoothtopiaTo,
 } from '../../../src/indexForTest'
 
 describe('contour wholes', () => {
