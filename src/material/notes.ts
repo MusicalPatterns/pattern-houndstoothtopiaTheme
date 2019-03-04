@@ -20,10 +20,8 @@ import {
 } from '@musical-patterns/utilities'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 
-const buildHoundstoothtopiaNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>) => NoteSpec =
-    (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => {
-        const [ pitch, duration, ...position ] = contourElement as number[]
-
+const buildNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>) => NoteSpec =
+    ([ pitch, duration, ...position ]: ContourElement<PitchDurationXYZ>): NoteSpec => {
         const sustainScalar: Scalar = from.Time(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR)
 
         const silentScalar: Scalar = from.Amplitude(SILENT)
@@ -61,7 +59,7 @@ const buildSupertileNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>)
         const silentScalar: Scalar = from.Amplitude(SILENT)
 
         return {
-            ...buildHoundstoothtopiaNoteSpec(contourElement),
+            ...buildNoteSpec(contourElement),
             gainSpec: {
                 scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? silentScalar : ONE_HALF,
             },
@@ -76,7 +74,7 @@ const buildPerimeterNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>)
         ))
 
         return {
-            ...buildHoundstoothtopiaNoteSpec(contourElement),
+            ...buildNoteSpec(contourElement),
             sustainSpec: {
                 scalar: sustainScalar,
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
