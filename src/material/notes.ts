@@ -54,7 +54,7 @@ const buildNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>) => NoteS
 
 const buildSupertileNoteSpec: (contourElement: ContourElement<PitchDurationXYZ>) => NoteSpec =
     (contourElement: ContourElement<PitchDurationXYZ>): NoteSpec => {
-        const [ pitch ] = contourElement as number[]
+        const [ pitch ] = contourElement
 
         const silentScalar: Scalar = from.Amplitude(SILENT)
 

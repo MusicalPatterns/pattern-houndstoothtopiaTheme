@@ -25,7 +25,7 @@ const pattern: StandardPattern = {
     specData,
 }
 
-const patterns: Patterns = {
+const patterns: Partial<Patterns> = {
     [ pattern.id ]: pattern,
 }
 

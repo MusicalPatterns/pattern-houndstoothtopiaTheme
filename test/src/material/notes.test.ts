@@ -1,7 +1,11 @@
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
-import { ContourElement, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec } from '../../../src/indexForTest'
+
+const isArrayedPositionSpec: (positionSpec: NotePropertySpec | NotePropertySpec[]) => positionSpec is NotePropertySpec[] =
+    (positionSpec: NotePropertySpec | NotePropertySpec[]): positionSpec is NotePropertySpec[] =>
+        positionSpec instanceof Array
 
 describe('notes', () => {
     let noteSpec: NoteSpec
@@ -82,7 +86,9 @@ describe('notes', () => {
         describe('position', () => {
             let positionSpec: NotePropertySpec[]
             beforeEach(() => {
-                positionSpec = noteSpec.positionSpec as NotePropertySpec[]
+                if (!isUndefined(noteSpec.positionSpec) && isArrayedPositionSpec(noteSpec.positionSpec)) {
+                    positionSpec = noteSpec.positionSpec
+                }
             })
 
             it('sets the scalar from the contour', () => {

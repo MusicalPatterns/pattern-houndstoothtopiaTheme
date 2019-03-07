@@ -1,10 +1,7 @@
-// tslint:disable no-any
-
 import {
     apply,
     Coordinate,
     Cycle,
-    DictionaryOf,
     Frequency,
     from,
     rotate,
@@ -48,32 +45,32 @@ const buildPerimeterPitches: () => PerimeterPitches =
             buildHoundstoothSolidCenterOriginCoordinate()
         const houndstoothTopRightGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
-                rotate({
+                rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
-                })) as any
+                }))
         const houndstoothTopGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
-                rotate({
+                rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
-                })) as any
+                }))
         const houndstoothTopLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
-                rotate({
+                rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
-                })) as any
+                }))
         const houndstoothLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
-                rotate({
+                rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
-                })) as any
+                }))
 
         const leftGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothLeftGrainCoordinates)
