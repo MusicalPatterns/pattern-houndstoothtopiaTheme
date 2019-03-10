@@ -2,7 +2,7 @@ import { Material } from '@musical-patterns/compiler'
 import { Id, Metadata, Patterns, StandardPattern } from '@musical-patterns/pattern'
 import { buildEntities, buildScales } from './material'
 import { post } from './metadata'
-import { specData } from './spec'
+import { data } from './spec'
 
 const material: Material = {
     buildEntitiesFunction: buildEntities,
@@ -19,10 +19,10 @@ const metadata: Metadata = {
 }
 
 const pattern: StandardPattern = {
+    data,
     id: Id.HOUNDSTOOTHTOPIA_THEME,
     material,
     metadata,
-    specData,
 }
 
 const patterns: Partial<Patterns> = {

@@ -1,1 +1,1 @@
-export { specData } from './data'
+export { data } from './data'

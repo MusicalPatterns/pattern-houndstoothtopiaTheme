@@ -1,10 +1,10 @@
-import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
+import { NoteAspectSpec, NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { buildSupertileNoteSpec } from '../../../src/indexForTest'
 
-const isArrayedPositionSpec: (positionSpec: NotePropertySpec | NotePropertySpec[]) => positionSpec is NotePropertySpec[] =
-    (positionSpec: NotePropertySpec | NotePropertySpec[]): positionSpec is NotePropertySpec[] =>
+const isArrayedPositionSpec: (positionSpec: NoteAspectSpec | NoteAspectSpec[]) => positionSpec is NoteAspectSpec[] =
+    (positionSpec: NoteAspectSpec | NoteAspectSpec[]): positionSpec is NoteAspectSpec[] =>
         positionSpec instanceof Array
 
 describe('notes', () => {
@@ -16,7 +16,7 @@ describe('notes', () => {
         })
 
         describe('duration', () => {
-            let durationSpec: NotePropertySpec
+            let durationSpec: NoteAspectSpec
             beforeEach(() => {
                 durationSpec = noteSpec.durationSpec || {}
             })
@@ -33,7 +33,7 @@ describe('notes', () => {
         })
 
         describe('pitch', () => {
-            let pitchSpec: NotePropertySpec
+            let pitchSpec: NoteAspectSpec
             beforeEach(() => {
                 pitchSpec = noteSpec.pitchSpec || {}
             })
@@ -50,7 +50,7 @@ describe('notes', () => {
         })
 
         describe('gain', () => {
-            let gainSpec: NotePropertySpec
+            let gainSpec: NoteAspectSpec
             beforeEach(() => {
                 gainSpec = noteSpec.gainSpec || {}
             })
@@ -62,7 +62,7 @@ describe('notes', () => {
         })
 
         describe('sustain', () => {
-            let sustainSpec: NotePropertySpec
+            let sustainSpec: NoteAspectSpec
             beforeEach(() => {
                 sustainSpec = noteSpec.sustainSpec || {}
             })
@@ -84,7 +84,7 @@ describe('notes', () => {
         })
 
         describe('position', () => {
-            let positionSpec: NotePropertySpec[]
+            let positionSpec: NoteAspectSpec[]
             beforeEach(() => {
                 if (!isUndefined(noteSpec.positionSpec) && isArrayedPositionSpec(noteSpec.positionSpec)) {
                     positionSpec = noteSpec.positionSpec
@@ -118,7 +118,7 @@ describe('notes', () => {
         })
 
         describe('gain', () => {
-            let gainSpec: NotePropertySpec
+            let gainSpec: NoteAspectSpec
             beforeEach(() => {
                 gainSpec = noteSpec.gainSpec || {}
             })

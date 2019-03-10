@@ -6,8 +6,8 @@ import {
     buildContourWholes,
     buildScales,
     buildSupertileNoteSpec,
+    data,
     HoundstoothtopiaThemeContourWholes,
-    specData,
 } from '../../../src/indexForTest'
 
 describe('contour wholes', () => {
@@ -141,7 +141,7 @@ describe('contour wholes', () => {
     describe('durations', () => {
         let initialSpec: StandardSpec
         beforeEach(() => {
-            initialSpec = specData.initial
+            initialSpec = data.initial
         })
 
         describe('perimeter wholes', () => {

@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
-import { ContourPiece, ContourWhole, PropertyMap } from '@musical-patterns/utilities'
+import { ContourPiece, ContourWhole, KeyMap } from '@musical-patterns/utilities'
 
 interface HoundstoothtopiaThemeMaterialSkeleton {
     perimeterLeftGrain: never,
@@ -11,13 +11,13 @@ interface HoundstoothtopiaThemeMaterialSkeleton {
     supertileLowerPitch: never,
 }
 
-type HoundstoothtopiaThemeParts = PropertyMap<HoundstoothtopiaThemeMaterialSkeleton, NoteSpec[]>
+type HoundstoothtopiaThemeParts = KeyMap<HoundstoothtopiaThemeMaterialSkeleton, NoteSpec[]>
 
 type HoundstoothtopiaThemeContourWholes =
-    PropertyMap<HoundstoothtopiaThemeMaterialSkeleton, ContourWhole<PitchDurationXYZ>>
+    KeyMap<HoundstoothtopiaThemeMaterialSkeleton, ContourWhole<PitchDurationXYZ>>
 
 type HoundstoothtopiaThemeContourPieces =
-    PropertyMap<HoundstoothtopiaThemeMaterialSkeleton, ContourPiece<PitchDurationXYZ>> & {
+    KeyMap<HoundstoothtopiaThemeMaterialSkeleton, ContourPiece<PitchDurationXYZ>> & {
     perimeterRest: ContourPiece<PitchDurationXYZ>,
     supertileRest: ContourPiece<PitchDurationXYZ>,
 }

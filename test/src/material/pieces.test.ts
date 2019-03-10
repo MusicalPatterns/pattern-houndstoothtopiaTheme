@@ -1,13 +1,13 @@
 import { calculateNoteSpecsTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
 import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
-import { buildContourPieces, buildScales, buildSupertileNoteSpec, specData } from '../../../src/indexForTest'
+import { buildContourPieces, buildScales, buildSupertileNoteSpec, data } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
         let initialSpec: StandardSpec
         beforeEach(() => {
-            initialSpec = specData.initial
+            initialSpec = data.initial
         })
 
         describe('perimeter pieces', () => {
