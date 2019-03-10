@@ -1,10 +1,10 @@
 // tslint:disable no-reaching-imports
 
 export { buildRootOfTwoScalars } from './scalars'
-export { buildSupertileNoteSpec } from './notes'
-export { buildEntities } from './entities'
-export { buildScales } from './scales'
-export { buildParts } from './parts'
+export { buildSupertileNote } from './features'
+export { materializeEntities } from './entities'
+export { materializeScales } from './scales'
+export { buildNotes } from './notes'
 export { buildContourPieces } from './pieces'
 export { buildContourWholes } from './wholes'
 export {

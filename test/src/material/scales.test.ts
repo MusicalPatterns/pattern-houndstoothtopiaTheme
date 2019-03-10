@@ -1,7 +1,7 @@
 import { Scale } from '@musical-patterns/compiler'
 import { StandardProperty, StandardSpec } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
-import { buildScales } from '../../../src/indexForTest'
+import { materializeScales } from '../../../src/indexForTest'
 
 describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
@@ -12,7 +12,7 @@ describe('scales', () => {
                 .map(to.Meters),
             basePositionScalar: to.Scalar(to.Meters(7)),
         }
-        const scales: Scale[] = buildScales(spec)
+        const scales: Scale[] = materializeScales(spec)
 
         expect(scales[ 3 ])
             .toEqual({

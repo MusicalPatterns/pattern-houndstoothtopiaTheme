@@ -1,111 +1,111 @@
-import { NoteAspectSpec, NoteSpec } from '@musical-patterns/compiler'
+import { Note, NoteFeature } from '@musical-patterns/compiler'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
-import { buildSupertileNoteSpec } from '../../../src/indexForTest'
+import { buildSupertileNote } from '../../../src/indexForTest'
 
-const isArrayedPositionSpec: (positionSpec: NoteAspectSpec | NoteAspectSpec[]) => positionSpec is NoteAspectSpec[] =
-    (positionSpec: NoteAspectSpec | NoteAspectSpec[]): positionSpec is NoteAspectSpec[] =>
-        positionSpec instanceof Array
+const isArrayedPositionSpec: (position: NoteFeature | NoteFeature[]) => position is NoteFeature[] =
+    (position: NoteFeature | NoteFeature[]): position is NoteFeature[] =>
+        position instanceof Array
 
-describe('notes', () => {
-    let noteSpec: NoteSpec
+describe('features', () => {
+    let note: Note
     describe('non-rest note', () => {
         beforeEach(() => {
             const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
-            noteSpec = buildSupertileNoteSpec(testContour)
+            note = buildSupertileNote(testContour)
         })
 
         describe('duration', () => {
-            let durationSpec: NoteAspectSpec
+            let duration: NoteFeature
             beforeEach(() => {
-                durationSpec = noteSpec.durationSpec || {}
+                duration = note.duration || {}
             })
 
             it('sets the index to the second element', () => {
-                expect(durationSpec.index)
+                expect(duration.index)
                     .toBe(to.Ordinal(3))
             })
 
             it('sets the scale index to the default for duration', () => {
-                expect(durationSpec.scaleIndex)
+                expect(duration.scaleIndex)
                     .toBe(to.Ordinal(1))
             })
         })
 
         describe('pitch', () => {
-            let pitchSpec: NoteAspectSpec
+            let pitch: NoteFeature
             beforeEach(() => {
-                pitchSpec = noteSpec.pitchSpec || {}
+                pitch = note.pitch || {}
             })
 
             it('sets the index to the first element', () => {
-                expect(pitchSpec.scalar)
+                expect(pitch.scalar)
                     .toBe(to.Scalar(2.12))
             })
 
             it('sets the scale index to the default for pitch', () => {
-                expect(pitchSpec.scaleIndex)
+                expect(pitch.scaleIndex)
                     .toBe(to.Ordinal(2))
             })
         })
 
         describe('gain', () => {
-            let gainSpec: NoteAspectSpec
+            let gain: NoteFeature
             beforeEach(() => {
-                gainSpec = noteSpec.gainSpec || {}
+                gain = note.gain || {}
             })
 
             it('sets gain to half', () => {
-                expect(gainSpec.scalar)
+                expect(gain.scalar)
                     .toBe(to.Scalar(0.5))
             })
         })
 
         describe('sustain', () => {
-            let sustainSpec: NoteAspectSpec
+            let sustain: NoteFeature
             beforeEach(() => {
-                sustainSpec = noteSpec.sustainSpec || {}
+                sustain = note.sustain || {}
             })
 
             it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
-                expect(sustainSpec.scalar)
+                expect(sustain.scalar)
                     .toBe(to.Scalar(SQUARE_ROOT_OF_TWO - 1))
             })
 
             it('sets the scale index to the default for durations', () => {
-                expect(sustainSpec.scaleIndex)
+                expect(sustain.scaleIndex)
                     .toBe(to.Ordinal(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
-                expect(sustainSpec.index)
+                expect(sustain.index)
                     .toBe(undefined)
             })
         })
 
         describe('position', () => {
-            let positionSpec: NoteAspectSpec[]
+            let position: NoteFeature[]
             beforeEach(() => {
-                if (!isUndefined(noteSpec.positionSpec) && isArrayedPositionSpec(noteSpec.positionSpec)) {
-                    positionSpec = noteSpec.positionSpec
+                if (!isUndefined(note.position) && isArrayedPositionSpec(note.position)) {
+                    position = note.position
                 }
             })
 
             it('sets the scalar from the contour', () => {
-                expect(positionSpec[ 0 ].scalar)
+                expect(position[ 0 ].scalar)
                     .toBe(to.Scalar(3))
-                expect(positionSpec[ 1 ].scalar)
+                expect(position[ 1 ].scalar)
                     .toBe(to.Scalar(5))
-                expect(positionSpec[ 2 ].scalar)
+                expect(position[ 2 ].scalar)
                     .toBe(to.Scalar(8))
             })
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
-                expect(positionSpec[ 0 ].scaleIndex)
+                expect(position[ 0 ].scaleIndex)
                     .toBe(to.Ordinal(3))
-                expect(positionSpec[ 1 ].scaleIndex)
+                expect(position[ 1 ].scaleIndex)
                     .toBe(to.Ordinal(4))
-                expect(positionSpec[ 2 ].scaleIndex)
+                expect(position[ 2 ].scaleIndex)
                     .toBe(to.Ordinal(5))
             })
         })
@@ -114,17 +114,17 @@ describe('notes', () => {
     describe('rest note', () => {
         beforeEach(() => {
             const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
-            noteSpec = buildSupertileNoteSpec(testContour)
+            note = buildSupertileNote(testContour)
         })
 
         describe('gain', () => {
-            let gainSpec: NoteAspectSpec
+            let gain: NoteFeature
             beforeEach(() => {
-                gainSpec = noteSpec.gainSpec || {}
+                gain = note.gain || {}
             })
 
             it('sets gain to zero', () => {
-                expect(gainSpec.scalar)
+                expect(gain.scalar)
                     .toBe(to.Scalar(0))
             })
         })

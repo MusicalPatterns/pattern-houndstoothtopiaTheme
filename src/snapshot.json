@@ -1,6 +1,6 @@
 [
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0.5,
@@ -134,13 +134,13 @@
         "sustain": 195.26027
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "BASS",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0.5,
@@ -274,13 +274,13 @@
         "sustain": 195.26027
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "DYNA_EP_BRIGHT",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -2746,13 +2746,13 @@
         "sustain": 276.13973
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "WARM_TRIANGLE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -5218,13 +5218,13 @@
         "sustain": 276.13973
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "BRASS",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -7690,13 +7690,13 @@
         "sustain": 276.13973
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "PHONEME_OOH",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 471.4,
         "gain": 0,
@@ -10162,9 +10162,9 @@
         "sustain": 276.13973
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "TWELVE_OP_TINES",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   }
 ]

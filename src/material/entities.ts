@@ -1,33 +1,33 @@
-import { BuildEntitiesFunction, Entity, TimbreNameEnum } from '@musical-patterns/compiler'
-import { buildParts } from './parts'
-import { HoundstoothtopiaThemeParts } from './types'
+import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/compiler'
+import { buildNotes } from './notes'
+import { HoundstoothtopiaThemeNotes } from './types'
 
-const buildEntities: BuildEntitiesFunction =
+const materializeEntities: MaterializeEntities =
     (): Entity[] => {
-        const parts: HoundstoothtopiaThemeParts = buildParts()
+        const notes: HoundstoothtopiaThemeNotes = buildNotes()
 
         const supertileLowerPitch: Entity = {
-            noteSpecs: parts.supertileLowerPitch,
+            notes: notes.supertileLowerPitch,
             timbreName: TimbreNameEnum.BASS,
         }
         const supertileHigherPitch: Entity = {
-            noteSpecs: parts.supertileHigherPitch,
+            notes: notes.supertileHigherPitch,
             timbreName: TimbreNameEnum.DYNA_EP_BRIGHT,
         }
         const perimeterTopRightGrain: Entity = {
-            noteSpecs: parts.perimeterTopRightGrain,
+            notes: notes.perimeterTopRightGrain,
             timbreName: TimbreNameEnum.WARM_TRIANGLE,
         }
         const perimeterTopGrain: Entity = {
-            noteSpecs: parts.perimeterTopGrain,
+            notes: notes.perimeterTopGrain,
             timbreName: TimbreNameEnum.BRASS,
         }
         const perimeterTopLeftGrain: Entity = {
-            noteSpecs: parts.perimeterTopLeftGrain,
+            notes: notes.perimeterTopLeftGrain,
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
         const perimeterLeftGrain: Entity = {
-            noteSpecs: parts.perimeterLeftGrain,
+            notes: notes.perimeterLeftGrain,
             timbreName: TimbreNameEnum.TWELVE_OP_TINES,
         }
 
@@ -42,5 +42,5 @@ const buildEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildEntities,
+    materializeEntities,
 }

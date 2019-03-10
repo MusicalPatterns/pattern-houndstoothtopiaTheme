@@ -2,11 +2,11 @@
 
 export { to } from './nominal'
 export {
-    buildSupertileNoteSpec,
+    buildSupertileNote,
     buildRootOfTwoScalars,
-    buildEntities,
-    buildScales,
-    buildParts,
+    materializeEntities,
+    materializeScales,
+    buildNotes,
     buildContourPieces,
     buildContourWholes,
     buildSupertileRhythm,
