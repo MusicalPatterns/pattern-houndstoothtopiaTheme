@@ -1,6 +1,6 @@
 import { Block, Cardinal, from, map, ONCE, Ordinal, repeat, sequence, to, TWICE } from '@musical-patterns/utilities'
 
-const buildSupertileRhythm: () => Block =
+const computeSupertileRhythm: () => Block =
     (): Block => {
         const supertile: string[][] = [
             [ 'black', 'black' ],
@@ -24,5 +24,5 @@ const buildSupertileRhythm: () => Block =
     }
 
 export {
-    buildSupertileRhythm,
+    computeSupertileRhythm,
 }

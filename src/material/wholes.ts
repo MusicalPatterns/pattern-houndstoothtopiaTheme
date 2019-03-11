@@ -17,17 +17,17 @@ import {
     TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY,
     TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY,
 } from './constants'
-import { buildContourPieces } from './pieces'
+import { computeContourPieces } from './pieces'
 import { HoundstoothtopiaThemeContourPieces, HoundstoothtopiaThemeContourWholes } from './types'
 
-const buildContourWholes: () => HoundstoothtopiaThemeContourWholes =
+const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
     (): HoundstoothtopiaThemeContourWholes => {
-        const contourPieces: HoundstoothtopiaThemeContourPieces = buildContourPieces()
+        const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
         const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(negative(1)))
 
-        const buildGrainCycleSequence: (indexToVary: Ordinal) => GrainCycleSequence =
+        const computeGrainCycleSequence: (indexToVary: Ordinal) => GrainCycleSequence =
             (indexToVary: Ordinal): GrainCycleSequence => {
                 const grainCycleSet: Array<Cycle<Grain>> =
                     [ basicGrainCycle, basicGrainCycle, basicGrainCycle, basicGrainCycle ]
@@ -51,22 +51,22 @@ const buildContourWholes: () => HoundstoothtopiaThemeContourWholes =
 
         const perimeterTopRightGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
-                buildGrainCycleSequence(TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+                computeGrainCycleSequence(TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY),
                 contourPieces.perimeterTopRightGrain,
             )
         const perimeterTopGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
-                buildGrainCycleSequence(TOP_GRAIN_SEQUENCE_INDEX_TO_VARY),
+                computeGrainCycleSequence(TOP_GRAIN_SEQUENCE_INDEX_TO_VARY),
                 contourPieces.perimeterTopGrain,
             )
         const perimeterTopLeftGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
-                buildGrainCycleSequence(TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+                computeGrainCycleSequence(TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
                 contourPieces.perimeterTopLeftGrain,
             )
         const perimeterLeftGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(
-                buildGrainCycleSequence(LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
+                computeGrainCycleSequence(LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY),
                 contourPieces.perimeterLeftGrain,
             )
 
@@ -85,5 +85,5 @@ const buildContourWholes: () => HoundstoothtopiaThemeContourWholes =
     }
 
 export {
-    buildContourWholes,
+    computeContourWholes,
 }

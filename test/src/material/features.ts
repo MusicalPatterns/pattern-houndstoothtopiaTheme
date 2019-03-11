@@ -1,7 +1,7 @@
 import { Note, NoteFeature } from '@musical-patterns/compiler'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
-import { buildSupertileNote } from '../../../src/indexForTest'
+import { computeSupertileNote } from '../../../src/indexForTest'
 
 const isArrayedPositionSpec: (position: NoteFeature | NoteFeature[]) => position is NoteFeature[] =
     (position: NoteFeature | NoteFeature[]): position is NoteFeature[] =>
@@ -12,7 +12,7 @@ describe('features', () => {
     describe('non-rest note', () => {
         beforeEach(() => {
             const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
-            note = buildSupertileNote(testContour)
+            note = computeSupertileNote(testContour)
         })
 
         describe('duration', () => {
@@ -114,7 +114,7 @@ describe('features', () => {
     describe('rest note', () => {
         beforeEach(() => {
             const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
-            note = buildSupertileNote(testContour)
+            note = computeSupertileNote(testContour)
         })
 
         describe('gain', () => {

@@ -15,14 +15,14 @@ import {
     to,
 } from '@musical-patterns/utilities'
 import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
-import { buildPerimeterPitches, buildPerimeterRhythm, buildSupertileRhythm, PerimeterPitches } from './custom'
+import { computePerimeterPitches, computePerimeterRhythm, computeSupertileRhythm, PerimeterPitches } from './custom'
 import { HoundstoothtopiaThemeContourPieces } from './types'
 
-const buildContourPieces: () => HoundstoothtopiaThemeContourPieces =
+const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
     (): HoundstoothtopiaThemeContourPieces => {
-        const perimeterRhythm: Block = buildPerimeterRhythm()
-        const supertileRhythm: Block = buildSupertileRhythm()
-        const perimeterPitches: PerimeterPitches = buildPerimeterPitches()
+        const perimeterRhythm: Block = computePerimeterRhythm()
+        const supertileRhythm: Block = computeSupertileRhythm()
+        const perimeterPitches: PerimeterPitches = computePerimeterPitches()
 
         const perimeterPiece: (
             pitches: Array<Scalar<Frequency>>,
@@ -90,5 +90,5 @@ const buildContourPieces: () => HoundstoothtopiaThemeContourPieces =
     }
 
 export {
-    buildContourPieces,
+    computeContourPieces,
 }

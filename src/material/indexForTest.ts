@@ -1,16 +1,16 @@
 // tslint:disable no-reaching-imports
 
-export { buildRootOfTwoScalars } from './scalars'
-export { buildSupertileNote } from './features'
+export { computeRootOfTwoScalars } from './scalars'
+export { computeSupertileNote } from './features'
 export { materializeEntities } from './entities'
 export { materializeScales } from './scales'
-export { buildNotes } from './notes'
-export { buildContourPieces } from './pieces'
-export { buildContourWholes } from './wholes'
+export { computeNotes } from './notes'
+export { computeContourPieces } from './pieces'
+export { computeContourWholes } from './wholes'
 export {
-    buildSupertileRhythm,
-    buildPerimeterRhythm,
-    buildPerimeterPitches,
+    computeSupertileRhythm,
+    computePerimeterRhythm,
+    computePerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
 } from './custom/indexForTest'
 

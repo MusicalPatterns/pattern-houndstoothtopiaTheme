@@ -1,2 +1,2 @@
-export { buildPerimeterRhythm } from './perimeter'
-export { buildSupertileRhythm } from './supertile'
+export { computePerimeterRhythm } from './perimeter'
+export { computeSupertileRhythm } from './supertile'

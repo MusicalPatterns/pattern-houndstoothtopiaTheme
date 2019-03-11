@@ -1,3 +1,3 @@
 // tslint:disable no-reaching-imports
 
-export { buildPerimeterPitches } from './perimeter'
+export { computePerimeterPitches } from './perimeter'

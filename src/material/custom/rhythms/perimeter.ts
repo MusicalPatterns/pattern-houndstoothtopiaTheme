@@ -13,12 +13,12 @@ import {
     to,
     TwoDimensional,
 } from '@musical-patterns/utilities'
-import { buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
+import { computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 
-const buildPerimeterRhythm: () => Block =
+const computePerimeterRhythm: () => Block =
     (): Block => {
         const houndstoothCoordinateCycle: Cycle<Coordinate<Space, TwoDimensional>> = to.Cycle(
-            buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
+            computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
         )
         const houndstoothPerimeterSegmentLengths: Space[] =
             map(houndstoothCoordinateCycle, (coordinate: Coordinate<Space, TwoDimensional>, index: Ordinal): Space => {
@@ -35,5 +35,5 @@ const buildPerimeterRhythm: () => Block =
     }
 
 export {
-    buildPerimeterRhythm,
+    computePerimeterRhythm,
 }

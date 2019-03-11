@@ -2,16 +2,16 @@
 
 export { to } from './nominal'
 export {
-    buildSupertileNote,
-    buildRootOfTwoScalars,
+    computeSupertileNote,
+    computeRootOfTwoScalars,
     materializeEntities,
     materializeScales,
-    buildNotes,
-    buildContourPieces,
-    buildContourWholes,
-    buildSupertileRhythm,
-    buildPerimeterRhythm,
-    buildPerimeterPitches,
+    computeNotes,
+    computeContourPieces,
+    computeContourWholes,
+    computeSupertileRhythm,
+    computePerimeterRhythm,
+    computePerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
     HoundstoothtopiaThemeContourWholes,
 } from './material/indexForTest'

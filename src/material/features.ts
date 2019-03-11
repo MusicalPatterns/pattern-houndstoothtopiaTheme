@@ -20,7 +20,7 @@ import {
 } from '@musical-patterns/utilities'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 
-const buildNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
+const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
     ([ pitch, duration, ...position ]: ContourElement<PitchDurationXYZ>): Note => {
         const sustainScalar: Scalar = from.Time(HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR)
 
@@ -52,21 +52,21 @@ const buildNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
         }
     }
 
-const buildSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
+const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
     (contourElement: ContourElement<PitchDurationXYZ>): Note => {
         const [ pitch ] = contourElement
 
         const silentScalar: Scalar = from.Amplitude(SILENT)
 
         return {
-            ...buildNote(contourElement),
+            ...computeNote(contourElement),
             gain: {
                 scalar: pitch === STANDARD_PITCH_INDEX_INDICATING_REST ? silentScalar : ONE_HALF,
             },
         }
     }
 
-const buildPerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
+const computePerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
     (contourElement: ContourElement<PitchDurationXYZ>): Note => {
         const sustainScalar: Scalar = from.Time(apply.Scalar(
             HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
@@ -74,7 +74,7 @@ const buildPerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => 
         ))
 
         return {
-            ...buildNote(contourElement),
+            ...computeNote(contourElement),
             sustain: {
                 scalar: sustainScalar,
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
@@ -83,6 +83,6 @@ const buildPerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => 
     }
 
 export {
-    buildSupertileNote,
-    buildPerimeterNote,
+    computeSupertileNote,
+    computePerimeterNote,
 }

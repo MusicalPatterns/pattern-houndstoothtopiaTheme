@@ -1,4 +1,4 @@
-export { buildPerimeterPitches } from './perimeter'
+export { computePerimeterPitches } from './perimeter'
 
 export {
     PerimeterPitches,

@@ -1,9 +1,9 @@
 import { Block, to } from '@musical-patterns/utilities'
-import { buildSupertileRhythm } from '../../../../../src/indexForTest'
+import { computeSupertileRhythm } from '../../../../../src/indexForTest'
 
 describe('supertile rhythm', () => {
     it('evokes the four different tiles of houndstooth: black/black, black/white, white/white, white/black, alternating short and long durations, where short is 1 and long is square root of 2, and black is 2 count and white is 1 count', () => {
-        const supertileRhythm: Block = buildSupertileRhythm()
+        const supertileRhythm: Block = computeSupertileRhythm()
 
         expect(supertileRhythm)
             .toEqual(to.Block([

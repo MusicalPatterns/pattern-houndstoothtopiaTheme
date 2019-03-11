@@ -1,24 +1,24 @@
 import { Note } from '@musical-patterns/compiler'
-import { buildPerimeterNote, buildSupertileNote } from './features'
+import { computePerimeterNote, computeSupertileNote } from './features'
 import { HoundstoothtopiaThemeContourWholes, HoundstoothtopiaThemeNotes } from './types'
-import { buildContourWholes } from './wholes'
+import { computeContourWholes } from './wholes'
 
-const buildNotes: () => HoundstoothtopiaThemeNotes =
+const computeNotes: () => HoundstoothtopiaThemeNotes =
     (): HoundstoothtopiaThemeNotes => {
-        const contourWholes: HoundstoothtopiaThemeContourWholes = buildContourWholes()
+        const contourWholes: HoundstoothtopiaThemeContourWholes = computeContourWholes()
 
         const supertileLowerPitch: Note[] =
-            contourWholes.supertileLowerPitch.map(buildSupertileNote)
+            contourWholes.supertileLowerPitch.map(computeSupertileNote)
         const supertileHigherPitch: Note[] =
-            contourWholes.supertileHigherPitch.map(buildSupertileNote)
+            contourWholes.supertileHigherPitch.map(computeSupertileNote)
         const perimeterTopRightGrain: Note[] =
-            contourWholes.perimeterTopRightGrain.map(buildPerimeterNote)
+            contourWholes.perimeterTopRightGrain.map(computePerimeterNote)
         const perimeterTopGrain: Note[] =
-            contourWholes.perimeterTopGrain.map(buildPerimeterNote)
+            contourWholes.perimeterTopGrain.map(computePerimeterNote)
         const perimeterTopLeftGrain: Note[] =
-            contourWholes.perimeterTopLeftGrain.map(buildPerimeterNote)
+            contourWholes.perimeterTopLeftGrain.map(computePerimeterNote)
         const perimeterLeftGrain: Note[] =
-            contourWholes.perimeterLeftGrain.map(buildPerimeterNote)
+            contourWholes.perimeterLeftGrain.map(computePerimeterNote)
 
         return {
             perimeterLeftGrain,
@@ -31,5 +31,5 @@ const buildNotes: () => HoundstoothtopiaThemeNotes =
     }
 
 export {
-    buildNotes,
+    computeNotes,
 }

@@ -2,7 +2,7 @@ import { apply, Coordinate, Cycle, ORIGIN, Space, to, TwoDimensional } from '@mu
 import { TRANSLATION_TO_SPECIALIZE_COORDINATES_FOR_THEME } from './constants'
 import houndstoothOutline from './houndstoothOutline'
 
-const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycle<Coordinate<Space, TwoDimensional>> =
+const computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycle<Coordinate<Space, TwoDimensional>> =
     (): Cycle<Coordinate<Space, TwoDimensional>> =>
         apply.Translation(
             to.Cycle(
@@ -13,11 +13,11 @@ const buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycl
             TRANSLATION_TO_SPECIALIZE_COORDINATES_FOR_THEME,
         )
 
-const buildHoundstoothSolidCenterOriginCoordinate: () => Coordinate<Space, TwoDimensional> =
+const computeHoundstoothSolidCenterOriginCoordinate: () => Coordinate<Space, TwoDimensional> =
     (): Coordinate<Space, TwoDimensional> =>
         [ ORIGIN, ORIGIN ]
 
 export {
-    buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
-    buildHoundstoothSolidCenterOriginCoordinate,
+    computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
+    computeHoundstoothSolidCenterOriginCoordinate,
 }

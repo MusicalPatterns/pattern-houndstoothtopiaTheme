@@ -1,10 +1,10 @@
 import { Scale } from '@musical-patterns/compiler'
-import { buildHarmonicSeriesScale } from '@musical-patterns/pattern'
+import { computeHarmonicSeriesScale } from '@musical-patterns/pattern'
 import { apply, from, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 
-const buildRootOfTwoScalars: () => Scalar[] =
+const computeRootOfTwoScalars: () => Scalar[] =
     (): Scalar[] => {
-        const harmonicSeriesScale: Scale = buildHarmonicSeriesScale()
+        const harmonicSeriesScale: Scale = computeHarmonicSeriesScale()
         const harmonicSeriesScalars: Scalar[] = harmonicSeriesScale.scalars || []
 
         return harmonicSeriesScalars.map(
@@ -23,5 +23,5 @@ const buildRootOfTwoScalars: () => Scalar[] =
     }
 
 export {
-    buildRootOfTwoScalars,
+    computeRootOfTwoScalars,
 }

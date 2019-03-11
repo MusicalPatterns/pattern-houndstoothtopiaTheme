@@ -1,7 +1,7 @@
-import { calculateNotesTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
+import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
 import { StandardSpec } from '@musical-patterns/pattern'
 import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
-import { buildContourPieces, buildSupertileNote, data, materializeScales } from '../../../src/indexForTest'
+import { computeContourPieces, computeSupertileNote, data, materializeScales } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
@@ -18,18 +18,18 @@ describe('contour pieces', () => {
                     perimeterTopLeftGrain,
                     perimeterTopRightGrain,
                     perimeterRest,
-                } = buildContourPieces()
+                } = computeContourPieces()
                 const scales: Scale[] = materializeScales(initialSpec)
 
-                const durationOfOneExamplePiece: Ms = calculateNotesTotalCompiledDuration(perimeterTopRightGrain.map(buildSupertileNote), scales)
+                const durationOfOneExamplePiece: Ms = computeNotesTotalCompiledDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
 
-                expect(calculateNotesTotalCompiledDuration(perimeterLeftGrain.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
-                expect(calculateNotesTotalCompiledDuration(perimeterTopGrain.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(perimeterTopGrain.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
-                expect(calculateNotesTotalCompiledDuration(perimeterTopLeftGrain.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(perimeterTopLeftGrain.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
-                expect(calculateNotesTotalCompiledDuration(perimeterRest.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(perimeterRest.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
             })
         })
@@ -40,14 +40,14 @@ describe('contour pieces', () => {
                     supertileLowerPitch,
                     supertileHigherPitch,
                     supertileRest,
-                } = buildContourPieces()
+                } = computeContourPieces()
                 const scales: Scale[] = materializeScales(initialSpec)
 
-                const durationOfOneExamplePiece: Ms = calculateNotesTotalCompiledDuration(supertileLowerPitch.map(buildSupertileNote), scales)
+                const durationOfOneExamplePiece: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
 
-                expect(calculateNotesTotalCompiledDuration(supertileHigherPitch.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(supertileHigherPitch.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
-                expect(calculateNotesTotalCompiledDuration(supertileRest.map(buildSupertileNote), scales))
+                expect(computeNotesTotalCompiledDuration(supertileRest.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExamplePiece)
             })
         })
@@ -57,11 +57,11 @@ describe('contour pieces', () => {
                 const {
                     perimeterLeftGrain,
                     supertileLowerPitch,
-                } = buildContourPieces()
+                } = computeContourPieces()
                 const scales: Scale[] = materializeScales(initialSpec)
 
-                const supertileDuration: Ms = calculateNotesTotalCompiledDuration(supertileLowerPitch.map(buildSupertileNote), scales)
-                const perimeterDuration: Ms = calculateNotesTotalCompiledDuration(perimeterLeftGrain.map(buildSupertileNote), scales)
+                const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
+                const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
                 const ratioBetweenSupertileAndPerimeterPieces: number = from.Ms(quotient(supertileDuration, perimeterDuration))
                 expect(testIsCloseTo(ratioBetweenSupertileAndPerimeterPieces, from.Scalar(THREE_FOURTHS)))

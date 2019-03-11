@@ -1,10 +1,10 @@
 import { testArraysAreClose, to } from '@musical-patterns/utilities'
-import { buildPerimeterPitches } from '../../../../../src/indexForTest'
+import { computePerimeterPitches } from '../../../../../src/indexForTest'
 
 describe('perimeter pitches', () => {
     describe('maps each coordinate along its perimeter to its vertical position', () => {
         it('when rotated such that the grain points to the top right', () => {
-            const { topRightGrain } = buildPerimeterPitches()
+            const { topRightGrain } = computePerimeterPitches()
 
             testArraysAreClose(topRightGrain, [
                 6,
@@ -26,7 +26,7 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the top', () => {
-            const { topGrain } = buildPerimeterPitches()
+            const { topGrain } = computePerimeterPitches()
 
             testArraysAreClose(topGrain, [
                 5.82842712474619,
@@ -48,7 +48,7 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the top left', () => {
-            const { topLeftGrain } = buildPerimeterPitches()
+            const { topLeftGrain } = computePerimeterPitches()
 
             testArraysAreClose(topLeftGrain, [
                 4,
@@ -70,7 +70,7 @@ describe('perimeter pitches', () => {
         })
 
         it('when rotated such that the grain points to the left', () => {
-            const { leftGrain } = buildPerimeterPitches()
+            const { leftGrain } = computePerimeterPitches()
 
             testArraysAreClose(leftGrain, [
                 1.585786437626905,

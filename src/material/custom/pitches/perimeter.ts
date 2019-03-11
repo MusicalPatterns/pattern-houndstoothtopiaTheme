@@ -18,8 +18,8 @@ import {
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
 import {
-    buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
-    buildHoundstoothSolidCenterOriginCoordinate,
+    computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
+    computeHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 import { PerimeterPitches } from './types'
@@ -32,17 +32,17 @@ const pitchesFromHeights: (coordinates: Array<Coordinate<Space, TwoDimensional>>
             return to.Scalar(to.Frequency(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))))
         })
 
-const buildPerimeterPitches: () => PerimeterPitches =
+const computePerimeterPitches: () => PerimeterPitches =
     (): PerimeterPitches => {
         const houndstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> =
-            buildHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
+            computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> = apply.Translation(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
         const houndstoothCenterCoordinate: Coordinate<Space, TwoDimensional> =
-            buildHoundstoothSolidCenterOriginCoordinate()
+            computeHoundstoothSolidCenterOriginCoordinate()
         const houndstoothTopRightGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
             cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
                 rotate<Space, TwoDimensional>({
@@ -90,5 +90,5 @@ const buildPerimeterPitches: () => PerimeterPitches =
     }
 
 export {
-    buildPerimeterPitches,
+    computePerimeterPitches,
 }

@@ -1,9 +1,9 @@
 import { MaterializeScales, Scale } from '@musical-patterns/compiler'
-import { buildNonScale, materializeStandardScales, StandardProperty, StandardSpec } from '@musical-patterns/pattern'
+import { computeNonScale, materializeStandardScales, StandardProperty, StandardSpec } from '@musical-patterns/pattern'
 import { apply, from, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
-import { buildRootOfTwoScalars } from './scalars'
+import { computeRootOfTwoScalars } from './scalars'
 
-const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ordinal) => Scale =
+const computeScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ordinal) => Scale =
     (spec: StandardSpec, nonScale: Scale, index: Ordinal): Scale => {
         const scalar: Scalar = from.Meters(spec.basePositionScalar || to.Scalar(to.Meters(1)))
         const translation: Translation = from.Meters(apply.Ordinal(
@@ -17,12 +17,12 @@ const buildScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ordin
 
 const materializeScales: MaterializeScales =
     (spec: StandardSpec): Scale[] => {
-        const standardScales: Scale[] = materializeStandardScales(spec, { durationScalars: buildRootOfTwoScalars() })
+        const standardScales: Scale[] = materializeStandardScales(spec, { durationScalars: computeRootOfTwoScalars() })
 
-        const nonScale: Scale = buildNonScale()
-        const xPositionsScale: Scale = buildScaleForDimension(spec, nonScale, X_AXIS)
-        const yPositionsScale: Scale = buildScaleForDimension(spec, nonScale, Y_AXIS)
-        const zPositionsScale: Scale = buildScaleForDimension(spec, nonScale, Z_AXIS)
+        const nonScale: Scale = computeNonScale()
+        const xPositionsScale: Scale = computeScaleForDimension(spec, nonScale, X_AXIS)
+        const yPositionsScale: Scale = computeScaleForDimension(spec, nonScale, Y_AXIS)
+        const zPositionsScale: Scale = computeScaleForDimension(spec, nonScale, Z_AXIS)
 
         return standardScales.concat([
             xPositionsScale,
