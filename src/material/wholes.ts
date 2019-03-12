@@ -10,7 +10,7 @@ import {
     sequence,
     to,
 } from '@musical-patterns/utilities'
-import { Grain, GrainCycleSequence, to as houndstoothtopiaTo } from '../nominal'
+import { Grain, GrainCycleSequence, to as houndstoothtopiaTo } from '../nominals'
 import {
     LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY,
     TOP_GRAIN_SEQUENCE_INDEX_TO_VARY,
