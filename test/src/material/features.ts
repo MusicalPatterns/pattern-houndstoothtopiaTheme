@@ -3,7 +3,7 @@ import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
-const isArrayedPositionSpec: (position: NoteFeature | NoteFeature[]) => position is NoteFeature[] =
+const isArrayedPositionSpecs: (position: NoteFeature | NoteFeature[]) => position is NoteFeature[] =
     (position: NoteFeature | NoteFeature[]): position is NoteFeature[] =>
         position instanceof Array
 
@@ -86,7 +86,7 @@ describe('features', () => {
         describe('position', () => {
             let position: NoteFeature[]
             beforeEach(() => {
-                if (!isUndefined(note.position) && isArrayedPositionSpec(note.position)) {
+                if (!isUndefined(note.position) && isArrayedPositionSpecs(note.position)) {
                     position = note.position
                 }
             })

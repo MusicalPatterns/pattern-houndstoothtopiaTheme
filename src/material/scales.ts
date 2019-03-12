@@ -1,13 +1,13 @@
 import { MaterializeScales, Scale } from '@musical-patterns/compiler'
-import { computeNonScale, materializeStandardScales, StandardProperty, StandardSpec } from '@musical-patterns/pattern'
+import { computeNonScale, materializeStandardScales, StandardSpec, StandardSpecs } from '@musical-patterns/pattern'
 import { apply, from, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from './scalars'
 
-const computeScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ordinal) => Scale =
-    (spec: StandardSpec, nonScale: Scale, index: Ordinal): Scale => {
-        const scalar: Scalar = from.Meters(spec.basePositionScalar || to.Scalar(to.Meters(1)))
+const computeScaleForDimension: (specs: StandardSpecs, nonScale: Scale, index: Ordinal) => Scale =
+    (specs: StandardSpecs, nonScale: Scale, index: Ordinal): Scale => {
+        const scalar: Scalar = from.Meters(specs.basePositionScalar || to.Scalar(to.Meters(1)))
         const translation: Translation = from.Meters(apply.Ordinal(
-            spec[ StandardProperty.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Translation)
+            specs[ StandardSpec.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Translation)
                 .map(to.Meters),
             index,
         ))
@@ -16,13 +16,13 @@ const computeScaleForDimension: (spec: StandardSpec, nonScale: Scale, index: Ord
     }
 
 const materializeScales: MaterializeScales =
-    (spec: StandardSpec): Scale[] => {
-        const standardScales: Scale[] = materializeStandardScales(spec, { durationScalars: computeRootOfTwoScalars() })
+    (specs: StandardSpecs): Scale[] => {
+        const standardScales: Scale[] = materializeStandardScales(specs, { durationScalars: computeRootOfTwoScalars() })
 
         const nonScale: Scale = computeNonScale()
-        const xPositionsScale: Scale = computeScaleForDimension(spec, nonScale, X_AXIS)
-        const yPositionsScale: Scale = computeScaleForDimension(spec, nonScale, Y_AXIS)
-        const zPositionsScale: Scale = computeScaleForDimension(spec, nonScale, Z_AXIS)
+        const xPositionsScale: Scale = computeScaleForDimension(specs, nonScale, X_AXIS)
+        const yPositionsScale: Scale = computeScaleForDimension(specs, nonScale, Y_AXIS)
+        const zPositionsScale: Scale = computeScaleForDimension(specs, nonScale, Z_AXIS)
 
         return standardScales.concat([
             xPositionsScale,

@@ -1,13 +1,13 @@
 import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
-import { StandardSpec } from '@musical-patterns/pattern'
+import { StandardSpecs } from '@musical-patterns/pattern'
 import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
-import { computeContourPieces, computeSupertileNote, data, materializeScales } from '../../../src/indexForTest'
+import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('durations', () => {
-        let initialSpec: StandardSpec
+        let initialSpecs: StandardSpecs
         beforeEach(() => {
-            initialSpec = data.initial
+            initialSpecs = spec.initial
         })
 
         describe('perimeter pieces', () => {
@@ -19,7 +19,7 @@ describe('contour pieces', () => {
                     perimeterTopRightGrain,
                     perimeterRest,
                 } = computeContourPieces()
-                const scales: Scale[] = materializeScales(initialSpec)
+                const scales: Scale[] = materializeScales(initialSpecs)
 
                 const durationOfOneExamplePiece: Ms = computeNotesTotalCompiledDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
 
@@ -41,7 +41,7 @@ describe('contour pieces', () => {
                     supertileHigherPitch,
                     supertileRest,
                 } = computeContourPieces()
-                const scales: Scale[] = materializeScales(initialSpec)
+                const scales: Scale[] = materializeScales(initialSpecs)
 
                 const durationOfOneExamplePiece: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
 
@@ -58,7 +58,7 @@ describe('contour pieces', () => {
                     perimeterLeftGrain,
                     supertileLowerPitch,
                 } = computeContourPieces()
-                const scales: Scale[] = materializeScales(initialSpec)
+                const scales: Scale[] = materializeScales(initialSpecs)
 
                 const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
                 const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
