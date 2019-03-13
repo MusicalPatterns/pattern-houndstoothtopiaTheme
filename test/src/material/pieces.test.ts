@@ -7,7 +7,7 @@ describe('contour pieces', () => {
     describe('durations', () => {
         let initialSpecs: StandardSpecs
         beforeEach(() => {
-            initialSpecs = spec.initial
+            initialSpecs = spec.initialSpecs
         })
 
         describe('perimeter pieces', () => {

@@ -141,7 +141,7 @@ describe('contour wholes', () => {
     describe('durations', () => {
         let initialSpecs: StandardSpecs
         beforeEach(() => {
-            initialSpecs = spec.initial
+            initialSpecs = spec.initialSpecs
         })
 
         describe('perimeter wholes', () => {

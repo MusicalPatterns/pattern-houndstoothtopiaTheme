@@ -11,7 +11,7 @@ import {
     HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_POSITION_SCALAR,
 } from './constants'
 
-const initial: StandardSpecs = {
+const initialSpecs: StandardSpecs = {
     ...standardInitialSpecs,
     [ StandardSpec.BASE_DURATION ]: HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION,
     [ StandardSpec.BASE_FREQUENCY ]: HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY,
@@ -20,7 +20,7 @@ const initial: StandardSpecs = {
 
 const spec: Spec<StandardSpecs> = {
     configurations: standardConfigurations,
-    initial,
+    initialSpecs,
 }
 
 export {
