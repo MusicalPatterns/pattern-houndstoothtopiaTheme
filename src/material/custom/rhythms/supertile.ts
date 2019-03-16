@@ -17,10 +17,10 @@ const computeSupertileRhythm: () => Block =
                     return repeat([ index ], count)
                 })
 
-            return sequence(durationIndicesForStripes)
+            return sequence(...durationIndicesForStripes)
         })
 
-        return to.Block(sequence(durationIndicesForTile)
+        return to.Block(sequence(...durationIndicesForTile)
             .map(from.Ordinal))
     }
 

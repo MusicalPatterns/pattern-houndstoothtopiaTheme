@@ -24,7 +24,7 @@ describe('contour wholes', () => {
             } = computeContourPieces()
 
             expect(contourWholes.perimeterTopRightGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence([
+                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
                     perimeterRest,
                     perimeterTopRightGrain,
                     perimeterTopRightGrain,
@@ -44,7 +44,7 @@ describe('contour wholes', () => {
                     perimeterRest,
                     perimeterTopRightGrain,
                     perimeterTopRightGrain,
-                ])))
+                )))
         })
 
         it('does top grain correctly', () => {
@@ -54,7 +54,7 @@ describe('contour wholes', () => {
             } = computeContourPieces()
 
             expect(contourWholes.perimeterTopGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence([
+                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
                     perimeterRest,
                     perimeterRest,
                     perimeterTopGrain,
@@ -74,7 +74,7 @@ describe('contour wholes', () => {
                     perimeterRest,
                     perimeterTopGrain,
                     perimeterTopGrain,
-                ])))
+                )))
         })
 
         it('does top left grain correctly', () => {
@@ -84,7 +84,7 @@ describe('contour wholes', () => {
             } = computeContourPieces()
 
             expect(contourWholes.perimeterTopLeftGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence([
+                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
                     perimeterRest,
                     perimeterRest,
                     perimeterTopLeftGrain,
@@ -104,7 +104,7 @@ describe('contour wholes', () => {
                     perimeterRest,
                     perimeterTopLeftGrain,
                     perimeterTopLeftGrain,
-                ])))
+                )))
         })
 
         it('does left grain correctly', () => {
@@ -114,7 +114,7 @@ describe('contour wholes', () => {
             } = computeContourPieces()
 
             expect(contourWholes.perimeterLeftGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence([
+                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
                     perimeterRest,
                     perimeterRest,
                     perimeterLeftGrain,
@@ -134,7 +134,7 @@ describe('contour wholes', () => {
                     perimeterLeftGrain,
                     perimeterLeftGrain,
                     perimeterRest,
-                ])))
+                )))
         })
     })
 

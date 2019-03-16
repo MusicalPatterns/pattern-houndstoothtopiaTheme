@@ -34,7 +34,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
 
                 grainCycleSet[ from.Ordinal(indexToVary) ] = variedGrainCycle
 
-                return houndstoothtopiaTo.GrainCycleSequence(sequence(grainCycleSet))
+                return houndstoothtopiaTo.GrainCycleSequence(sequence(...grainCycleSet))
             }
 
         const grainCycleSequenceToContourWhole: (
@@ -46,7 +46,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
                 contourPiece: ContourPiece<PitchDurationXYZ>,
             ): ContourWhole<PitchDurationXYZ> =>
                 to.ContourWhole<PitchDurationXYZ>(
-                    sequence(grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
+                    sequence(...grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
                         grain ? contourPiece : contourPieces.perimeterRest)))
 
         const perimeterTopRightGrain: ContourWhole<PitchDurationXYZ> =
@@ -75,12 +75,8 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
             perimeterTopGrain,
             perimeterTopLeftGrain,
             perimeterTopRightGrain,
-            supertileHigherPitch: to.ContourWhole<PitchDurationXYZ>(sequence([
-                contourPieces.supertileHigherPitch,
-            ])),
-            supertileLowerPitch: to.ContourWhole<PitchDurationXYZ>(sequence([
-                contourPieces.supertileLowerPitch,
-            ])),
+            supertileHigherPitch: to.ContourWhole<PitchDurationXYZ>(contourPieces.supertileHigherPitch),
+            supertileLowerPitch: to.ContourWhole<PitchDurationXYZ>(contourPieces.supertileLowerPitch),
         }
     }
 
