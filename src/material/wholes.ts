@@ -1,10 +1,10 @@
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import {
     apply,
+    arraySet,
     ContourPiece,
     ContourWhole,
     Cycle,
-    from,
     negative,
     Ordinal,
     sequence,
@@ -32,7 +32,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
                 const grainCycleSet: Array<Cycle<Grain>> =
                     [ basicGrainCycle, basicGrainCycle, basicGrainCycle, basicGrainCycle ]
 
-                grainCycleSet[ from.Ordinal(indexToVary) ] = variedGrainCycle
+                arraySet(grainCycleSet, indexToVary, variedGrainCycle)
 
                 return houndstoothtopiaTo.GrainCycleSequence(sequence(...grainCycleSet))
             }
