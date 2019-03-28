@@ -16,127 +16,137 @@ describe('contour wholes', () => {
         contourWholes = computeContourWholes()
     })
 
-    describe('perimeter wholes generally follow this pattern: 4 sets of 4, where in each set, the first 2 are rests and the second 2 soundings, except that each of the 4 grains has one set which varies from this, and which of the 4 sets is different for each grain, and it rotates around the sets corresponding to the rotation of the grain, and that variation is always to instead sound the 2nd and 3rd and rest on the 1st and 4th within the set, so that when they all sound together, the effect is something like a supertile, in that first its none of them, then one of them, then all of them, then the other three of them', () => {
-        it('does top right grain correctly', () => {
-            const {
-                perimeterTopRightGrain,
-                perimeterRest,
-            } = computeContourPieces()
+    describe(
+        `perimeter wholes generally follow this pattern: 4 sets of 4, where in each set, \
+the first 2 are rests and the second 2 soundings, \
+except that each of the 4 grains has one set which varies from this, \
+and which of the 4 sets is different for each grain, \
+and it rotates around the sets corresponding to the rotation of the grain, \
+and that variation is always to instead sound the 2nd and 3rd and rest on the 1st and 4th within the set, \
+so that when they all sound together, the effect is something like a supertile, \
+in that first its none of them, then one of them, then all of them, then the other three of them`,
+        () => {
+            it('does top right grain correctly', () => {
+                const {
+                    perimeterTopRightGrain,
+                    perimeterRest,
+                } = computeContourPieces()
 
-            expect(contourWholes.perimeterTopRightGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
-                    perimeterRest,
-                    perimeterTopRightGrain,
-                    perimeterTopRightGrain,
-                    perimeterRest,
+                expect(contourWholes.perimeterTopRightGrain)
+                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                        perimeterRest,
+                        perimeterTopRightGrain,
+                        perimeterTopRightGrain,
+                        perimeterRest,
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopRightGrain,
-                    perimeterTopRightGrain,
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopRightGrain,
+                        perimeterTopRightGrain,
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopRightGrain,
-                    perimeterTopRightGrain,
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopRightGrain,
+                        perimeterTopRightGrain,
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopRightGrain,
-                    perimeterTopRightGrain,
-                )))
-        })
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopRightGrain,
+                        perimeterTopRightGrain,
+                    )))
+            })
 
-        it('does top grain correctly', () => {
-            const {
-                perimeterTopGrain,
-                perimeterRest,
-            } = computeContourPieces()
-
-            expect(contourWholes.perimeterTopGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopGrain,
-                    perimeterTopGrain,
-
-                    perimeterRest,
-                    perimeterTopGrain,
+            it('does top grain correctly', () => {
+                const {
                     perimeterTopGrain,
                     perimeterRest,
+                } = computeContourPieces()
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopGrain,
-                    perimeterTopGrain,
+                expect(contourWholes.perimeterTopGrain)
+                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopGrain,
+                        perimeterTopGrain,
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopGrain,
-                    perimeterTopGrain,
-                )))
-        })
+                        perimeterRest,
+                        perimeterTopGrain,
+                        perimeterTopGrain,
+                        perimeterRest,
 
-        it('does top left grain correctly', () => {
-            const {
-                perimeterTopLeftGrain,
-                perimeterRest,
-            } = computeContourPieces()
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopGrain,
+                        perimeterTopGrain,
 
-            expect(contourWholes.perimeterTopLeftGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopLeftGrain,
-                    perimeterTopLeftGrain,
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopGrain,
+                        perimeterTopGrain,
+                    )))
+            })
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopLeftGrain,
-                    perimeterTopLeftGrain,
-
-                    perimeterRest,
-                    perimeterTopLeftGrain,
+            it('does top left grain correctly', () => {
+                const {
                     perimeterTopLeftGrain,
                     perimeterRest,
+                } = computeContourPieces()
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterTopLeftGrain,
-                    perimeterTopLeftGrain,
-                )))
-        })
+                expect(contourWholes.perimeterTopLeftGrain)
+                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopLeftGrain,
+                        perimeterTopLeftGrain,
 
-        it('does left grain correctly', () => {
-            const {
-                perimeterLeftGrain,
-                perimeterRest,
-            } = computeContourPieces()
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopLeftGrain,
+                        perimeterTopLeftGrain,
 
-            expect(contourWholes.perimeterLeftGrain)
-                .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterLeftGrain,
-                    perimeterLeftGrain,
+                        perimeterRest,
+                        perimeterTopLeftGrain,
+                        perimeterTopLeftGrain,
+                        perimeterRest,
 
-                    perimeterRest,
-                    perimeterRest,
-                    perimeterLeftGrain,
-                    perimeterLeftGrain,
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterTopLeftGrain,
+                        perimeterTopLeftGrain,
+                    )))
+            })
 
-                    perimeterRest,
-                    perimeterRest,
+            it('does left grain correctly', () => {
+                const {
                     perimeterLeftGrain,
-                    perimeterLeftGrain,
+                    perimeterRest,
+                } = computeContourPieces()
 
-                    perimeterRest,
-                    perimeterLeftGrain,
-                    perimeterLeftGrain,
-                    perimeterRest,
-                )))
-        })
-    })
+                expect(contourWholes.perimeterLeftGrain)
+                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterLeftGrain,
+                        perimeterLeftGrain,
+
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterLeftGrain,
+                        perimeterLeftGrain,
+
+                        perimeterRest,
+                        perimeterRest,
+                        perimeterLeftGrain,
+                        perimeterLeftGrain,
+
+                        perimeterRest,
+                        perimeterLeftGrain,
+                        perimeterLeftGrain,
+                        perimeterRest,
+                    )))
+            })
+        },
+    )
 
     describe('durations', () => {
         let initialSpecs: StandardSpecs
@@ -181,19 +191,24 @@ describe('contour wholes', () => {
         })
 
         describe('perimeter wholes vs supertile wholes', () => {
-            it('perimeter pieces are 4/3rds as long as supertile pieces, and when combined into wholes repeat in multiples of multiples of 4, NOT 3, so that all hypermetrical interactions with the supertile pieces are not negated', () => {
-                const {
-                    perimeterLeftGrain,
-                    supertileLowerPitch,
-                } = computeContourWholes()
-                const scales: Scale[] = materializeScales(initialSpecs)
+            it(
+                `perimeter pieces are 4/3rds as long as supertile pieces, \
+and when combined into wholes repeat in multiples of multiples of 4, NOT 3, \
+so that all hypermetrical interactions with the supertile pieces are not negated`,
+                () => {
+                    const {
+                        perimeterLeftGrain,
+                        supertileLowerPitch,
+                    } = computeContourWholes()
+                    const scales: Scale[] = materializeScales(initialSpecs)
 
-                const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
-                const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
+                    const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
+                    const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
-                const ratioBetweenSupertileAndPerimeterWholes: number = from.Ms(quotient(supertileDuration, perimeterDuration))
-                testIsCloseTo(ratioBetweenSupertileAndPerimeterWholes, quotient(3, product(4, 4, 4)))
-            })
+                    const ratioBetweenSupertileAndPerimeterWholes: number = from.Ms(quotient(supertileDuration, perimeterDuration))
+                    testIsCloseTo(ratioBetweenSupertileAndPerimeterWholes, quotient(3, product(4, 4, 4)))
+                },
+            )
         })
     })
 })

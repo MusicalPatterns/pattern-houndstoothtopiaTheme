@@ -1,7 +1,249 @@
 <div class="row">
     <div class="middle">
         <p>
-            music in the shape of a houndstooth, using the square root of 2 extensively
+            I wrote this piece by translating the houndstooth pattern into music in a couple different ways.
+
+            All notes in the Houndstoothtopia Theme have a duration of either 1 beat or √2 beats. √2 ≈ 1.414, smack dab
+            in-between 1.5 and 1.333, so it will feel neither quite like a dotted beat (3:2), nor quite like a beat tied
+            to a triplet of itself (4:3).* It's close to 7:5, though, if that helps you feel it at all.
+
+            Used in a single unified rhythm, this √2 beat may simply add a bit of shuffle to your step. However, the
+            Houndstoothtopia Theme boasts two different underlying rhythms, so its voices quickly sort themselves into
+            two separate rhythmic groups. In this type of situation, playing loosely will not cut it; the accuracy of
+            the interval must be respected or the piece would degenerate into sludge.
+
+            Because √2 is irrational, the only way for voices to realign after such dis-alignment would be to eventually
+            have moved by the same count of √2's. Fortunately, the Houndstoothtopia Theme's two different underlying
+            rhythms are designed to have the same count of √2's, so they do realign after each segment of the piece. And
+            in the middle of each segment we get to enjoy some wacky staggering, creating new meta-intervals such as √2
+            - 1.
+
+            And now for a discussion of the two different underlying rhythms of the piece.
+        </p>
+    </div>
+
+    <div class="right"></div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <h3>
+            Supertile Rhythm
+        </h3>
+        <p>
+            Here is the supertile rhythm:
+
+            short, long,
+            short, short, long,
+            short, short, long, long,
+            short, long, long,
+
+            where each short note has a duration of 1 and each long note has a duration of the square root of 2.
+
+            In order to answer the question: "Why is it called the Supertile Rhythm" we must first understand what the
+            supertile is.
+        </p>
+    </div>
+
+    <div class="right"></div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <p>
+            The houndstooth pattern can be thought of as a repetition of four basic square tiles: a solid black tile, a
+            solid white tile, and two different tiles which are both diagonally striped black and white but one of them
+            begins with a black stripe and the other begins with a white stripe.
+        </p>
+    </div>
+
+    <div class="right">
+        <p>(diagram showing these)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <p>
+            A supertile is a group of connected tiles which function together like a tile. In the case of the
+            houndstooth pattern, the simplest supertile is a 2x2 square containing one each of the four aforementioned
+            basic tiles.
+        </p>
+    </div>
+
+    <div class="right">
+        <p>(supertile diagram, which is just the highlighted from the previous blown up)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <p>
+            And now, how to get from this supertile to the above rhythm?
+
+            - Think of each tile as a series of diagonal stripes, even if it is solid. In the case of the white tile,
+            for example, you could think of it as four white stripes - you can't tell that they're stripes because
+            they're all the same color. (For these purposes, we ignore the fact that the first and last stripes, being
+            adjacent to the corners of the tile, are clipped so that one side is reduced to a point causing them to be
+            triangles, lacking parallel lines and thus not quite feeling like stripes.)
+            - For each tile of the supertile, find the minimum number of stripe colors necessary to describe the tile in
+            terms of the repeating pattern starting from the top left. For solid tiles this would be 1. For striped
+            tiles it is 2.
+            - Take the maximum of those minima, and use that as your standard. In other words, you are now describing
+            your supertile like this:
+            [ [ white, white ], [ white, black ] ],
+            [ [ black, white ], [ black, black ] ]
+            - Now create a cycle by choosing elements counter-clockwise around that nested array, like this:
+            [
+            [ white, white ],
+            [ black, white ],
+            [ black, black ],
+            [ white, black ],
+            ]
+            - Now substitute in 1 for white, 2 for black.
+            [
+            [ 1, 1 ],
+            [ 2, 1 ],
+            [ 2, 2 ],
+            [ 1, 2 ],
+            ]
+            - Now, map [ short, long ] over the sequence, meaning that if short matches up with a 1, use 2 short beats:
+            [
+            [ [ short ], [ long ] ],
+            [ [ short, short ], [ long ] ],
+            [ [ short, short ], [ long, long ] ],
+            [ [ short ], [ long, long ] ],
+            ]
+            - And that's it! Once we flatten completely / clean up all the nested array structure, we have our supertile
+            rhythm:
+            short, long,
+            short, short, long,
+            short, short, long, long,
+            short, long, long,
+
+            The end result I hear more readily as beats in clusters of 2, 3, 3, 1, 2, and 1. But under the hood this is
+            how it works.
+        </p>
+    </div>
+
+    <div class="right"></div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <h3>
+            Perimeter Rhythm
+        </h3>
+        <p>
+            Here is the perimeter rhythm:
+
+            short, long, short, short, long, short, double-long,
+            short, long, short, short, long, short, double-long,
+
+            where a short beat has duration 1, a long has duration √2, and a double-long has duration 2√2.
+
+            (Oh yeah, I stretched the truth a bit earlier; there are three durations in the Houndstoothtopia Theme:
+            1,√2, and 2√2).
+
+            This is arrived at by starting on one vertex of the houndstooth shape, tracing its perimeter edge by edge,
+            and recording their lengths.
+        </p>
+    </div>
+
+    <div class="right"></div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <p>
+            Interestingly, the perimeter rhythm begins similarly to the supertile rhythm, despite being generated in a
+            very different way.
+        </p>
+    </div>
+
+    <div class="right">
+        (show them overlaid)
+    </div>
+</div>
+
+<div class="row">
+    <div class="middle">
+        <p>
+            The perimeter rhythm also has harmonic content, however, and this is where it gets a bit complicated. For
+            each note in the perimeter rhythm, attribute to it a pitch scaled by the height of the vertex.
+
+            You can rotate the houndstooth perimeter, and while the edge lengths won't change and thus the rhythm won't
+            change, the heights of the vertices will. The Houndstoothtopia them uses four different rotations of the
+            houndsooth.
+        </p>
+    </div>
+
+    <div class="right">
+        (show them)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="middle">
+        <h3>
+            Song structure
+        </h3>
+        <p>
+            The perimeter rhythm is longer than the supertile rhythm, in a ratio of 4:3.
+
+            Okay, so again, I lied a bit earlier. The supertile rhythm and the perimeter rhythm do not have the exact
+            same number of √2 beats in them. They just have a simple ratio of them to each other. This way, after
+            repeating 3 perimeter rhythms and 4 supertile rhythms, they've realigned.
+
+            Weirdly, though, the perimeter rhythm does not hypermetrically organize in groups of 3. It goes by groups of
+            4. This way, the supertile rhythm keeps sliding into different alignments with the hypermetrical structure
+            of the perimeter rhythm.
+
+            What is that hypermetrical structure? First, recognize four perimeter rhythm voices. Every one plays the
+            perimeter rhythm, but each one plays a different rotation of it, thus contributing different pitches to the
+            chords they make together.
+
+            Repeat the perimeter rhythm four times for each of the four rotations of the perimeter rhythm:
+            - first repetition: no voice sounds.
+            - second repetition: just the voice for the current rotation sounds.
+            - third repetition: all the voices sound.
+            - fourth repetition: all the voices except the one for the current rotation sound.
+
+            A parallelism exists between this hypermetrical structure for the perimeter rhythm voices and the supertile
+            rhythm. Imagine if starting from this point:
+            [
+            [ white, white ],
+            [ black, white ],
+            [ black, black ],
+            [ white, black ],
+            ]
+            You instead substituted in "sound" and "no sound":
+            [
+            [ no sound, no sound ],
+            [ sound, no sound ],
+            [ sound, sound ],
+            [ no sound, sound ],
+            ]
+            And then instead of [ short, long ] you mapped over that [ current, others ]:
+            [
+            [ current - no sound, others - no sound ],
+            [ current - sound, others - no sound ],
+            [ current - sound, others - sound ],
+            [ current - no sound, others - sound ],
+            ]
+        </p>
+    </div>
+
+    <div class="right"></div>
+</div>
+
+
+<div class="row">
+    <div class="middle">
+        <p>
+            * This is analagous to steps of the traditional Western pitch system. If a dotted beat is like the perfect
+            fifth, and a beat tied to a triplet of itself is like the perfect fourth, then the √2 beat is the tritone.
         </p>
     </div>
 
