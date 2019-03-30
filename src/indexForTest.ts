@@ -17,8 +17,3 @@ export {
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export { spec } from './spec'
-
-// tslint:disable-next-line no-default-import
-import * as snapshot from './snapshot.json'
-
-export { snapshot }
