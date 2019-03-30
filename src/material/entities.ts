@@ -7,27 +7,27 @@ const materializeEntities: MaterializeEntities =
         const notes: HoundstoothtopiaThemeNotes = computeNotes()
 
         const supertileLowerPitch: Entity = {
-            notes: notes.supertileLowerPitch,
+            sections: [ { notes: notes.supertileLowerPitch } ],
             timbreName: TimbreNameEnum.BASS,
         }
         const supertileHigherPitch: Entity = {
-            notes: notes.supertileHigherPitch,
+            sections: [ { notes: notes.supertileHigherPitch } ],
             timbreName: TimbreNameEnum.DYNA_EP_BRIGHT,
         }
         const perimeterTopRightGrain: Entity = {
-            notes: notes.perimeterTopRightGrain,
+            sections: [ { notes: notes.perimeterTopRightGrain } ],
             timbreName: TimbreNameEnum.WARM_TRIANGLE,
         }
         const perimeterTopGrain: Entity = {
-            notes: notes.perimeterTopGrain,
+            sections: [ { notes: notes.perimeterTopGrain } ],
             timbreName: TimbreNameEnum.BRASS,
         }
         const perimeterTopLeftGrain: Entity = {
-            notes: notes.perimeterTopLeftGrain,
+            sections: [ { notes: notes.perimeterTopLeftGrain } ],
             timbreName: TimbreNameEnum.PHONEME_OOH,
         }
         const perimeterLeftGrain: Entity = {
-            notes: notes.perimeterLeftGrain,
+            sections: [ { notes: notes.perimeterLeftGrain } ],
             timbreName: TimbreNameEnum.TWELVE_OP_TINES,
         }
 
