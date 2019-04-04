@@ -3,6 +3,7 @@
   "totalDuration": 248662104,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
@@ -144,6 +145,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
@@ -285,6 +287,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
@@ -2758,6 +2761,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
@@ -5231,6 +5235,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
@@ -7704,6 +7709,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 471.4,
