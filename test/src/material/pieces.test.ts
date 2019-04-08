@@ -1,4 +1,4 @@
-import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
+import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/pattern'
 import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
 import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'

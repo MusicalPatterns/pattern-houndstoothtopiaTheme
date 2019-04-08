@@ -1,4 +1,4 @@
-import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/compiler'
+import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/material'
 import { PitchDurationXYZ, StandardSpecs } from '@musical-patterns/pattern'
 import { from, Ms, product, quotient, sequence, testIsCloseTo, to } from '@musical-patterns/utilities'
 import {

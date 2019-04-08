@@ -1,4 +1,4 @@
-import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/material'
 import { computeNotes } from './notes'
 import { HoundstoothtopiaThemeNotes } from './types'
 

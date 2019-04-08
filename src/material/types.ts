@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { PitchDurationXYZ } from '@musical-patterns/pattern'
 import { ContourPiece, ContourWhole, KeyMap } from '@musical-patterns/utilities'
 

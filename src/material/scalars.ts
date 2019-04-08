@@ -1,4 +1,4 @@
-import { Scale } from '@musical-patterns/compiler'
+import { Scale } from '@musical-patterns/material'
 import { computeHarmonicSeriesScale } from '@musical-patterns/pattern'
 import { apply, from, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 

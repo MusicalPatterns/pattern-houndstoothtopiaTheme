@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { computePerimeterNote, computeSupertileNote } from './features'
 import { HoundstoothtopiaThemeContourWholes, HoundstoothtopiaThemeNotes } from './types'
 import { computeContourWholes } from './wholes'
