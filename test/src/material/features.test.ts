@@ -1,5 +1,4 @@
-import { Note, NoteFeature } from '@musical-patterns/material'
-import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { Note, NoteFeature, PitchDurationXYZ } from '@musical-patterns/material'
 import { ContourElement, isUndefined, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 

@@ -1,5 +1,10 @@
-import { MaterializeScales, Scale } from '@musical-patterns/material'
-import { computeNonScale, materializeStandardScales, StandardSpec, StandardSpecs } from '@musical-patterns/pattern'
+import {
+    computeNonScale,
+    MaterializeScales,
+    materializeStandardScales,
+    Scale,
+} from '@musical-patterns/material'
+import { StandardSpec, StandardSpecs } from '@musical-patterns/spec'
 import { apply, from, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from './scalars'
 

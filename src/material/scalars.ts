@@ -1,5 +1,4 @@
-import { Scale } from '@musical-patterns/material'
-import { computeHarmonicSeriesScale } from '@musical-patterns/pattern'
+import { computeHarmonicSeriesScale, Scale } from '@musical-patterns/material'
 import { apply, from, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 
 const computeRootOfTwoScalars: () => Scalar[] =

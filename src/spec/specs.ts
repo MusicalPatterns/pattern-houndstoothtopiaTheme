@@ -4,7 +4,7 @@ import {
     standardInitialSpecs,
     StandardSpec,
     StandardSpecs,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/spec'
 import {
     HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION,
     HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY,

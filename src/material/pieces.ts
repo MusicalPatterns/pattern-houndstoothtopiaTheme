@@ -1,4 +1,4 @@
-import { PitchDurationXYZ, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/pattern'
+import { PitchDurationXYZ, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import {
     apply,
     Block,

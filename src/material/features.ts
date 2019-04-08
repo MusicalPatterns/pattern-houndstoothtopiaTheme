@@ -1,11 +1,11 @@
-import { Note } from '@musical-patterns/material'
 import {
+    Note,
     PitchDurationXYZ,
     SILENT,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/material'
 import {
     apply,
     ContourElement,

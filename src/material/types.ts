@@ -1,5 +1,4 @@
-import { Note } from '@musical-patterns/material'
-import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { Note, PitchDurationXYZ } from '@musical-patterns/material'
 import { ContourPiece, ContourWhole, KeyMap } from '@musical-patterns/utilities'
 
 interface HoundstoothtopiaThemeMaterialSkeleton {

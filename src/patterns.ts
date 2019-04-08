@@ -1,4 +1,5 @@
-import { Id, Patterns, StandardPattern } from '@musical-patterns/pattern'
+import { Id } from '@musical-patterns/id'
+import { Patterns, StandardPattern } from '@musical-patterns/pattern'
 import { material } from './material'
 import { metadata } from './metadata'
 import { spec } from './spec'

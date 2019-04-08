@@ -1,5 +1,5 @@
-import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/material'
-import { PitchDurationXYZ, StandardSpecs } from '@musical-patterns/pattern'
+import { computeNotesTotalCompiledDuration, PitchDurationXYZ, Scale } from '@musical-patterns/material'
+import { StandardSpecs } from '@musical-patterns/spec'
 import { from, Ms, product, quotient, sequence, testIsCloseTo, to } from '@musical-patterns/utilities'
 import {
     computeContourPieces,

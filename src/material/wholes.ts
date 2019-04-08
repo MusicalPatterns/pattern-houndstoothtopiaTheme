@@ -1,4 +1,4 @@
-import { PitchDurationXYZ } from '@musical-patterns/pattern'
+import { PitchDurationXYZ } from '@musical-patterns/material'
 import {
     apply,
     arraySet,

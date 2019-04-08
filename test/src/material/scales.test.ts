@@ -1,5 +1,5 @@
 import { Scale } from '@musical-patterns/material'
-import { StandardSpec, StandardSpecs } from '@musical-patterns/pattern'
+import { StandardSpec, StandardSpecs } from '@musical-patterns/spec'
 import { to } from '@musical-patterns/utilities'
 import { materializeScales } from '../../../src/indexForTest'
 
