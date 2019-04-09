@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, PitchDurationXYZ, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { from, Ms, product, quotient, sequence, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { from, Ms, product, quotient, sequence, to } from '@musical-patterns/utilities'
 import {
     computeContourPieces,
     computeContourWholes,
@@ -206,7 +206,8 @@ so that all hypermetrical interactions with the supertile pieces are not negated
                     const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
                     const ratioBetweenSupertileAndPerimeterWholes: number = from.Ms(quotient(supertileDuration, perimeterDuration))
-                    testIsCloseTo(ratioBetweenSupertileAndPerimeterWholes, quotient(3, product(4, 4, 4)))
+                    expect(ratioBetweenSupertileAndPerimeterWholes)
+                        .toBeCloseToTyped(quotient(3, product(4, 4, 4)))
                 },
             )
         })

@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { from, Ms, quotient, testIsCloseTo, THREE_FOURTHS } from '@musical-patterns/utilities'
+import { from, Ms, quotient, THREE_FOURTHS, to } from '@musical-patterns/utilities'
 import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
@@ -63,8 +63,9 @@ describe('contour pieces', () => {
                 const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
                 const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
-                const ratioBetweenSupertileAndPerimeterPieces: number = from.Ms(quotient(supertileDuration, perimeterDuration))
-                testIsCloseTo(ratioBetweenSupertileAndPerimeterPieces, from.Scalar(THREE_FOURTHS))
+                const ratioBetweenSupertileAndPerimeterPieces: Ms = quotient(supertileDuration, perimeterDuration)
+                expect(ratioBetweenSupertileAndPerimeterPieces)
+                    .toBeCloseToTyped(to.Ms(from.Scalar(THREE_FOURTHS)))
             })
         })
     })

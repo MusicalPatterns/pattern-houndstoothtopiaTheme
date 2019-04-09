@@ -1,4 +1,4 @@
-import { Scalar, SQUARE_ROOT_OF_TWO, testArraysAreCloseSoFar, to } from '@musical-patterns/utilities'
+import { Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -15,6 +15,7 @@ describe('scalars', () => {
             SQUARE_ROOT_OF_TWO * 8,
         ].map(to.Scalar)
 
-        testArraysAreCloseSoFar(rootOfTwoScalars, expectedScalars)
+        expect(rootOfTwoScalars)
+            .toBeCloseSoFar(expectedScalars)
     })
 })
