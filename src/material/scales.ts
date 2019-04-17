@@ -1,33 +1,30 @@
-import {
-    computeNonScale,
-    MaterializeScales,
-    materializeStandardScales,
-    Scale,
-} from '@musical-patterns/material'
-import { StandardSpec, StandardSpecs } from '@musical-patterns/spec'
-import { apply, from, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import { computeNonScale, MaterializeScales, materializeStandardScales, Scale } from '@musical-patterns/material'
+import { STANDARD_BASE_POSITION, StandardSpec, StandardSpecs } from '@musical-patterns/spec'
+import { apply, Meters, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from './scalars'
 
-const computeScaleForDimension: (specs: StandardSpecs, nonScale: Scale, index: Ordinal) => Scale =
-    (specs: StandardSpecs, nonScale: Scale, index: Ordinal): Scale => {
-        const scalar: Scalar = from.Meters(specs.basePositionScalar || to.Scalar(to.Meters(1)))
-        const translation: Translation = from.Meters(apply.Ordinal(
-            specs[ StandardSpec.BASE_POSITION ] || [ 0, 0, 0 ].map(to.Translation)
-                .map(to.Meters),
+const computeScaleForDimension: (specs: StandardSpecs, index: Ordinal<Translation<Meters>>) => Scale<Meters> =
+    (specs: StandardSpecs, index: Ordinal<Translation<Meters>>): Scale<Meters> => {
+        const nonScale: Scale<Meters> = computeNonScale()
+        const scalar: Scalar<Meters> = specs.basePositionScalar || to.Scalar<Meters>(1)
+        const translation: Translation<Meters> = apply.Ordinal(
+            specs[ StandardSpec.BASE_POSITION ] || STANDARD_BASE_POSITION,
             index,
-        ))
+        )
 
         return { scalar, scalars: nonScale.scalars, translation }
     }
 
 const materializeScales: MaterializeScales =
-    (specs: StandardSpecs): Scale[] => {
-        const standardScales: Scale[] = materializeStandardScales(specs, { durationScalars: computeRootOfTwoScalars() })
+    // tslint:disable-next-line no-any
+    (specs: StandardSpecs): Array<Scale<any>> => {
+        // tslint:disable-next-line no-any
+        const standardScales: Array<Scale<any>> =
+            materializeStandardScales(specs, { durationScalars: computeRootOfTwoScalars() })
 
-        const nonScale: Scale = computeNonScale()
-        const xPositionsScale: Scale = computeScaleForDimension(specs, nonScale, X_AXIS)
-        const yPositionsScale: Scale = computeScaleForDimension(specs, nonScale, Y_AXIS)
-        const zPositionsScale: Scale = computeScaleForDimension(specs, nonScale, Z_AXIS)
+        const xPositionsScale: Scale<Meters> = computeScaleForDimension(specs, X_AXIS)
+        const yPositionsScale: Scale<Meters> = computeScaleForDimension(specs, Y_AXIS)
+        const zPositionsScale: Scale<Meters> = computeScaleForDimension(specs, Z_AXIS)
 
         return standardScales.concat([
             xPositionsScale,

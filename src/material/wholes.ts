@@ -25,10 +25,13 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
         const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
-        const variedGrainCycle: Cycle<Grain> = apply.Translation(basicGrainCycle, to.Translation(negative(1)))
+        const variedGrainCycle: Cycle<Grain> = apply.Translation(
+            basicGrainCycle,
+            to.Translation<Cycle<Grain>>(negative(1)),
+        )
 
-        const computeGrainCycleSequence: (indexToVary: Ordinal) => GrainCycleSequence =
-            (indexToVary: Ordinal): GrainCycleSequence => {
+        const computeGrainCycleSequence: (indexToVary: Ordinal<Cycle<Grain>>) => GrainCycleSequence =
+            (indexToVary: Ordinal<Cycle<Grain>>): GrainCycleSequence => {
                 const grainCycleSet: Array<Cycle<Grain>> =
                     [ basicGrainCycle, basicGrainCycle, basicGrainCycle, basicGrainCycle ]
 
@@ -46,8 +49,11 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
                 contourPiece: ContourPiece<PitchDurationXYZ>,
             ): ContourWhole<PitchDurationXYZ> =>
                 to.ContourWhole<PitchDurationXYZ>(
-                    sequence(...grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
-                        grain ? contourPiece : contourPieces.perimeterRest)))
+                    sequence(
+                        ...grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
+                            grain ? contourPiece : contourPieces.perimeterRest),
+                    ),
+                )
 
         const perimeterTopRightGrain: ContourWhole<PitchDurationXYZ> =
             grainCycleSequenceToContourWhole(

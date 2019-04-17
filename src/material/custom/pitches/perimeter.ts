@@ -1,15 +1,4 @@
-import {
-    apply,
-    Coordinate,
-    Cycle,
-    Frequency,
-    from,
-    rotate,
-    Scalar,
-    Space,
-    to,
-    TwoDimensional,
-} from '@musical-patterns/utilities'
+import { apply, Cycle, Frequency, from, rotate, Scalar, Space, to, TwoDimensional } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -21,51 +10,52 @@ import {
     computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
     computeHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
+import { PlanarCoordinate } from '../types'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
 import { PerimeterPitches } from './types'
 
-const pitchesFromHeights: (coordinates: Array<Coordinate<Space, TwoDimensional>>) => Array<Scalar<Frequency>> =
-    (coordinates: Array<Coordinate<Space, TwoDimensional>>): Array<Scalar<Frequency>> =>
-        coordinates.map((coordinate: Coordinate<Space, TwoDimensional>): Scalar<Frequency> => {
+const pitchesFromHeights: (coordinates: PlanarCoordinate[]) => Array<Scalar<Frequency>> =
+    (coordinates: PlanarCoordinate[]): Array<Scalar<Frequency>> =>
+        coordinates.map((coordinate: PlanarCoordinate): Scalar<Frequency> => {
             const height: Space = coordinate[ 1 ]
 
-            return to.Scalar(to.Frequency(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION))))
+            return to.Scalar<Frequency>(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION)))
         })
 
 const computePerimeterPitches: () => PerimeterPitches =
     (): PerimeterPitches => {
-        const houndstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> =
+        const houndstoothCoordinates: Cycle<PlanarCoordinate> =
             computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Cycle<Coordinate<Space, TwoDimensional>> = apply.Translation(
+        const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = apply.Translation(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
-        const houndstoothCenterCoordinate: Coordinate<Space, TwoDimensional> =
+        const houndstoothCenterCoordinate: PlanarCoordinate =
             computeHoundstoothSolidCenterOriginCoordinate()
-        const houndstoothTopRightGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
+        const houndstoothTopRightGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
                 }))
-        const houndstoothTopGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
+        const houndstoothTopGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
                 }))
-        const houndstoothTopLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
+        const houndstoothTopLeftGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
                 }))
-        const houndstoothLeftGrainCoordinates: Array<Coordinate<Space, TwoDimensional>> =
-            cycledHoundstoothCoordinates.map((coordinate: Coordinate<Space, TwoDimensional>) =>
+        const houndstoothLeftGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,

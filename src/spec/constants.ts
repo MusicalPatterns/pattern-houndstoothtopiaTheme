@@ -2,9 +2,9 @@
 
 import { Hz, Meters, Ms, Scalar, to } from '@musical-patterns/utilities'
 
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY: Scalar<Hz> = to.Scalar(to.Hz(141.42))
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar(to.Ms(471.4))
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_POSITION_SCALAR: Scalar<Meters> = to.Scalar(to.Meters(4))
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(141.42)
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(471.4)
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_POSITION_SCALAR: Scalar<Meters> = to.Scalar<Meters>(4)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION,

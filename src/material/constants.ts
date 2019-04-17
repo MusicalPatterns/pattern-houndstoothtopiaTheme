@@ -1,7 +1,8 @@
 // tslint:disable no-magic-numbers
 
+import { Scale } from '@musical-patterns/material'
 import {
-    apply,
+    apply, Cycle,
     FIVE_HALVES,
     Frequency,
     negative,
@@ -11,21 +12,22 @@ import {
     Time,
     to,
 } from '@musical-patterns/utilities'
+import { Grain } from '../nominals'
 
-const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Time> = to.Scalar(to.Time(apply.Translation(
+const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Scalar> = to.Scalar<Scalar>(apply.Translation(
     SQUARE_ROOT_OF_TWO,
     to.Translation(negative(1)),
-)))
+))
 
-const HIGHER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar(to.Frequency(apply.Scalar(SQUARE_ROOT_OF_TWO, FIVE_HALVES)))
-const LOWER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar(to.Frequency(1))
+const HIGHER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar<Frequency>(apply.Scalar(SQUARE_ROOT_OF_TWO, FIVE_HALVES))
+const LOWER_SUPERTILE_PITCH: Scalar<Frequency> = to.Scalar<Frequency>(1)
 
-const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(0)
-const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(1)
-const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(2)
-const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal = to.Ordinal(3)
+const TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Cycle<Grain>> = to.Ordinal<Cycle<Grain>>(0)
+const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Cycle<Grain>> = to.Ordinal<Cycle<Grain>>(1)
+const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Cycle<Grain>> = to.Ordinal<Cycle<Grain>>(2)
+const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Cycle<Grain>> = to.Ordinal<Cycle<Grain>>(3)
 
-const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal = to.Ordinal(3)
+const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Scale> = to.Ordinal<Scale>(3)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
