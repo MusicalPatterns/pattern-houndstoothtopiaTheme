@@ -2,14 +2,14 @@
 
 import { Scale } from '@musical-patterns/material'
 import {
-    apply, Cycle,
+    apply,
+    Cycle,
     FIVE_HALVES,
     Frequency,
     negative,
     Ordinal,
     Scalar,
     SQUARE_ROOT_OF_TWO,
-    Time,
     to,
 } from '@musical-patterns/utilities'
 import { Grain } from '../nominals'

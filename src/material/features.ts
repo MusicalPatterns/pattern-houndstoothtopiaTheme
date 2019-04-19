@@ -1,6 +1,7 @@
 import {
     Note,
-    PitchDurationXYZ, Scale,
+    PitchDurationXYZ,
+    Scale,
     SILENT,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
@@ -9,7 +10,8 @@ import {
 import {
     apply,
     ContourElement,
-    from, insteadOf,
+    from,
+    insteadOf,
     map,
     Meters,
     ONE_HALF,
