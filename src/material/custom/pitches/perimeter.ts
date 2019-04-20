@@ -1,4 +1,4 @@
-import { apply, Cycle, Frequency, from, rotate, Scalar, Space, to, TwoDimensional } from '@musical-patterns/utilities'
+import { as, Cycle, Frequency, notAs, rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -19,14 +19,14 @@ const pitchesFromHeights: (coordinates: PlanarCoordinate[]) => Array<Scalar<Freq
         coordinates.map((coordinate: PlanarCoordinate): Scalar<Frequency> => {
             const height: Space = coordinate[ 1 ]
 
-            return to.Scalar<Frequency>(from.Space(apply.Translation(height, PERIMETER_PITCH_TRANSLATION)))
+            return as.Scalar<Frequency>(notAs.Space(use.Translation(height, PERIMETER_PITCH_TRANSLATION)))
         })
 
 const computePerimeterPitches: () => PerimeterPitches =
     (): PerimeterPitches => {
         const houndstoothCoordinates: Cycle<PlanarCoordinate> =
             computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = apply.Translation(
+        const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = use.Translation(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )

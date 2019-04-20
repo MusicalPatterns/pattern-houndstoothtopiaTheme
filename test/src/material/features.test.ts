@@ -1,5 +1,5 @@
 import { Note, NoteFeature, PitchDurationXYZ, Scale } from '@musical-patterns/material'
-import { ContourElement, isUndefined, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { as, ContourElement, isUndefined, Scalar, SQUARE_ROOT_OF_TWO } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
 const isArrayedPositionSpecs: (position: NoteFeature | NoteFeature[]) => position is NoteFeature[] =
@@ -10,7 +10,7 @@ describe('features', () => {
     let note: Note
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
+            const testContour: ContourElement<PitchDurationXYZ> = as.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
             note = computeSupertileNote(testContour)
         })
 
@@ -22,12 +22,12 @@ describe('features', () => {
 
             it('sets the index to the second element', () => {
                 expect(duration.index)
-                    .toBe(to.Ordinal<Scalar>(3))
+                    .toBe(as.Ordinal<Scalar>(3))
             })
 
             it('sets the scale index to the default for duration', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale>(1))
             })
         })
 
@@ -39,12 +39,12 @@ describe('features', () => {
 
             it('sets the index to the first element', () => {
                 expect(pitch.scalar)
-                    .toBe(to.Scalar<Scalar>(2.12))
+                    .toBe(as.Scalar<Scalar>(2.12))
             })
 
             it('sets the scale index to the default for pitch', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale>(2))
             })
         })
 
@@ -56,7 +56,7 @@ describe('features', () => {
 
             it('sets gain to half', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar<Scalar>(0.5))
+                    .toBe(as.Scalar<Scalar>(0.5))
             })
         })
 
@@ -68,12 +68,12 @@ describe('features', () => {
 
             it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
                 expect(sustain.scalar)
-                    .toBe(to.Scalar<Scalar>(SQUARE_ROOT_OF_TWO - 1))
+                    .toBe(as.Scalar<Scalar>(SQUARE_ROOT_OF_TWO - 1))
             })
 
             it('sets the scale index to the default for durations', () => {
                 expect(sustain.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale>(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
@@ -92,27 +92,27 @@ describe('features', () => {
 
             it('sets the scalar from the contour', () => {
                 expect(position[ 0 ].scalar)
-                    .toBe(to.Scalar<Scalar>(3))
+                    .toBe(as.Scalar<Scalar>(3))
                 expect(position[ 1 ].scalar)
-                    .toBe(to.Scalar<Scalar>(5))
+                    .toBe(as.Scalar<Scalar>(5))
                 expect(position[ 2 ].scalar)
-                    .toBe(to.Scalar<Scalar>(8))
+                    .toBe(as.Scalar<Scalar>(8))
             })
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
                 expect(position[ 0 ].scaleIndex)
-                    .toBe(to.Ordinal<Scale>(3))
+                    .toBe(as.Ordinal<Scale>(3))
                 expect(position[ 1 ].scaleIndex)
-                    .toBe(to.Ordinal<Scale>(4))
+                    .toBe(as.Ordinal<Scale>(4))
                 expect(position[ 2 ].scaleIndex)
-                    .toBe(to.Ordinal<Scale>(5))
+                    .toBe(as.Ordinal<Scale>(5))
             })
         })
     })
 
     describe('rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement<PitchDurationXYZ> = to.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
+            const testContour: ContourElement<PitchDurationXYZ> = as.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
             note = computeSupertileNote(testContour)
         })
 
@@ -124,7 +124,7 @@ describe('features', () => {
 
             it('sets gain to zero', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar<Scalar>(0))
+                    .toBe(as.Scalar<Scalar>(0))
             })
         })
     })

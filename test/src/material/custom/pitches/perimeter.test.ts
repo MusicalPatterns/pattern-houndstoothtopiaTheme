@@ -1,4 +1,4 @@
-import { to } from '@musical-patterns/utilities'
+import { as } from '@musical-patterns/utilities'
 import { computePerimeterPitches } from '../../../../../src/indexForTest'
 
 describe('perimeter pitches', () => {
@@ -22,8 +22,8 @@ describe('perimeter pitches', () => {
                     2,
                     3,
                     4,
-                ].map(to.Scalar)
-                    .map(to.Frequency))
+                ].map(as.Scalar)
+                    .map(as.Frequency))
         })
 
         it('when rotated such that the grain points to the top', () => {
@@ -45,8 +45,8 @@ describe('perimeter pitches', () => {
                     0.8786796564403576,
                     2.2928932188134525,
                     3,
-                ].map(to.Scalar)
-                    .map(to.Frequency))
+                ].map(as.Scalar)
+                    .map(as.Frequency))
         })
 
         it('when rotated such that the grain points to the top left', () => {
@@ -68,8 +68,8 @@ describe('perimeter pitches', () => {
                     1,
                     2,
                     2,
-                ].map(to.Scalar)
-                    .map(to.Frequency))
+                ].map(as.Scalar)
+                    .map(as.Frequency))
         })
 
         it('when rotated such that the grain points to the left', () => {
@@ -91,8 +91,8 @@ describe('perimeter pitches', () => {
                     2.292893218813452,
                     2.2928932188134525,
                     1.585786437626905,
-                ].map(to.Scalar)
-                    .map(to.Frequency))
+                ].map(as.Scalar)
+                    .map(as.Frequency))
         })
     })
 })

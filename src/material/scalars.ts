@@ -1,5 +1,5 @@
 import { computeHarmonicSeriesScale, Scale } from '@musical-patterns/material'
-import { apply, from, Ms, negative, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { as, Ms, negative, notAs, Scalar, SQUARE_ROOT_OF_TWO, use } from '@musical-patterns/utilities'
 
 const computeRootOfTwoScalars: () => Array<Scalar<Ms>> =
     (): Array<Scalar<Ms>> => {
@@ -8,14 +8,14 @@ const computeRootOfTwoScalars: () => Array<Scalar<Ms>> =
 
         return harmonicSeriesScalars.map(
             (harmonicSeriesScalar: Scalar) => {
-                const negativeHarmonicSeriesValue: number = from.Scalar(apply.Translation(
+                const negativeHarmonicSeriesValue: number = notAs.Scalar(use.Translation(
                     harmonicSeriesScalar,
-                    to.Translation<Scalar>(negative(1)),
+                    as.Translation<Scalar>(negative(1)),
                 ))
 
-                return to.Scalar<Ms>(apply.Power(
+                return as.Scalar<Ms>(use.Power(
                     SQUARE_ROOT_OF_TWO,
-                    to.Power(negativeHarmonicSeriesValue),
+                    as.Power(negativeHarmonicSeriesValue),
                 ))
             },
         )

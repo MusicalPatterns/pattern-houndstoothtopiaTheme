@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, PitchDurationXYZ, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { from, Ms, product, quotient, sequence, to } from '@musical-patterns/utilities'
+import { as, Ms, notAs, product, quotient, sequence } from '@musical-patterns/utilities'
 import {
     computeContourPieces,
     computeContourWholes,
@@ -33,7 +33,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourPieces()
 
                 expect(contourWholes.perimeterTopRightGrain)
-                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                    .toEqual(as.ContourWhole<PitchDurationXYZ>(sequence(
                         perimeterRest,
                         perimeterTopRightGrain,
                         perimeterTopRightGrain,
@@ -63,7 +63,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourPieces()
 
                 expect(contourWholes.perimeterTopGrain)
-                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                    .toEqual(as.ContourWhole<PitchDurationXYZ>(sequence(
                         perimeterRest,
                         perimeterRest,
                         perimeterTopGrain,
@@ -93,7 +93,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourPieces()
 
                 expect(contourWholes.perimeterTopLeftGrain)
-                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                    .toEqual(as.ContourWhole<PitchDurationXYZ>(sequence(
                         perimeterRest,
                         perimeterRest,
                         perimeterTopLeftGrain,
@@ -123,7 +123,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourPieces()
 
                 expect(contourWholes.perimeterLeftGrain)
-                    .toEqual(to.ContourWhole<PitchDurationXYZ>(sequence(
+                    .toEqual(as.ContourWhole<PitchDurationXYZ>(sequence(
                         perimeterRest,
                         perimeterRest,
                         perimeterLeftGrain,
@@ -205,7 +205,7 @@ so that all hypermetrical interactions with the supertile pieces are not negated
                     const supertileDuration: Ms = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
                     const perimeterDuration: Ms = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
-                    const ratioBetweenSupertileAndPerimeterWholes: number = from.Ms(quotient(supertileDuration, perimeterDuration))
+                    const ratioBetweenSupertileAndPerimeterWholes: number = notAs.Ms(quotient(supertileDuration, perimeterDuration))
                     expect(ratioBetweenSupertileAndPerimeterWholes)
                         .toBeCloseToTyped(quotient(3, product(4, 4, 4)))
                 },

@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { to } from './nominals'
+export { as } from './nominals'
 export {
     computeSupertileNote,
     computeRootOfTwoScalars,

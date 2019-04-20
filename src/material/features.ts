@@ -8,17 +8,17 @@ import {
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     ContourElement,
-    from,
     insteadOf,
     map,
     Meters,
+    notAs,
     ONE_HALF,
     Ordinal,
     Scalar,
     SQUARE_ROOT_OF_TWO,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 
@@ -30,21 +30,23 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
 
         return {
             duration: {
-                index: to.Ordinal<Scalar>(duration),
+                index: as.Ordinal<Scalar>(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gain: {
-                scalar: pitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ? silentScalar : undefined,
+                scalar: pitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
+                    silentScalar :
+                    undefined,
             },
             pitch: {
-                scalar: to.Scalar<Scalar>(pitch),
+                scalar: as.Scalar<Scalar>(pitch),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
-            position: map(position.map(to.Meters), (positionElement: Meters, index: Ordinal<Meters>) => ({
-                scalar: to.Scalar<Scalar>(from.Meters(positionElement)),
-                scaleIndex: apply.Translation(
+            position: map(position.map(as.Meters), (positionElement: Meters, index: Ordinal<Meters>) => ({
+                scalar: as.Scalar<Scalar>(notAs.Meters(positionElement)),
+                scaleIndex: use.Translation(
                     HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
-                    to.Translation<Ordinal<Scale>>(from.Ordinal<Meters>(index)),
+                    as.Translation<Ordinal<Scale>>(notAs.Ordinal<Meters>(index)),
                 ),
             })),
             sustain: {
@@ -63,16 +65,16 @@ const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) =
         return {
             ...computeNote(contourElement),
             gain: {
-                scalar: pitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ? silentScalar : ONE_HALF,
+                scalar: pitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ? silentScalar : ONE_HALF,
             },
         }
     }
 
 const computePerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
     (contourElement: ContourElement<PitchDurationXYZ>): Note => {
-        const sustainScalar: Scalar<Scalar> = apply.Scalar(
+        const sustainScalar: Scalar<Scalar> = use.Scalar(
             HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
-            to.Scalar<Scalar<Scalar>>(SQUARE_ROOT_OF_TWO),
+            as.Scalar<Scalar<Scalar>>(SQUARE_ROOT_OF_TWO),
         )
 
         return {

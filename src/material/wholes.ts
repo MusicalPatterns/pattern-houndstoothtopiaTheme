@@ -1,16 +1,16 @@
 import { PitchDurationXYZ } from '@musical-patterns/material'
 import {
-    apply,
     arraySet,
+    as,
     ContourPiece,
     ContourWhole,
     Cycle,
     negative,
     Ordinal,
     sequence,
-    to,
+    use,
 } from '@musical-patterns/utilities'
-import { Grain, GrainCycleSequence, to as houndstoothtopiaTo } from '../nominals'
+import { as as houndstoothtopiaTo, Grain, GrainCycleSequence } from '../nominals'
 import {
     LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY,
     TOP_GRAIN_SEQUENCE_INDEX_TO_VARY,
@@ -24,10 +24,10 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
     (): HoundstoothtopiaThemeContourWholes => {
         const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
 
-        const basicGrainCycle: Cycle<Grain> = to.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
-        const variedGrainCycle: Cycle<Grain> = apply.Translation(
+        const basicGrainCycle: Cycle<Grain> = as.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
+        const variedGrainCycle: Cycle<Grain> = use.Translation(
             basicGrainCycle,
-            to.Translation<Cycle<Grain>>(negative(1)),
+            as.Translation<Cycle<Grain>>(negative(1)),
         )
 
         const computeGrainCycleSequence: (indexToVary: Ordinal<Cycle<Grain>>) => GrainCycleSequence =
@@ -48,7 +48,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
                 grainCycleSequence: GrainCycleSequence,
                 contourPiece: ContourPiece<PitchDurationXYZ>,
             ): ContourWhole<PitchDurationXYZ> =>
-                to.ContourWhole<PitchDurationXYZ>(
+                as.ContourWhole<PitchDurationXYZ>(
                     sequence(
                         ...grainCycleSequence.map((grain: number): ContourPiece<PitchDurationXYZ> =>
                             grain ? contourPiece : contourPieces.perimeterRest),
@@ -81,8 +81,8 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
             perimeterTopGrain,
             perimeterTopLeftGrain,
             perimeterTopRightGrain,
-            supertileHigherPitch: to.ContourWhole<PitchDurationXYZ>(contourPieces.supertileHigherPitch),
-            supertileLowerPitch: to.ContourWhole<PitchDurationXYZ>(contourPieces.supertileLowerPitch),
+            supertileHigherPitch: as.ContourWhole<PitchDurationXYZ>(contourPieces.supertileHigherPitch),
+            supertileLowerPitch: as.ContourWhole<PitchDurationXYZ>(contourPieces.supertileLowerPitch),
         }
     }
 

@@ -1,10 +1,10 @@
 // tslint:disable no-magic-numbers
 
-import { Hz, Meters, Ms, Scalar, to } from '@musical-patterns/utilities'
+import { as, Hz, Meters, Ms, Scalar } from '@musical-patterns/utilities'
 
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(141.42)
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(471.4)
-const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_POSITION_SCALAR: Scalar<Meters> = to.Scalar<Meters>(4)
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_FREQUENCY: Scalar<Hz> = as.Scalar<Hz>(141.42)
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION: Scalar<Ms> = as.Scalar<Ms>(471.4)
+const HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_POSITION_SCALAR: Scalar<Meters> = as.Scalar<Meters>(4)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_INITIAL_BASE_DURATION,

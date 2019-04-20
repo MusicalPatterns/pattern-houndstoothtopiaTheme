@@ -1,4 +1,4 @@
-import { Block, Cardinal, from, map, ONCE, Ordinal, repeat, sequence, to, TWICE } from '@musical-patterns/utilities'
+import { as, Block, Cardinal, map, notAs, ONCE, Ordinal, repeat, sequence, TWICE } from '@musical-patterns/utilities'
 import { Stripe } from './types'
 
 const computeSupertileRhythm: () => Block =
@@ -20,9 +20,9 @@ const computeSupertileRhythm: () => Block =
             return sequence(...durationIndicesForStripes)
         })
 
-        return to.Block(
+        return as.Block(
             sequence(...durationIndicesForTile)
-                .map((durationIndexForTile: Ordinal<Stripe>): number => from.Ordinal<Stripe>(durationIndexForTile)),
+                .map((durationIndexForTile: Ordinal<Stripe>): number => notAs.Ordinal<Stripe>(durationIndexForTile)),
         )
     }
 

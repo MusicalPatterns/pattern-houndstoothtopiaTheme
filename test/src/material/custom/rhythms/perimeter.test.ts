@@ -1,4 +1,4 @@
-import { Block, to } from '@musical-patterns/utilities'
+import { as, Block } from '@musical-patterns/utilities'
 import { computePerimeterRhythm } from '../../../../../src/indexForTest'
 
 describe('perimeter rhythm', () => {
@@ -6,6 +6,6 @@ describe('perimeter rhythm', () => {
         const perimeterRhythm: Block = computePerimeterRhythm()
 
         expect(perimeterRhythm)
-            .toEqual(to.Block([ 0, 1, 0, 0, 1, 0, 3, 0, 1, 0, 0, 1, 0, 3 ]))
+            .toEqual(as.Block([ 0, 1, 0, 0, 1, 0, 3, 0, 1, 0, 0, 1, 0, 3 ]))
     })
 })

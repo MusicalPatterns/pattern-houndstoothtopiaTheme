@@ -1,4 +1,4 @@
-import { Block, to } from '@musical-patterns/utilities'
+import { as, Block } from '@musical-patterns/utilities'
 import { computeSupertileRhythm } from '../../../../../src/indexForTest'
 
 describe('supertile rhythm', () => {
@@ -6,7 +6,7 @@ describe('supertile rhythm', () => {
         const supertileRhythm: Block = computeSupertileRhythm()
 
         expect(supertileRhythm)
-            .toEqual(to.Block([
+            .toEqual(as.Block([
                 0, 1,
                 0, 0, 1,
                 0, 0, 1, 1,

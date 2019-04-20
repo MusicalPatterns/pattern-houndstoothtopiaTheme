@@ -1,4 +1,4 @@
-import { Ms, Scalar, SQUARE_ROOT_OF_TWO, to } from '@musical-patterns/utilities'
+import { as, Ms, Scalar, SQUARE_ROOT_OF_TWO } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -13,7 +13,7 @@ describe('scalars', () => {
             SQUARE_ROOT_OF_TWO * 4,
             8,
             SQUARE_ROOT_OF_TWO * 8,
-        ].map((expected: number) => to.Scalar<Ms>(expected))
+        ].map((expected: number) => as.Scalar<Ms>(expected))
 
         expect(rootOfTwoScalars)
             .toBeCloseSoFar(expectedScalars)

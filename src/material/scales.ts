@@ -1,13 +1,13 @@
 import { computeNonScale, MaterializeScales, materializeStandardScales, Scale } from '@musical-patterns/material'
 import { STANDARD_BASE_POSITION, StandardSpec, StandardSpecs } from '@musical-patterns/spec'
-import { apply, Meters, Ordinal, Scalar, to, Translation, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import { as, Meters, Ordinal, Scalar, Translation, use, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from './scalars'
 
 const computeScaleForDimension: (specs: StandardSpecs, index: Ordinal<Translation<Meters>>) => Scale<Meters> =
     (specs: StandardSpecs, index: Ordinal<Translation<Meters>>): Scale<Meters> => {
         const nonScale: Scale<Meters> = computeNonScale()
-        const scalar: Scalar<Meters> = specs.basePositionScalar || to.Scalar<Meters>(1)
-        const translation: Translation<Meters> = apply.Ordinal(
+        const scalar: Scalar<Meters> = specs.basePositionScalar || as.Scalar<Meters>(1)
+        const translation: Translation<Meters> = use.Ordinal(
             specs[ StandardSpec.BASE_POSITION ] || STANDARD_BASE_POSITION,
             index,
         )
