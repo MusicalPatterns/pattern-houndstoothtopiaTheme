@@ -30,11 +30,11 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
 
         return {
             duration: {
-                index: as.Ordinal<Scalar>(duration),
+                index: as.Ordinal<Scalar[]>(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gain: {
-                scalar: pitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
+                scalar: pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
                     silentScalar :
                     undefined,
             },
@@ -42,11 +42,11 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
                 scalar: as.Scalar<Scalar>(pitch),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
-            position: map(position.map(as.Meters), (positionElement: Meters, index: Ordinal<Meters>) => ({
+            position: map(position.map(as.Meters), (positionElement: Meters, index: Ordinal<Meters[]>) => ({
                 scalar: as.Scalar<Scalar>(notAs.Meters(positionElement)),
-                scaleIndex: use.Translation(
+                scaleIndex: use.Cardinal(
                     HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
-                    as.Translation<Ordinal<Scale>>(notAs.Ordinal<Meters>(index)),
+                    as.Cardinal<Ordinal<Scale[]>>(notAs.Ordinal<Meters[]>(index)),
                 ),
             })),
             sustain: {
@@ -65,7 +65,9 @@ const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) =
         return {
             ...computeNote(contourElement),
             gain: {
-                scalar: pitch === notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST) ? silentScalar : ONE_HALF,
+                scalar: pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
+                    silentScalar :
+                    ONE_HALF,
             },
         }
     }

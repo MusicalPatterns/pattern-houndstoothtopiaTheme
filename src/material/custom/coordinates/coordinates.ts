@@ -5,7 +5,7 @@ import houndstoothOutline from './houndstoothOutline'
 
 const computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycle<PlanarCoordinate> =
     (): Cycle<PlanarCoordinate> =>
-        use.Translation(
+        use.Cardinal(
             as.Cycle(
                 houndstoothOutline.map(
                     ([ x, y ]: [ number, number ]): PlanarCoordinate => [ as.Space(x), as.Space(y) ],

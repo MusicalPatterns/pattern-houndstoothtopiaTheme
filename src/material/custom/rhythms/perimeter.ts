@@ -22,8 +22,8 @@ const computePerimeterRhythm: () => Block =
         const houndstoothPerimeterSegmentLengths: Space[] =
             map(
                 houndstoothCoordinateCycle,
-                (coordinate: PlanarCoordinate, index: Ordinal<PlanarCoordinate>): Space => {
-                    const nextIndex: Ordinal<PlanarCoordinate> = use.Translation(index, INCREMENT)
+                (coordinate: PlanarCoordinate, index: Ordinal<PlanarCoordinate[]>): Space => {
+                    const nextIndex: Ordinal<PlanarCoordinate[]> = use.Cardinal(index, INCREMENT)
                     const nextCoordinate: PlanarCoordinate =
                         use.Ordinal(houndstoothCoordinateCycle, nextIndex)
 

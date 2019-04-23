@@ -9,10 +9,10 @@ const computeSupertileRhythm: () => Block =
             [ Stripe.WHITE, Stripe.WHITE ],
             [ Stripe.BLACK, Stripe.WHITE ],
         ]
-        const durationIndicesForTile: Array<Array<Ordinal<Stripe>>> = supertile.map((tile: Stripe[]) => {
-            const durationIndicesForStripes: Array<Array<Ordinal<Stripe>>> =
-                map(tile, (stripe: Stripe, index: Ordinal<Stripe>): Array<Ordinal<Stripe>> => {
-                    const count: Cardinal = stripe === Stripe.BLACK ? ONCE : TWICE
+        const durationIndicesForTile: Array<Array<Ordinal<Stripe[]>>> = supertile.map((tile: Stripe[]) => {
+            const durationIndicesForStripes: Array<Array<Ordinal<Stripe[]>>> =
+                map(tile, (stripe: Stripe, index: Ordinal<Stripe[]>): Array<Ordinal<Stripe[]>> => {
+                    const count: Cardinal<Array<Ordinal<Stripe[]>>> = stripe === Stripe.BLACK ? ONCE : TWICE
 
                     return repeat([ index ], count)
                 })
@@ -22,7 +22,10 @@ const computeSupertileRhythm: () => Block =
 
         return as.Block(
             sequence(...durationIndicesForTile)
-                .map((durationIndexForTile: Ordinal<Stripe>): number => notAs.Ordinal<Stripe>(durationIndexForTile)),
+                .map(
+                    (durationIndexForTile: Ordinal<Stripe[]>): number =>
+                        notAs.Ordinal<Stripe[]>(durationIndexForTile),
+                ),
         )
     }
 

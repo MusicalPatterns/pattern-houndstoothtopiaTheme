@@ -2,6 +2,7 @@
 
 import {
     as,
+    Cardinal,
     negative,
     ONE_FOURTH,
     ONE_HALF,
@@ -9,7 +10,6 @@ import {
     Radians,
     Space,
     THREE_FOURTHS,
-    Translation,
     use,
 } from '@musical-patterns/utilities'
 
@@ -18,12 +18,12 @@ const EIGHTH_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(ONE_FOURTH
 const QUARTER_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(ONE_HALF))
 const THREE_EIGHTHS_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(THREE_FOURTHS))
 
-const PERIMETER_PITCH_TRANSLATION: Translation<Space> = as.Translation<Space>(3)
+const PERIMETER_PITCH_SPATIAL_SHIFT: Cardinal<Space> = as.Cardinal<Space>(3)
 
 export {
     NO_TURN_COUNTERCLOCKWISE,
     EIGHTH_TURN_COUNTERCLOCKWISE,
     QUARTER_TURN_COUNTERCLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
-    PERIMETER_PITCH_TRANSLATION,
+    PERIMETER_PITCH_SPATIAL_SHIFT,
 }

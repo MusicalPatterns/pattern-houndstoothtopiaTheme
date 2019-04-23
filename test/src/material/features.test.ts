@@ -22,12 +22,12 @@ describe('features', () => {
 
             it('sets the index to the second element', () => {
                 expect(duration.index)
-                    .toBe(as.Ordinal<Scalar>(3))
+                    .toBe(as.Ordinal<Scalar[]>(3))
             })
 
             it('sets the scale index to the default for duration', () => {
                 expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale[]>(1))
             })
         })
 
@@ -44,7 +44,7 @@ describe('features', () => {
 
             it('sets the scale index to the default for pitch', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale[]>(2))
             })
         })
 
@@ -73,7 +73,7 @@ describe('features', () => {
 
             it('sets the scale index to the default for durations', () => {
                 expect(sustain.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale[]>(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
@@ -101,11 +101,11 @@ describe('features', () => {
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
                 expect(position[ 0 ].scaleIndex)
-                    .toBe(as.Ordinal<Scale>(3))
+                    .toBe(as.Ordinal<Scale[]>(3))
                 expect(position[ 1 ].scaleIndex)
-                    .toBe(as.Ordinal<Scale>(4))
+                    .toBe(as.Ordinal<Scale[]>(4))
                 expect(position[ 2 ].scaleIndex)
-                    .toBe(as.Ordinal<Scale>(5))
+                    .toBe(as.Ordinal<Scale[]>(5))
             })
         })
     })

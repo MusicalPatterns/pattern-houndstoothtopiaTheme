@@ -39,7 +39,7 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
                         as.ContourElement<PitchDurationXYZ>([
                             notAs.Scalar<Frequency>(use.Ordinal(
                                 pitches,
-                                insteadOf<Ordinal, Scalar<Frequency>>(index),
+                                insteadOf<Ordinal, Array<Scalar<Frequency>>>(index),
                             )),
                             duration,
                             ...position.map(notAs.Space),
@@ -55,22 +55,21 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
         const perimeterTopRightGrain: ContourPiece<PitchDurationXYZ> =
             perimeterPiece(perimeterPitches.topRightGrain, [ as.Space(0), as.Space(0), as.Space(-1) ])
 
-        const supertileHigherPitch: ContourPiece<PitchDurationXYZ> =
-            as.ContourPiece<PitchDurationXYZ>(
-                supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    as.ContourElement<PitchDurationXYZ>([
-                        notAs.Scalar<Frequency>(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
-                    ]),
-                ))
-        const supertileLowerPitch: ContourPiece<PitchDurationXYZ> =
-            as.ContourPiece<PitchDurationXYZ>(
-                supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
-                    as.ContourElement<PitchDurationXYZ>([
-                        notAs.Scalar<Frequency>(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0,
-                    ]),
-                ))
+        const supertileHigherPitch: ContourPiece<PitchDurationXYZ> = as.ContourPiece<PitchDurationXYZ>(
+            supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
+                as.ContourElement<PitchDurationXYZ>([
+                    notAs.Scalar<Frequency>(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
+                ]),
+            ))
+        const supertileLowerPitch: ContourPiece<PitchDurationXYZ> = as.ContourPiece<PitchDurationXYZ>(
+            supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
+                as.ContourElement<PitchDurationXYZ>([
+                    notAs.Scalar<Frequency>(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0,
+                ]),
+            ))
 
-        const rawStandardPitchIndexIndicatingRest: number = notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)
+        const rawStandardPitchIndexIndicatingRest: number =
+            notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST)
         const perimeterRest: ContourPiece<PitchDurationXYZ> =
             as.ContourPiece<PitchDurationXYZ>(
                 perimeterRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>

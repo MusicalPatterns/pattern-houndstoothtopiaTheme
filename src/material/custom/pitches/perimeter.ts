@@ -2,7 +2,7 @@ import { as, Cycle, Frequency, notAs, rotate, Scalar, Space, TwoDimensional, use
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
-    PERIMETER_PITCH_TRANSLATION,
+    PERIMETER_PITCH_SPATIAL_SHIFT,
     QUARTER_TURN_COUNTERCLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
@@ -19,14 +19,14 @@ const pitchesFromHeights: (coordinates: PlanarCoordinate[]) => Array<Scalar<Freq
         coordinates.map((coordinate: PlanarCoordinate): Scalar<Frequency> => {
             const height: Space = coordinate[ 1 ]
 
-            return as.Scalar<Frequency>(notAs.Space(use.Translation(height, PERIMETER_PITCH_TRANSLATION)))
+            return as.Scalar<Frequency>(notAs.Space(use.Cardinal(height, PERIMETER_PITCH_SPATIAL_SHIFT)))
         })
 
 const computePerimeterPitches: () => PerimeterPitches =
     (): PerimeterPitches => {
         const houndstoothCoordinates: Cycle<PlanarCoordinate> =
             computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
-        const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = use.Translation(
+        const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = use.Cardinal(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )

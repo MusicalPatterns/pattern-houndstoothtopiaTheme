@@ -5,7 +5,7 @@ import {
     ContourPiece,
     ContourWhole,
     Cycle,
-    negative,
+    DECREMENT,
     Ordinal,
     sequence,
     use,
@@ -25,13 +25,10 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
         const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = as.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaTo.Grain))
-        const variedGrainCycle: Cycle<Grain> = use.Translation(
-            basicGrainCycle,
-            as.Translation<Cycle<Grain>>(negative(1)),
-        )
+        const variedGrainCycle: Cycle<Grain> = use.Cardinal(basicGrainCycle, DECREMENT)
 
-        const computeGrainCycleSequence: (indexToVary: Ordinal<Cycle<Grain>>) => GrainCycleSequence =
-            (indexToVary: Ordinal<Cycle<Grain>>): GrainCycleSequence => {
+        const computeGrainCycleSequence: (indexToVary: Ordinal<Array<Cycle<Grain>>>) => GrainCycleSequence =
+            (indexToVary: Ordinal<Array<Cycle<Grain>>>): GrainCycleSequence => {
                 const grainCycleSet: Array<Cycle<Grain>> =
                     [ basicGrainCycle, basicGrainCycle, basicGrainCycle, basicGrainCycle ]
 
