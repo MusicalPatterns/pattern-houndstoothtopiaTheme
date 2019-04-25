@@ -4,8 +4,10 @@ import {
     as,
     ContourElement,
     Duration,
-    isUndefined, Meters,
-    Pitch, Point,
+    isUndefined,
+    Meters,
+    Pitch,
+    Point,
     Scalar,
     SQUARE_ROOT_OF_TWO,
 } from '@musical-patterns/utilities'

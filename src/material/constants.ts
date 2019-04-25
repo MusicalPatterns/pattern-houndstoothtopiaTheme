@@ -3,11 +3,14 @@
 import { Scale } from '@musical-patterns/material'
 import {
     as,
-    Cycle, Duration,
+    Cycle,
+    Duration,
     FIVE_HALVES,
-    Frequency, Meters,
+    Frequency,
+    Meters,
     negative,
-    Ordinal, Point,
+    Ordinal,
+    Point,
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,

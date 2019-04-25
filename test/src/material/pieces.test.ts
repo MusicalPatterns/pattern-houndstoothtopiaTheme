@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { as, Duration, Ms, notAs, Point, quotient, THREE_FOURTHS, Translation } from '@musical-patterns/utilities'
+import { Duration, notAs } from '@musical-patterns/utilities'
 import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
