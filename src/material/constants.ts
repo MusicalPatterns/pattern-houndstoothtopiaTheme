@@ -3,18 +3,18 @@
 import { Scale } from '@musical-patterns/material'
 import {
     as,
-    Cycle,
+    Cycle, Duration,
     FIVE_HALVES,
-    Frequency,
+    Frequency, Meters,
     negative,
-    Ordinal,
+    Ordinal, Point,
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,
 } from '@musical-patterns/utilities'
 import { Grain } from '../nominals'
 
-const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Scalar> = as.Scalar<Scalar>(use.Cardinal(
+const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Duration> = as.Scalar<Duration>(use.Cardinal(
     SQUARE_ROOT_OF_TWO,
     as.Cardinal(negative(1)),
 ))
@@ -27,7 +27,8 @@ const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordina
 const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordinal<Array<Cycle<Grain>>>(2)
 const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordinal<Array<Cycle<Grain>>>(3)
 
-const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Scale[]> = as.Ordinal<Scale[]>(3)
+const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Array<Scale<Point<Meters>>>> =
+    as.Ordinal<Array<Scale<Point<Meters>>>>(3)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,

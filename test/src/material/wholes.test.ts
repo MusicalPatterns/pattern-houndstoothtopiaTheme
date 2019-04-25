@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, PitchDurationXYZ, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { as, Ms, notAs, product, quotient, sequence, Translation } from '@musical-patterns/utilities'
+import { as, Duration, notAs, product, quotient, sequence } from '@musical-patterns/utilities'
 import {
     computeContourPieces,
     computeContourWholes,
@@ -164,7 +164,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourWholes()
                 const scales: Scale[] = materializeScales(initialSpecs)
 
-                const durationOfOneExampleWhole: Translation<Ms> = computeNotesTotalCompiledDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
+                const durationOfOneExampleWhole: Duration = computeNotesTotalCompiledDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
 
                 expect(computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExampleWhole)
@@ -183,7 +183,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                 } = computeContourWholes()
                 const scales: Scale[] = materializeScales(initialSpecs)
 
-                const durationOfOneExampleWhole: Translation<Ms> = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
+                const durationOfOneExampleWhole: Duration = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
 
                 expect(computeNotesTotalCompiledDuration(supertileHigherPitch.map(computeSupertileNote), scales))
                     .toBe(durationOfOneExampleWhole)
@@ -202,8 +202,8 @@ so that all hypermetrical interactions with the supertile pieces are not negated
                     } = computeContourWholes()
                     const scales: Scale[] = materializeScales(initialSpecs)
 
-                    const supertileDuration: Translation<Ms> = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
-                    const perimeterDuration: Translation<Ms> = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
+                    const supertileDuration: Duration = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
+                    const perimeterDuration: Duration = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
                     const ratioBetweenSupertileAndPerimeterWholes: number = notAs.Translation(supertileDuration) / notAs.Translation(perimeterDuration)
                     expect(ratioBetweenSupertileAndPerimeterWholes)
