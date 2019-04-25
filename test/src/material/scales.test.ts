@@ -1,6 +1,6 @@
 import { Scale } from '@musical-patterns/material'
 import { StandardSpec, StandardSpecs } from '@musical-patterns/spec'
-import { as, Hz, Meters, Ms, Point } from '@musical-patterns/utilities'
+import { as, Hz, Meters, Ms, Point, Position } from '@musical-patterns/utilities'
 import { materializeScales } from '../../../src/indexForTest'
 
 describe('scales', () => {
@@ -9,7 +9,7 @@ describe('scales', () => {
             [ StandardSpec.BASIS_DURATION ]: as.Translation<Point<Ms>>(1),
             [ StandardSpec.BASIS_FREQUENCY ]: as.Point<Hz>(1),
             basePosition: [ 3, 4, 5 ].map((position: number) => as.Point<Meters>(position)),
-            basePositionScalar: as.Scalar<Point<Meters>>(7),
+            basePositionScalar: as.Scalar<Position>(7),
         }
         const scales: Scale[] = materializeScales(specs)
 

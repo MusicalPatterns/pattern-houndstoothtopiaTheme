@@ -7,10 +7,9 @@ import {
     Duration,
     FIVE_HALVES,
     Frequency,
-    Meters,
     negative,
     Ordinal,
-    Point,
+    Position,
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,
@@ -30,8 +29,8 @@ const TOP_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordina
 const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordinal<Array<Cycle<Grain>>>(2)
 const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordinal<Array<Cycle<Grain>>>(3)
 
-const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Array<Scale<Point<Meters>>>> =
-    as.Ordinal<Array<Scale<Point<Meters>>>>(3)
+const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Array<Scale<Position>>> =
+    as.Ordinal<Array<Scale<Position>>>(3)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,

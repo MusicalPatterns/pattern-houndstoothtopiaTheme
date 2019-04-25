@@ -5,16 +5,15 @@ import {
     ContourElement,
     Duration,
     isUndefined,
-    Meters,
     Pitch,
-    Point,
+    Position,
     Scalar,
     SQUARE_ROOT_OF_TWO,
 } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
-const isArrayedPositionSpecs: (position: NoteFeature<Point<Meters>> | Array<NoteFeature<Point<Meters>>>) => position is Array<NoteFeature<Point<Meters>>> =
-    (position: NoteFeature<Point<Meters>> | Array<NoteFeature<Point<Meters>>>): position is Array<NoteFeature<Point<Meters>>> =>
+const isArrayedPositionSpecs: (position: NoteFeature<Position> | Array<NoteFeature<Position>>) => position is Array<NoteFeature<Position>> =
+    (position: NoteFeature<Position> | Array<NoteFeature<Position>>): position is Array<NoteFeature<Position>> =>
         position instanceof Array
 
 describe('features', () => {
@@ -94,7 +93,7 @@ describe('features', () => {
         })
 
         describe('position', () => {
-            let position: Array<NoteFeature<Point<Meters>>>
+            let position: Array<NoteFeature<Position>>
             beforeEach(() => {
                 if (!isUndefined(note.position) && isArrayedPositionSpecs(note.position)) {
                     position = note.position
@@ -103,20 +102,20 @@ describe('features', () => {
 
             it('sets the scalar from the contour', () => {
                 expect(position[ 0 ].scalar)
-                    .toBe(as.Scalar<Point<Meters>>(3))
+                    .toBe(as.Scalar<Position>(3))
                 expect(position[ 1 ].scalar)
-                    .toBe(as.Scalar<Point<Meters>>(5))
+                    .toBe(as.Scalar<Position>(5))
                 expect(position[ 2 ].scalar)
-                    .toBe(as.Scalar<Point<Meters>>(8))
+                    .toBe(as.Scalar<Position>(8))
             })
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
                 expect(position[ 0 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Point<Meters>>>>(3))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(3))
                 expect(position[ 1 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Point<Meters>>>>(4))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(4))
                 expect(position[ 2 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Point<Meters>>>>(5))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(5))
             })
         })
     })

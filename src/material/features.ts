@@ -13,12 +13,11 @@ import {
     Duration,
     insteadOf,
     map,
-    Meters,
     notAs,
     ONE_HALF,
     Ordinal,
     Pitch,
-    Point,
+    Position,
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,
@@ -41,10 +40,10 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
             scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
         position: map(position, (positionElement: number, index: Ordinal) => ({
-            scalar: as.Scalar<Point<Meters>>(positionElement),
+            scalar: as.Scalar<Position>(positionElement),
             scaleIndex: use.Cardinal(
                 HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
-                as.Cardinal<Ordinal<Array<Scale<Point<Meters>>>>>(notAs.Ordinal(index)),
+                as.Cardinal<Ordinal<Array<Scale<Position>>>>(notAs.Ordinal(index)),
             ),
         })),
         sustain: {
