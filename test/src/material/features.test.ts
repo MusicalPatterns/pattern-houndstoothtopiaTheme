@@ -1,4 +1,4 @@
-import { Note, NoteFeature, PitchDurationXYZ, Scale } from '@musical-patterns/material'
+import { Note, NoteFeature, PitchDurationXYZ, PositionFeature, Scale } from '@musical-patterns/material'
 import {
     as,
     ContourElement,
@@ -12,8 +12,8 @@ import {
 } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
-const isArrayedPositionSpecs: (position: NoteFeature<Position> | Array<NoteFeature<Position>>) => position is Array<NoteFeature<Position>> =
-    (position: NoteFeature<Position> | Array<NoteFeature<Position>>): position is Array<NoteFeature<Position>> =>
+const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<NoteFeature<Position>> =
+    (position: PositionFeature): position is Array<NoteFeature<Position>> =>
         position instanceof Array
 
 describe('features', () => {
