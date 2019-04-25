@@ -1,9 +1,9 @@
 import { Note, NoteFeature, PitchDurationXYZ, Scale } from '@musical-patterns/material'
 import {
-    Amplitude,
     as,
     ContourElement,
     Duration,
+    Gain,
     isUndefined,
     Pitch,
     Position,
@@ -59,14 +59,14 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Amplitude>
+            let gain: NoteFeature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
 
             it('sets gain to half', () => {
                 expect(gain.scalar)
-                    .toBe(as.Scalar<Amplitude>(0.5))
+                    .toBe(as.Scalar<Gain>(0.5))
             })
         })
 
@@ -127,14 +127,14 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Amplitude>
+            let gain: NoteFeature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
 
             it('sets gain to zero', () => {
                 expect(gain.scalar)
-                    .toBe(as.Scalar<Amplitude>(0))
+                    .toBe(as.Scalar<Gain>(0))
             })
         })
     })
