@@ -43,7 +43,7 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
             scalar: as.Scalar<Position>(positionElement),
             scaleIndex: use.Cardinal(
                 HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
-                as.Cardinal<Ordinal<Array<Scale<Position>>>>(notAs.Ordinal(index)),
+                as.Transition<Array<Scale<Position>>>(notAs.Ordinal(index)),
             ),
         })),
         sustain: {

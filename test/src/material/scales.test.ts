@@ -6,7 +6,7 @@ import { materializeScales } from '../../../src/indexForTest'
 describe('scales', () => {
     it('the fourth, fifth, and sixth scales are for the x, y, and z positions, respectively', () => {
         const specs: StandardSpecs = {
-            [ StandardSpec.BASIS_DURATION ]: as.Translation<Point<Ms>>(1),
+            [ StandardSpec.BASIS_DURATION ]: as.Delta<Ms>(1),
             [ StandardSpec.BASIS_FREQUENCY ]: as.Point<Hz>(1),
             basePosition: [ 3, 4, 5 ].map((position: number) => as.Point<Meters>(position)),
             basePositionScalar: as.Scalar<Position>(7),
