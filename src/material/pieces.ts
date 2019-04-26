@@ -8,7 +8,7 @@ import {
     Frequency,
     insteadOf,
     map,
-    notAs,
+
     Ordinal,
     Scalar,
     Space,
@@ -37,12 +37,12 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
                     perimeterRhythm,
                     (duration: number, index: Ordinal): ContourElement<PitchDurationXYZ> =>
                         as.ContourElement<PitchDurationXYZ>([
-                            notAs.Scalar<Frequency>(use.Ordinal(
+                            as.number(use.Ordinal(
                                 pitches,
                                 insteadOf<Ordinal, Array<Scalar<Frequency>>>(index),
                             )),
                             duration,
-                            ...position.map(notAs.Space),
+                            ...position.map(as.number),
                         ]),
                 ))
 
@@ -58,18 +58,18 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
         const supertileHigherPitch: ContourPiece<PitchDurationXYZ> = as.ContourPiece<PitchDurationXYZ>(
             supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                 as.ContourElement<PitchDurationXYZ>([
-                    notAs.Scalar<Frequency>(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
+                    as.number(HIGHER_SUPERTILE_PITCH), duration, 1, 0, 0,
                 ]),
             ))
         const supertileLowerPitch: ContourPiece<PitchDurationXYZ> = as.ContourPiece<PitchDurationXYZ>(
             supertileRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>
                 as.ContourElement<PitchDurationXYZ>([
-                    notAs.Scalar<Frequency>(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0,
+                    as.number(LOWER_SUPERTILE_PITCH), duration, -1, 0, 0,
                 ]),
             ))
 
         const rawStandardPitchIndexIndicatingRest: number =
-            notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST)
+            as.number(STANDARD_PITCH_INDEX_INDICATING_REST)
         const perimeterRest: ContourPiece<PitchDurationXYZ> =
             as.ContourPiece<PitchDurationXYZ>(
                 perimeterRhythm.map((duration: number): ContourElement<PitchDurationXYZ> =>

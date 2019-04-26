@@ -5,7 +5,7 @@ import {
     distanceBetween,
     INCREMENT,
     map,
-    notAs,
+
     Ordinal,
     Space,
     SQUARE_ROOT_OF_TWO,
@@ -32,7 +32,7 @@ const computePerimeterRhythm: () => Block =
             )
 
         return as.Block(houndstoothPerimeterSegmentLengths.map((length: Space): number =>
-            notAs.Space(use.Logarithm(length, as.Logarithm<Space>(SQUARE_ROOT_OF_TWO))),
+            as.number(use.Logarithm(length, as.Logarithm<Space>(SQUARE_ROOT_OF_TWO))),
         ))
     }
 

@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, PitchDurationXYZ, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { as, Duration, notAs, product, quotient, sequence } from '@musical-patterns/utilities'
+import { as, Duration,  product, quotient, sequence } from '@musical-patterns/utilities'
 import {
     computeContourPieces,
     computeContourWholes,
@@ -205,7 +205,7 @@ so that all hypermetrical interactions with the supertile pieces are not negated
                     const supertileDuration: Duration = computeNotesTotalCompiledDuration(supertileLowerPitch.map(computeSupertileNote), scales)
                     const perimeterDuration: Duration = computeNotesTotalCompiledDuration(perimeterLeftGrain.map(computeSupertileNote), scales)
 
-                    const ratioBetweenSupertileAndPerimeterWholes: number = notAs.Translation(supertileDuration) / notAs.Translation(perimeterDuration)
+                    const ratioBetweenSupertileAndPerimeterWholes: number = as.number(supertileDuration) / as.number(perimeterDuration)
                     expect(ratioBetweenSupertileAndPerimeterWholes)
                         .toBeCloseToTyped(quotient(3, product(4, 4, 4)))
                 },

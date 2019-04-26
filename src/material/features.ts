@@ -13,7 +13,7 @@ import {
     Duration,
     insteadOf,
     map,
-    notAs,
+
     ONE_HALF,
     Ordinal,
     Pitch,
@@ -31,7 +31,7 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
             scaleIndex: STANDARD_DURATION_SCALE_INDEX,
         },
         gain: {
-            scalar: pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
+            scalar: pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) ?
                 SILENT :
                 undefined,
         },
@@ -43,7 +43,7 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
             scalar: as.Scalar<Position>(positionElement),
             scaleIndex: use.Transition(
                 HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,
-                as.Transition<Array<Scale<Position>>>(notAs.Ordinal(index)),
+                as.Transition<Array<Scale<Position>>>(as.number(index)),
             ),
         })),
         sustain: {
@@ -61,7 +61,7 @@ const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) =
         return {
             ...computeNote(contourElement),
             gain: {
-                scalar: pitch === notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST) ?
+                scalar: pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) ?
                     silentScalar :
                     ONE_HALF,
             },

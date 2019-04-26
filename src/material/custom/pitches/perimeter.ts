@@ -1,4 +1,4 @@
-import { as, Cycle, Frequency, notAs, rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
+import { as, Cycle, Frequency,  rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -19,7 +19,7 @@ const pitchesFromHeights: (coordinates: PlanarCoordinate[]) => Array<Scalar<Freq
         coordinates.map((coordinate: PlanarCoordinate): Scalar<Frequency> => {
             const height: Space = coordinate[ 1 ]
 
-            return as.Scalar<Frequency>(notAs.Space(use.Cardinal(height, PERIMETER_PITCH_SPATIAL_SHIFT)))
+            return as.Scalar<Frequency>(as.number(use.Cardinal(height, PERIMETER_PITCH_SPATIAL_SHIFT)))
         })
 
 const computePerimeterPitches: () => PerimeterPitches =

@@ -3,7 +3,7 @@ import { computeNominalInterface, DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE } 
 type Grain = Number & { _NominalBrand: 'Grain' }
 type GrainCycleSequence = number[] & { _NominalBrand: 'GrainCycleSequence' }
 
-const { as, notAs, of } = computeNominalInterface({
+const { as } = computeNominalInterface({
     number: {
         Grain: DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE as Grain,
     },
@@ -14,8 +14,6 @@ const { as, notAs, of } = computeNominalInterface({
 
 export {
     as,
-    notAs,
-    of,
     GrainCycleSequence,
     Grain,
 }
