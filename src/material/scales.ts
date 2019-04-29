@@ -1,6 +1,6 @@
 import { computeNonScale, MaterializeScales, materializeStandardScales, Scale } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
-import { as, Meters, Ordinal, Position, Scalar, use, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
+import { as, musicalAs, Ordinal, Position, Scalar, use, X_AXIS, Y_AXIS, Z_AXIS } from '@musical-patterns/utilities'
 import { computeRootOfTwoScalars } from './scalars'
 
 const computeScaleForDimension: (specs: StandardSpecs, index: Ordinal<Position[]>) => Scale<Position> =
@@ -10,7 +10,7 @@ const computeScaleForDimension: (specs: StandardSpecs, index: Ordinal<Position[]
 
         const basis: Position = use.Scalar(
             use.Ordinal(
-                [ 1, 1, 1 ].map((dimension: number) => as.Point<Meters>(dimension)),
+                [ 1, 1, 1 ].map((dimension: number) => musicalAs.Position(dimension)),
                 index,
             ),
             scalar,

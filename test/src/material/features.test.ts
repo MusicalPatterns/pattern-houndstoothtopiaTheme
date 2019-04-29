@@ -1,4 +1,4 @@
-import { Note, NoteFeature, PitchDurationXYZ, PositionFeature, Scale } from '@musical-patterns/material'
+import { Feature, Note, PitchDurationXYZ, PositionFeature, Scale } from '@musical-patterns/material'
 import {
     as,
     ContourElement,
@@ -12,8 +12,8 @@ import {
 } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
-const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<NoteFeature<Position>> =
-    (position: PositionFeature): position is Array<NoteFeature<Position>> =>
+const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<Feature<Position>> =
+    (position: PositionFeature): position is Array<Feature<Position>> =>
         position instanceof Array
 
 describe('features', () => {
@@ -25,7 +25,7 @@ describe('features', () => {
         })
 
         describe('duration', () => {
-            let duration: NoteFeature<Duration>
+            let duration: Feature<Duration>
             beforeEach(() => {
                 duration = note.duration || {}
             })
@@ -42,7 +42,7 @@ describe('features', () => {
         })
 
         describe('pitch', () => {
-            let pitch: NoteFeature<Pitch>
+            let pitch: Feature<Pitch>
             beforeEach(() => {
                 pitch = note.pitch || {}
             })
@@ -59,7 +59,7 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Gain>
+            let gain: Feature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
@@ -71,7 +71,7 @@ describe('features', () => {
         })
 
         describe('sustain', () => {
-            let sustain: NoteFeature<Duration>
+            let sustain: Feature<Duration>
             beforeEach(() => {
                 sustain = note.sustain || {}
             })
@@ -93,7 +93,7 @@ describe('features', () => {
         })
 
         describe('position', () => {
-            let position: Array<NoteFeature<Position>>
+            let position: Array<Feature<Position>>
             beforeEach(() => {
                 if (!isUndefined(note.position) && isArrayedPositionSpecs(note.position)) {
                     position = note.position
@@ -127,7 +127,7 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Gain>
+            let gain: Feature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
