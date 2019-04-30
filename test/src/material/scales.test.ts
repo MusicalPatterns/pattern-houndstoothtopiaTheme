@@ -8,25 +8,25 @@ describe('scales', () => {
         const specs: StandardSpecs = {
             [ StandardSpec.BASIS_DURATION ]: musicalAs.Duration(1),
             [ StandardSpec.BASIS_FREQUENCY ]: musicalAs.Pitch(1),
-            basePosition: [ 3, 4, 5 ].map((position: number) => musicalAs.Position(position)),
-            basePositionScalar: as.Scalar<Position>(7),
+            [ StandardSpec.BASIS_POSITION ]: musicalAs.Position(7),
         }
-        const scales: Scale[] = materializeScales(specs)
+        // tslint:disable-next-line no-any
+        const scales: Array<Scale<any>> = materializeScales(specs)
 
         expect(scales[ 3 ])
             .toEqual({
                 basis: 7,
-                scalars: undefined,
+                translation: as.Translation<Position>(0),
             })
         expect(scales[ 4 ])
             .toEqual({
                 basis: 7,
-                scalars: undefined,
+                translation: as.Translation<Position>(0),
             })
         expect(scales[ 5 ])
             .toEqual({
                 basis: 7,
-                scalars: undefined,
+                translation: as.Translation<Position>(0),
             })
     })
 })
