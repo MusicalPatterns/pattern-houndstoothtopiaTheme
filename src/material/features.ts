@@ -1,12 +1,4 @@
-import {
-    Note,
-    PitchValueXYZ,
-    Scale,
-    SILENT,
-    STANDARD_PITCH_INDEX_INDICATING_REST,
-    STANDARD_PITCH_SCALE_INDEX,
-    STANDARD_VALUE_SCALE_INDEX,
-} from '@musical-patterns/material'
+import { Note, PitchValueXYZ, Scale, SILENT, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import {
     as,
     ContourElement,
@@ -27,7 +19,6 @@ const computeNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
     ([ pitch, value, ...position ]: ContourElement<PitchValueXYZ>): Note => ({
         envelope: {
             scalar: HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
-            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
         intensity: {
             scalar: pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) ?
@@ -36,7 +27,6 @@ const computeNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
         },
         pitch: {
             scalar: as.Scalar<Pitch>(pitch),
-            scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
         position: map(position, (positionElement: number, index: Ordinal) => ({
             scalar: as.Scalar<Position>(positionElement),
@@ -47,7 +37,6 @@ const computeNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
         })),
         value: {
             index: as.Ordinal<Array<Scalar<Value>>>(value),
-            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 
@@ -75,7 +64,6 @@ const computePerimeterNote: (contourElement: ContourElement<PitchValueXYZ>) => N
                 HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
                 as.Scalar<Scalar<Value>>(SQUARE_ROOT_OF_TWO),
             ),
-            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 

@@ -34,11 +34,6 @@ describe('features', () => {
                 expect(value.index)
                     .toBe(as.Ordinal<Array<Scalar<Value>>>(3))
             })
-
-            it('sets the scale index to the default for value', () => {
-                expect(value.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
-            })
         })
 
         describe('pitch', () => {
@@ -50,11 +45,6 @@ describe('features', () => {
             it('sets the index to the first element', () => {
                 expect(pitch.scalar)
                     .toBe(as.Scalar<Pitch>(2.12))
-            })
-
-            it('sets the scale index to the default for pitch', () => {
-                expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Pitch>>>(2))
             })
         })
 
@@ -79,11 +69,6 @@ describe('features', () => {
             it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
                 expect(envelope.scalar)
                     .toBe(as.Scalar<Value>(SQUARE_ROOT_OF_TWO - 1))
-            })
-
-            it('sets the scale index to the default for values', () => {
-                expect(envelope.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
@@ -111,11 +96,11 @@ describe('features', () => {
 
             it('sets the scale index to the scales for position dimensions x, y, and z', () => {
                 expect(position[ 0 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Position>>>(3))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(0))
                 expect(position[ 1 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Position>>>(4))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(1))
                 expect(position[ 2 ].scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Position>>>(5))
+                    .toBe(as.Ordinal<Array<Scale<Position>>>(2))
             })
         })
     })

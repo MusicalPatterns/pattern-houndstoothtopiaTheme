@@ -1,4 +1,4 @@
-import { computeNotesDuration, PitchValueXYZ, Scale } from '@musical-patterns/material'
+import { computeNotesDuration, PitchValueXYZ, Scales } from '@musical-patterns/material'
 import { StandardSpecs } from '@musical-patterns/spec'
 import { as, Duration, product, quotient, sequence } from '@musical-patterns/utilities'
 import {
@@ -162,7 +162,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                     perimeterTopLeftGrain,
                     perimeterTopRightGrain,
                 } = computeContourWholes()
-                const scales: Scale[] = materializeScales(initialSpecs)
+                const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExampleWhole: Duration = computeNotesDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
 
@@ -181,7 +181,7 @@ in that first its none of them, then one of them, then all of them, then the oth
                     supertileLowerPitch,
                     supertileHigherPitch,
                 } = computeContourWholes()
-                const scales: Scale[] = materializeScales(initialSpecs)
+                const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExampleWhole: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)
 
@@ -200,7 +200,7 @@ so that all hypermetrical interactions with the supertile pieces are not negated
                         perimeterLeftGrain,
                         supertileLowerPitch,
                     } = computeContourWholes()
-                    const scales: Scale[] = materializeScales(initialSpecs)
+                    const scales: Scales = materializeScales(initialSpecs)
 
                     const supertileDuration: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)
                     const perimeterDuration: Duration = computeNotesDuration(perimeterLeftGrain.map(computeSupertileNote), scales)

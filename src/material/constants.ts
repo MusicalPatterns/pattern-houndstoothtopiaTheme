@@ -30,7 +30,7 @@ const TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.O
 const LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY: Ordinal<Array<Cycle<Grain>>> = as.Ordinal<Array<Cycle<Grain>>>(3)
 
 const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Array<Scale<Position>>> =
-    as.Ordinal<Array<Scale<Position>>>(3)
+    as.Ordinal<Array<Scale<Position>>>(0)
 
 export {
     HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
