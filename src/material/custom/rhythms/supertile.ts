@@ -1,4 +1,4 @@
-import { as, Block, Cardinal, map,  ONCE, Ordinal, repeat, sequence, TWICE } from '@musical-patterns/utilities'
+import { as, Block, Cardinal, map, ONCE, Ordinal, repeat, sequence, TWICE } from '@musical-patterns/utilities'
 import { Stripe } from './types'
 
 const computeSupertileRhythm: () => Block =

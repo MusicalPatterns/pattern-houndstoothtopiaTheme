@@ -1,8 +1,8 @@
 import { computeHarmonicSeriesScale, Scale } from '@musical-patterns/material'
-import { as, DECREMENT, Duration,  Scalar, SQUARE_ROOT_OF_TWO, use } from '@musical-patterns/utilities'
+import { as, DECREMENT, Scalar, SQUARE_ROOT_OF_TWO, use, Value } from '@musical-patterns/utilities'
 
-const computeRootOfTwoScalars: () => Array<Scalar<Duration>> =
-    (): Array<Scalar<Duration>> => {
+const computeRootOfTwoScalars: () => Array<Scalar<Value>> =
+    (): Array<Scalar<Value>> => {
         const harmonicSeriesScale: Scale = computeHarmonicSeriesScale()
         const harmonicSeriesScalars: Scalar[] = harmonicSeriesScale.scalars || []
 
@@ -10,7 +10,7 @@ const computeRootOfTwoScalars: () => Array<Scalar<Duration>> =
             (harmonicSeriesScalar: Scalar) => {
                 const negativeHarmonicSeriesValue: number = as.number(use.Cardinal(harmonicSeriesScalar, DECREMENT))
 
-                return as.Scalar<Duration>(use.Power(
+                return as.Scalar<Value>(use.Power(
                     SQUARE_ROOT_OF_TWO,
                     as.Power(negativeHarmonicSeriesValue),
                 ))

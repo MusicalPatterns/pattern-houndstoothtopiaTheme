@@ -4,7 +4,6 @@ import { Scale } from '@musical-patterns/material'
 import {
     as,
     Cycle,
-    Duration,
     FIVE_HALVES,
     Frequency,
     negative,
@@ -13,10 +12,11 @@ import {
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,
+    Value,
 } from '@musical-patterns/utilities'
 import { Grain } from '../nominals'
 
-const HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR: Scalar<Duration> = as.Scalar<Duration>(use.Cardinal(
+const HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR: Scalar<Value> = as.Scalar<Value>(use.Cardinal(
     SQUARE_ROOT_OF_TWO,
     as.Cardinal(negative(1)),
 ))
@@ -33,7 +33,7 @@ const HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX: Ordinal<Array<Scale<Positio
     as.Ordinal<Array<Scale<Position>>>(3)
 
 export {
-    HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
+    HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
     HIGHER_SUPERTILE_PITCH,
     LOWER_SUPERTILE_PITCH,
     TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY,

@@ -4,7 +4,7 @@ import { computeRootOfTwoScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
     (specs: StandardSpecs): Scale[] =>
-        materializeStandardScales(specs, { durationScalars: computeRootOfTwoScalars() })
+        materializeStandardScales(specs, { valueScalars: computeRootOfTwoScalars() })
 
 export {
     materializeScales,

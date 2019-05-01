@@ -1,19 +1,17 @@
 import {
     Note,
-    PitchDurationXYZ,
+    PitchValueXYZ,
     Scale,
     SILENT,
-    STANDARD_DURATION_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
+    STANDARD_VALUE_SCALE_INDEX,
 } from '@musical-patterns/material'
 import {
     as,
     ContourElement,
-    Duration,
     insteadOf,
     map,
-
     ONE_HALF,
     Ordinal,
     Pitch,
@@ -21,16 +19,17 @@ import {
     Scalar,
     SQUARE_ROOT_OF_TWO,
     use,
+    Value,
 } from '@musical-patterns/utilities'
-import { HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
+import { HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR, HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX } from './constants'
 
-const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
-    ([ pitch, duration, ...position ]: ContourElement<PitchDurationXYZ>): Note => ({
-        duration: {
-            index: as.Ordinal<Array<Scalar<Duration>>>(duration),
-            scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+const computeNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
+    ([ pitch, value, ...position ]: ContourElement<PitchValueXYZ>): Note => ({
+        envelope: {
+            scalar: HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
+            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
-        gain: {
+        intensity: {
             scalar: pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) ?
                 SILENT :
                 undefined,
@@ -46,21 +45,21 @@ const computeNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
                 as.Transition<Array<Scale<Position>>>(as.number(index)),
             ),
         })),
-        sustain: {
-            scalar: HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
-            scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+        value: {
+            index: as.Ordinal<Array<Scalar<Value>>>(value),
+            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 
-const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
-    (contourElement: ContourElement<PitchDurationXYZ>): Note => {
+const computeSupertileNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
+    (contourElement: ContourElement<PitchValueXYZ>): Note => {
         const [ pitch ] = contourElement
 
         const silentScalar: Scalar<Scalar> = insteadOf<Scalar, Scalar>(SILENT)
 
         return {
             ...computeNote(contourElement),
-            gain: {
+            intensity: {
                 scalar: pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST) ?
                     silentScalar :
                     ONE_HALF,
@@ -68,15 +67,15 @@ const computeSupertileNote: (contourElement: ContourElement<PitchDurationXYZ>) =
         }
     }
 
-const computePerimeterNote: (contourElement: ContourElement<PitchDurationXYZ>) => Note =
-    (contourElement: ContourElement<PitchDurationXYZ>): Note => ({
+const computePerimeterNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
+    (contourElement: ContourElement<PitchValueXYZ>): Note => ({
         ...computeNote(contourElement),
-        sustain: {
+        envelope: {
             scalar: use.Scalar(
-                HOUNDSTOOTHTOPIA_THEME_SUSTAIN_SCALAR,
-                as.Scalar<Scalar<Duration>>(SQUARE_ROOT_OF_TWO),
+                HOUNDSTOOTHTOPIA_THEME_ENVELOPE_SCALAR,
+                as.Scalar<Scalar<Value>>(SQUARE_ROOT_OF_TWO),
             ),
-            scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 

@@ -1,14 +1,14 @@
-import { Feature, Note, PitchDurationXYZ, PositionFeature, Scale } from '@musical-patterns/material'
+import { Feature, Note, PitchValueXYZ, PositionFeature, Scale } from '@musical-patterns/material'
 import {
     as,
     ContourElement,
-    Duration,
-    Gain,
+    Intensity,
     isUndefined,
     Pitch,
     Position,
     Scalar,
     SQUARE_ROOT_OF_TWO,
+    Value,
 } from '@musical-patterns/utilities'
 import { computeSupertileNote } from '../../../src/indexForTest'
 
@@ -20,24 +20,24 @@ describe('features', () => {
     let note: Note
     describe('non-rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement<PitchDurationXYZ> = as.ContourElement<PitchDurationXYZ>([ 2.12, 3, 3, 5, 8 ])
+            const testContour: ContourElement<PitchValueXYZ> = as.ContourElement<PitchValueXYZ>([ 2.12, 3, 3, 5, 8 ])
             note = computeSupertileNote(testContour)
         })
 
-        describe('duration', () => {
-            let duration: Feature<Duration>
+        describe('value', () => {
+            let value: Feature<Value>
             beforeEach(() => {
-                duration = note.duration || {}
+                value = note.value || {}
             })
 
             it('sets the index to the second element', () => {
-                expect(duration.index)
-                    .toBe(as.Ordinal<Array<Scalar<Duration>>>(3))
+                expect(value.index)
+                    .toBe(as.Ordinal<Array<Scalar<Value>>>(3))
             })
 
-            it('sets the scale index to the default for duration', () => {
-                expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Duration>>>(1))
+            it('sets the scale index to the default for value', () => {
+                expect(value.scaleIndex)
+                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
         })
 
@@ -58,36 +58,36 @@ describe('features', () => {
             })
         })
 
-        describe('gain', () => {
-            let gain: Feature<Gain>
+        describe('intensity', () => {
+            let intensity: Feature<Intensity>
             beforeEach(() => {
-                gain = note.gain || {}
+                intensity = note.intensity || {}
             })
 
-            it('sets gain to half', () => {
-                expect(gain.scalar)
-                    .toBe(as.Scalar<Gain>(0.5))
+            it('sets intensity to half', () => {
+                expect(intensity.scalar)
+                    .toBe(as.Scalar<Intensity>(0.5))
             })
         })
 
-        describe('sustain', () => {
-            let sustain: Feature<Duration>
+        describe('envelope', () => {
+            let envelope: Feature<Value>
             beforeEach(() => {
-                sustain = note.sustain || {}
+                envelope = note.envelope || {}
             })
 
             it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
-                expect(sustain.scalar)
-                    .toBe(as.Scalar<Duration>(SQUARE_ROOT_OF_TWO - 1))
+                expect(envelope.scalar)
+                    .toBe(as.Scalar<Value>(SQUARE_ROOT_OF_TWO - 1))
             })
 
-            it('sets the scale index to the default for durations', () => {
-                expect(sustain.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Duration>>>(1))
+            it('sets the scale index to the default for values', () => {
+                expect(envelope.scaleIndex)
+                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
 
             it('leaves the index undefined so that it will default to zero', () => {
-                expect(sustain.index)
+                expect(envelope.index)
                     .toBe(undefined)
             })
         })
@@ -122,19 +122,19 @@ describe('features', () => {
 
     describe('rest note', () => {
         beforeEach(() => {
-            const testContour: ContourElement<PitchDurationXYZ> = as.ContourElement<PitchDurationXYZ>([ -1, 3, 0, 0, 0 ])
+            const testContour: ContourElement<PitchValueXYZ> = as.ContourElement<PitchValueXYZ>([ -1, 3, 0, 0, 0 ])
             note = computeSupertileNote(testContour)
         })
 
-        describe('gain', () => {
-            let gain: Feature<Gain>
+        describe('intensity', () => {
+            let intensity: Feature<Intensity>
             beforeEach(() => {
-                gain = note.gain || {}
+                intensity = note.intensity || {}
             })
 
-            it('sets gain to zero', () => {
-                expect(gain.scalar)
-                    .toBe(as.Scalar<Gain>(0))
+            it('sets intensity to zero', () => {
+                expect(intensity.scalar)
+                    .toBe(as.Scalar<Intensity>(0))
             })
         })
     })

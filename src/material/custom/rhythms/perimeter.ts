@@ -5,7 +5,6 @@ import {
     distanceBetween,
     INCREMENT,
     map,
-
     Ordinal,
     Space,
     SQUARE_ROOT_OF_TWO,

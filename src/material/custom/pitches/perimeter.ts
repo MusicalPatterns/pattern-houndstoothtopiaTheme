@@ -1,4 +1,4 @@
-import { as, Cycle, Frequency,  rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
+import { as, Cycle, Frequency, rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
