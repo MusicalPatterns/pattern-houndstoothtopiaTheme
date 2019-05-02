@@ -3,6 +3,7 @@ import {
     as,
     ContourElement,
     Intensity,
+    isArray,
     isUndefined,
     Pitch,
     Position,
@@ -13,8 +14,7 @@ import {
 import { computeSupertileNote } from '../../../src/indexForTest'
 
 const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<Feature<Position>> =
-    (position: PositionFeature): position is Array<Feature<Position>> =>
-        position instanceof Array
+    isArray
 
 describe('features', () => {
     let note: Note
