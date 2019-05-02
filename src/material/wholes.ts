@@ -10,7 +10,7 @@ import {
     sequence,
     use,
 } from '@musical-patterns/utilities'
-import { as as houndstoothtopiaAs, Grain, GrainCycleSequence } from '../nominals'
+import { Grain, GrainCycleSequence, houndstoothtopiaThemeAs } from '../nominals'
 import {
     LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY,
     TOP_GRAIN_SEQUENCE_INDEX_TO_VARY,
@@ -24,7 +24,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
     (): HoundstoothtopiaThemeContourWholes => {
         const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
 
-        const basicGrainCycle: Cycle<Grain> = as.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaAs.Grain))
+        const basicGrainCycle: Cycle<Grain> = as.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaThemeAs.Grain))
         const variedGrainCycle: Cycle<Grain> = use.Cardinal(basicGrainCycle, DECREMENT)
 
         const computeGrainCycleSequence: (indexToVary: Ordinal<Array<Cycle<Grain>>>) => GrainCycleSequence =
@@ -34,7 +34,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
 
                 arraySet(grainCycleSet, indexToVary, variedGrainCycle)
 
-                return houndstoothtopiaAs.GrainCycleSequence(sequence(...grainCycleSet))
+                return houndstoothtopiaThemeAs.GrainCycleSequence(sequence(...grainCycleSet))
             }
 
         const grainCycleSequenceToContourWhole: (

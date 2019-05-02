@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { as } from './nominals'
+export { houndstoothtopiaThemeAs } from './nominals'
 export {
     computeSupertileNote,
     computeRootOfTwoScalars,

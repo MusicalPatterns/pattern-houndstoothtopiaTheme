@@ -14,7 +14,9 @@ import {
 import { computeSupertileNote } from '../../../src/indexForTest'
 
 const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<Feature<Position>> =
-    isArray
+    // tslint:disable-next-line no-unnecessary-callback-wrapper
+    (position: PositionFeature): position is Array<Feature<Position>> =>
+        isArray(position)
 
 describe('features', () => {
     let note: Note
