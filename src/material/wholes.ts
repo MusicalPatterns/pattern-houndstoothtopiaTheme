@@ -6,6 +6,7 @@ import {
     ContourWhole,
     Cycle,
     DECREMENT,
+    flatten,
     Ordinal,
     sequence,
     use,
@@ -34,7 +35,7 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
 
                 arraySet(grainCycleSet, indexToVary, variedGrainCycle)
 
-                return houndstoothtopiaThemeAs.GrainCycleSequence(sequence(...grainCycleSet))
+                return houndstoothtopiaThemeAs.GrainCycleSequence(flatten(grainCycleSet))
             }
 
         const grainCycleSequenceToContourWhole: (
