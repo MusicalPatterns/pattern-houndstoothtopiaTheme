@@ -30,8 +30,8 @@ const computePerimeterRhythm: () => Block =
                 },
             )
 
-        return as.Block(houndstoothPerimeterSegmentLengths.map((length: Space): number =>
-            as.number(use.Logarithm(length, as.Logarithm<Space>(SQUARE_ROOT_OF_TWO))),
+        return as.Block(houndstoothPerimeterSegmentLengths.map((computeLength: Space): number =>
+            as.number(use.Logarithm(computeLength, as.Logarithm<Space>(SQUARE_ROOT_OF_TWO))),
         ))
     }
 
