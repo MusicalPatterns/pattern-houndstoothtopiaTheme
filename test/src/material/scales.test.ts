@@ -1,11 +1,11 @@
 import { AbstractName, Scales } from '@musical-patterns/material'
-import { StandardSpec, StandardSpecs } from '@musical-patterns/spec'
+import { Specs, StandardSpec } from '@musical-patterns/spec'
 import { as, Location, musicalAs } from '@musical-patterns/utilities'
 import { materializeScales } from '../../../src/indexForTest'
 
 describe('scales', () => {
     it('the position scales are for the x, y, and z positions, respectively', () => {
-        const specs: StandardSpecs = {
+        const specs: Specs = {
             [ StandardSpec.MS_PHYSICALIZATION ]: musicalAs.Duration(1),
             [ StandardSpec.HZ_PHYSICALIZATION ]: musicalAs.Tone(1),
             [ StandardSpec.METERS_PHYSICALIZATION ]: musicalAs.Location(7),

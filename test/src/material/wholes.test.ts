@@ -1,5 +1,5 @@
 import { computeNotesDuration, PitchValueXYZ, Scales } from '@musical-patterns/material'
-import { StandardSpecs } from '@musical-patterns/spec'
+import { Specs } from '@musical-patterns/spec'
 import { as, Duration, product, quotient, sequence } from '@musical-patterns/utilities'
 import {
     computeContourPieces,
@@ -149,7 +149,7 @@ in that first its none of them, then one of them, then all of them, then the oth
     )
 
     describe('values', () => {
-        let initialSpecs: StandardSpecs
+        let initialSpecs: Specs
         beforeEach(() => {
             initialSpecs = spec.initialSpecs
         })

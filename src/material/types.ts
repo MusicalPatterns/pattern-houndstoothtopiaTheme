@@ -1,7 +1,7 @@
 import { Note, PitchValueXYZ } from '@musical-patterns/material'
-import { ContourPiece, ContourWhole, KeyMap } from '@musical-patterns/utilities'
+import { ContourPiece, ContourWhole, KeyMap, ObjectOf } from '@musical-patterns/utilities'
 
-interface HoundstoothtopiaThemeMaterialSkeleton {
+interface HoundstoothtopiaThemeMaterialSkeleton extends ObjectOf<never> {
     perimeterLeftGrain: never,
     perimeterTopGrain: never,
     perimeterTopLeftGrain: never,

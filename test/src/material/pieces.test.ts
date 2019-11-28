@@ -1,11 +1,11 @@
 import { computeNotesDuration, Scales } from '@musical-patterns/material'
-import { StandardSpecs } from '@musical-patterns/spec'
+import { Specs } from '@musical-patterns/spec'
 import { as, Duration } from '@musical-patterns/utilities'
 import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'
 
 describe('contour pieces', () => {
     describe('values', () => {
-        let initialSpecs: StandardSpecs
+        let initialSpecs: Specs
         beforeEach(() => {
             initialSpecs = spec.initialSpecs
         })
