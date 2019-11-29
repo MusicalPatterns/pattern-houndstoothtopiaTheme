@@ -30,6 +30,22 @@ const materializeEntities: MaterializeEntities =
             sections: [ { notes: notes.perimeterLeftGrain } ],
             timbreName: TimbreNameEnum.TWELVE_OP_TINES,
         }
+        const perimeterRightGrain: Entity = {
+            sections: [ { notes: notes.perimeterRightGrain } ],
+            timbreName: TimbreNameEnum.WARM_TRIANGLE,
+        }
+        const perimeterBottomRightGrain: Entity = {
+            sections: [ { notes: notes.perimeterBottomRightGrain } ],
+            timbreName: TimbreNameEnum.BRASS,
+        }
+        const perimeterBottomGrain: Entity = {
+            sections: [ { notes: notes.perimeterBottomGrain } ],
+            timbreName: TimbreNameEnum.PHONEME_OOH,
+        }
+        const perimeterBottomLeftGrain: Entity = {
+            sections: [ { notes: notes.perimeterBottomLeftGrain } ],
+            timbreName: TimbreNameEnum.TWELVE_OP_TINES, // maybe i want these to match their opposites, or maybe different paired textures is good?
+        }
 
         return [
             supertileLowerPitch,
@@ -38,6 +54,10 @@ const materializeEntities: MaterializeEntities =
             perimeterTopGrain,
             perimeterTopLeftGrain,
             perimeterLeftGrain,
+            perimeterRightGrain,
+            perimeterBottomRightGrain,
+            perimeterBottomGrain,
+            perimeterBottomLeftGrain,
         ]
     }
 

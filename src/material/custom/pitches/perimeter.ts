@@ -1,9 +1,10 @@
 import { as, Cycle, Frequency, rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
 import {
-    EIGHTH_TURN_COUNTERCLOCKWISE,
+    EIGHTH_TURN_CLOCKWISE,
+    EIGHTH_TURN_COUNTERCLOCKWISE, HALF_TURN_CLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
-    PERIMETER_PITCH_SPATIAL_SHIFT,
-    QUARTER_TURN_COUNTERCLOCKWISE,
+    PERIMETER_PITCH_SPATIAL_SHIFT, QUARTER_TURN_CLOCKWISE,
+    QUARTER_TURN_COUNTERCLOCKWISE, THREE_EIGHTHS_TURN_CLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
 import {
@@ -61,21 +62,61 @@ const computePerimeterPitches: () => PerimeterPitches =
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
                 }))
+        const houndstoothRightGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+                rotate<Space, TwoDimensional>({
+                    coordinate,
+                    fixedCoordinate: houndstoothCenterCoordinate,
+                    rotation: EIGHTH_TURN_CLOCKWISE,
+                }))
+        const houndstoothBottomRightGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+                rotate<Space, TwoDimensional>({
+                    coordinate,
+                    fixedCoordinate: houndstoothCenterCoordinate,
+                    rotation: QUARTER_TURN_CLOCKWISE,
+                }))
+        const houndstoothBottomGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+                rotate<Space, TwoDimensional>({
+                    coordinate,
+                    fixedCoordinate: houndstoothCenterCoordinate,
+                    rotation: THREE_EIGHTHS_TURN_CLOCKWISE,
+                }))
+        const houndstoothBottomLeftGrainCoordinates: PlanarCoordinate[] =
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+                rotate<Space, TwoDimensional>({
+                    coordinate,
+                    fixedCoordinate: houndstoothCenterCoordinate,
+                    rotation: HALF_TURN_CLOCKWISE,
+                }))
 
-        const leftGrain: Array<Scalar<Frequency>> =
-            pitchesFromHeights(houndstoothLeftGrainCoordinates)
+        const topRightGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothTopRightGrainCoordinates)
         const topGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothTopGrainCoordinates)
         const topLeftGrain: Array<Scalar<Frequency>> =
             pitchesFromHeights(houndstoothTopLeftGrainCoordinates)
-        const topRightGrain: Array<Scalar<Frequency>> =
-            pitchesFromHeights(houndstoothTopRightGrainCoordinates)
+        const leftGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothLeftGrainCoordinates)
+        const rightGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothRightGrainCoordinates)
+        const bottomRightGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothBottomRightGrainCoordinates)
+        const bottomGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothBottomGrainCoordinates)
+        const bottomLeftGrain: Array<Scalar<Frequency>> =
+            pitchesFromHeights(houndstoothBottomLeftGrainCoordinates)
 
         return {
             leftGrain,
             topGrain,
             topLeftGrain,
             topRightGrain,
+            rightGrain,
+            bottomRightGrain,
+            bottomGrain,
+            bottomLeftGrain,
         }
     }
 

@@ -53,6 +53,14 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
             perimeterPiece(perimeterPitches.topLeftGrain, [ as.Space(0), as.Space(0), as.Space(1) ])
         const perimeterTopRightGrain: ContourPiece<PitchValueXYZ> =
             perimeterPiece(perimeterPitches.topRightGrain, [ as.Space(0), as.Space(0), as.Space(-1) ])
+        const perimeterRightGrain: ContourPiece<PitchValueXYZ> =
+            perimeterPiece(perimeterPitches.rightGrain, [ as.Space(0), as.Space(1), as.Space(-1) ])
+        const perimeterBottomRightGrain: ContourPiece<PitchValueXYZ> =
+            perimeterPiece(perimeterPitches.bottomRightGrain, [ as.Space(0), as.Space(-1), as.Space(1) ])
+        const perimeterBottomGrain: ContourPiece<PitchValueXYZ> =
+            perimeterPiece(perimeterPitches.bottomGrain, [ as.Space(0), as.Space(-1), as.Space(-1) ])
+        const perimeterBottomLeftGrain: ContourPiece<PitchValueXYZ> =
+            perimeterPiece(perimeterPitches.bottomLeftGrain, [ as.Space(0), as.Space(1), as.Space(1) ])
 
         const supertileHigherPitch: ContourPiece<PitchValueXYZ> = as.ContourPiece<PitchValueXYZ>(
             supertileRhythm.map((value: number): ContourElement<PitchValueXYZ> =>
@@ -86,6 +94,10 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
             perimeterTopGrain,
             perimeterTopLeftGrain,
             perimeterTopRightGrain,
+            perimeterRightGrain,
+            perimeterBottomRightGrain,
+            perimeterBottomGrain,
+            perimeterBottomLeftGrain,
             supertileHigherPitch,
             supertileLowerPitch,
             supertileRest,

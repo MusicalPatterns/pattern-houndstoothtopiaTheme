@@ -19,12 +19,24 @@ const computeNotes: () => HoundstoothtopiaThemeNotes =
             contourWholes.perimeterTopLeftGrain.map(computePerimeterNote)
         const perimeterLeftGrain: Note[] =
             contourWholes.perimeterLeftGrain.map(computePerimeterNote)
+        const perimeterRightGrain: Note[] =
+            contourWholes.perimeterRightGrain.map(computePerimeterNote)
+        const perimeterBottomRightGrain: Note[] =
+            contourWholes.perimeterBottomRightGrain.map(computePerimeterNote)
+        const perimeterBottomGrain: Note[] =
+            contourWholes.perimeterBottomGrain.map(computePerimeterNote)
+        const perimeterBottomLeftGrain: Note[] =
+            contourWholes.perimeterBottomLeftGrain.map(computePerimeterNote)
 
         return {
             perimeterLeftGrain,
             perimeterTopGrain,
             perimeterTopLeftGrain,
             perimeterTopRightGrain,
+            perimeterRightGrain,
+            perimeterBottomRightGrain,
+            perimeterBottomGrain,
+            perimeterBottomLeftGrain,
             supertileHigherPitch,
             supertileLowerPitch,
         }

@@ -3,7 +3,7 @@
 import {
     as,
     Cardinal,
-    negative,
+    negative, ONE,
     ONE_FOURTH,
     ONE_HALF,
     PI,
@@ -17,6 +17,10 @@ const NO_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, as.Scalar<Radians>(0))
 const EIGHTH_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(ONE_FOURTH))
 const QUARTER_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(ONE_HALF))
 const THREE_EIGHTHS_TURN_COUNTERCLOCKWISE: Radians = use.Scalar(PI, negative(THREE_FOURTHS))
+const EIGHTH_TURN_CLOCKWISE: Radians = use.Scalar(PI, ONE_FOURTH)
+const QUARTER_TURN_CLOCKWISE: Radians = use.Scalar(PI, ONE_HALF)
+const THREE_EIGHTHS_TURN_CLOCKWISE: Radians = use.Scalar(PI, THREE_FOURTHS)
+const HALF_TURN_CLOCKWISE: Radians = PI
 
 const PERIMETER_PITCH_SPATIAL_SHIFT: Cardinal<Space> = as.Cardinal<Space>(3)
 
@@ -26,4 +30,8 @@ export {
     QUARTER_TURN_COUNTERCLOCKWISE,
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
     PERIMETER_PITCH_SPATIAL_SHIFT,
+    EIGHTH_TURN_CLOCKWISE,
+    QUARTER_TURN_CLOCKWISE,
+    THREE_EIGHTHS_TURN_CLOCKWISE,
+    HALF_TURN_CLOCKWISE,
 }
