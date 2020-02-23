@@ -1,3 +1,3 @@
 // tslint:disable no-reaching-imports
 
-export { computePerimeterPitches } from './perimeter'
+export { thunkPerimeterPitches } from './perimeter'

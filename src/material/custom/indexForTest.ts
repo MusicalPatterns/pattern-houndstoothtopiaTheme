@@ -1,11 +1,11 @@
 // tslint:disable no-reaching-imports
 
 export {
-    computeSupertileRhythm,
-    computePerimeterRhythm,
+    thunkSupertileRhythm,
+    thunkPerimeterRhythm,
 } from './rhythms/indexForTest'
 export {
-    computePerimeterPitches,
+    thunkPerimeterPitches,
 } from './pitches/indexForTest'
 export {
     QUARTER_TURN_COUNTERCLOCKWISE,

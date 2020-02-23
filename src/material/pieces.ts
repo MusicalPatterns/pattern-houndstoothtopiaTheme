@@ -12,17 +12,18 @@ import {
     Scalar,
     Space,
     ThreeDimensional,
+    Thunk,
     use,
 } from '@musical-patterns/utilities'
 import { HIGHER_SUPERTILE_PITCH, LOWER_SUPERTILE_PITCH } from './constants'
-import { computePerimeterPitches, computePerimeterRhythm, computeSupertileRhythm, PerimeterPitches } from './custom'
+import { PerimeterPitches, thunkPerimeterPitches, thunkPerimeterRhythm, thunkSupertileRhythm } from './custom'
 import { HoundstoothtopiaThemeContourPieces } from './types'
 
-const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
+const thunkContourPieces: Thunk<HoundstoothtopiaThemeContourPieces> =
     (): HoundstoothtopiaThemeContourPieces => {
-        const perimeterRhythm: Block = computePerimeterRhythm()
-        const supertileRhythm: Block = computeSupertileRhythm()
-        const perimeterPitches: PerimeterPitches = computePerimeterPitches()
+        const perimeterRhythm: Block = thunkPerimeterRhythm()
+        const supertileRhythm: Block = thunkSupertileRhythm()
+        const perimeterPitches: PerimeterPitches = thunkPerimeterPitches()
 
         const perimeterPiece: (
             pitches: Array<Scalar<Frequency>>,
@@ -93,5 +94,5 @@ const computeContourPieces: () => HoundstoothtopiaThemeContourPieces =
     }
 
 export {
-    computeContourPieces,
+    thunkContourPieces,
 }

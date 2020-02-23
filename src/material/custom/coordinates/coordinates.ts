@@ -1,9 +1,9 @@
-import { as, Cycle, ORIGIN, use } from '@musical-patterns/utilities'
+import { as, Cycle, ORIGIN, Thunk, use } from '@musical-patterns/utilities'
 import { PlanarCoordinate } from '../types'
 import { TRANSLATION_TO_SPECIALIZE_COORDINATES_FOR_THEME } from './constants'
 import houndstoothOutline from './houndstoothOutline'
 
-const computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cycle<PlanarCoordinate> =
+const thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: Thunk<Cycle<PlanarCoordinate>> =
     (): Cycle<PlanarCoordinate> =>
         use.Cardinal(
             as.Cycle<PlanarCoordinate>(
@@ -14,11 +14,11 @@ const computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme: () => Cy
             TRANSLATION_TO_SPECIALIZE_COORDINATES_FOR_THEME,
         )
 
-const computeHoundstoothSolidCenterOriginCoordinate: () => PlanarCoordinate =
+const thunkHoundstoothSolidCenterOriginCoordinate: Thunk<PlanarCoordinate> =
     (): PlanarCoordinate =>
         [ ORIGIN, ORIGIN ]
 
 export {
-    computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
-    computeHoundstoothSolidCenterOriginCoordinate,
+    thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
+    thunkHoundstoothSolidCenterOriginCoordinate,
 }

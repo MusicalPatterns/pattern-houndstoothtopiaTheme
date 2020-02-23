@@ -1,8 +1,8 @@
 export {
-    computePerimeterRhythm,
-    computeSupertileRhythm,
+    thunkPerimeterRhythm,
+    thunkSupertileRhythm,
 } from './rhythms'
 export {
-    computePerimeterPitches,
+    thunkPerimeterPitches,
     PerimeterPitches,
 } from './pitches'

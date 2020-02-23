@@ -1,11 +1,12 @@
 import { Note } from '@musical-patterns/material'
+import { Thunk } from '@musical-patterns/utilities'
 import { computePerimeterNote, computeSupertileNote } from './features'
 import { HoundstoothtopiaThemeContourWholes, HoundstoothtopiaThemeNotes } from './types'
-import { computeContourWholes } from './wholes'
+import { thunkContourWholes } from './wholes'
 
-const computeNotes: () => HoundstoothtopiaThemeNotes =
+const thunkNotes: Thunk<HoundstoothtopiaThemeNotes> =
     (): HoundstoothtopiaThemeNotes => {
-        const contourWholes: HoundstoothtopiaThemeContourWholes = computeContourWholes()
+        const contourWholes: HoundstoothtopiaThemeContourWholes = thunkContourWholes()
 
         const supertileLowerPitch: Note[] =
             contourWholes.supertileLowerPitch.map(computeSupertileNote)
@@ -31,5 +32,5 @@ const computeNotes: () => HoundstoothtopiaThemeNotes =
     }
 
 export {
-    computeNotes,
+    thunkNotes,
 }

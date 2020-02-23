@@ -18,76 +18,76 @@ const isArrayedPositionSpecs: (position: PositionFeature) => position is Array<F
     (position: PositionFeature): position is Array<Feature<Position>> =>
         isArray(position)
 
-describe('features', () => {
+describe('features', (): void => {
     let note: Note
-    describe('non-rest note', () => {
-        beforeEach(() => {
+    describe('non-rest note', (): void => {
+        beforeEach((): void => {
             const testContour: ContourElement<PitchValueXYZ> = as.ContourElement<PitchValueXYZ>([ 2.12, 3, 3, 5, 8 ])
             note = computeSupertileNote(testContour)
         })
 
-        describe('value', () => {
+        describe('value', (): void => {
             let value: Feature<Value>
-            beforeEach(() => {
+            beforeEach((): void => {
                 value = note.value || {}
             })
 
-            it('sets the index to the second element', () => {
+            it('sets the index to the second element', (): void => {
                 expect(value.index)
                     .toBe(as.Ordinal<Array<Scalar<Value>>>(3))
             })
         })
 
-        describe('pitch', () => {
+        describe('pitch', (): void => {
             let pitch: Feature<Pitch>
-            beforeEach(() => {
+            beforeEach((): void => {
                 pitch = note.pitch || {}
             })
 
-            it('sets the index to the first element', () => {
+            it('sets the index to the first element', (): void => {
                 expect(pitch.scalar)
                     .toBe(as.Scalar<Pitch>(2.12))
             })
         })
 
-        describe('intensity', () => {
+        describe('intensity', (): void => {
             let intensity: Feature<Intensity>
-            beforeEach(() => {
+            beforeEach((): void => {
                 intensity = note.intensity || {}
             })
 
-            it('sets intensity to half', () => {
+            it('sets intensity to half', (): void => {
                 expect(intensity.scalar)
                     .toBe(as.Scalar<Intensity>(0.5))
             })
         })
 
-        describe('envelope', () => {
+        describe('envelope', (): void => {
             let envelope: Feature<Value>
-            beforeEach(() => {
+            beforeEach((): void => {
                 envelope = note.envelope || {}
             })
 
-            it('sets the scalar to something quite staccato but still related to the irrational theme', () => {
+            it('sets the scalar to something quite staccato but still related to the irrational theme', (): void => {
                 expect(envelope.scalar)
                     .toBe(as.Scalar<Value>(SQUARE_ROOT_OF_TWO - 1))
             })
 
-            it('leaves the index undefined so that it will default to zero', () => {
+            it('leaves the index undefined so that it will default to zero', (): void => {
                 expect(envelope.index)
                     .toBe(undefined)
             })
         })
 
-        describe('position', () => {
+        describe('position', (): void => {
             let position: Array<Feature<Position>>
-            beforeEach(() => {
+            beforeEach((): void => {
                 if (!isUndefined(note.position) && isArrayedPositionSpecs(note.position)) {
                     position = note.position
                 }
             })
 
-            it('sets the scalar from the contour', () => {
+            it('sets the scalar from the contour', (): void => {
                 expect(position[ 0 ].scalar)
                     .toBe(as.Scalar<Position>(3))
                 expect(position[ 1 ].scalar)
@@ -96,7 +96,7 @@ describe('features', () => {
                     .toBe(as.Scalar<Position>(8))
             })
 
-            it('sets the scale index to the scales for position dimensions x, y, and z', () => {
+            it('sets the scale index to the scales for position dimensions x, y, and z', (): void => {
                 expect(position[ 0 ].scaleIndex)
                     .toBe(as.Ordinal<Array<Scale<Position>>>(0))
                 expect(position[ 1 ].scaleIndex)
@@ -107,19 +107,19 @@ describe('features', () => {
         })
     })
 
-    describe('rest note', () => {
-        beforeEach(() => {
+    describe('rest note', (): void => {
+        beforeEach((): void => {
             const testContour: ContourElement<PitchValueXYZ> = as.ContourElement<PitchValueXYZ>([ -1, 3, 0, 0, 0 ])
             note = computeSupertileNote(testContour)
         })
 
-        describe('intensity', () => {
+        describe('intensity', (): void => {
             let intensity: Feature<Intensity>
-            beforeEach(() => {
+            beforeEach((): void => {
                 intensity = note.intensity || {}
             })
 
-            it('sets intensity to zero', () => {
+            it('sets intensity to zero', (): void => {
                 expect(intensity.scalar)
                     .toBe(as.Scalar<Intensity>(0))
             })

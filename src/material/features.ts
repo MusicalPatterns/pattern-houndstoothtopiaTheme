@@ -1,4 +1,11 @@
-import { Note, PitchValueXYZ, Scale, SILENT, STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
+import {
+    Feature,
+    Note,
+    PitchValueXYZ,
+    Scale,
+    SILENT,
+    STANDARD_PITCH_INDEX_INDICATING_REST,
+} from '@musical-patterns/material'
 import {
     as,
     ContourElement,
@@ -28,7 +35,7 @@ const computeNote: (contourElement: ContourElement<PitchValueXYZ>) => Note =
         pitch: {
             scalar: as.Scalar<Pitch>(pitch),
         },
-        position: map(position, (positionElement: number, index: Ordinal) => ({
+        position: map(position, (positionElement: number, index: Ordinal): Feature<Position> => ({
             scalar: as.Scalar<Position>(positionElement),
             scaleIndex: use.Transition(
                 HOUNDSTOOTHTOPIA_THEME_X_POSITION_SCALE_INDEX,

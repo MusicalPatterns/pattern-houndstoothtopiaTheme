@@ -1,16 +1,16 @@
 // tslint:disable no-reaching-imports
 
-export { computeRootOfTwoScalars } from './scalars'
+export { thunkRootOfTwoScalars } from './scalars'
 export { computeSupertileNote } from './features'
 export { materializeEntities } from './entities'
 export { materializeScales } from './scales'
-export { computeNotes } from './notes'
-export { computeContourPieces } from './pieces'
-export { computeContourWholes } from './wholes'
+export { thunkNotes } from './notes'
+export { thunkContourPieces } from './pieces'
+export { thunkContourWholes } from './wholes'
 export {
-    computeSupertileRhythm,
-    computePerimeterRhythm,
-    computePerimeterPitches,
+    thunkSupertileRhythm,
+    thunkPerimeterRhythm,
+    thunkPerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
 } from './custom/indexForTest'
 

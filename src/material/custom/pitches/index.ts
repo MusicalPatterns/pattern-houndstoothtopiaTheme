@@ -1,4 +1,4 @@
-export { computePerimeterPitches } from './perimeter'
+export { thunkPerimeterPitches } from './perimeter'
 
 export {
     PerimeterPitches,

@@ -2,18 +2,18 @@ import { computeNotesDuration, PitchValueXYZ, Scales } from '@musical-patterns/m
 import { Specs } from '@musical-patterns/spec'
 import { as, Duration, product, quotient, sequence } from '@musical-patterns/utilities'
 import {
-    computeContourPieces,
-    computeContourWholes,
     computeSupertileNote,
     HoundstoothtopiaThemeContourWholes,
     materializeScales,
     spec,
+    thunkContourPieces,
+    thunkContourWholes,
 } from '../../../src/indexForTest'
 
-describe('contour wholes', () => {
+describe('contour wholes', (): void => {
     let contourWholes: HoundstoothtopiaThemeContourWholes
-    beforeEach(() => {
-        contourWholes = computeContourWholes()
+    beforeEach((): void => {
+        contourWholes = thunkContourWholes()
     })
 
     describe(
@@ -25,12 +25,12 @@ and it rotates around the sets corresponding to the rotation of the grain, \
 and that variation is always to instead sound the 2nd and 3rd and rest on the 1st and 4th within the set, \
 so that when they all sound together, the effect is something like a supertile, \
 in that first its none of them, then one of them, then all of them, then the other three of them`,
-        () => {
-            it('does top right grain correctly', () => {
+        (): void => {
+            it('does top right grain correctly', (): void => {
                 const {
                     perimeterTopRightGrain,
                     perimeterRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
 
                 expect(contourWholes.perimeterTopRightGrain)
                     .toEqual(as.ContourWhole<PitchValueXYZ>(sequence(
@@ -56,11 +56,11 @@ in that first its none of them, then one of them, then all of them, then the oth
                     )))
             })
 
-            it('does top grain correctly', () => {
+            it('does top grain correctly', (): void => {
                 const {
                     perimeterTopGrain,
                     perimeterRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
 
                 expect(contourWholes.perimeterTopGrain)
                     .toEqual(as.ContourWhole<PitchValueXYZ>(sequence(
@@ -86,11 +86,11 @@ in that first its none of them, then one of them, then all of them, then the oth
                     )))
             })
 
-            it('does top left grain correctly', () => {
+            it('does top left grain correctly', (): void => {
                 const {
                     perimeterTopLeftGrain,
                     perimeterRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
 
                 expect(contourWholes.perimeterTopLeftGrain)
                     .toEqual(as.ContourWhole<PitchValueXYZ>(sequence(
@@ -116,11 +116,11 @@ in that first its none of them, then one of them, then all of them, then the oth
                     )))
             })
 
-            it('does left grain correctly', () => {
+            it('does left grain correctly', (): void => {
                 const {
                     perimeterLeftGrain,
                     perimeterRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
 
                 expect(contourWholes.perimeterLeftGrain)
                     .toEqual(as.ContourWhole<PitchValueXYZ>(sequence(
@@ -148,20 +148,20 @@ in that first its none of them, then one of them, then all of them, then the oth
         },
     )
 
-    describe('values', () => {
+    describe('values', (): void => {
         let initialSpecs: Specs
-        beforeEach(() => {
+        beforeEach((): void => {
             initialSpecs = spec.initialSpecs
         })
 
-        describe('perimeter wholes', () => {
-            it('are all the same value', () => {
+        describe('perimeter wholes', (): void => {
+            it('are all the same value', (): void => {
                 const {
                     perimeterLeftGrain,
                     perimeterTopGrain,
                     perimeterTopLeftGrain,
                     perimeterTopRightGrain,
-                } = computeContourWholes()
+                } = thunkContourWholes()
                 const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExampleWhole: Duration = computeNotesDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
@@ -175,12 +175,12 @@ in that first its none of them, then one of them, then all of them, then the oth
             })
         })
 
-        describe('supertile wholes', () => {
-            it('are all the same value', () => {
+        describe('supertile wholes', (): void => {
+            it('are all the same value', (): void => {
                 const {
                     supertileLowerPitch,
                     supertileHigherPitch,
-                } = computeContourWholes()
+                } = thunkContourWholes()
                 const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExampleWhole: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)
@@ -190,16 +190,16 @@ in that first its none of them, then one of them, then all of them, then the oth
             })
         })
 
-        describe('perimeter wholes vs supertile wholes', () => {
+        describe('perimeter wholes vs supertile wholes', (): void => {
             it(
                 `perimeter pieces are 4/3rds as long as supertile pieces, \
 and when combined into wholes repeat in multiples of multiples of 4, NOT 3, \
 so that all hypermetrical interactions with the supertile pieces are not negated`,
-                () => {
+                (): void => {
                     const {
                         perimeterLeftGrain,
                         supertileLowerPitch,
-                    } = computeContourWholes()
+                    } = thunkContourWholes()
                     const scales: Scales = materializeScales(initialSpecs)
 
                     const supertileDuration: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)

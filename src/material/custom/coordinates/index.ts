@@ -1,4 +1,4 @@
 export {
-    computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
-    computeHoundstoothSolidCenterOriginCoordinate,
+    thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
+    thunkHoundstoothSolidCenterOriginCoordinate,
 } from './coordinates'

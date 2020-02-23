@@ -3,15 +3,15 @@
 export { houndstoothtopiaThemeAs } from './nominals'
 export {
     computeSupertileNote,
-    computeRootOfTwoScalars,
+    thunkRootOfTwoScalars,
     materializeEntities,
     materializeScales,
-    computeNotes,
-    computeContourPieces,
-    computeContourWholes,
-    computeSupertileRhythm,
-    computePerimeterRhythm,
-    computePerimeterPitches,
+    thunkNotes,
+    thunkContourPieces,
+    thunkContourWholes,
+    thunkSupertileRhythm,
+    thunkPerimeterRhythm,
+    thunkPerimeterPitches,
     QUARTER_TURN_COUNTERCLOCKWISE,
     HoundstoothtopiaThemeContourWholes,
 } from './material/indexForTest'

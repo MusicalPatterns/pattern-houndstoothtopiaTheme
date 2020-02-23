@@ -9,6 +9,7 @@ import {
     flatten,
     Ordinal,
     sequence,
+    Thunk,
     use,
 } from '@musical-patterns/utilities'
 import { Grain, GrainCycleSequence, houndstoothtopiaThemeAs } from '../nominals'
@@ -18,12 +19,12 @@ import {
     TOP_LEFT_GRAIN_SEQUENCE_INDEX_TO_VARY,
     TOP_RIGHT_GRAIN_SEQUENCE_INDEX_TO_VARY,
 } from './constants'
-import { computeContourPieces } from './pieces'
+import { thunkContourPieces } from './pieces'
 import { HoundstoothtopiaThemeContourPieces, HoundstoothtopiaThemeContourWholes } from './types'
 
-const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
+const thunkContourWholes: Thunk<HoundstoothtopiaThemeContourWholes> =
     (): HoundstoothtopiaThemeContourWholes => {
-        const contourPieces: HoundstoothtopiaThemeContourPieces = computeContourPieces()
+        const contourPieces: HoundstoothtopiaThemeContourPieces = thunkContourPieces()
 
         const basicGrainCycle: Cycle<Grain> = as.Cycle([ 0, 0, 1, 1 ].map(houndstoothtopiaThemeAs.Grain))
         const variedGrainCycle: Cycle<Grain> = use.Cardinal(basicGrainCycle, DECREMENT)
@@ -85,5 +86,5 @@ const computeContourWholes: () => HoundstoothtopiaThemeContourWholes =
     }
 
 export {
-    computeContourWholes,
+    thunkContourWholes,
 }

@@ -1,14 +1,14 @@
 // tslint:disable binary-expression-operand-order
 import { as, SQUARE_ROOT_OF_TWO } from '@musical-patterns/utilities'
-import { computePerimeterPitches } from '../../../../../src/indexForTest'
+import { thunkPerimeterPitches } from '../../../../../src/indexForTest'
 
-describe('perimeter pitches', () => {
+describe('perimeter pitches', (): void => {
     describe(
         `maps each coordinate along its perimeter, going clockwise, to its vertical position,
 where 3 runs through the center of the main solid square, for some reason lower numbers when higher vertically`,
-        () => {
-            it('when rotated such that the grain points to the top right', () => {
-                const { topRightGrain } = computePerimeterPitches()
+        (): void => {
+            it('when rotated such that the grain points to the top right', (): void => {
+                const { topRightGrain } = thunkPerimeterPitches()
 
                 expect(topRightGrain)
                     .toBeCloseToArray([
@@ -30,8 +30,8 @@ where 3 runs through the center of the main solid square, for some reason lower 
                         .map(as.Frequency))
             })
 
-            it('when rotated such that the grain points to the top', () => {
-                const { topGrain } = computePerimeterPitches()
+            it('when rotated such that the grain points to the top', (): void => {
+                const { topGrain } = thunkPerimeterPitches()
 
                 expect(topGrain)
                     .toBeCloseToArray([
@@ -73,8 +73,8 @@ where 3 runs through the center of the main solid square, for some reason lower 
                         .map(as.Frequency))
             })
 
-            it('when rotated such that the grain points to the top left', () => {
-                const { topLeftGrain } = computePerimeterPitches()
+            it('when rotated such that the grain points to the top left', (): void => {
+                const { topLeftGrain } = thunkPerimeterPitches()
 
                 expect(topLeftGrain)
                     .toBeCloseToArray([
@@ -96,8 +96,8 @@ where 3 runs through the center of the main solid square, for some reason lower 
                         .map(as.Frequency))
             })
 
-            it('when rotated such that the grain points to the left', () => {
-                const { leftGrain } = computePerimeterPitches()
+            it('when rotated such that the grain points to the left', (): void => {
+                const { leftGrain } = thunkPerimeterPitches()
 
                 expect(leftGrain)
                     .toBeCloseToArray([

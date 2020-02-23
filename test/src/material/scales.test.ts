@@ -3,8 +3,8 @@ import { Specs, StandardSpec } from '@musical-patterns/spec'
 import { as, Location, musicalAs } from '@musical-patterns/utilities'
 import { materializeScales } from '../../../src/indexForTest'
 
-describe('scales', () => {
-    it('the position scales are for the x, y, and z positions, respectively', () => {
+describe('scales', (): void => {
+    it('the position scales are for the x, y, and z positions, respectively', (): void => {
         const specs: Specs = {
             [ StandardSpec.MS_PHYSICALIZATION ]: musicalAs.Duration(1),
             [ StandardSpec.HZ_PHYSICALIZATION ]: musicalAs.Tone(1),

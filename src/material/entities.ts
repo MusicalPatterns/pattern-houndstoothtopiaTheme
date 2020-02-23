@@ -1,10 +1,10 @@
 import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/material'
-import { computeNotes } from './notes'
+import { thunkNotes } from './notes'
 import { HoundstoothtopiaThemeNotes } from './types'
 
 const materializeEntities: MaterializeEntities =
     (): Entity[] => {
-        const notes: HoundstoothtopiaThemeNotes = computeNotes()
+        const notes: HoundstoothtopiaThemeNotes = thunkNotes()
 
         const supertileLowerPitch: Entity = {
             sections: [ { notes: notes.supertileLowerPitch } ],

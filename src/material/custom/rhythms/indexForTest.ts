@@ -1,4 +1,4 @@
 // tslint:disable no-reaching-imports
 
-export { computeSupertileRhythm } from './supertile'
-export { computePerimeterRhythm } from './perimeter'
+export { thunkSupertileRhythm } from './supertile'
+export { thunkPerimeterRhythm } from './perimeter'

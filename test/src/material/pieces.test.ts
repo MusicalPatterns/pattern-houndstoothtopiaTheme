@@ -1,24 +1,24 @@
 import { computeNotesDuration, Scales } from '@musical-patterns/material'
 import { Specs } from '@musical-patterns/spec'
 import { as, Duration } from '@musical-patterns/utilities'
-import { computeContourPieces, computeSupertileNote, materializeScales, spec } from '../../../src/indexForTest'
+import { computeSupertileNote, materializeScales, spec, thunkContourPieces } from '../../../src/indexForTest'
 
-describe('contour pieces', () => {
-    describe('values', () => {
+describe('contour pieces', (): void => {
+    describe('values', (): void => {
         let initialSpecs: Specs
-        beforeEach(() => {
+        beforeEach((): void => {
             initialSpecs = spec.initialSpecs
         })
 
-        describe('perimeter pieces', () => {
-            it('are all the same value', () => {
+        describe('perimeter pieces', (): void => {
+            it('are all the same value', (): void => {
                 const {
                     perimeterLeftGrain,
                     perimeterTopGrain,
                     perimeterTopLeftGrain,
                     perimeterTopRightGrain,
                     perimeterRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
                 const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExamplePiece: Duration = computeNotesDuration(perimeterTopRightGrain.map(computeSupertileNote), scales)
@@ -34,13 +34,13 @@ describe('contour pieces', () => {
             })
         })
 
-        describe('supertile pieces', () => {
-            it('are all the same value', () => {
+        describe('supertile pieces', (): void => {
+            it('are all the same value', (): void => {
                 const {
                     supertileLowerPitch,
                     supertileHigherPitch,
                     supertileRest,
-                } = computeContourPieces()
+                } = thunkContourPieces()
                 const scales: Scales = materializeScales(initialSpecs)
 
                 const durationOfOneExamplePiece: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)
@@ -52,12 +52,12 @@ describe('contour pieces', () => {
             })
         })
 
-        describe('perimeter pieces vs supertile pieces', () => {
-            it('supertile pieces are three-quarters as long as the perimeter pieces, so they loop in a simple 3:4 polymeter', () => {
+        describe('perimeter pieces vs supertile pieces', (): void => {
+            it('supertile pieces are three-quarters as long as the perimeter pieces, so they loop in a simple 3:4 polymeter', (): void => {
                 const {
                     perimeterLeftGrain,
                     supertileLowerPitch,
-                } = computeContourPieces()
+                } = thunkContourPieces()
                 const scales: Scales = materializeScales(initialSpecs)
 
                 const supertileDuration: Duration = computeNotesDuration(supertileLowerPitch.map(computeSupertileNote), scales)

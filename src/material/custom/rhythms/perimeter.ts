@@ -8,15 +8,16 @@ import {
     Ordinal,
     Space,
     SQUARE_ROOT_OF_TWO,
+    Thunk,
     use,
 } from '@musical-patterns/utilities'
-import { computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
+import { thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme } from '../coordinates'
 import { PlanarCoordinate } from '../types'
 
-const computePerimeterRhythm: () => Block =
+const thunkPerimeterRhythm: Thunk<Block> =
     (): Block => {
         const houndstoothCoordinateCycle: Cycle<PlanarCoordinate> = as.Cycle(
-            computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
+            thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme(),
         )
         const houndstoothPerimeterSegmentLengths: Space[] =
             map(
@@ -36,5 +37,5 @@ const computePerimeterRhythm: () => Block =
     }
 
 export {
-    computePerimeterRhythm,
+    thunkPerimeterRhythm,
 }

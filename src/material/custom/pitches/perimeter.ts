@@ -1,4 +1,4 @@
-import { as, Cycle, Frequency, rotate, Scalar, Space, TwoDimensional, use } from '@musical-patterns/utilities'
+import { as, Cycle, Frequency, rotate, Scalar, Space, Thunk, TwoDimensional, use } from '@musical-patterns/utilities'
 import {
     EIGHTH_TURN_COUNTERCLOCKWISE,
     NO_TURN_COUNTERCLOCKWISE,
@@ -7,8 +7,8 @@ import {
     THREE_EIGHTHS_TURN_COUNTERCLOCKWISE,
 } from '../constants'
 import {
-    computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
-    computeHoundstoothSolidCenterOriginCoordinate,
+    thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme,
+    thunkHoundstoothSolidCenterOriginCoordinate,
 } from '../coordinates'
 import { PlanarCoordinate } from '../types'
 import { TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE } from './constants'
@@ -22,40 +22,40 @@ const pitchesFromHeights: (coordinates: PlanarCoordinate[]) => Array<Scalar<Freq
             return as.Scalar<Frequency>(as.number(use.Cardinal(height, PERIMETER_PITCH_SPATIAL_SHIFT)))
         })
 
-const computePerimeterPitches: () => PerimeterPitches =
+const thunkPerimeterPitches: Thunk<PerimeterPitches> =
     (): PerimeterPitches => {
         const houndstoothCoordinates: Cycle<PlanarCoordinate> =
-            computeHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
+            thunkHoundstoothCoordinatesSpecializedForHoundstoothtopiaTheme()
         const cycledHoundstoothCoordinates: Cycle<PlanarCoordinate> = use.Cardinal(
             houndstoothCoordinates,
             TRANSLATION_TO_START_ON_ROOT_TIP_BEFORE_ROOT_BASE,
         )
 
         const houndstoothCenterCoordinate: PlanarCoordinate =
-            computeHoundstoothSolidCenterOriginCoordinate()
+            thunkHoundstoothSolidCenterOriginCoordinate()
         const houndstoothTopRightGrainCoordinates: PlanarCoordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate): PlanarCoordinate =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: NO_TURN_COUNTERCLOCKWISE,
                 }))
         const houndstoothTopGrainCoordinates: PlanarCoordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate): PlanarCoordinate =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: EIGHTH_TURN_COUNTERCLOCKWISE,
                 }))
         const houndstoothTopLeftGrainCoordinates: PlanarCoordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate): PlanarCoordinate =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
                     rotation: QUARTER_TURN_COUNTERCLOCKWISE,
                 }))
         const houndstoothLeftGrainCoordinates: PlanarCoordinate[] =
-            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate) =>
+            cycledHoundstoothCoordinates.map((coordinate: PlanarCoordinate): PlanarCoordinate =>
                 rotate<Space, TwoDimensional>({
                     coordinate,
                     fixedCoordinate: houndstoothCenterCoordinate,
@@ -80,5 +80,5 @@ const computePerimeterPitches: () => PerimeterPitches =
     }
 
 export {
-    computePerimeterPitches,
+    thunkPerimeterPitches,
 }
